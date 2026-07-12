@@ -9,9 +9,11 @@ import { Button } from '../ui/Button'
 
 const navLinks = [
   { key: 'nav.home', to: '/' },
+  { key: 'nav.about', to: '/nosotros' },
   { key: 'nav.plans', to: '/planes-turisticos' },
   { key: 'nav.visit', to: '/planea-tu-visita' },
   { key: 'nav.stations', to: '/estaciones' },
+  { key: 'nav.lodging', to: '/hospedaje' },
   { key: 'nav.gallery', to: '/galeria-arte' },
   { key: 'nav.contact', to: '/contacto' },
 ]

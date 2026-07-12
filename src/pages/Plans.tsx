@@ -24,11 +24,6 @@ export function Plans() {
           >
             <div className="relative h-64 sm:h-80 overflow-hidden">
               <img src={plan.image} alt={plan.title} className="w-full h-full object-cover" />
-              {plan.duration && (
-                <span className="absolute top-4 left-4 bg-bosque/90 dark:bg-bosque-deep/90 text-crema font-inter text-xs font-bold px-3 py-1.5 rounded-full">
-                  {plan.duration}
-                </span>
-              )}
               {plan.badge && (
                 <span className="absolute top-4 right-4 bg-dorado text-carbon font-inter text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">
                   {plan.badge}
@@ -37,6 +32,13 @@ export function Plans() {
             </div>
 
             <div className="p-8 md:p-10">
+              {plan.duration && (
+                <div className="flex justify-center -mt-16 mb-6 relative z-10">
+                  <span className="font-fraunces font-semibold text-2xl md:text-3xl bg-terracota text-crema px-8 py-3 rounded-2xl shadow-xl">
+                    {plan.duration}
+                  </span>
+                </div>
+              )}
               <h2 className="font-fraunces text-3xl text-bosque dark:text-crema mb-2">{plan.title}</h2>
               <p className="font-fraunces text-4xl text-terracota dark:text-dorado mb-4">{plan.price}</p>
               <p className="font-inter text-carbon/70 dark:text-crema/70 leading-relaxed mb-6">{plan.description}</p>

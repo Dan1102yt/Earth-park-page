@@ -7,6 +7,8 @@ import { PlanVisit } from './pages/PlanVisit'
 import { StationsPage } from './pages/StationsPage'
 import { GalleryShop } from './pages/GalleryShop'
 import { Contact } from './pages/Contact'
+import { About } from './pages/About'
+import { Lodging } from './pages/Lodging'
 
 export default function App() {
   return (
@@ -21,6 +23,8 @@ export default function App() {
             <Route path="/estaciones" element={<StationsPage />} />
             <Route path="/galeria-arte" element={<GalleryShop />} />
             <Route path="/contacto" element={<Contact />} />
+            <Route path="/nosotros" element={<About />} />
+            <Route path="/hospedaje" element={<Lodging />} />
           </Routes>
         </main>
         <Footer />

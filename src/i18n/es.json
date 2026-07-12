@@ -1,9 +1,11 @@
 {
   "nav": {
     "home": "Inicio",
+    "about": "Nosotros",
     "plans": "Planes Turísticos",
     "visit": "Planea tu Visita",
     "stations": "Estaciones",
+    "lodging": "Hospedaje",
     "gallery": "Galería Arte",
     "contact": "Contacto",
     "reserve": "Reservar"

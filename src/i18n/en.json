@@ -1,9 +1,11 @@
 {
   "nav": {
     "home": "Home",
+    "about": "About Us",
     "plans": "Tour Plans",
     "visit": "Plan your Visit",
     "stations": "Stations",
+    "lodging": "Lodging",
     "gallery": "Art Gallery",
     "contact": "Contact",
     "reserve": "Book Now"
