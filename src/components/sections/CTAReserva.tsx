@@ -4,7 +4,7 @@ import { Button } from '../ui/Button'
 
 export function CTAReserva() {
   return (
-    <section className="py-24 bg-bosque relative overflow-hidden">
+    <section className="py-24 bg-bosque dark:bg-bosque-deep relative overflow-hidden">
       {/* Decorative blobs */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-musgo/20 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-48 h-48 bg-carbon/20 rounded-full blur-3xl" />

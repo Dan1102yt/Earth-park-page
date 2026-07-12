@@ -33,7 +33,7 @@ export function Hero() {
       </video>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-bosque/80 via-bosque/40 to-bosque/20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-bosque/80 via-bosque/40 to-bosque/20 dark:from-bosque-deep/85 dark:via-bosque-deep/45 dark:to-bosque-deep/25" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -92,7 +92,7 @@ export function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8, duration: 0.5 }}
-        className="absolute bottom-0 left-0 right-0 bg-bosque/70 backdrop-blur-sm border-t border-crema/10"
+        className="absolute bottom-0 left-0 right-0 bg-bosque/70 dark:bg-bosque-deep/75 backdrop-blur-sm border-t border-crema/10"
       >
         <p className="font-inter text-crema/80 text-sm text-center py-3 px-4">
           {t('hero.info')}

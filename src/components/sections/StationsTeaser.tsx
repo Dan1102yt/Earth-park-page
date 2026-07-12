@@ -11,7 +11,7 @@ const stations = [
 
 export function StationsTeaser() {
   return (
-    <section className="py-24 bg-bosque">
+    <section className="py-24 bg-bosque dark:bg-bosque-deep">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="font-fraunces text-4xl md:text-5xl text-crema text-center mb-12">Las 7 Estaciones</h2>
 

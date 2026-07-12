@@ -30,7 +30,7 @@ const highlights = [
 
 export function SensoryHighlights() {
   return (
-    <section className="py-24 bg-crema">
+    <section className="py-24 bg-crema dark:bg-bosque-deep">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {highlights.map((item, i) => (
@@ -40,14 +40,14 @@ export function SensoryHighlights() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ delay: i * 0.1, duration: 0.6, ease: 'easeOut' }}
-              className="rounded-2xl overflow-hidden bg-carbon/5"
+              className="rounded-2xl overflow-hidden bg-carbon/5 dark:bg-bosque-surface"
             >
               <div className="aspect-[4/5] overflow-hidden">
                 <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
               </div>
               <div className="p-5">
-                <h3 className="font-fraunces text-xl text-bosque mb-1">{item.title}</h3>
-                <p className="font-inter text-carbon/70 text-sm">{item.text}</p>
+                <h3 className="font-fraunces text-xl text-bosque dark:text-crema mb-1">{item.title}</h3>
+                <p className="font-inter text-carbon/70 dark:text-crema/70 text-sm">{item.text}</p>
               </div>
             </motion.div>
           ))}

@@ -23,7 +23,7 @@ export function Contact() {
         subtitle="Escríbenos, con gusto te ayudamos a planear tu visita"
       />
 
-      <div className="bg-crema py-20 px-4">
+      <div className="bg-crema dark:bg-bosque-deep py-20 px-4">
         <div className="max-w-5xl mx-auto">
           <div className="grid sm:grid-cols-3 gap-6 mb-12">
             {infoCards.map((c, i) => (
@@ -34,11 +34,11 @@ export function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ delay: i * 0.08, duration: 0.6, ease: 'easeOut' }}
-                className="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow duration-300"
+                className="bg-white dark:bg-bosque-surface rounded-2xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow duration-300"
               >
-                <c.icon className="mx-auto mb-3 text-terracota" size={26} />
-                <p className="font-inter text-carbon/50 text-xs uppercase tracking-wide mb-1">{c.label}</p>
-                <p className="font-fraunces text-bosque text-lg break-words">{c.value}</p>
+                <c.icon className="mx-auto mb-3 text-terracota dark:text-dorado" size={26} />
+                <p className="font-inter text-carbon/50 dark:text-crema/50 text-xs uppercase tracking-wide mb-1">{c.label}</p>
+                <p className="font-fraunces text-bosque dark:text-crema text-lg break-words">{c.value}</p>
               </motion.a>
             ))}
           </div>
@@ -52,8 +52,8 @@ export function Contact() {
           >
             {socials.map((s) => (
               <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="text-center">
-                <p className="font-fraunces text-bosque">{s.label}</p>
-                <p className="font-inter text-carbon/60 text-sm">{s.handle}</p>
+                <p className="font-fraunces text-bosque dark:text-crema">{s.label}</p>
+                <p className="font-inter text-carbon/60 dark:text-crema/60 text-sm">{s.handle}</p>
               </a>
             ))}
           </motion.div>
@@ -64,7 +64,7 @@ export function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
-            className="rounded-2xl overflow-hidden border border-carbon/10 shadow-lg"
+            className="rounded-2xl overflow-hidden border border-carbon/10 dark:border-crema/10 shadow-lg"
           >
             <iframe
               src="https://maps.google.com/maps?q=Macanal,+Boyac%C3%A1,+Colombia&output=embed"

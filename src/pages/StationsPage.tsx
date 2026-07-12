@@ -16,7 +16,7 @@ const stations = [
 // Sin modal: cada estación es una sola frase de descripción, no amerita una vista de detalle aparte
 export function StationsPage() {
   return (
-    <div className="min-h-screen bg-crema">
+    <div className="min-h-screen bg-crema dark:bg-bosque-deep">
       <PageHeaderBand
         title="Las 7 Estaciones"
         subtitle="Cada rincón de Earth Park cuenta una historia única"
@@ -31,17 +31,17 @@ export function StationsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ delay: i * 0.06, duration: 0.5, ease: 'easeOut' }}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
+              className="bg-white dark:bg-bosque-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
             >
               <div className="h-48 overflow-hidden relative">
                 <img src={s.image} alt={s.title} className="w-full h-full object-cover" />
-                <span className="absolute top-3 left-3 text-2xl bg-white/90 rounded-full w-11 h-11 flex items-center justify-center">
+                <span className="absolute top-3 left-3 text-2xl bg-white/90 dark:bg-bosque-surface/90 rounded-full w-11 h-11 flex items-center justify-center">
                   {s.emoji}
                 </span>
               </div>
               <div className="p-6">
-                <h3 className="font-fraunces text-xl text-bosque mb-1">{s.title}</h3>
-                <p className="font-inter text-carbon/70 text-sm">{s.desc}</p>
+                <h3 className="font-fraunces text-xl text-bosque dark:text-crema mb-1">{s.title}</h3>
+                <p className="font-inter text-carbon/70 dark:text-crema/70 text-sm">{s.desc}</p>
               </div>
             </motion.div>
           ))}

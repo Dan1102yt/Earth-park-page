@@ -16,7 +16,7 @@ const artPieces = [
 
 export function GalleryShop() {
   return (
-    <div className="min-h-screen bg-crema">
+    <div className="min-h-screen bg-crema dark:bg-bosque-deep">
       <PageHeaderBand
         title="Galería de Arte"
         subtitle="Piezas pintadas a mano inspiradas en las mariposas de Earth Park"
@@ -33,14 +33,14 @@ export function GalleryShop() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ delay: i * 0.08, duration: 0.6, ease: 'easeOut' }}
-                className="bg-white rounded-2xl overflow-hidden shadow-sm"
+                className="bg-white dark:bg-bosque-surface rounded-2xl overflow-hidden shadow-sm"
               >
                 <div className="aspect-square overflow-hidden">
                   <img src={piece.image} alt={piece.name} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-fraunces text-lg text-bosque mb-1">{piece.name}</h3>
-                  <p className="font-fraunces text-2xl text-terracota mb-4">{piece.price}</p>
+                  <h3 className="font-fraunces text-lg text-bosque dark:text-crema mb-1">{piece.name}</h3>
+                  <p className="font-fraunces text-2xl text-terracota dark:text-dorado mb-4">{piece.price}</p>
                   <a href={waHref} target="_blank" rel="noopener noreferrer" className="block w-fit">
                     <Button variant="whatsapp" size="sm">
                       <MessageCircle size={16} />

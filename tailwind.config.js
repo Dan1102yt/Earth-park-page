@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
@@ -26,7 +27,11 @@ export default {
           light: '#e8c96a',
         },
         crema: '#F7F3EA',
-        bosque: '#2C4A2E',
+        bosque: {
+          DEFAULT: '#2C4A2E',
+          deep: '#1A2E1C',
+          surface: '#24361F',
+        },
         terracota: '#B5602F',
         musgo: '#6B8F5A',
         dorado: '#D4A24E',

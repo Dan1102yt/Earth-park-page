@@ -135,9 +135,9 @@ export const plans: Plan[] = [
 
 export function PlansPreview() {
   return (
-    <section className="py-24 bg-crema">
+    <section className="py-24 bg-crema dark:bg-bosque-deep">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-fraunces text-4xl md:text-5xl text-bosque text-center mb-12">Nuestros Planes</h2>
+        <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema text-center mb-12">Nuestros Planes</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {plans.map((plan, i) => (
@@ -147,7 +147,7 @@ export function PlansPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ delay: i * 0.08, duration: 0.6, ease: 'easeOut' }}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm"
+              className="bg-white dark:bg-bosque-surface rounded-2xl overflow-hidden shadow-sm"
             >
               <div className="relative h-44 overflow-hidden">
                 <img src={plan.image} alt={plan.title} className="w-full h-full object-cover" />
@@ -158,9 +158,9 @@ export function PlansPreview() {
                 )}
               </div>
               <div className="p-5">
-                <h3 className="font-fraunces text-lg text-bosque mb-1 leading-tight">{plan.title}</h3>
-                {plan.duration && <p className="font-inter text-carbon/60 text-xs mb-2">{plan.duration}</p>}
-                <p className="font-fraunces text-2xl text-terracota">{plan.price}</p>
+                <h3 className="font-fraunces text-lg text-bosque dark:text-crema mb-1 leading-tight">{plan.title}</h3>
+                {plan.duration && <p className="font-inter text-carbon/60 dark:text-crema/60 text-xs mb-2">{plan.duration}</p>}
+                <p className="font-fraunces text-2xl text-terracota dark:text-dorado">{plan.price}</p>
               </div>
             </motion.div>
           ))}

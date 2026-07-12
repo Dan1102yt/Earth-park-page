@@ -46,34 +46,34 @@ const navLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-dark border-t border-forest/30">
+    <footer className="bg-bosque dark:bg-bosque-deep border-t border-musgo/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Col 1: Logo + tagline */}
           <div>
             <div className="flex items-center gap-3 mb-4">
               <img src="/logo.png" alt="Earth Park" className="h-12 w-auto object-contain" />
-              <span className="font-display text-xl text-cream">Earth Park</span>
+              <span className="font-fraunces text-xl text-crema">Earth Park</span>
             </div>
-            <p className="font-body text-cream/60 text-sm leading-relaxed">
+            <p className="font-inter text-crema/60 text-sm leading-relaxed">
               Un refugio sagrado para la conservación de la flora y fauna del territorio colombiano. Macanal, Boyacá.
             </p>
             {/* Social icons */}
             <div className="flex items-center gap-4 mt-6">
               <a href="https://instagram.com/earthpark.co" target="_blank" rel="noopener noreferrer"
-                className="text-cream/50 hover:text-forest-light transition-colors">
+                className="text-crema/50 hover:text-dorado transition-colors">
                 <IconInstagram />
               </a>
               <a href="https://tiktok.com/@earthpark.co" target="_blank" rel="noopener noreferrer"
-                className="text-cream/50 hover:text-forest-light transition-colors">
+                className="text-crema/50 hover:text-dorado transition-colors">
                 <IconTikTok />
               </a>
               <a href="https://facebook.com/earthpark" target="_blank" rel="noopener noreferrer"
-                className="text-cream/50 hover:text-forest-light transition-colors">
+                className="text-crema/50 hover:text-dorado transition-colors">
                 <IconFacebook />
               </a>
               <a href="https://x.com/earthpark" target="_blank" rel="noopener noreferrer"
-                className="text-cream/50 hover:text-forest-light transition-colors">
+                className="text-crema/50 hover:text-dorado transition-colors">
                 <IconX />
               </a>
             </div>
@@ -81,13 +81,13 @@ export function Footer() {
 
           {/* Col 2: Nav links */}
           <div>
-            <h4 className="font-display text-cream text-lg mb-4">Navegación</h4>
+            <h4 className="font-fraunces text-crema text-lg mb-4">Navegación</h4>
             <ul className="space-y-2">
               {navLinks.map(({ label, to }) => (
                 <li key={to}>
                   <Link
                     to={to}
-                    className="font-body text-cream/60 hover:text-cream text-sm transition-colors"
+                    className="font-inter text-crema/60 hover:text-crema text-sm transition-colors"
                   >
                     {label}
                   </Link>
@@ -98,36 +98,36 @@ export function Footer() {
 
           {/* Col 3: Contact */}
           <div>
-            <h4 className="font-display text-cream text-lg mb-4">Contacto</h4>
+            <h4 className="font-fraunces text-crema text-lg mb-4">Contacto</h4>
             <ul className="space-y-3">
-              <li className="flex items-center gap-3 text-cream/60 text-sm">
-                <Phone size={16} className="shrink-0 text-forest-light" />
-                <a href="tel:+573233195919" className="hover:text-cream transition-colors">
+              <li className="flex items-center gap-3 text-crema/60 text-sm">
+                <Phone size={16} className="shrink-0 text-dorado" />
+                <a href="tel:+573233195919" className="hover:text-crema transition-colors">
                   +57 323 3195919
                 </a>
               </li>
-              <li className="flex items-center gap-3 text-cream/60 text-sm">
-                <Mail size={16} className="shrink-0 text-forest-light" />
-                <a href="mailto:info@earthpark.com.co" className="hover:text-cream transition-colors">
+              <li className="flex items-center gap-3 text-crema/60 text-sm">
+                <Mail size={16} className="shrink-0 text-dorado" />
+                <a href="mailto:info@earthpark.com.co" className="hover:text-crema transition-colors">
                   info@earthpark.com.co
                 </a>
               </li>
-              <li className="flex items-center gap-3 text-cream/60 text-sm">
-                <Mail size={16} className="shrink-0 text-forest-light" />
-                <a href="mailto:earthparkmacanal@gmail.com" className="hover:text-cream transition-colors">
+              <li className="flex items-center gap-3 text-crema/60 text-sm">
+                <Mail size={16} className="shrink-0 text-dorado" />
+                <a href="mailto:earthparkmacanal@gmail.com" className="hover:text-crema transition-colors">
                   earthparkmacanal@gmail.com
                 </a>
               </li>
             </ul>
-            <div className="mt-6 text-cream/40 text-sm">
+            <div className="mt-6 text-crema/40 text-sm">
               <p>Instagram: @earthpark.co</p>
               <p>TikTok: @earthpark.co</p>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-cream/10 mt-10 pt-6 text-center">
-          <p className="font-body text-cream/40 text-sm">
+        <div className="border-t border-crema/10 mt-10 pt-6 text-center">
+          <p className="font-inter text-crema/40 text-sm">
             © 2025 Earth Park. Todos los derechos reservados.
           </p>
         </div>

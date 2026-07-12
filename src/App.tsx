@@ -11,7 +11,7 @@ import { Contact } from './pages/Contact'
 export default function App() {
   return (
     <HashRouter>
-      <div className="min-h-screen bg-dark flex flex-col">
+      <div className="min-h-screen bg-crema dark:bg-bosque-deep flex flex-col">
         <Navbar />
         <main className="flex-1">
           <Routes>

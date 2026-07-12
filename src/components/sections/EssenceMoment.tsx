@@ -5,7 +5,7 @@ export function EssenceMoment() {
   const { t } = useTranslation()
 
   return (
-    <section className="h-screen flex items-center justify-center bg-bosque px-4">
+    <section className="h-screen flex items-center justify-center bg-bosque dark:bg-bosque-deep px-4">
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

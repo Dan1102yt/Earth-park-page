@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply font-body bg-dark text-cream m-0;
+    @apply font-inter bg-crema text-carbon dark:bg-bosque-deep dark:text-crema m-0 transition-colors duration-300;
   }
 
   #root {

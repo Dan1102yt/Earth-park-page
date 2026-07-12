@@ -14,9 +14,9 @@ const images = [
 
 export function GalleryPreview() {
   return (
-    <section className="py-24 bg-crema">
+    <section className="py-24 bg-crema dark:bg-bosque-deep">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-fraunces text-4xl md:text-5xl text-bosque text-center mb-12">Galería</h2>
+        <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema text-center mb-12">Galería</h2>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-12">
           {images.map((src, i) => (
