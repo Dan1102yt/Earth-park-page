@@ -6,6 +6,7 @@ export interface Plan {
   title: string
   price: string
   duration?: string
+  badge?: string
   description: string
   includes: string[]
   excludes: string
@@ -24,6 +25,7 @@ export const plans: Plan[] = [
     title: 'Tesoros del Valle de Tenza',
     price: '$870.000',
     duration: '3 días - 2 noches',
+    badge: 'MÁS COMPLETO',
     description:
       'Un viaje que trasciende lo turístico… para vivir, aprender y conectar con la esencia del campo. Este plan está diseñado para quienes buscan una experiencia auténtica: sumergirse en las tradiciones, compartir con la comunidad campesina y descubrir los verdaderos tesoros culturales y naturales que resguarda el Valle de Tenza.',
     includes: [
@@ -44,6 +46,7 @@ export const plans: Plan[] = [
     title: 'Conoce y descansa en Macanal',
     price: '$340.000',
     duration: '2 días - 1 noche',
+    badge: 'MÁS POPULAR',
     description:
       'Vive una escapada inolvidable en el corazón del Valle de Tenza. Navega por las tranquilas aguas del embalse La Esmeralda, contempla las imponentes vistas desde los miradores más emblemáticos de Macanal y saborea los sabores auténticos de la región.',
     includes: [
@@ -64,6 +67,7 @@ export const plans: Plan[] = [
     title: 'Conoce el Hollywood Boyacense',
     price: '$140.000',
     duration: '1 día',
+    badge: 'IDEAL PARA EMPEZAR',
     description:
       'Navega las serenas aguas del embalse La Esmeralda, contempla las vistas imponentes desde los miradores más emblemáticos de Macanal y deléitate con la gastronomía típica preparada por manos locales. Todo en un solo día.',
     includes: [
@@ -145,8 +149,13 @@ export function PlansPreview() {
               transition={{ delay: i * 0.08, duration: 0.6, ease: 'easeOut' }}
               className="bg-white rounded-2xl overflow-hidden shadow-sm"
             >
-              <div className="h-44 overflow-hidden">
+              <div className="relative h-44 overflow-hidden">
                 <img src={plan.image} alt={plan.title} className="w-full h-full object-cover" />
+                {plan.badge && (
+                  <span className="absolute top-3 right-3 bg-dorado text-carbon font-inter text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full">
+                    {plan.badge}
+                  </span>
+                )}
               </div>
               <div className="p-5">
                 <h3 className="font-fraunces text-lg text-bosque mb-1 leading-tight">{plan.title}</h3>

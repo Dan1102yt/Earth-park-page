@@ -29,6 +29,11 @@ export function Plans() {
                   {plan.duration}
                 </span>
               )}
+              {plan.badge && (
+                <span className="absolute top-4 right-4 bg-dorado text-carbon font-inter text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">
+                  {plan.badge}
+                </span>
+              )}
             </div>
 
             <div className="p-8 md:p-10">
