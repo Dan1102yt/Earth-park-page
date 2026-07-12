@@ -1,23 +1,23 @@
 import { Hero } from '../components/sections/Hero'
-import { About } from '../components/sections/About'
-import { Stats } from '../components/sections/Stats'
-import { Stations } from '../components/sections/Stations'
-import { PlansPreview } from '../components/sections/PlansPreview'
-import { Testimonials } from '../components/sections/Testimonials'
-import { Location } from '../components/sections/Location'
+import { EssenceMoment } from '../components/sections/EssenceMoment'
+import { SensoryHighlights } from '../components/sections/SensoryHighlights'
+import { SocialProof } from '../components/sections/SocialProof'
+import { PlansTeaser } from '../components/sections/PlansTeaser'
+import { StationsTeaser } from '../components/sections/StationsTeaser'
 import { CTAReserva } from '../components/sections/CTAReserva'
+import { GalleryPreview } from '../components/sections/GalleryPreview'
 
 export function Home() {
   return (
     <>
       <Hero />
-      <About />
-      <Stats />
-      <Stations />
-      <PlansPreview />
-      <Testimonials />
-      <Location />
+      <EssenceMoment />
+      <SensoryHighlights />
+      <SocialProof />
+      <PlansTeaser />
+      <StationsTeaser />
       <CTAReserva />
+      <GalleryPreview />
     </>
   )
 }
