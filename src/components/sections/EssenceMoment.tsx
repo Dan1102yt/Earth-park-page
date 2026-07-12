@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 export function EssenceMoment() {
+  const { t } = useTranslation()
+
   return (
     <section className="h-screen flex items-center justify-center bg-bosque px-4">
       <motion.p
@@ -10,8 +13,7 @@ export function EssenceMoment() {
         transition={{ duration: 0.8, ease: 'easeOut' }}
         className="font-fraunces text-4xl md:text-6xl text-crema text-center max-w-3xl leading-tight"
       >
-        {/* [REVISAR COPY] placeholder — sin frase equivalente en el contenido actual */}
-        Un santuario de mariposas en el corazón de Boyacá
+        {t('essence.title')}
       </motion.p>
     </section>
   )

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Button } from '../ui/Button'
 
+// PLACEHOLDER: no real gallery photos exist yet in the project — swap all 6 for real Earth Park photography
 const images = [
   'https://picsum.photos/seed/earthpark-1/600/600',
   'https://picsum.photos/seed/earthpark-2/600/600',

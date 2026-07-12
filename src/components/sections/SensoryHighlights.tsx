@@ -1,10 +1,15 @@
 import { motion } from 'framer-motion'
 
+// PLACEHOLDER: image no real photo exists yet — swap for real Earth Park photography
+const PLACEHOLDER_BUTTERFLY = 'https://picsum.photos/seed/earthpark-butterfly/800/1000'
+// PLACEHOLDER: image no real photo exists yet — swap for real Earth Park photography
+const PLACEHOLDER_CAFE = 'https://picsum.photos/seed/earthpark-cafe/800/1000'
+
 const highlights = [
   {
     title: 'Mariposas',
     text: 'Símbolo de libertad y el infinito de la vida.',
-    image: 'https://picsum.photos/seed/earthpark-butterfly/800/1000',
+    image: PLACEHOLDER_BUTTERFLY,
   },
   {
     title: 'Naturaleza',
@@ -19,7 +24,7 @@ const highlights = [
   {
     title: 'Gastronomía',
     text: 'Gastronomía local al aire libre entre árboles.',
-    image: 'https://picsum.photos/seed/earthpark-cafe/800/1000',
+    image: PLACEHOLDER_CAFE,
   },
 ]
 
