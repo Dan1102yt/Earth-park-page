@@ -14,6 +14,7 @@ const navLinks = [
   { key: 'nav.visit', to: '/planea-tu-visita' },
   { key: 'nav.stations', to: '/estaciones' },
   { key: 'nav.lodging', to: '/hospedaje' },
+  { key: 'nav.gastronomy', to: '/gastronomia' },
   { key: 'nav.gallery', to: '/galeria-arte' },
   { key: 'nav.contact', to: '/contacto' },
 ]

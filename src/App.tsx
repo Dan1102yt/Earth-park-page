@@ -9,6 +9,7 @@ import { GalleryShop } from './pages/GalleryShop'
 import { Contact } from './pages/Contact'
 import { About } from './pages/About'
 import { Lodging } from './pages/Lodging'
+import { Gastronomy } from './pages/Gastronomy'
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
             <Route path="/contacto" element={<Contact />} />
             <Route path="/nosotros" element={<About />} />
             <Route path="/hospedaje" element={<Lodging />} />
+            <Route path="/gastronomia" element={<Gastronomy />} />
           </Routes>
         </main>
         <Footer />
