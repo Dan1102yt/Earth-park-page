@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-body bg-dark text-cream m-0;
+  }
+
+  #root {
+    @apply w-full min-h-screen;
+  }
+}

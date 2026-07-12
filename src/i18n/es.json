@@ -1,0 +1,23 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "plans": "Planes Turísticos",
+    "visit": "Planea tu Visita",
+    "stations": "Estaciones",
+    "gallery": "Galería Arte",
+    "contact": "Contacto",
+    "reserve": "Reservar"
+  },
+  "hero": {
+    "badge": "📍 Macanal, Boyacá",
+    "title": "Descubre la magia de Earth Park",
+    "subtitle": "Vive una experiencia inolvidable en las montañas de Boyacá",
+    "cta_primary": "Reserva tu experiencia",
+    "cta_secondary": "Ver planes",
+    "info": "2.5 hrs desde Bogotá · Reserva previa obligatoria · Abierto Jue–Dom"
+  },
+  "lang": {
+    "es": "ES",
+    "en": "EN"
+  }
+}

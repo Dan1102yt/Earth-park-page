@@ -1,0 +1,23 @@
+{
+  "nav": {
+    "home": "Home",
+    "plans": "Tour Plans",
+    "visit": "Plan your Visit",
+    "stations": "Stations",
+    "gallery": "Art Gallery",
+    "contact": "Contact",
+    "reserve": "Book Now"
+  },
+  "hero": {
+    "badge": "📍 Macanal, Boyacá",
+    "title": "Discover the magic of Earth Park",
+    "subtitle": "Live an unforgettable experience in the mountains of Boyacá",
+    "cta_primary": "Book your experience",
+    "cta_secondary": "See plans",
+    "info": "2.5 hrs from Bogotá · Prior reservation required · Open Thu–Sun"
+  },
+  "lang": {
+    "es": "ES",
+    "en": "EN"
+  }
+}
