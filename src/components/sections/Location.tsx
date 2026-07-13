@@ -91,7 +91,7 @@ export function Location() {
             className="rounded-2xl overflow-hidden border border-carbon/10 dark:border-crema/10 shadow-lg"
           >
             <iframe
-              src="https://maps.google.com/maps?q=5.0156303,-73.3556643&z=17&output=embed"
+              src="https://www.google.com/maps?q=Earth+Park,+Macanal,+Boyac%C3%A1&output=embed"
               width="100%"
               height="400"
               style={{ border: 0 }}
