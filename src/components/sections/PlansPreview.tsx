@@ -11,6 +11,7 @@ export interface Plan {
   includes: string[]
   excludes: string
   image: string
+  imagePosition?: string
 }
 
 // PLACEHOLDER: sin foto real — swap por fotografía real de Earth Park
@@ -60,6 +61,7 @@ export const plans: Plan[] = [
     ],
     excludes: 'transporte y guía',
     image: '/images/planes/planes-Conoce%20y%20descansa%20en%20Macanal.jpg',
+    imagePosition: '50% 22%',
   },
   {
     title: 'Conoce el Hollywood Boyacense',
@@ -80,6 +82,7 @@ export const plans: Plan[] = [
     ],
     excludes: 'transporte y guía',
     image: '/images/planes/planes-Conoce-el-Hollywood-Boyacense.jpg',
+    imagePosition: '50% 55%',
   },
   {
     title: 'Vive Earth Park',

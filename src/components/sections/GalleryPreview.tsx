@@ -1,25 +1,26 @@
-import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '../ui/Button'
 
 // Selección diversa del pool hero-galeria-1..29: paisaje, familia, animal, cascada, actividad, flor
-const images = [
-  '/images/hero/hero-galeria-8.jpeg',
-  '/images/hero/hero-galeria-18.jpeg',
-  '/images/hero/hero-galeria-11.jpeg',
-  '/images/hero/hero-galeria-19.jpeg',
-  '/images/hero/hero-galeria-24.jpeg',
-  '/images/hero/hero-galeria-16.jpeg',
-]
+const PREVIEW_NUMBERS = [8, 18, 11, 19, 24, 16]
+const previewImages = PREVIEW_NUMBERS.map((n) => `/images/hero/hero-galeria-${n}.jpeg`)
+const moreImages = Array.from({ length: 29 }, (_, i) => i + 1)
+  .filter((n) => !PREVIEW_NUMBERS.includes(n))
+  .map((n) => `/images/hero/hero-galeria-${n}.jpeg`)
 
 export function GalleryPreview() {
+  const [expanded, setExpanded] = useState(false)
+
   return (
     <section className="py-24 bg-crema dark:bg-bosque-deep">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema text-center mb-12">Galería</h2>
+        <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema text-center mb-12">
+          Momentos en Earth Park
+        </h2>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-12">
-          {images.map((src, i) => (
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
+          {previewImages.map((src, i) => (
             <motion.div
               key={src}
               initial={{ opacity: 0, y: 20 }}
@@ -33,10 +34,37 @@ export function GalleryPreview() {
           ))}
         </div>
 
-        <div className="text-center">
-          <Link to="/galeria-arte">
-            <Button variant="terracota" size="lg">Ver galería completa</Button>
-          </Link>
+        <AnimatePresence initial={false}>
+          {expanded && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              className="overflow-hidden"
+            >
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
+                {moreImages.map((src, i) => (
+                  <motion.div
+                    key={src}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-80px' }}
+                    transition={{ delay: (i % 6) * 0.06, duration: 0.5, ease: 'easeOut' }}
+                    className="aspect-square rounded-xl overflow-hidden"
+                  >
+                    <img src={src} alt="Earth Park" loading="lazy" className="w-full h-full object-cover" />
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <div className="text-center mt-6">
+          <Button variant="terracota" size="lg" onClick={() => setExpanded((v) => !v)}>
+            {expanded ? 'Ver menos' : 'Ver galería completa'}
+          </Button>
         </div>
       </div>
     </section>

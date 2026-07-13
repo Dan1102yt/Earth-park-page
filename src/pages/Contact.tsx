@@ -1,7 +1,13 @@
 import { motion } from 'framer-motion'
-import { Mail, Phone } from 'lucide-react'
+import { Mail, Phone, Star } from 'lucide-react'
 import { PageHeaderBand } from '../components/ui/PageHeaderBand'
 import { CTAReserva } from '../components/sections/CTAReserva'
+
+const GOOGLE_REVIEWS_URL =
+  'https://www.google.com/maps/place/Earth+Park/@5.0156303,-73.3556643,17z/data=!3m1!4b1!4m6!3m5!1s0x8e6aa5f11b3f0e53:0x695994e23d9d67fd!8m2!3d5.0156303!4d-73.3556643!16s%2Fg%2F11g9jt1_xk'
+
+// PENDIENTE: agregar reseñas reales cuando Oscar las proporcione
+const testimonials: { name: string; quote: string; rating: number }[] = []
 
 // lucide-react ya no incluye íconos de marca (Instagram/Facebook/TikTok) — SVG inline con los glifos oficiales
 type IconProps = { size?: number; className?: string }
@@ -109,6 +115,51 @@ export function Contact() {
               title="Ubicación Earth Park — Macanal, Boyacá"
             />
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
+            className="text-center mt-6"
+          >
+            <a
+              href={GOOGLE_REVIEWS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-inter text-sm font-bold text-terracota dark:text-dorado hover:underline"
+            >
+              <Star size={18} className="fill-current" />
+              Ver reseñas en Google Maps
+            </a>
+          </motion.div>
+
+          {testimonials.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              className="mt-20"
+            >
+              <h2 className="font-fraunces text-3xl md:text-4xl text-bosque dark:text-crema text-center mb-10">
+                Lo que dicen de nosotros
+              </h2>
+              <div className="grid sm:grid-cols-3 gap-6">
+                {testimonials.map((item) => (
+                  <div key={item.name} className="bg-white dark:bg-bosque-surface rounded-2xl p-6 shadow-sm">
+                    <div className="flex gap-1 mb-3">
+                      {Array.from({ length: item.rating }).map((_, i) => (
+                        <Star key={i} size={16} className="fill-dorado text-dorado" />
+                      ))}
+                    </div>
+                    <p className="font-inter text-carbon/80 dark:text-crema/80 text-sm mb-3">"{item.quote}"</p>
+                    <p className="font-fraunces text-bosque dark:text-crema">{item.name}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
         </div>
       </div>
 

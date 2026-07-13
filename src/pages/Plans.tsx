@@ -22,8 +22,14 @@ export function Plans() {
             transition={{ delay: i * 0.06, duration: 0.6, ease: 'easeOut' }}
             className="bg-white dark:bg-bosque-surface rounded-3xl overflow-hidden shadow-sm"
           >
-            <div className="relative h-64 sm:h-80 overflow-hidden">
-              <img src={plan.image} alt={plan.title} loading="lazy" className="w-full h-full object-cover" />
+            <div className="relative h-80 sm:h-96 lg:h-[28rem] overflow-hidden">
+              <img
+                src={plan.image}
+                alt={plan.title}
+                loading="lazy"
+                className="w-full h-full object-cover"
+                style={plan.imagePosition ? { objectPosition: plan.imagePosition } : undefined}
+              />
               {plan.badge && (
                 <span className="absolute top-4 right-4 bg-dorado text-carbon font-inter text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">
                   {plan.badge}

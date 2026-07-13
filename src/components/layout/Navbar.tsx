@@ -39,13 +39,14 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link
-            to="/"
-            className={`shrink-0 font-fraunces text-2xl font-semibold transition-colors duration-300 ${
-              scrolled ? 'text-bosque dark:text-crema' : 'text-crema'
-            }`}
-          >
-            Earth Park
+          <Link to="/" className="shrink-0">
+            <img
+              src="/images/logo.png"
+              alt="Earth Park"
+              className={`h-10 sm:h-12 w-auto object-contain transition-all duration-300 ${
+                scrolled ? '' : 'drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]'
+              }`}
+            />
           </Link>
 
           {/* Desktop nav */}
