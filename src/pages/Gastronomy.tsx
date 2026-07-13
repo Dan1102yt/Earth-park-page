@@ -78,7 +78,7 @@ function DishModalContent({ dish }: { dish: Dish }) {
       <div className="relative h-64 sm:h-80">
         <img src={dish.image} alt={dish.name} loading="lazy" className="w-full h-full object-cover" />
         {dish.featured && (
-          <span className="absolute top-4 right-4 bg-dorado text-carbon font-inter text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">
+          <span className="absolute top-4 left-4 bg-dorado text-carbon font-inter text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">
             Especialidad de la casa
           </span>
         )}

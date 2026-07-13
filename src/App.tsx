@@ -1,4 +1,5 @@
 import { HashRouter, Routes, Route } from 'react-router-dom'
+import { ScrollToTop } from './components/ScrollToTop'
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
 import { Home } from './pages/Home'
@@ -14,6 +15,7 @@ import { Gastronomy } from './pages/Gastronomy'
 export default function App() {
   return (
     <HashRouter>
+      <ScrollToTop />
       <div className="min-h-screen bg-crema dark:bg-bosque-deep flex flex-col">
         <Navbar />
         <main className="flex-1">

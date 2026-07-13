@@ -47,9 +47,9 @@ export function Modal({ open, onClose, children }: ModalProps) {
               type="button"
               onClick={onClose}
               aria-label="Cerrar"
-              className="absolute top-4 right-4 z-10 bg-carbon/50 hover:bg-carbon/70 text-crema rounded-full w-9 h-9 flex items-center justify-center transition-colors"
+              className="absolute top-3 right-3 z-10 bg-carbon/50 hover:bg-carbon/70 text-crema rounded-full w-11 h-11 flex items-center justify-center transition-colors"
             >
-              <X size={20} />
+              <X size={22} />
             </button>
             {children}
           </motion.div>
