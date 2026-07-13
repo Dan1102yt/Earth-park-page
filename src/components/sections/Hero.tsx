@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
-import { motion } from 'framer-motion'
+import { motion, type Variants } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Button } from '../ui/Button'
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   show: (i: number) => ({
     opacity: 1,
