@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Phone, Mail } from 'lucide-react'
+import { asset } from '../../lib/asset'
 
 function IconInstagram() {
   return (
@@ -52,7 +53,7 @@ export function Footer() {
           {/* Col 1: Logo + tagline */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src="/logo.png" alt="Earth Park" className="h-12 w-auto object-contain" />
+              <img src={asset('/logo.png')} alt="Earth Park" className="h-12 w-auto object-contain" />
               <span className="font-fraunces text-xl text-crema">Earth Park</span>
             </div>
             <p className="font-inter text-crema/60 text-sm leading-relaxed">

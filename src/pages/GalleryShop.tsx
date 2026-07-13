@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { MessageCircle } from 'lucide-react'
 import { PageHeaderBand } from '../components/ui/PageHeaderBand'
 import { Button } from '../components/ui/Button'
+import { asset } from '../lib/asset'
 
 const WHATSAPP_NUMBER = '573233195919'
 
@@ -13,10 +14,10 @@ interface ArtPiece {
 
 // PENDIENTE: precios reales del catálogo — aún no hay lista de precios oficial
 const artPieces: ArtPiece[] = [
-  { name: 'Mariposa 89', price: null, image: '/images/galeria-arte/galeria-de-arte-mariposa-89.jpg' },
-  { name: 'Mariposa Blanco', price: null, image: '/images/galeria-arte/galeria-de-arte-mariposa-blanco.jpg' },
-  { name: 'Mariposa Botesia', price: null, image: '/images/galeria-arte/galeria-de-arte-mariposa-botesia.jpg' },
-  { name: 'Mariposa Rhetus', price: null, image: '/images/galeria-arte/galeria-de-arte-mariposa-rhetus.jpg' },
+  { name: 'Mariposa 89', price: null, image: asset('/images/galeria-arte/galeria-de-arte-mariposa-89.jpg') },
+  { name: 'Mariposa Blanco', price: null, image: asset('/images/galeria-arte/galeria-de-arte-mariposa-blanco.jpg') },
+  { name: 'Mariposa Botesia', price: null, image: asset('/images/galeria-arte/galeria-de-arte-mariposa-botesia.jpg') },
+  { name: 'Mariposa Rhetus', price: null, image: asset('/images/galeria-arte/galeria-de-arte-mariposa-rhetus.jpg') },
 ]
 
 export function GalleryShop() {

@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '../ui/Button'
+import { asset } from '../../lib/asset'
 
 // Selección diversa del pool hero-galeria-1..29: paisaje, familia, animal, cascada, actividad, flor
 const PREVIEW_NUMBERS = [8, 18, 11, 19, 24, 16]
-const previewImages = PREVIEW_NUMBERS.map((n) => `/images/hero/hero-galeria-${n}.jpeg`)
+const previewImages = PREVIEW_NUMBERS.map((n) => asset(`/images/hero/hero-galeria-${n}.jpeg`))
 const moreImages = Array.from({ length: 29 }, (_, i) => i + 1)
   .filter((n) => !PREVIEW_NUMBERS.includes(n))
-  .map((n) => `/images/hero/hero-galeria-${n}.jpeg`)
+  .map((n) => asset(`/images/hero/hero-galeria-${n}.jpeg`))
 
 export function GalleryPreview() {
   const [expanded, setExpanded] = useState(false)

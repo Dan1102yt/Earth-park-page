@@ -1,5 +1,6 @@
 import { Location } from '../components/sections/Location'
 import { PageHeaderBand } from '../components/ui/PageHeaderBand'
+import { asset } from '../lib/asset'
 
 export function PlanVisit() {
   return (
@@ -7,7 +8,7 @@ export function PlanVisit() {
       <PageHeaderBand
         title="Planea tu Visita"
         subtitle="Todo lo que necesitas saber para llegar y disfrutar Earth Park"
-        image="/images/hero/hero-naturaleza.jpg"
+        image={asset('/images/hero/hero-naturaleza.jpg')}
       />
       <Location />
     </div>

@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Check } from 'lucide-react'
 import { PageHeaderBand } from '../components/ui/PageHeaderBand'
+import { Modal } from '../components/ui/Modal'
+import { asset } from '../lib/asset'
 
-const MARIPOSA_IMAGES = Array.from({ length: 10 }, (_, i) => `/images/hospedaje/hospedaje-${i + 1}.jpeg`)
+const MARIPOSA_IMAGES = Array.from({ length: 10 }, (_, i) => asset(`/images/hospedaje/hospedaje-${i + 1}.jpeg`))
 
 interface Room {
   name: string
@@ -11,6 +13,7 @@ interface Room {
   concept: string
   status: 'Disponible' | 'Próximamente'
   designNote?: string
+  amenities?: string[]
   image?: string
   images?: string[]
 }
@@ -23,6 +26,12 @@ const rooms: Room[] = [
     concept: 'El vuelo de la transformación. Ligereza, color y el asombro de ver la vida cambiar de forma ante tus ojos.',
     status: 'Disponible',
     images: MARIPOSA_IMAGES,
+    amenities: [
+      'Capacidad configurable: de 1 a 2 camas dobles + 1 cama sencilla',
+      'Agua caliente en la ducha',
+      'Toallas incluidas para el total de huéspedes de la habitación',
+      'Balcón/terraza propia con juegos de mesa',
+    ],
   },
   {
     name: 'Habitación Los Ancestros',
@@ -65,7 +74,7 @@ function RoomCarousel({ images, alt }: { images: string[]; alt: string }) {
       <img src={images[index]} alt={`${alt} — foto ${index + 1}`} loading="lazy" className="w-full h-full object-cover" />
       <button
         type="button"
-        onClick={(e) => { e.preventDefault(); setIndex((i) => (i - 1 + images.length) % images.length) }}
+        onClick={(e) => { e.preventDefault(); e.stopPropagation(); setIndex((i) => (i - 1 + images.length) % images.length) }}
         aria-label="Foto anterior"
         className="absolute left-2 top-1/2 -translate-y-1/2 bg-carbon/50 hover:bg-carbon/70 text-crema rounded-full w-8 h-8 flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity"
       >
@@ -73,7 +82,7 @@ function RoomCarousel({ images, alt }: { images: string[]; alt: string }) {
       </button>
       <button
         type="button"
-        onClick={(e) => { e.preventDefault(); setIndex((i) => (i + 1) % images.length) }}
+        onClick={(e) => { e.preventDefault(); e.stopPropagation(); setIndex((i) => (i + 1) % images.length) }}
         aria-label="Foto siguiente"
         className="absolute right-2 top-1/2 -translate-y-1/2 bg-carbon/50 hover:bg-carbon/70 text-crema rounded-full w-8 h-8 flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity"
       >
@@ -88,7 +97,100 @@ function RoomCarousel({ images, alt }: { images: string[]; alt: string }) {
   )
 }
 
+function ModalGallery({ images, alt }: { images: string[]; alt: string }) {
+  const [index, setIndex] = useState(0)
+
+  return (
+    <div>
+      <div className="relative h-72 sm:h-96 bg-carbon/10">
+        <img src={images[index]} alt={`${alt} — foto ${index + 1}`} loading="lazy" className="w-full h-full object-cover" />
+        {images.length > 1 && (
+          <>
+            <button
+              type="button"
+              onClick={() => setIndex((i) => (i - 1 + images.length) % images.length)}
+              aria-label="Foto anterior"
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-carbon/50 hover:bg-carbon/70 text-crema rounded-full w-9 h-9 flex items-center justify-center transition-colors"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              type="button"
+              onClick={() => setIndex((i) => (i + 1) % images.length)}
+              aria-label="Foto siguiente"
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-carbon/50 hover:bg-carbon/70 text-crema rounded-full w-9 h-9 flex items-center justify-center transition-colors"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </>
+        )}
+      </div>
+      {images.length > 1 && (
+        <div className="flex gap-2 p-3 overflow-x-auto">
+          {images.map((img, i) => (
+            <button
+              key={img}
+              type="button"
+              onClick={() => setIndex(i)}
+              className={`shrink-0 w-16 h-14 rounded-lg overflow-hidden border-2 transition-colors ${
+                i === index ? 'border-terracota dark:border-dorado' : 'border-transparent opacity-70 hover:opacity-100'
+              }`}
+            >
+              <img src={img} alt="" loading="lazy" className="w-full h-full object-cover" />
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function RoomModalContent({ room }: { room: Room }) {
+  return (
+    <div>
+      <ModalGallery images={room.images ?? [room.image!]} alt={room.name} />
+      <div className="p-6 md:p-8">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="text-3xl">{room.emoji}</span>
+          <h2 className="font-fraunces text-3xl text-bosque dark:text-crema">{room.name}</h2>
+          <span
+            className={`ml-auto font-inter text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full ${
+              room.status === 'Disponible' ? 'bg-musgo text-crema' : 'bg-dorado text-carbon'
+            }`}
+          >
+            {room.status}
+          </span>
+        </div>
+
+        <p className="font-inter text-carbon/70 dark:text-crema/70 leading-relaxed mb-6">{room.concept}</p>
+
+        {room.amenities && (
+          <>
+            <h3 className="font-inter font-bold text-bosque dark:text-crema text-sm uppercase tracking-wide mb-3">Detalles</h3>
+            <ul className="space-y-2 mb-2">
+              {room.amenities.map((item) => (
+                <li key={item} className="flex gap-2 font-inter text-carbon/80 dark:text-crema/80 text-sm leading-snug">
+                  <Check size={16} className="text-musgo shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+
+        {room.designNote && (
+          <p className="font-inter text-dorado/90 dark:text-dorado text-sm italic leading-relaxed mt-2">
+            {room.designNote}
+          </p>
+        )}
+      </div>
+    </div>
+  )
+}
+
 export function Lodging() {
+  const [selectedRoom, setSelectedRoom] = useState<Room | null>(null)
+
   return (
     <div className="min-h-screen bg-crema dark:bg-bosque-deep">
       <PageHeaderBand
@@ -105,7 +207,11 @@ export function Lodging() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ delay: i * 0.06, duration: 0.6, ease: 'easeOut' }}
-              className={`bg-white dark:bg-bosque-surface rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 ${
+              role="button"
+              tabIndex={0}
+              onClick={() => setSelectedRoom(room)}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedRoom(room) } }}
+              className={`bg-white dark:bg-bosque-surface rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer ${
                 room.status === 'Próximamente' ? 'ring-2 ring-dorado/40' : ''
               }`}
             >
@@ -145,6 +251,10 @@ export function Lodging() {
           ))}
         </div>
       </div>
+
+      <Modal open={selectedRoom !== null} onClose={() => setSelectedRoom(null)}>
+        {selectedRoom && <RoomModalContent room={selectedRoom} />}
+      </Modal>
     </div>
   )
 }

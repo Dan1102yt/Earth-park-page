@@ -1,5 +1,8 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { PageHeaderBand } from '../components/ui/PageHeaderBand'
+import { Modal } from '../components/ui/Modal'
+import { asset } from '../lib/asset'
 
 interface Dish {
   name: string
@@ -46,7 +49,7 @@ const dinner: Dish[] = [
     featured: true,
     description:
       'Nuestra hamburguesa insignia: carne especialidad de la casa a la plancha, huevo, lechuga fresca, tomate, tocineta crocante, queso derretido y jamón, todo en pan tostado. Acompañada de papa frita o en cascos. Una experiencia completa para cerrar el día.',
-    image: '/images/gastronomia/gastronomia-hamburguesa-earth-park.jpg',
+    image: asset('/images/gastronomia/gastronomia-hamburguesa-earth-park.jpg'),
   },
   {
     name: 'Pechuga a la Plancha',
@@ -65,22 +68,53 @@ const dinner: Dish[] = [
 ]
 
 // Galería extensible: agregar más fotos aquí a medida que estén disponibles
-const otherFlavors: { image: string; alt: string }[] = [
-  { image: '/images/gastronomia/gastronomia-otros-helados.jpeg', alt: 'Helados artesanales Earth Park' },
+const otherFlavors: { image: string; alt: string; title: string }[] = [
+  { image: asset('/images/gastronomia/gastronomia-otros-helados.jpeg'), alt: 'Helados artesanales Earth Park', title: 'Helados Artesanales del Valle' },
 ]
 
-function DishCard({ dish, i, dark }: { dish: Dish; i: number; dark?: boolean }) {
+function DishModalContent({ dish }: { dish: Dish }) {
+  return (
+    <div>
+      <div className="relative h-64 sm:h-80">
+        <img src={dish.image} alt={dish.name} loading="lazy" className="w-full h-full object-cover" />
+        {dish.featured && (
+          <span className="absolute top-4 right-4 bg-dorado text-carbon font-inter text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">
+            Especialidad de la casa
+          </span>
+        )}
+      </div>
+      <div className="p-6 md:p-8">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="text-3xl">{dish.emoji}</span>
+          <h2 className="font-fraunces text-3xl text-bosque dark:text-crema">{dish.name}</h2>
+        </div>
+        <p className="font-inter text-carbon/70 dark:text-crema/70 leading-relaxed">{dish.description}</p>
+        {dish.side && (
+          <p className="font-inter text-terracota dark:text-dorado text-sm italic leading-relaxed mt-4">
+            {dish.side}
+          </p>
+        )}
+      </div>
+    </div>
+  )
+}
+
+function DishCard({ dish, i, dark, onSelect }: { dish: Dish; i: number; dark?: boolean; onSelect: (dish: Dish) => void }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ delay: i * 0.08, duration: 0.6, ease: 'easeOut' }}
-      className={
+      role="button"
+      tabIndex={0}
+      onClick={() => onSelect(dish)}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelect(dish) } }}
+      className={`cursor-pointer ${
         dark
           ? 'bg-crema/5 border border-crema/10 backdrop-blur-sm rounded-3xl overflow-hidden'
           : 'bg-white dark:bg-bosque-surface rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300'
-      }
+      }`}
     >
       <div className="relative h-56 sm:h-64 overflow-hidden">
         <img src={dish.image} alt={dish.name} loading="lazy" className="w-full h-full object-cover" />
@@ -95,23 +129,17 @@ function DishCard({ dish, i, dark }: { dish: Dish; i: number; dark?: boolean }) 
       </div>
 
       <div className="p-6 md:p-8">
-        <h3 className={`font-fraunces text-2xl mb-3 ${dark ? 'text-crema' : 'text-bosque dark:text-crema'}`}>
+        <h3 className={`font-fraunces text-2xl ${dark ? 'text-crema' : 'text-bosque dark:text-crema'}`}>
           {dish.name}
         </h3>
-        <p className={`font-inter text-sm leading-relaxed ${dark ? 'text-crema/75' : 'text-carbon/70 dark:text-crema/70'}`}>
-          {dish.description}
-        </p>
-        {dish.side && (
-          <p className={`font-inter text-xs italic leading-relaxed mt-3 ${dark ? 'text-dorado' : 'text-terracota dark:text-dorado'}`}>
-            {dish.side}
-          </p>
-        )}
       </div>
     </motion.div>
   )
 }
 
 export function Gastronomy() {
+  const [selectedDish, setSelectedDish] = useState<Dish | null>(null)
+
   return (
     <div className="min-h-screen">
       <PageHeaderBand
@@ -137,7 +165,7 @@ export function Gastronomy() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {breakfast.map((dish, i) => (
-              <DishCard key={dish.name} dish={dish} i={i} />
+              <DishCard key={dish.name} dish={dish} i={i} onSelect={setSelectedDish} />
             ))}
           </div>
         </div>
@@ -162,7 +190,7 @@ export function Gastronomy() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {dinner.map((dish, i) => (
-              <DishCard key={dish.name} dish={dish} i={i} dark />
+              <DishCard key={dish.name} dish={dish} i={i} dark onSelect={setSelectedDish} />
             ))}
           </div>
         </div>
@@ -189,14 +217,21 @@ export function Gastronomy() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ delay: i * 0.06, duration: 0.5, ease: 'easeOut' }}
-                className="aspect-square rounded-2xl overflow-hidden"
+                className="relative aspect-square rounded-2xl overflow-hidden"
               >
                 <img src={item.image} alt={item.alt} loading="lazy" className="w-full h-full object-cover" />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-carbon/80 to-transparent px-3 pt-8 pb-3">
+                  <p className="font-inter text-crema text-sm font-semibold leading-tight">{item.title}</p>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
+
+      <Modal open={selectedDish !== null} onClose={() => setSelectedDish(null)}>
+        {selectedDish && <DishModalContent dish={selectedDish} />}
+      </Modal>
     </div>
   )
 }

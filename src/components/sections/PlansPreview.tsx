@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Button } from '../ui/Button'
+import { asset } from '../../lib/asset'
 
 export interface Plan {
   title: string
@@ -39,7 +40,7 @@ export const plans: Plan[] = [
       'Helado local, almuerzo típico, recorrido por Sutatenza/Somondoco/Macanal',
     ],
     excludes: 'transporte y guía',
-    image: '/images/planes/planes-tesoros-del-valle-de-tenza.png',
+    image: asset('/images/planes/planes-tesoros-del-valle-de-tenza.png'),
   },
   {
     title: 'Conoce y descansa en Macanal',
@@ -60,7 +61,7 @@ export const plans: Plan[] = [
       'Seguro turístico',
     ],
     excludes: 'transporte y guía',
-    image: '/images/planes/planes-Conoce%20y%20descansa%20en%20Macanal.jpg',
+    image: asset('/images/planes/plan-conoce%20y%20descansa%20en%20macanal2.jpg'),
     imagePosition: '50% 22%',
   },
   {
@@ -81,7 +82,7 @@ export const plans: Plan[] = [
       'Seguro turístico',
     ],
     excludes: 'transporte y guía',
-    image: '/images/planes/planes-Conoce-el-Hollywood-Boyacense.jpg',
+    image: asset('/images/planes/planes-Conoce-el-Hollywood-Boyacense.jpg'),
     imagePosition: '50% 55%',
   },
   {
@@ -97,7 +98,7 @@ export const plans: Plan[] = [
       'Seguro turístico',
     ],
     excludes: 'transporte',
-    image: '/images/planes/planes-vive-earth-park.jpeg',
+    image: asset('/images/planes/planes-vive-earth-park.jpeg'),
   },
   {
     title: 'Raíces y Tradición del Valle de Tenza',

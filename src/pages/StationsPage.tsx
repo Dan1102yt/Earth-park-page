@@ -1,15 +1,16 @@
 import { motion } from 'framer-motion'
 import { PageHeaderBand } from '../components/ui/PageHeaderBand'
+import { asset } from '../lib/asset'
 
 const stations = [
-  { emoji: '🛕', title: 'Pirámide de los Teguas', desc: 'Un tributo a la sabiduría ancestral indígena', image: '/images/estaciones/estacion-piramide.jpeg' },
-  { emoji: '🦋', title: 'Mariposa 89 Columpio', desc: 'Símbolo de libertad y el infinito de la vida', image: '/images/estaciones/estacion-mariposa.jpeg' },
-  { emoji: '🔥', title: 'Los Cuatro Elementos', desc: 'Agua, Tierra, Aire y Fuego: experiencia sensorial', image: '/images/estaciones/estacion-fuego.jpeg' },
-  { emoji: '🚀', title: 'Rover Lunar', desc: 'Viaja al futuro sin salir de la Tierra', image: '/images/estaciones/estacion-rover.jpeg' },
-  { emoji: '🌕', title: 'Luna 360°', desc: 'Estructura inmersiva que gira contigo', image: '/images/estaciones/estacion-luna360.jpeg' },
+  { emoji: '🛕', title: 'Pirámide de los Teguas', desc: 'Un tributo a la sabiduría ancestral indígena', image: asset('/images/estaciones/estacion-piramide.jpeg') },
+  { emoji: '🦋', title: 'Mariposa 89 Columpio', desc: 'Símbolo de libertad y el infinito de la vida', image: asset('/images/estaciones/estacion-mariposa.jpeg') },
+  { emoji: '🔥', title: 'Los Cuatro Elementos', desc: 'Agua, Tierra, Aire y Fuego: experiencia sensorial', image: asset('/images/estaciones/estacion-fuego.jpeg') },
+  { emoji: '🚀', title: 'Rover Lunar', desc: 'Viaja al futuro sin salir de la Tierra', image: asset('/images/estaciones/estacion-rover.jpeg') },
+  { emoji: '🌕', title: 'Luna 360°', desc: 'Estructura inmersiva que gira contigo', image: asset('/images/estaciones/estacion-luna360.jpeg') },
   // PLACEHOLDER: sin foto real todavía — swap por fotografía real de Earth Park
   { emoji: '🌿', title: 'Vivero & Café', desc: 'Gastronomía local al aire libre, rodeada de plantas, cactus y suculentas', image: 'https://picsum.photos/seed/earthpark-station-vivero/600/450' },
-  { emoji: '🎨', title: 'Galería de Arte', desc: 'En Earth Park los residuos los transformamos en arte.', image: '/images/estaciones/estaciones-galeria-de-arte.webp' },
+  { emoji: '🎨', title: 'Galería de Arte', desc: 'En Earth Park los residuos los transformamos en arte.', image: asset('/images/estaciones/estaciones-galeria-de-arte.webp') },
 ]
 
 // Sin modal: cada estación es una sola frase de descripción, no amerita una vista de detalle aparte

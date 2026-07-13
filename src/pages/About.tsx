@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Button } from '../components/ui/Button'
+import { asset } from '../lib/asset'
 
-const HERO_IMAGE = '/images/nosotros/fondo-universo.jpg'
-const QUOTE_IMAGE = '/images/nosotros/fondo-campo-papa.jpg'
-const FAMILY_IMAGE = '/images/nosotros/nosotros-quienes-spmps.jpg'
+const HERO_IMAGE = asset('/images/nosotros/fondo-universo.jpg')
+const QUOTE_IMAGE = asset('/images/nosotros/fondo-campo-papa.jpg')
+const FAMILY_IMAGE = asset('/images/nosotros/nosotros-quienes-spmps.jpg')
 
 const fadeIn = {
   hidden: { opacity: 0, y: 40 },
@@ -17,13 +18,13 @@ export function About() {
       {/* Bloque 1 — Hero */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <img src={HERO_IMAGE} alt="Naturaleza en Earth Park" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-bosque-deep/90 via-bosque-deep/80 to-bosque-deep/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-bosque-deep/55 via-bosque-deep/40 to-bosque-deep/55" />
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
           variants={fadeIn}
-          className="relative z-10 text-center px-4 max-w-3xl mx-auto"
+          className="relative z-10 text-center px-8 py-8 max-w-3xl mx-auto rounded-3xl bg-bosque-deep/30 dark:bg-bosque-deep/35 backdrop-blur-sm"
         >
           <h1 className="font-fraunces font-semibold text-5xl md:text-7xl text-crema leading-tight mb-6">
             Bienvenidos a Earth Park

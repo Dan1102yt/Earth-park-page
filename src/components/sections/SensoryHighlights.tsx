@@ -1,25 +1,26 @@
 import { motion } from 'framer-motion'
+import { asset } from '../../lib/asset'
 
 const highlights = [
   {
     title: 'Mariposas',
     text: 'Símbolo de libertad y el infinito de la vida.',
-    image: '/images/hero/hero-mariposa.jpg',
+    image: asset('/images/hero/hero-mariposa.jpg'),
   },
   {
     title: 'Naturaleza',
     text: 'Un espacio donde la vida natural es la protagonista.',
-    image: '/images/hero/hero-naturaleza.jpg',
+    image: asset('/images/hero/hero-naturaleza.jpg'),
   },
   {
     title: 'Familia',
     text: 'Una experiencia inolvidable en familia — y pet friendly.',
-    image: '/images/hero/hero-familia.jpg',
+    image: asset('/images/hero/hero-familia.jpg'),
   },
   {
     title: 'Gastronomía',
     text: 'Gastronomía local al aire libre entre árboles.',
-    image: '/images/hero/hero-gastronomia.jpg',
+    image: asset('/images/hero/hero-gastronomia.jpg'),
   },
 ]
 

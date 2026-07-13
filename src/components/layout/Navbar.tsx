@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { useScrollNavbar } from '../../hooks/useScrollNavbar'
 import { useTheme } from '../../context/ThemeContext'
 import { Button } from '../ui/Button'
+import { asset } from '../../lib/asset'
 
 const navLinks = [
   { key: 'nav.home', to: '/' },
@@ -41,7 +42,7 @@ export function Navbar() {
           {/* Logo */}
           <Link to="/" className="shrink-0">
             <img
-              src="/images/logo.png"
+              src={asset('/images/logo.png')}
               alt="Earth Park"
               className={`h-10 sm:h-12 w-auto object-contain transition-all duration-300 ${
                 scrolled ? '' : 'drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]'

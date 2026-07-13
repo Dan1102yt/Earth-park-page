@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import { asset } from '../../lib/asset'
 
 export function EssenceMoment() {
   const { t } = useTranslation()
@@ -7,7 +8,7 @@ export function EssenceMoment() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden px-4">
       <img
-        src="/images/hero/hero-fondo-frase-impactante.jpg"
+        src={asset('/images/hero/hero-fondo-frase-impactante.jpg')}
         alt=""
         loading="lazy"
         className="absolute inset-0 w-full h-full object-cover"
