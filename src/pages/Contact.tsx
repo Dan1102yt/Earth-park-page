@@ -1,13 +1,143 @@
-import { motion } from 'framer-motion'
-import { Mail, Phone, Star } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Mail, Phone, Star, ChevronLeft, ChevronRight } from 'lucide-react'
 import { PageHeaderBand } from '../components/ui/PageHeaderBand'
 import { CTAReserva } from '../components/sections/CTAReserva'
 
 const GOOGLE_REVIEWS_URL =
   'https://www.google.com/maps/place/Earth+Park/@5.0156303,-73.3556643,17z/data=!3m1!4b1!4m6!3m5!1s0x8e6aa5f11b3f0e53:0x695994e23d9d67fd!8m2!3d5.0156303!4d-73.3556643!16s%2Fg%2F11g9jt1_xk'
 
-// PENDIENTE: agregar reseñas reales cuando Oscar las proporcione
-const testimonials: { name: string; quote: string; rating: number }[] = []
+interface Testimonial {
+  name: string
+  rating: number
+  quote: string
+  localGuide?: boolean
+}
+
+// Reseñas reales de Google Maps
+const testimonials: Testimonial[] = [
+  {
+    name: 'Natalie Bonilla Pesca',
+    rating: 5,
+    quote:
+      'Es un parque temático hermoso con una vista espectacular hacia el embalse, sus bellas flores y plantas atraen unas mariposas muy lindas que también adornan el lugar... Debo resaltar que la amabilidad, carisma y gentileza con la que nos recibieron el señor Oscar Martín Roa y su bonita familia propician una estadía acogedora y muy agradable.',
+  },
+  {
+    name: 'Julio César Pinzón',
+    rating: 5,
+    localGuide: true,
+    quote:
+      'Un lugar mágico lleno de flores y naturaleza, con un paisaje espectacular en un mirador para relajarte. Sus propietarios don Oscar y Olga e hijos son seres humanos maravillosos que transmiten una energía muy bonita.',
+  },
+  {
+    name: 'Oscar Velásquez',
+    rating: 5,
+    localGuide: true,
+    quote:
+      'Excelente experiencia, un lugar maravilloso, los propietarios hacen que la estadía sea aún más especial, sin duda alguna lo recomiendo y espero volver muy pronto.',
+  },
+  {
+    name: 'Juan Pablo Rodríguez',
+    rating: 5,
+    localGuide: true,
+    quote: 'Una muy bella e inolvidable experiencia con la familia y lo mejor son pet friendly.',
+  },
+  {
+    name: 'Laura Natalia Pinilla Barahona',
+    rating: 5,
+    quote: 'La experiencia es renovadora, reflexiva y permite encontrar un espacio y anfitriones maravillosos.',
+  },
+  {
+    name: 'Maria Angelica Silva Rojas',
+    rating: 5,
+    localGuide: true,
+    quote:
+      'Tuvimos la oportunidad de disfrutar de la Semana Santa en familia en el Valle de Tenza... definitivamente lo mejor que nos pudo suceder fue haber contado con la compañía, asesoría y profesionalismo del Señor Oscar Martín Roa.',
+  },
+  {
+    name: 'ed casher',
+    rating: 5,
+    localGuide: true,
+    quote:
+      'Excelente lugar para vivir una experiencia única de conexión con la naturaleza y del propósito de ser humano en este planeta. Hermosos paisajes, actividades de esparcimiento familiar.',
+  },
+]
+
+function TestimonialsCarousel({ items }: { items: Testimonial[] }) {
+  const [index, setIndex] = useState(0)
+  const [paused, setPaused] = useState(false)
+
+  useEffect(() => {
+    if (paused) return
+    const id = setInterval(() => setIndex((i) => (i + 1) % items.length), 5500)
+    return () => clearInterval(id)
+  }, [paused, items.length])
+
+  const current = items[index]
+
+  return (
+    <div
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      className="relative max-w-2xl mx-auto px-10"
+    >
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -12 }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+          className="bg-white dark:bg-bosque-surface rounded-2xl p-8 shadow-sm text-center min-h-[15rem] flex flex-col items-center justify-center"
+        >
+          <div className="flex justify-center gap-1 mb-4">
+            {Array.from({ length: current.rating }).map((_, i) => (
+              <Star key={i} size={18} className="fill-dorado text-dorado" />
+            ))}
+          </div>
+          <p className="font-inter text-carbon/80 dark:text-crema/80 leading-relaxed mb-5">"{current.quote}"</p>
+          <p className="font-fraunces text-bosque dark:text-crema text-lg">{current.name}</p>
+          {current.localGuide && (
+            <span className="inline-block mt-2 font-inter text-[11px] font-bold uppercase tracking-wide text-musgo dark:text-dorado bg-musgo/10 dark:bg-dorado/10 px-3 py-1 rounded-full">
+              Local Guide
+            </span>
+          )}
+        </motion.div>
+      </AnimatePresence>
+
+      <button
+        type="button"
+        onClick={() => setIndex((i) => (i - 1 + items.length) % items.length)}
+        aria-label="Reseña anterior"
+        className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-bosque-surface/90 shadow rounded-full p-1.5 text-bosque/60 dark:text-crema/60 hover:text-terracota dark:hover:text-dorado transition-colors"
+      >
+        <ChevronLeft size={20} />
+      </button>
+      <button
+        type="button"
+        onClick={() => setIndex((i) => (i + 1) % items.length)}
+        aria-label="Siguiente reseña"
+        className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-bosque-surface/90 shadow rounded-full p-1.5 text-bosque/60 dark:text-crema/60 hover:text-terracota dark:hover:text-dorado transition-colors"
+      >
+        <ChevronRight size={20} />
+      </button>
+
+      <div className="flex justify-center gap-2 mt-6">
+        {items.map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            onClick={() => setIndex(i)}
+            aria-label={`Ir a reseña ${i + 1}`}
+            className={`w-2 h-2 rounded-full transition-colors ${
+              i === index ? 'bg-terracota dark:bg-dorado' : 'bg-carbon/20 dark:bg-crema/20'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
 
 // lucide-react ya no incluye íconos de marca (Instagram/Facebook/TikTok) — SVG inline con los glifos oficiales
 type IconProps = { size?: number; className?: string }
@@ -134,32 +264,18 @@ export function Contact() {
             </a>
           </motion.div>
 
-          {testimonials.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
-              className="mt-20"
-            >
-              <h2 className="font-fraunces text-3xl md:text-4xl text-bosque dark:text-crema text-center mb-10">
-                Lo que dicen de nosotros
-              </h2>
-              <div className="grid sm:grid-cols-3 gap-6">
-                {testimonials.map((item) => (
-                  <div key={item.name} className="bg-white dark:bg-bosque-surface rounded-2xl p-6 shadow-sm">
-                    <div className="flex gap-1 mb-3">
-                      {Array.from({ length: item.rating }).map((_, i) => (
-                        <Star key={i} size={16} className="fill-dorado text-dorado" />
-                      ))}
-                    </div>
-                    <p className="font-inter text-carbon/80 dark:text-crema/80 text-sm mb-3">"{item.quote}"</p>
-                    <p className="font-fraunces text-bosque dark:text-crema">{item.name}</p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          )}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="mt-20"
+          >
+            <h2 className="font-fraunces text-3xl md:text-4xl text-bosque dark:text-crema text-center mb-10">
+              Lo que dicen de nosotros
+            </h2>
+            <TestimonialsCarousel items={testimonials} />
+          </motion.div>
         </div>
       </div>
 
