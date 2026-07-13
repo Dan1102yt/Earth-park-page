@@ -14,8 +14,6 @@ export interface Plan {
 }
 
 // PLACEHOLDER: sin foto real — swap por fotografía real de Earth Park
-const PLACEHOLDER_VIVE = 'https://picsum.photos/seed/earthpark-plan-vive/768/615'
-// PLACEHOLDER: sin foto real — swap por fotografía real de Earth Park
 const PLACEHOLDER_RAICES = 'https://picsum.photos/seed/earthpark-plan-raices/768/615'
 // PLACEHOLDER: sin foto real — swap por fotografía real de Earth Park
 const PLACEHOLDER_HUELLA = 'https://picsum.photos/seed/earthpark-plan-huella/768/615'
@@ -40,7 +38,7 @@ export const plans: Plan[] = [
       'Helado local, almuerzo típico, recorrido por Sutatenza/Somondoco/Macanal',
     ],
     excludes: 'transporte y guía',
-    image: 'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=615,fit=crop/Yg2ya4gl5Rtg3nyW/macanal-A0xjlLKanJsZVzg7.jpeg',
+    image: '/images/planes/planes-tesoros-del-valle-de-tenza.png',
   },
   {
     title: 'Conoce y descansa en Macanal',
@@ -61,7 +59,7 @@ export const plans: Plan[] = [
       'Seguro turístico',
     ],
     excludes: 'transporte y guía',
-    image: 'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=584,fit=crop/Yg2ya4gl5Rtg3nyW/3-m5Kn28Lb7pCzlQ2V.jpeg',
+    image: '/images/planes/planes-Conoce%20y%20descansa%20en%20Macanal.jpg',
   },
   {
     title: 'Conoce el Hollywood Boyacense',
@@ -81,7 +79,7 @@ export const plans: Plan[] = [
       'Seguro turístico',
     ],
     excludes: 'transporte y guía',
-    image: 'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=615,fit=crop/Yg2ya4gl5Rtg3nyW/whatsapp-image-2026-04-17-at-12.04.48-pm-NgGfq4uQdNwlxl0H.jpeg',
+    image: '/images/planes/planes-Conoce-el-Hollywood-Boyacense.jpg',
   },
   {
     title: 'Vive Earth Park',
@@ -96,7 +94,7 @@ export const plans: Plan[] = [
       'Seguro turístico',
     ],
     excludes: 'transporte',
-    image: PLACEHOLDER_VIVE,
+    image: '/images/planes/planes-vive-earth-park.jpeg',
   },
   {
     title: 'Raíces y Tradición del Valle de Tenza',
@@ -150,7 +148,7 @@ export function PlansPreview() {
               className="bg-white dark:bg-bosque-surface rounded-2xl overflow-hidden shadow-sm"
             >
               <div className="relative h-44 overflow-hidden">
-                <img src={plan.image} alt={plan.title} className="w-full h-full object-cover" />
+                <img src={plan.image} alt={plan.title} loading="lazy" className="w-full h-full object-cover" />
                 {plan.badge && (
                   <span className="absolute top-3 right-3 bg-dorado text-carbon font-inter text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full">
                     {plan.badge}

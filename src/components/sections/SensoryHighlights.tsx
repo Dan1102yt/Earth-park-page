@@ -1,30 +1,25 @@
 import { motion } from 'framer-motion'
 
-// PLACEHOLDER: image no real photo exists yet — swap for real Earth Park photography
-const PLACEHOLDER_BUTTERFLY = 'https://picsum.photos/seed/earthpark-butterfly/800/1000'
-// PLACEHOLDER: image no real photo exists yet — swap for real Earth Park photography
-const PLACEHOLDER_CAFE = 'https://picsum.photos/seed/earthpark-cafe/800/1000'
-
 const highlights = [
   {
     title: 'Mariposas',
     text: 'Símbolo de libertad y el infinito de la vida.',
-    image: PLACEHOLDER_BUTTERFLY,
+    image: '/images/hero/hero-mariposa.jpg',
   },
   {
     title: 'Naturaleza',
     text: 'Un espacio donde la vida natural es la protagonista.',
-    image: 'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=800,h=1000,fit=crop/Yg2ya4gl5Rtg3nyW/ptv6-dJobZpwzLnFrMEzM.jpeg',
+    image: '/images/hero/hero-naturaleza.jpg',
   },
   {
     title: 'Familia',
     text: 'Una experiencia inolvidable en familia — y pet friendly.',
-    image: 'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=800,h=1000,fit=crop/Yg2ya4gl5Rtg3nyW/3-m5Kn28Lb7pCzlQ2V.jpeg',
+    image: '/images/hero/hero-familia.jpg',
   },
   {
     title: 'Gastronomía',
     text: 'Gastronomía local al aire libre entre árboles.',
-    image: PLACEHOLDER_CAFE,
+    image: '/images/hero/hero-gastronomia.jpg',
   },
 ]
 
@@ -43,7 +38,7 @@ export function SensoryHighlights() {
               className="rounded-2xl overflow-hidden bg-carbon/5 dark:bg-bosque-surface"
             >
               <div className="aspect-[4/5] overflow-hidden">
-                <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                <img src={item.image} alt={item.title} loading="lazy" className="w-full h-full object-cover" />
               </div>
               <div className="p-5">
                 <h3 className="font-fraunces text-xl text-bosque dark:text-crema mb-1">{item.title}</h3>

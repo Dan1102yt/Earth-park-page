@@ -2,10 +2,9 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Button } from '../components/ui/Button'
 
-// PLACEHOLDER: sin foto real — swap por imagen de naturaleza de Earth Park
-const HERO_IMAGE = 'https://picsum.photos/seed/earthpark-about-hero/1600/1000'
-// PLACEHOLDER: sin foto real — swap por fotografía real de la familia fundadora
-const FAMILY_IMAGE = 'https://picsum.photos/seed/earthpark-about-familia/768/922'
+const HERO_IMAGE = '/images/nosotros/fondo-universo.jpg'
+const QUOTE_IMAGE = '/images/nosotros/fondo-campo-papa.jpg'
+const FAMILY_IMAGE = '/images/nosotros/nosotros-quienes-spmps.jpg'
 
 const fadeIn = {
   hidden: { opacity: 0, y: 40 },
@@ -17,7 +16,7 @@ export function About() {
     <div className="min-h-screen">
       {/* Bloque 1 — Hero */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <img src={HERO_IMAGE} alt="Naturaleza en Earth Park" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={HERO_IMAGE} alt="Naturaleza en Earth Park" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-bosque-deep/90 via-bosque-deep/80 to-bosque-deep/90" />
         <motion.div
           initial="hidden"
@@ -80,19 +79,21 @@ export function About() {
             transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
             className="rounded-3xl overflow-hidden aspect-[3/4] shadow-xl"
           >
-            <img src={FAMILY_IMAGE} alt="La familia detrás de Earth Park" className="w-full h-full object-cover" />
+            <img src={FAMILY_IMAGE} alt="La familia detrás de Earth Park" loading="lazy" className="w-full h-full object-cover" />
           </motion.div>
         </div>
       </section>
 
       {/* Bloque 4 — Cita destacada */}
-      <section className="bg-bosque dark:bg-bosque-deep py-28 px-4">
+      <section className="relative py-28 px-4 overflow-hidden">
+        <img src={QUOTE_IMAGE} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-bosque/90 dark:bg-bosque-deep/92" />
         <motion.blockquote
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
           variants={fadeIn}
-          className="font-fraunces text-3xl md:text-5xl text-center text-crema max-w-4xl mx-auto leading-snug"
+          className="relative z-10 font-fraunces text-3xl md:text-5xl text-center text-crema max-w-4xl mx-auto leading-snug"
         >
           "Aquí, la <span className="text-dorado">Tierrita</span> nos enseña que protegerla es también proteger
           nuestra propia existencia."

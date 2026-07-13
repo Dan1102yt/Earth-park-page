@@ -2,14 +2,14 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Button } from '../ui/Button'
 
-// PLACEHOLDER: no real gallery photos exist yet in the project — swap all 6 for real Earth Park photography
+// Selección diversa del pool hero-galeria-1..29: paisaje, familia, animal, cascada, actividad, flor
 const images = [
-  'https://picsum.photos/seed/earthpark-1/600/600',
-  'https://picsum.photos/seed/earthpark-2/600/600',
-  'https://picsum.photos/seed/earthpark-3/600/600',
-  'https://picsum.photos/seed/earthpark-4/600/600',
-  'https://picsum.photos/seed/earthpark-5/600/600',
-  'https://picsum.photos/seed/earthpark-6/600/600',
+  '/images/hero/hero-galeria-8.jpeg',
+  '/images/hero/hero-galeria-18.jpeg',
+  '/images/hero/hero-galeria-11.jpeg',
+  '/images/hero/hero-galeria-19.jpeg',
+  '/images/hero/hero-galeria-24.jpeg',
+  '/images/hero/hero-galeria-16.jpeg',
 ]
 
 export function GalleryPreview() {
@@ -28,7 +28,7 @@ export function GalleryPreview() {
               transition={{ delay: i * 0.06, duration: 0.5, ease: 'easeOut' }}
               className="aspect-square rounded-xl overflow-hidden"
             >
-              <img src={src} alt="Earth Park" className="w-full h-full object-cover" />
+              <img src={src} alt="Earth Park" loading="lazy" className="w-full h-full object-cover" />
             </motion.div>
           ))}
         </div>

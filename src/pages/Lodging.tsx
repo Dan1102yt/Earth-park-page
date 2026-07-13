@@ -1,14 +1,28 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { PageHeaderBand } from '../components/ui/PageHeaderBand'
 
+const MARIPOSA_IMAGES = Array.from({ length: 10 }, (_, i) => `/images/hospedaje/hospedaje-${i + 1}.jpeg`)
+
+interface Room {
+  name: string
+  emoji: string
+  concept: string
+  status: 'Disponible' | 'Próximamente'
+  designNote?: string
+  image?: string
+  images?: string[]
+}
+
 // PLACEHOLDER: sin fotos reales de las habitaciones aún — swap por fotografía real de Earth Park
-const rooms = [
+const rooms: Room[] = [
   {
     name: 'Habitación Mariposa',
     emoji: '🦋',
     concept: 'El vuelo de la transformación. Ligereza, color y el asombro de ver la vida cambiar de forma ante tus ojos.',
-    status: 'Disponible' as const,
-    image: 'https://picsum.photos/seed/earthpark-room-mariposa/700/560',
+    status: 'Disponible',
+    images: MARIPOSA_IMAGES,
   },
   {
     name: 'Habitación Los Ancestros',
@@ -43,6 +57,37 @@ const rooms = [
   },
 ]
 
+function RoomCarousel({ images, alt }: { images: string[]; alt: string }) {
+  const [index, setIndex] = useState(0)
+
+  return (
+    <div className="relative w-full h-full group/carousel">
+      <img src={images[index]} alt={`${alt} — foto ${index + 1}`} loading="lazy" className="w-full h-full object-cover" />
+      <button
+        type="button"
+        onClick={(e) => { e.preventDefault(); setIndex((i) => (i - 1 + images.length) % images.length) }}
+        aria-label="Foto anterior"
+        className="absolute left-2 top-1/2 -translate-y-1/2 bg-carbon/50 hover:bg-carbon/70 text-crema rounded-full w-8 h-8 flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity"
+      >
+        <ChevronLeft size={18} />
+      </button>
+      <button
+        type="button"
+        onClick={(e) => { e.preventDefault(); setIndex((i) => (i + 1) % images.length) }}
+        aria-label="Foto siguiente"
+        className="absolute right-2 top-1/2 -translate-y-1/2 bg-carbon/50 hover:bg-carbon/70 text-crema rounded-full w-8 h-8 flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity"
+      >
+        <ChevronRight size={18} />
+      </button>
+      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+        {images.map((_, i) => (
+          <span key={i} className={`w-1.5 h-1.5 rounded-full ${i === index ? 'bg-crema' : 'bg-crema/40'}`} />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export function Lodging() {
   return (
     <div className="min-h-screen bg-crema dark:bg-bosque-deep">
@@ -65,7 +110,11 @@ export function Lodging() {
               }`}
             >
               <div className="relative h-64 sm:h-72 overflow-hidden">
-                <img src={room.image} alt={room.name} className="w-full h-full object-cover" />
+                {room.images ? (
+                  <RoomCarousel images={room.images} alt={room.name} />
+                ) : (
+                  <img src={room.image} alt={room.name} loading="lazy" className="w-full h-full object-cover" />
+                )}
                 {room.status === 'Próximamente' && (
                   <div className="absolute inset-0 bg-carbon/15" />
                 )}

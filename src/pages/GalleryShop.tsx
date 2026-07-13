@@ -5,13 +5,18 @@ import { Button } from '../components/ui/Button'
 
 const WHATSAPP_NUMBER = '573233195919'
 
-// PENDIENTE: reemplazar con catálogo real de piezas cuando Oscar lo proporcione
-// PLACEHOLDER: fotos y precios de ejemplo genéricos — no reflejan el catálogo real
-const artPieces = [
-  { name: 'Mariposa Azul', price: '$45.000', image: 'https://picsum.photos/seed/earthpark-art-1/600/600' },
-  { name: 'Vuelo de Alas', price: '$60.000', image: 'https://picsum.photos/seed/earthpark-art-2/600/600' },
-  { name: 'Jardín Encantado', price: '$55.000', image: 'https://picsum.photos/seed/earthpark-art-3/600/600' },
-  { name: 'Metamorfosis', price: '$70.000', image: 'https://picsum.photos/seed/earthpark-art-4/600/600' },
+interface ArtPiece {
+  name: string
+  price: string | null
+  image: string
+}
+
+// PENDIENTE: precios reales del catálogo — aún no hay lista de precios oficial
+const artPieces: ArtPiece[] = [
+  { name: 'Mariposa 89', price: null, image: '/images/galeria-arte/galeria-de-arte-mariposa-89.jpg' },
+  { name: 'Mariposa Blanco', price: null, image: '/images/galeria-arte/galeria-de-arte-mariposa-blanco.jpg' },
+  { name: 'Mariposa Botesia', price: null, image: '/images/galeria-arte/galeria-de-arte-mariposa-botesia.jpg' },
+  { name: 'Mariposa Rhetus', price: null, image: '/images/galeria-arte/galeria-de-arte-mariposa-rhetus.jpg' },
 ]
 
 export function GalleryShop() {
@@ -19,7 +24,7 @@ export function GalleryShop() {
     <div className="min-h-screen bg-crema dark:bg-bosque-deep">
       <PageHeaderBand
         title="Galería de Arte"
-        subtitle="Piezas pintadas a mano inspiradas en las mariposas de Earth Park"
+        subtitle="En Earth Park los residuos los transformamos en arte."
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -36,11 +41,15 @@ export function GalleryShop() {
                 className="bg-white dark:bg-bosque-surface rounded-2xl overflow-hidden shadow-sm"
               >
                 <div className="aspect-square overflow-hidden">
-                  <img src={piece.image} alt={piece.name} className="w-full h-full object-cover" />
+                  <img src={piece.image} alt={piece.name} loading="lazy" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-5">
                   <h3 className="font-fraunces text-lg text-bosque dark:text-crema mb-1">{piece.name}</h3>
-                  <p className="font-fraunces text-2xl text-terracota dark:text-dorado mb-4">{piece.price}</p>
+                  {piece.price ? (
+                    <p className="font-fraunces text-2xl text-terracota dark:text-dorado mb-4">{piece.price}</p>
+                  ) : (
+                    <p className="font-inter text-carbon/40 dark:text-crema/40 text-xs italic mb-4">Precio disponible al consultar</p>
+                  )}
                   <a href={waHref} target="_blank" rel="noopener noreferrer" className="block w-fit">
                     <Button variant="whatsapp" size="sm">
                       <MessageCircle size={16} />

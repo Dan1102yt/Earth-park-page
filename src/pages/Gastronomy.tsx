@@ -46,7 +46,7 @@ const dinner: Dish[] = [
     featured: true,
     description:
       'Nuestra hamburguesa insignia: carne especialidad de la casa a la plancha, huevo, lechuga fresca, tomate, tocineta crocante, queso derretido y jamón, todo en pan tostado. Acompañada de papa frita o en cascos. Una experiencia completa para cerrar el día.',
-    image: 'https://picsum.photos/seed/earthpark-food-hamburguesa/700/560',
+    image: '/images/gastronomia/gastronomia-hamburguesa-earth-park.jpg',
   },
   {
     name: 'Pechuga a la Plancha',
@@ -64,6 +64,11 @@ const dinner: Dish[] = [
   },
 ]
 
+// Galería extensible: agregar más fotos aquí a medida que estén disponibles
+const otherFlavors: { image: string; alt: string }[] = [
+  { image: '/images/gastronomia/gastronomia-otros-helados.jpeg', alt: 'Helados artesanales Earth Park' },
+]
+
 function DishCard({ dish, i, dark }: { dish: Dish; i: number; dark?: boolean }) {
   return (
     <motion.div
@@ -78,7 +83,7 @@ function DishCard({ dish, i, dark }: { dish: Dish; i: number; dark?: boolean }) 
       }
     >
       <div className="relative h-56 sm:h-64 overflow-hidden">
-        <img src={dish.image} alt={dish.name} className="w-full h-full object-cover" />
+        <img src={dish.image} alt={dish.name} loading="lazy" className="w-full h-full object-cover" />
         <span className="absolute top-4 left-4 text-3xl bg-white/90 dark:bg-bosque-surface/90 rounded-full w-12 h-12 flex items-center justify-center">
           {dish.emoji}
         </span>
@@ -158,6 +163,36 @@ export function Gastronomy() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {dinner.map((dish, i) => (
               <DishCard key={dish.name} dish={dish} i={i} dark />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Otros sabores de Earth Park */}
+      <section className="bg-crema dark:bg-bosque-deep py-24 px-4">
+        <div className="max-w-7xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema text-center mb-12"
+          >
+            Otros sabores de Earth Park
+          </motion.h2>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {otherFlavors.map((item, i) => (
+              <motion.div
+                key={item.image}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ delay: i * 0.06, duration: 0.5, ease: 'easeOut' }}
+                className="aspect-square rounded-2xl overflow-hidden"
+              >
+                <img src={item.image} alt={item.alt} loading="lazy" className="w-full h-full object-cover" />
+              </motion.div>
             ))}
           </div>
         </div>

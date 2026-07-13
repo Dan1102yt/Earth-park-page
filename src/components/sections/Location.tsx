@@ -50,6 +50,10 @@ export function Location() {
               <Clock size={24} className="text-terracota dark:text-dorado shrink-0 mt-1" />
               <div>
                 <h4 className="font-fraunces text-bosque dark:text-crema text-lg mb-2">Horarios</h4>
+                <p className="font-inter font-bold text-musgo dark:text-dorado text-sm mb-3 leading-relaxed">
+                  Abierto jueves, viernes, sábado, domingo y festivos.<br />
+                  Cerrado lunes, martes y miércoles.
+                </p>
                 <div className="space-y-1 font-inter text-carbon/70 dark:text-crema/70 text-sm">
                   <p><span className="text-bosque dark:text-crema">Parque:</span> Jue–Dom y lunes festivos · 9:00 am – 9:00 pm</p>
                   <p><span className="text-bosque dark:text-crema">Reservas L–V:</span> 7:00 am – 5:00 pm</p>
@@ -63,8 +67,7 @@ export function Location() {
             <div className="grid grid-cols-3 gap-3">
               <div className="bg-white dark:bg-bosque-surface rounded-xl p-3 border border-carbon/10 dark:border-crema/10 text-center">
                 <Car size={20} className="text-dorado mx-auto mb-2" />
-                <p className="font-inter text-xs text-carbon/70 dark:text-crema/70">Parqueadero</p>
-                <p className="font-fraunces text-sm text-dorado">$2.000</p>
+                <p className="font-inter text-xs text-carbon/70 dark:text-crema/70 leading-snug">Parqueadero incluido con tu alojamiento</p>
               </div>
               <div className="bg-white dark:bg-bosque-surface rounded-xl p-3 border border-carbon/10 dark:border-crema/10 text-center">
                 <PawPrint size={20} className="text-musgo mx-auto mb-2" />
@@ -88,7 +91,7 @@ export function Location() {
             className="rounded-2xl overflow-hidden border border-carbon/10 dark:border-crema/10 shadow-lg"
           >
             <iframe
-              src="https://maps.google.com/maps?q=Macanal,+Boyac%C3%A1,+Colombia&output=embed"
+              src="https://maps.google.com/maps?q=5.0156303,-73.3556643&z=17&output=embed"
               width="100%"
               height="400"
               style={{ border: 0 }}

@@ -7,6 +7,7 @@ export function PlanVisit() {
       <PageHeaderBand
         title="Planea tu Visita"
         subtitle="Todo lo que necesitas saber para llegar y disfrutar Earth Park"
+        image="/images/hero/hero-naturaleza.jpg"
       />
       <Location />
     </div>
