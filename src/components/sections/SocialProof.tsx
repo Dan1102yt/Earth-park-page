@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { TestimonialsCarousel, testimonials } from '../ui/TestimonialsCarousel'
 
 const stats = [
   { value: '+500', label: 'Visitantes felices' },
@@ -15,21 +16,16 @@ export function SocialProof() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="bg-white dark:bg-bosque-surface rounded-3xl p-10 md:p-12 shadow-sm text-center"
         >
-          <div className="flex justify-center gap-1 mb-5">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <span key={i} className="text-dorado text-xl">★</span>
-            ))}
-          </div>
-          <p className="font-fraunces text-2xl md:text-3xl text-bosque dark:text-crema leading-snug mb-6">
-            "Una muy bella e inolvidable experiencia con la familia y lo mejor son pet friendly"
-          </p>
-          <p className="font-inter text-carbon/60 dark:text-crema/60 text-sm mb-10">Juan Pablo Rodríguez — Visitante verificado</p>
+          <h2 className="font-fraunces text-2xl md:text-3xl text-bosque dark:text-crema text-center mb-10">
+            Lo que dicen de nosotros
+          </h2>
 
-          <div className="grid grid-cols-3 gap-6 border-t border-carbon/10 dark:border-crema/10 pt-8">
+          <TestimonialsCarousel items={testimonials} />
+
+          <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto border-t border-carbon/10 dark:border-crema/10 pt-8 mt-12">
             {stats.map((s) => (
-              <div key={s.label}>
+              <div key={s.label} className="text-center">
                 <p className="font-fraunces text-3xl text-terracota dark:text-dorado">{s.value}</p>
                 <p className="font-inter text-carbon/60 dark:text-crema/60 text-xs mt-1">{s.label}</p>
               </div>
