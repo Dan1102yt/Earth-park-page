@@ -4,8 +4,7 @@ import { PageHeaderBand } from '../components/ui/PageHeaderBand'
 import { CTAReserva } from '../components/sections/CTAReserva'
 import { TestimonialsCarousel, testimonials } from '../components/ui/TestimonialsCarousel'
 
-const GOOGLE_REVIEWS_URL =
-  'https://www.google.com/maps/place/Earth+Park/@5.0156303,-73.3556643,17z/data=!3m1!4b1!4m6!3m5!1s0x8e6aa5f11b3f0e53:0x695994e23d9d67fd!8m2!3d5.0156303!4d-73.3556643!16s%2Fg%2F11g9jt1_xk'
+const GOOGLE_REVIEWS_URL = 'https://maps.app.goo.gl/tTFDN7FhHJoNBiLG8?g_st=ac'
 
 // lucide-react ya no incluye íconos de marca (Instagram/Facebook/TikTok) — SVG inline con los glifos oficiales
 type IconProps = { size?: number; className?: string }
