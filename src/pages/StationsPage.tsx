@@ -1,32 +1,36 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { PageHeaderBand } from '../components/ui/PageHeaderBand'
 import { asset } from '../lib/asset'
 
 const stations = [
-  { emoji: '🛕', title: 'Pirámide de los Teguas', desc: 'Un tributo a la sabiduría ancestral indígena', image: asset('/images/estaciones/estacion-piramide.jpeg') },
-  { emoji: '🦋', title: 'Mariposa 89 Columpio', desc: 'Símbolo de libertad y el infinito de la vida', image: asset('/images/estaciones/estacion-mariposa.jpeg') },
-  { emoji: '🔥', title: 'Los Cuatro Elementos', desc: 'Agua, Tierra, Aire y Fuego: experiencia sensorial', image: asset('/images/estaciones/estacion-fuego.jpeg') },
-  { emoji: '🚀', title: 'Rover Lunar', desc: 'Viaja al futuro sin salir de la Tierra', image: asset('/images/estaciones/estacion-rover.jpeg') },
-  { emoji: '🌕', title: 'Luna 360°', desc: 'Estructura inmersiva que gira contigo', image: asset('/images/estaciones/estacion-luna360.jpeg') },
+  { id: 'piramide', emoji: '🛕', image: asset('/images/estaciones/estacion-piramide.jpeg') },
+  { id: 'mariposa-89', emoji: '🦋', image: asset('/images/estaciones/estacion-mariposa.jpeg') },
+  { id: 'cuatro-elementos', emoji: '🔥', image: asset('/images/estaciones/estacion-fuego.jpeg') },
+  { id: 'rover-lunar', emoji: '🚀', image: asset('/images/estaciones/estacion-rover.jpeg') },
+  { id: 'luna-360', emoji: '🌕', image: asset('/images/estaciones/estacion-luna360.jpeg') },
   // PLACEHOLDER: sin foto real todavía — swap por fotografía real de Earth Park
-  { emoji: '🌿', title: 'Vivero & Café', desc: 'Gastronomía local al aire libre, rodeada de plantas, cactus y suculentas', image: 'https://picsum.photos/seed/earthpark-station-vivero/600/450' },
-  { emoji: '🎨', title: 'Galería de Arte', desc: 'En Earth Park los residuos los transformamos en arte.', image: asset('/images/estaciones/estaciones-galeria-de-arte.webp') },
+  { id: 'vivero-cafe', emoji: '🌿', image: 'https://picsum.photos/seed/earthpark-station-vivero/600/450' },
+  { id: 'galeria-arte', emoji: '🎨', image: asset('/images/estaciones/estaciones-galeria-de-arte.webp') },
 ]
 
 // Sin modal: cada estación es una sola frase de descripción, no amerita una vista de detalle aparte
 export function StationsPage() {
+  const { t } = useTranslation()
+  const items = t('stationsPage.items', { returnObjects: true }) as Record<string, { title: string; desc: string }>
+
   return (
     <div className="min-h-screen bg-crema dark:bg-bosque-deep">
       <PageHeaderBand
-        title="Las 7 Estaciones"
-        subtitle="Cada rincón de Earth Park cuenta una historia única"
+        title={t('stationsPage.heading')}
+        subtitle={t('stationsPage.subtitle')}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {stations.map((s, i) => (
             <motion.div
-              key={s.title}
+              key={s.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
@@ -34,14 +38,14 @@ export function StationsPage() {
               className="bg-white dark:bg-bosque-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
             >
               <div className="h-48 overflow-hidden relative">
-                <img src={s.image} alt={s.title} loading="lazy" className="w-full h-full object-cover" />
+                <img src={s.image} alt={items[s.id].title} loading="lazy" className="w-full h-full object-cover" />
                 <span className="absolute top-3 left-3 text-2xl bg-white/90 dark:bg-bosque-surface/90 rounded-full w-11 h-11 flex items-center justify-center">
                   {s.emoji}
                 </span>
               </div>
               <div className="p-6">
-                <h3 className="font-fraunces text-xl text-bosque dark:text-crema mb-1">{s.title}</h3>
-                <p className="font-inter text-carbon/70 dark:text-crema/70 text-sm">{s.desc}</p>
+                <h3 className="font-fraunces text-xl text-bosque dark:text-crema mb-1">{items[s.id].title}</h3>
+                <p className="font-inter text-carbon/70 dark:text-crema/70 text-sm">{items[s.id].desc}</p>
               </div>
             </motion.div>
           ))}

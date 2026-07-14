@@ -1,30 +1,18 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { asset } from '../../lib/asset'
 
-const highlights = [
-  {
-    title: 'Mariposas',
-    text: 'Símbolo de libertad y el infinito de la vida.',
-    image: asset('/images/hero/hero-mariposa.jpg'),
-  },
-  {
-    title: 'Naturaleza',
-    text: 'Un espacio donde la vida natural es la protagonista.',
-    image: asset('/images/hero/hero-naturaleza.jpg'),
-  },
-  {
-    title: 'Familia',
-    text: 'Una experiencia inolvidable en familia — y pet friendly.',
-    image: asset('/images/hero/hero-familia.jpg'),
-  },
-  {
-    title: 'Gastronomía',
-    text: 'Gastronomía local al aire libre entre árboles.',
-    image: asset('/images/hero/hero-gastronomia.jpg'),
-  },
+const images = [
+  asset('/images/hero/hero-mariposa.jpg'),
+  asset('/images/hero/hero-naturaleza.jpg'),
+  asset('/images/hero/hero-familia.jpg'),
+  asset('/images/hero/hero-gastronomia.jpg'),
 ]
 
 export function SensoryHighlights() {
+  const { t } = useTranslation()
+  const highlights = (t('sensory.items', { returnObjects: true }) as { title: string; text: string }[]).map((h, i) => ({ ...h, image: images[i] }))
+
   return (
     <section className="py-24 bg-crema dark:bg-bosque-deep">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

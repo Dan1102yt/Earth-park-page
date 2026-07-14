@@ -12,7 +12,6 @@ const navLinks = [
   { key: 'nav.home', to: '/' },
   { key: 'nav.about', to: '/nosotros' },
   { key: 'nav.plans', to: '/planes-turisticos' },
-  { key: 'nav.visit', to: '/planea-tu-visita' },
   { key: 'nav.stations', to: '/estaciones' },
   { key: 'nav.lodging', to: '/hospedaje' },
   { key: 'nav.gastronomy', to: '/gastronomia' },
@@ -97,7 +96,7 @@ export function Navbar() {
             </button>
 
             {/* Reserve button */}
-            <a href="https://wa.me/573233195919" target="_blank" rel="noopener noreferrer" className="hidden sm:block">
+            <a href="https://wa.me/573228697438" target="_blank" rel="noopener noreferrer" className="hidden sm:block">
               <Button variant="terracota" size="sm">{t('nav.reserve')}</Button>
             </a>
 
@@ -135,7 +134,7 @@ export function Navbar() {
                 </Link>
               ))}
               <a
-                href="https://wa.me/573233195919"
+                href="https://wa.me/573228697438"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4"

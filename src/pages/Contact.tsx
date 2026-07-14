@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { Mail, Phone, Star } from 'lucide-react'
+import { Mail, Phone, Star, MapPin, Clock, Car, PawPrint, Users } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { PageHeaderBand } from '../components/ui/PageHeaderBand'
 import { CTAReserva } from '../components/sections/CTAReserva'
 import { TestimonialsCarousel, testimonials } from '../components/ui/TestimonialsCarousel'
@@ -34,9 +35,10 @@ function TikTokIcon({ size = 22, className = '' }: IconProps) {
 }
 
 const infoCards = [
-  { icon: Mail, label: 'Email', value: 'info@earthpark.com.co', href: 'mailto:info@earthpark.com.co' },
-  { icon: Mail, label: 'Email', value: 'earthparkmacanal@gmail.com', href: 'mailto:earthparkmacanal@gmail.com' },
-  { icon: Phone, label: 'Teléfono', value: '+57 323 3195919', href: 'tel:+573233195919' },
+  { icon: Mail, labelKey: 'contact.emailLabel', value: 'info@earthpark.com.co', href: 'mailto:info@earthpark.com.co' },
+  { icon: Mail, labelKey: 'contact.emailLabel', value: 'earthparkmacanal@gmail.com', href: 'mailto:earthparkmacanal@gmail.com' },
+  { icon: Phone, labelKey: 'contact.phoneLabel', value: '322 869 7438', href: 'tel:+573228697438' },
+  { icon: Phone, labelKey: 'contact.phoneLabel', value: '323 319 5919', href: 'tel:+573233195919' },
 ]
 
 const socials = [
@@ -46,16 +48,18 @@ const socials = [
 ]
 
 export function Contact() {
+  const { t } = useTranslation()
+
   return (
     <div className="min-h-screen">
       <PageHeaderBand
-        title="Contacto"
-        subtitle="Escríbenos, con gusto te ayudamos a planear tu visita"
+        title={t('contact.heading')}
+        subtitle={t('contact.subtitle')}
       />
 
       <div className="bg-crema dark:bg-bosque-deep py-20 px-4">
         <div className="max-w-5xl mx-auto">
-          <div className="grid sm:grid-cols-3 gap-6 mb-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {infoCards.map((c, i) => (
               <motion.a
                 key={c.value}
@@ -67,7 +71,7 @@ export function Contact() {
                 className="bg-white dark:bg-bosque-surface rounded-2xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow duration-300"
               >
                 <c.icon className="mx-auto mb-3 text-terracota dark:text-dorado" size={26} />
-                <p className="font-inter text-carbon/50 dark:text-crema/50 text-xs uppercase tracking-wide mb-1">{c.label}</p>
+                <p className="font-inter text-carbon/50 dark:text-crema/50 text-xs uppercase tracking-wide mb-1">{t(c.labelKey)}</p>
                 <p className="font-fraunces text-bosque dark:text-crema text-lg break-words">{c.value}</p>
               </motion.a>
             ))}
@@ -78,7 +82,7 @@ export function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="flex justify-center gap-10 mb-16"
+            className="flex justify-center gap-10 mb-20"
           >
             {socials.map((s) => (
               <a
@@ -94,24 +98,98 @@ export function Contact() {
             ))}
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
-            className="rounded-2xl overflow-hidden border border-carbon/10 dark:border-crema/10 shadow-lg"
-          >
-            <iframe
-              src="https://www.google.com/maps?q=Earth+Park,+Macanal,+Boyac%C3%A1&output=embed"
-              width="100%"
-              height="400"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Ubicación Earth Park — Macanal, Boyacá"
-            />
-          </motion.div>
+          {/* ¿Cómo llegar? — fusionado desde Planea tu Visita */}
+          <div className="text-center mb-12">
+            <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema mb-3">{t('contact.howToGetThere')}</h2>
+            <p className="font-inter text-carbon/70 dark:text-crema/70 text-lg">{t('contact.howToGetThereSubtitle')}</p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-6">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              className="space-y-8"
+            >
+              <div className="flex gap-4">
+                <MapPin size={24} className="text-terracota dark:text-dorado shrink-0 mt-1" />
+                <div>
+                  <h4 className="font-fraunces text-bosque dark:text-crema text-lg mb-1">{t('contact.addressLabel')}</h4>
+                  <p className="font-inter text-carbon/70 dark:text-crema/70 text-sm leading-relaxed">
+                    {t('contact.addressLine1')}<br />
+                    {t('contact.addressLine2')}
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white dark:bg-bosque-surface rounded-xl p-4 border border-carbon/10 dark:border-crema/10">
+                  <p className="font-inter text-xs text-carbon/50 dark:text-crema/50 mb-1">{t('contact.fromBogota')}</p>
+                  <p className="font-fraunces text-2xl text-terracota dark:text-dorado">2.5 hrs</p>
+                  <p className="font-inter text-xs text-carbon/60 dark:text-crema/60 mt-1">{t('contact.fromBogotaVia')}</p>
+                </div>
+                <div className="bg-white dark:bg-bosque-surface rounded-xl p-4 border border-carbon/10 dark:border-crema/10">
+                  <p className="font-inter text-xs text-carbon/50 dark:text-crema/50 mb-1">{t('contact.fromTunja')}</p>
+                  <p className="font-fraunces text-2xl text-terracota dark:text-dorado">2.5 hrs</p>
+                  <p className="font-inter text-xs text-carbon/60 dark:text-crema/60 mt-1">{t('contact.fromTunjaVia')}</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <Clock size={24} className="text-terracota dark:text-dorado shrink-0 mt-1" />
+                <div>
+                  <h4 className="font-fraunces text-bosque dark:text-crema text-lg mb-2">{t('contact.hoursLabel')}</h4>
+                  <p className="font-inter font-bold text-musgo dark:text-dorado text-sm mb-3 leading-relaxed">
+                    {t('contact.openDays')}<br />
+                    {t('contact.closedDays')}
+                  </p>
+                  <div className="space-y-1 font-inter text-carbon/70 dark:text-crema/70 text-sm">
+                    <p><span className="text-bosque dark:text-crema">{t('contact.parkHoursLabel')}</span> {t('contact.parkHoursValue')}</p>
+                    <p><span className="text-bosque dark:text-crema">{t('contact.reservationsWeekdayLabel')}</span> {t('contact.reservationsWeekdayValue')}</p>
+                    <p><span className="text-bosque dark:text-crema">{t('contact.reservationsSaturdayLabel')}</span> {t('contact.reservationsSaturdayValue')}</p>
+                    <p><span className="text-bosque dark:text-crema">{t('contact.closedSundayLabel')}</span> {t('contact.closedSundayValue')}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-3 gap-3">
+                <div className="bg-white dark:bg-bosque-surface rounded-xl p-3 border border-carbon/10 dark:border-crema/10 text-center">
+                  <Car size={20} className="text-dorado mx-auto mb-2" />
+                  <p className="font-inter text-xs text-carbon/70 dark:text-crema/70 leading-snug">{t('contact.parkingText')}</p>
+                </div>
+                <div className="bg-white dark:bg-bosque-surface rounded-xl p-3 border border-carbon/10 dark:border-crema/10 text-center">
+                  <PawPrint size={20} className="text-musgo mx-auto mb-2" />
+                  <p className="font-inter text-xs text-carbon/70 dark:text-crema/70">{t('contact.petFriendlyText')}</p>
+                  <p className="font-fraunces text-sm text-musgo">✅</p>
+                </div>
+                <div className="bg-white dark:bg-bosque-surface rounded-xl p-3 border border-carbon/10 dark:border-crema/10 text-center">
+                  <Users size={20} className="text-musgo mx-auto mb-2" />
+                  <p className="font-inter text-xs text-carbon/70 dark:text-crema/70">{t('contact.minorsText')}</p>
+                  <p className="font-fraunces text-sm text-musgo">{t('contact.minorsValue')}</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
+              className="rounded-2xl overflow-hidden border border-carbon/10 dark:border-crema/10 shadow-lg"
+            >
+              <iframe
+                src="https://www.google.com/maps?q=Earth+Park,+Macanal,+Boyac%C3%A1&output=embed"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ubicación Earth Park — Macanal, Boyacá"
+              />
+            </motion.div>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -127,7 +205,7 @@ export function Contact() {
               className="inline-flex items-center gap-2 font-inter text-sm font-bold text-terracota dark:text-dorado hover:underline"
             >
               <Star size={18} className="fill-current" />
-              Ver reseñas en Google Maps
+              {t('contact.reviewsLink')}
             </a>
           </motion.div>
 
@@ -139,7 +217,7 @@ export function Contact() {
             className="mt-20"
           >
             <h2 className="font-fraunces text-3xl md:text-4xl text-bosque dark:text-crema text-center mb-10">
-              Lo que dicen de nosotros
+              {t('contact.testimonialsHeading')}
             </h2>
             <TestimonialsCarousel items={testimonials} />
           </motion.div>

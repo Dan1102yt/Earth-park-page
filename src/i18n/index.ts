@@ -12,8 +12,13 @@ i18n
       es: { translation: es },
       en: { translation: en },
     },
+    supportedLngs: ['es', 'en'],
+    load: 'languageOnly',
     fallbackLng: 'es',
     interpolation: { escapeValue: false },
+    detection: {
+      convertDetectedLanguage: (lng) => lng.split('-')[0],
+    },
   })
 
 export default i18n

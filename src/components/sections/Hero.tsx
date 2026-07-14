@@ -78,7 +78,7 @@ export function Hero() {
           animate="show"
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <a href="https://wa.me/573233195919" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/573228697438" target="_blank" rel="noopener noreferrer">
             <Button variant="terracota" size="lg">{t('hero.cta_primary')}</Button>
           </a>
           <Link to="/planes-turisticos">

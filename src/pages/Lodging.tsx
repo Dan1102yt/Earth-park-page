@@ -1,69 +1,38 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Check } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { PageHeaderBand } from '../components/ui/PageHeaderBand'
 import { Modal } from '../components/ui/Modal'
+import { ModalGallery } from '../components/ui/ModalGallery'
 import { asset } from '../lib/asset'
 
 const MARIPOSA_IMAGES = Array.from({ length: 10 }, (_, i) => asset(`/images/hospedaje/hospedaje-${i + 1}.jpeg`))
 
-interface Room {
-  name: string
+interface RoomMeta {
+  id: string
   emoji: string
-  concept: string
-  status: 'Disponible' | 'Próximamente'
-  designNote?: string
-  amenities?: string[]
+  status: 'available' | 'coming-soon'
   image?: string
   images?: string[]
 }
 
+interface RoomText {
+  name: string
+  concept: string
+  designNote?: string
+  amenities?: string[]
+}
+
+type Room = RoomMeta & RoomText
+
 // PLACEHOLDER: sin fotos reales de las habitaciones aún — swap por fotografía real de Earth Park
-const rooms: Room[] = [
-  {
-    name: 'Habitación Mariposa',
-    emoji: '🦋',
-    concept: 'El vuelo de la transformación. Ligereza, color y el asombro de ver la vida cambiar de forma ante tus ojos.',
-    status: 'Disponible',
-    images: MARIPOSA_IMAGES,
-    amenities: [
-      'Capacidad configurable: de 1 a 2 camas dobles + 1 cama sencilla',
-      'Agua caliente en la ducha',
-      'Toallas incluidas para el total de huéspedes de la habitación',
-      'Balcón/terraza propia con juegos de mesa',
-    ],
-  },
-  {
-    name: 'Habitación Los Ancestros',
-    emoji: '🌾',
-    concept: 'Raíces profundas, memoria viva. El peso cálido de la herencia campesina en cada rincón.',
-    status: 'Disponible' as const,
-    image: 'https://picsum.photos/seed/earthpark-room-ancestros/700/560',
-  },
-  {
-    name: 'Habitación Colibrí',
-    emoji: '🐦',
-    concept: 'Energía pura en movimiento. Color, velocidad y la alegría de estar vivo.',
-    status: 'Próximamente' as const,
-    designNote: 'Acentos turquesa/magenta, formas orgánicas, mucha luz natural.',
-    image: 'https://picsum.photos/seed/earthpark-room-colibri/700/560',
-  },
-  {
-    name: 'Habitación Orquídea',
-    emoji: '🌸',
-    concept: 'Elegancia silenciosa. La delicadeza que florece cuando se le da tiempo y cuidado.',
-    status: 'Próximamente' as const,
-    designNote: 'Tonos lila/blanco suave, iluminación cálida y tenue.',
-    image: 'https://picsum.photos/seed/earthpark-room-orquidea/700/560',
-  },
-  {
-    name: 'Habitación Frailejón',
-    emoji: '🌿',
-    concept: 'El guardián silencioso del agua. Paciencia, protección, y la certeza de que lo esencial crece despacio.',
-    status: 'Próximamente' as const,
-    designNote: 'Verde-plata suave, texturas aterciopeladas, luz difusa.',
-    image: 'https://picsum.photos/seed/earthpark-room-frailejon/700/560',
-  },
+const roomMetas: RoomMeta[] = [
+  { id: 'mariposa', emoji: '🦋', status: 'available', images: MARIPOSA_IMAGES },
+  { id: 'ancestros', emoji: '🌾', status: 'available', image: 'https://picsum.photos/seed/earthpark-room-ancestros/700/560' },
+  { id: 'colibri', emoji: '🐦', status: 'coming-soon', image: 'https://picsum.photos/seed/earthpark-room-colibri/700/560' },
+  { id: 'orquidea', emoji: '🌸', status: 'coming-soon', image: 'https://picsum.photos/seed/earthpark-room-orquidea/700/560' },
+  { id: 'frailejon', emoji: '🌿', status: 'coming-soon', image: 'https://picsum.photos/seed/earthpark-room-frailejon/700/560' },
 ]
 
 function RoomCarousel({ images, alt }: { images: string[]; alt: string }) {
@@ -97,55 +66,7 @@ function RoomCarousel({ images, alt }: { images: string[]; alt: string }) {
   )
 }
 
-function ModalGallery({ images, alt }: { images: string[]; alt: string }) {
-  const [index, setIndex] = useState(0)
-
-  return (
-    <div>
-      <div className="relative h-72 sm:h-96 bg-carbon/10">
-        <img src={images[index]} alt={`${alt} — foto ${index + 1}`} loading="lazy" className="w-full h-full object-cover" />
-        {images.length > 1 && (
-          <>
-            <button
-              type="button"
-              onClick={() => setIndex((i) => (i - 1 + images.length) % images.length)}
-              aria-label="Foto anterior"
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-carbon/50 hover:bg-carbon/70 text-crema rounded-full w-9 h-9 flex items-center justify-center transition-colors"
-            >
-              <ChevronLeft size={20} />
-            </button>
-            <button
-              type="button"
-              onClick={() => setIndex((i) => (i + 1) % images.length)}
-              aria-label="Foto siguiente"
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-carbon/50 hover:bg-carbon/70 text-crema rounded-full w-9 h-9 flex items-center justify-center transition-colors"
-            >
-              <ChevronRight size={20} />
-            </button>
-          </>
-        )}
-      </div>
-      {images.length > 1 && (
-        <div className="flex gap-2 p-3 overflow-x-auto">
-          {images.map((img, i) => (
-            <button
-              key={img}
-              type="button"
-              onClick={() => setIndex(i)}
-              className={`shrink-0 w-16 h-14 rounded-lg overflow-hidden border-2 transition-colors ${
-                i === index ? 'border-terracota dark:border-dorado' : 'border-transparent opacity-70 hover:opacity-100'
-              }`}
-            >
-              <img src={img} alt="" loading="lazy" className="w-full h-full object-cover" />
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  )
-}
-
-function RoomModalContent({ room }: { room: Room }) {
+function RoomModalContent({ room, statusLabel, detailsLabel }: { room: Room; statusLabel: string; detailsLabel: string }) {
   return (
     <div>
       <ModalGallery images={room.images ?? [room.image!]} alt={room.name} />
@@ -155,10 +76,10 @@ function RoomModalContent({ room }: { room: Room }) {
           <h2 className="font-fraunces text-3xl text-bosque dark:text-crema">{room.name}</h2>
           <span
             className={`ml-auto font-inter text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full ${
-              room.status === 'Disponible' ? 'bg-musgo text-crema' : 'bg-dorado text-carbon'
+              room.status === 'available' ? 'bg-musgo text-crema' : 'bg-dorado text-carbon'
             }`}
           >
-            {room.status}
+            {statusLabel}
           </span>
         </div>
 
@@ -166,7 +87,7 @@ function RoomModalContent({ room }: { room: Room }) {
 
         {room.amenities && (
           <>
-            <h3 className="font-inter font-bold text-bosque dark:text-crema text-sm uppercase tracking-wide mb-3">Detalles</h3>
+            <h3 className="font-inter font-bold text-bosque dark:text-crema text-sm uppercase tracking-wide mb-3">{detailsLabel}</h3>
             <ul className="space-y-2 mb-2">
               {room.amenities.map((item) => (
                 <li key={item} className="flex gap-2 font-inter text-carbon/80 dark:text-crema/80 text-sm leading-snug">
@@ -189,20 +110,24 @@ function RoomModalContent({ room }: { room: Room }) {
 }
 
 export function Lodging() {
+  const { t } = useTranslation()
+  const texts = t('lodging.rooms', { returnObjects: true }) as Record<string, RoomText>
+  const rooms: Room[] = roomMetas.map((meta) => ({ ...meta, ...texts[meta.id] }))
+  const statusLabels = { available: t('lodging.statusAvailable'), 'coming-soon': t('lodging.statusComingSoon') }
   const [selectedRoom, setSelectedRoom] = useState<Room | null>(null)
 
   return (
     <div className="min-h-screen bg-crema dark:bg-bosque-deep">
       <PageHeaderBand
-        title="Hospedaje"
-        subtitle="Cinco habitaciones, cinco formas de conectar con la naturaleza"
+        title={t('lodging.heading')}
+        subtitle={t('lodging.subtitle')}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {rooms.map((room, i) => (
             <motion.div
-              key={room.name}
+              key={room.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
@@ -212,7 +137,7 @@ export function Lodging() {
               onClick={() => setSelectedRoom(room)}
               onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedRoom(room) } }}
               className={`bg-white dark:bg-bosque-surface rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer ${
-                room.status === 'Próximamente' ? 'ring-2 ring-dorado/40' : ''
+                room.status === 'coming-soon' ? 'ring-2 ring-dorado/40' : ''
               }`}
             >
               <div className="relative h-64 sm:h-72 overflow-hidden">
@@ -221,7 +146,7 @@ export function Lodging() {
                 ) : (
                   <img src={room.image} alt={room.name} loading="lazy" className="w-full h-full object-cover" />
                 )}
-                {room.status === 'Próximamente' && (
+                {room.status === 'coming-soon' && (
                   <div className="absolute inset-0 bg-carbon/15" />
                 )}
                 <span className="absolute top-4 left-4 text-3xl bg-white/90 dark:bg-bosque-surface/90 rounded-full w-12 h-12 flex items-center justify-center">
@@ -229,10 +154,10 @@ export function Lodging() {
                 </span>
                 <span
                   className={`absolute top-4 right-4 font-inter text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full ${
-                    room.status === 'Disponible' ? 'bg-musgo text-crema' : 'bg-dorado text-carbon'
+                    room.status === 'available' ? 'bg-musgo text-crema' : 'bg-dorado text-carbon'
                   }`}
                 >
-                  {room.status}
+                  {statusLabels[room.status]}
                 </span>
               </div>
 
@@ -253,7 +178,9 @@ export function Lodging() {
       </div>
 
       <Modal open={selectedRoom !== null} onClose={() => setSelectedRoom(null)}>
-        {selectedRoom && <RoomModalContent room={selectedRoom} />}
+        {selectedRoom && (
+          <RoomModalContent room={selectedRoom} statusLabel={statusLabels[selectedRoom.status]} detailsLabel={t('lodging.detailsLabel')} />
+        )}
       </Modal>
     </div>
   )

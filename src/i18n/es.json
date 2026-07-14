@@ -3,7 +3,6 @@
     "home": "Inicio",
     "about": "Nosotros",
     "plans": "Planes Turísticos",
-    "visit": "Planea tu Visita",
     "stations": "Estaciones",
     "lodging": "Hospedaje",
     "gastronomy": "Gastronomía",
@@ -25,5 +24,318 @@
   },
   "essence": {
     "title": "En Macanal, la tierra guarda su propia magia — y te la queremos mostrar."
+  },
+  "sensory": {
+    "items": [
+      { "title": "Mariposas", "text": "Símbolo de libertad y el infinito de la vida." },
+      { "title": "Naturaleza", "text": "Un espacio donde la vida natural es la protagonista." },
+      { "title": "Familia", "text": "Una experiencia inolvidable en familia — y pet friendly." },
+      { "title": "Gastronomía", "text": "Gastronomía local al aire libre entre árboles." }
+    ]
+  },
+  "socialProof": {
+    "heading": "Lo que dicen de nosotros",
+    "stats": [
+      { "value": "+500", "label": "Visitantes felices" },
+      { "value": "7", "label": "Estaciones temáticas" },
+      { "value": "6", "label": "Planes disponibles" }
+    ]
+  },
+  "testimonials": {
+    "localGuide": "Local Guide",
+    "items": {
+      "natalie": "Es un parque temático hermoso con una vista espectacular hacia el embalse, sus bellas flores y plantas atraen unas mariposas muy lindas que también adornan el lugar... Debo resaltar que la amabilidad, carisma y gentileza con la que nos recibieron el señor Oscar Martín Roa y su bonita familia propician una estadía acogedora y muy agradable.",
+      "julio": "Un lugar mágico lleno de flores y naturaleza, con un paisaje espectacular en un mirador para relajarte. Sus propietarios don Oscar y Olga e hijos son seres humanos maravillosos que transmiten una energía muy bonita.",
+      "oscarv": "Excelente experiencia, un lugar maravilloso, los propietarios hacen que la estadía sea aún más especial, sin duda alguna lo recomiendo y espero volver muy pronto.",
+      "juanpablo": "Una muy bella e inolvidable experiencia con la familia y lo mejor son pet friendly.",
+      "laura": "La experiencia es renovadora, reflexiva y permite encontrar un espacio y anfitriones maravillosos.",
+      "mariaangelica": "Tuvimos la oportunidad de disfrutar de la Semana Santa en familia en el Valle de Tenza... definitivamente lo mejor que nos pudo suceder fue haber contado con la compañía, asesoría y profesionalismo del Señor Oscar Martín Roa.",
+      "ed": "Excelente lugar para vivir una experiencia única de conexión con la naturaleza y del propósito de ser humano en este planeta. Hermosos paisajes, actividades de esparcimiento familiar."
+    }
+  },
+  "plansTeaser": {
+    "heading": "Nuestros Planes",
+    "cta": "Ver todos los planes",
+    "items": {
+      "tesoros-del-valle-de-tenza": { "title": "Tesoros del Valle de Tenza", "duration": "3 días 2 noches", "badge": "MÁS COMPLETO" },
+      "conoce-y-descansa-en-macanal": { "title": "Conoce y descansa en Macanal", "duration": "2 días 1 noche", "badge": "MÁS POPULAR" },
+      "hollywood-boyacense": { "title": "Conoce el Hollywood Boyacense", "duration": "1 día", "badge": "IDEAL PARA EMPEZAR" }
+    }
+  },
+  "stationsTeaser": {
+    "heading": "Las 7 Estaciones",
+    "cta": "Explora todas las estaciones",
+    "items": {
+      "mariposa-89": { "title": "Mariposa 89 Columpio", "desc": "Símbolo de libertad y el infinito de la vida" },
+      "piramide": { "title": "Pirámide de los Teguas", "desc": "Un tributo a la sabiduría ancestral indígena" },
+      "cuatro-elementos": { "title": "Los Cuatro Elementos", "desc": "Agua, Tierra, Aire y Fuego: experiencia sensorial" },
+      "luna-360": { "title": "Luna 360°", "desc": "Estructura inmersiva que gira contigo" }
+    }
+  },
+  "ctaReserva": {
+    "title": "Reserva tu experiencia",
+    "subtitle": "Cupos limitados — experiencia exclusiva con reserva previa",
+    "button": "Escribir por WhatsApp"
+  },
+  "galleryPreview": {
+    "heading": "Momentos en Earth Park",
+    "showMore": "Ver galería completa",
+    "showLess": "Ver menos"
+  },
+  "about": {
+    "heroTitle": "Bienvenidos a Earth Park",
+    "heroSubtitle": "Este no es solo un parque, es un llamado a la conciencia",
+    "intro": "Te damos la bienvenida a un espacio donde la vida natural es la protagonista, y tú eres parte de su historia. Ven a sentir, pensar y actuar por un planeta que nos lo da todo",
+    "quienesHeading": "¿Quiénes somos?",
+    "quienesP1": "Somos una familia colombiana que decidió rendir homenaje al planeta Tierra, creando un espacio vivo para honrarla, protegerla y compartir su belleza con todos.",
+    "quienesP2": "Nuestro sueño es construir un refugio sagrado para la conservación de la flora y fauna de nuestro territorio. Un lugar donde cada visitante —niños, jóvenes, adultos y abuelos— pueda reconectar con la naturaleza, despertar conciencia y encontrar el equilibrio entre el cuidado del planeta y el cuidado de sí mismo.",
+    "quotePre": "\"Aquí, la",
+    "quoteHighlight": "Tierrita",
+    "quotePost": "nos enseña que protegerla es también proteger nuestra propia existencia.\"",
+    "closing": "🌎 Porque cuidar el planeta también puede ser emocionante.",
+    "closingCta": "Vive la experiencia"
+  },
+  "plans": {
+    "heading": "Planes Turísticos",
+    "subtitle": "Escoge la experiencia que más te inspire",
+    "includesLabel": "Incluye",
+    "excludesLabel": "No incluye",
+    "reserveButton": "Reservar por WhatsApp",
+    "institutionalButton": "Cotizar para mi institución",
+    "items": {
+      "tesoros-del-valle-de-tenza": {
+        "title": "Tesoros del Valle de Tenza",
+        "duration": "3 días - 2 noches",
+        "badge": "MÁS COMPLETO",
+        "description": "Un viaje que trasciende lo turístico… para vivir, aprender y conectar con la esencia del campo. Este plan está diseñado para quienes buscan una experiencia auténtica: sumergirse en las tradiciones, compartir con la comunidad campesina y descubrir los verdaderos tesoros culturales y naturales que resguarda el Valle de Tenza.",
+        "includes": [
+          "Talleres tradicionales: molienda manual de caña, preparación de chicharrones de cuajada, cestería artesanal",
+          "Visita a casa campesina y aprisco",
+          "Recorrido por 4 miradores: Mano del Minero, Hollywood boyacense, Don Isaías, El Cristo",
+          "Paseo en lancha entre montañas y cascadas en el Embalse La Esmeralda",
+          "Alimentación completa: 3 desayunos, 3 almuerzos, 2 cenas, 2 refrigerios",
+          "Alojamiento: 2 noches en habitación múltiple",
+          "Acompañamiento local (guianza con sentido humano)",
+          "Seguro turístico",
+          "Helado local, almuerzo típico, recorrido por Sutatenza/Somondoco/Macanal"
+        ],
+        "excludes": "transporte y guía"
+      },
+      "conoce-y-descansa-en-macanal": {
+        "title": "Conoce y descansa en Macanal",
+        "duration": "2 días - 1 noche",
+        "badge": "MÁS POPULAR",
+        "description": "Vive una escapada inolvidable en el corazón del Valle de Tenza. Navega por las tranquilas aguas del embalse La Esmeralda, contempla las imponentes vistas desde los miradores más emblemáticos de Macanal y saborea los sabores auténticos de la región.",
+        "includes": [
+          "2 desayunos (1 por día)",
+          "Tour en lancha",
+          "Entrada al parque Earth Park",
+          "Visita al Mirador del Cielo y al Mirador \"Mano del Minero\"",
+          "Almuerzo local",
+          "Visita a la Cascada La 70",
+          "Alojamiento en Earth Park o aliados (*sujeto a elección y disponibilidad)",
+          "Caminata guiada a Casa Campesina y refrigerio",
+          "Seguro turístico"
+        ],
+        "excludes": "transporte y guía"
+      },
+      "hollywood-boyacense": {
+        "title": "Conoce el Hollywood Boyacense",
+        "duration": "1 día",
+        "badge": "IDEAL PARA EMPEZAR",
+        "description": "Navega las serenas aguas del embalse La Esmeralda, contempla las vistas imponentes desde los miradores más emblemáticos de Macanal y deléitate con la gastronomía típica preparada por manos locales. Todo en un solo día.",
+        "includes": [
+          "Desayuno",
+          "Tour en lancha",
+          "Entrada al parque Earth Park",
+          "Visita al Mirador del Cielo",
+          "Postre tradicional del valle",
+          "Almuerzo local",
+          "Visita a la Cascada La 70",
+          "Seguro turístico"
+        ],
+        "excludes": "transporte y guía"
+      },
+      "vive-earth-park": {
+        "title": "Vive Earth Park",
+        "description": "Disfruta de un acceso exclusivo al parque Earth Park, con una experiencia sensorial única que te conectará con la naturaleza.",
+        "includes": [
+          "Entrada al parque Earth Park",
+          "Experiencia sensorial con guía",
+          "Souvenir",
+          "Refrigerio",
+          "Seguro turístico"
+        ],
+        "excludes": "transporte"
+      },
+      "raices-y-tradicion": {
+        "title": "Raíces y Tradición del Valle de Tenza",
+        "description": "Vive una experiencia auténtica guiada por las manos y saberes de la gente local. Conocerás la tradición de la cestería en un taller artesanal, con un helado típico y almuerzo casero, mientras exploras Sutatenza, Somondoco y/o Macanal.",
+        "includes": [
+          "Taller de cestería",
+          "Helado local",
+          "Almuerzo típico",
+          "Recorrido por los pueblos de Sutatenza, Somondoco y/o Macanal",
+          "Seguro turístico"
+        ],
+        "excludes": "transporte y guía"
+      },
+      "deja-tu-huella": {
+        "title": "Deja tu huella",
+        "description": "¿Te imaginas disfrutar de un café artesanal, rodeado de naturaleza, mientras pintas tu propia obra de arte? Una actividad para todas las edades donde podrás relajarte, crear y reconectar contigo mismo y con tu entorno.",
+        "includes": [
+          "Una bebida artesanal (café o infusión de hierbas del parque)",
+          "1 figura de cerámica a elegir",
+          "5 pinturas acrílicas de colores variados",
+          "Uso de pinceles y materiales necesarios",
+          "Acompañamiento de guía artístico",
+          "Entrada al parque Earth Park",
+          "Tiempo libre para exposición y fotos con tu creación",
+          "Seguro turístico"
+        ],
+        "excludes": "transporte"
+      },
+      "plan-institucional": {
+        "title": "Plan Institucional — Universidades y Centros Educativos",
+        "description": "Diseñado para universidades, instituciones técnicas y centros educativos que buscan una experiencia formativa fuera del aula. Hemos recibido grupos de la Universidad Pedagógica Nacional (UPN), el SENA y otras instituciones, adaptando cada visita a los objetivos académicos del grupo — desde educación ambiental hasta bienestar y trabajo en equipo. Cada plan institucional se cotiza a la medida según el número de estudiantes, duración y objetivos pedagógicos."
+      }
+    }
+  },
+  "stationsPage": {
+    "heading": "Las 7 Estaciones",
+    "subtitle": "Cada rincón de Earth Park cuenta una historia única",
+    "items": {
+      "piramide": { "title": "Pirámide de los Teguas", "desc": "Un tributo a la sabiduría ancestral indígena" },
+      "mariposa-89": { "title": "Mariposa 89 Columpio", "desc": "Símbolo de libertad y el infinito de la vida" },
+      "cuatro-elementos": { "title": "Los Cuatro Elementos", "desc": "Agua, Tierra, Aire y Fuego: experiencia sensorial" },
+      "rover-lunar": { "title": "Rover Lunar", "desc": "Viaja al futuro sin salir de la Tierra" },
+      "luna-360": { "title": "Luna 360°", "desc": "Estructura inmersiva que gira contigo" },
+      "vivero-cafe": { "title": "Vivero & Café", "desc": "Gastronomía local al aire libre, rodeada de plantas, cactus y suculentas" },
+      "galeria-arte": { "title": "Galería de Arte", "desc": "En Earth Park los residuos los transformamos en arte." }
+    }
+  },
+  "lodging": {
+    "heading": "Hospedaje",
+    "subtitle": "Cinco habitaciones, cinco formas de conectar con la naturaleza",
+    "detailsLabel": "Detalles",
+    "statusAvailable": "Disponible",
+    "statusComingSoon": "Próximamente",
+    "rooms": {
+      "mariposa": {
+        "name": "Habitación Mariposa",
+        "concept": "El vuelo de la transformación. Ligereza, color y el asombro de ver la vida cambiar de forma ante tus ojos.",
+        "amenities": [
+          "Capacidad configurable: de 1 a 2 camas dobles + 1 cama sencilla",
+          "Agua caliente en la ducha",
+          "Toallas incluidas para el total de huéspedes de la habitación",
+          "Balcón/terraza propia con juegos de mesa"
+        ]
+      },
+      "ancestros": {
+        "name": "Habitación Los Ancestros",
+        "concept": "Raíces profundas, memoria viva. El peso cálido de la herencia campesina en cada rincón."
+      },
+      "colibri": {
+        "name": "Habitación Colibrí",
+        "concept": "Energía pura en movimiento. Color, velocidad y la alegría de estar vivo.",
+        "designNote": "Acentos turquesa/magenta, formas orgánicas, mucha luz natural."
+      },
+      "orquidea": {
+        "name": "Habitación Orquídea",
+        "concept": "Elegancia silenciosa. La delicadeza que florece cuando se le da tiempo y cuidado.",
+        "designNote": "Tonos lila/blanco suave, iluminación cálida y tenue."
+      },
+      "frailejon": {
+        "name": "Habitación Frailejón",
+        "concept": "El guardián silencioso del agua. Paciencia, protección, y la certeza de que lo esencial crece despacio.",
+        "designNote": "Verde-plata suave, texturas aterciopeladas, luz difusa."
+      }
+    }
+  },
+  "gastronomy": {
+    "heading": "Gastronomía",
+    "subtitle": "Sabores locales que acompañan cada momento del día en Earth Park",
+    "breakfastHeading": "Desayuno",
+    "breakfastHours": "7:00 AM – 9:00 AM",
+    "dinnerHeading": "Cena",
+    "dinnerHours": "7:00 PM – 9:00 PM",
+    "otherFlavorsHeading": "Otros sabores de Earth Park",
+    "featuredBadge": "Especialidad de la casa",
+    "dishes": {
+      "caldo": {
+        "name": "Caldo de Costilla Earth Park",
+        "description": "Un caldo de costilla de res con papa criolla, arveja verde y cilantro fresco, preparado desde las 6:00 de la mañana para recibirte con el primer aroma del día. El único desayuno que se sirve así, pensado para llenarte de energía antes de salir a explorar.",
+        "side": "Bebida caliente (chocolate Colanta o aromática de hierbas), arepa dorada en budare y fruta de temporada."
+      },
+      "arepa": {
+        "name": "Arepa con Queso y Mantequilla",
+        "description": "Arepa de maíz cocida a fuego lento en budare, servida caliente con queso campesino derritiéndose y mantequilla artesanal. Un clásico sencillo hecho con calma.",
+        "side": "Tinto o aromática."
+      },
+      "huevos": {
+        "name": "Huevos al Gusto",
+        "description": "Revueltos, fritos o pericos con tomate y cebolla cabezona — preparados al momento en que los pides, exactamente como te gustan.",
+        "side": "Arepa y bebida caliente."
+      },
+      "hamburguesa": {
+        "name": "Hamburguesa Earth Park",
+        "description": "Nuestra hamburguesa insignia: carne especialidad de la casa a la plancha, huevo, lechuga fresca, tomate, tocineta crocante, queso derretido y jamón, todo en pan tostado. Acompañada de papa frita o en cascos. Una experiencia completa para cerrar el día."
+      },
+      "pechuga": {
+        "name": "Pechuga a la Plancha",
+        "description": "Pechuga marinada por 30 minutos en limón, ajo y especias, cocida a la plancha hasta el punto justo. Acompañada de papa frita o en cascos — ligera, jugosa y llena de sabor."
+      },
+      "cenaValle": {
+        "name": "Cena del Valle",
+        "description": "El plato del chef, distinto cada temporada: carnes al caldero, mazamorra chiquita o la proteína del día, siempre con ingredientes locales. Pregunta por la opción disponible al hacer tu check-in — cada visita puede traer una sorpresa distinta."
+      }
+    },
+    "otherFlavors": {
+      "helados": { "title": "Helados Artesanales del Valle" }
+    }
+  },
+  "gallery": {
+    "heading": "Galería de Arte",
+    "subtitle": "En Earth Park los residuos los transformamos en arte.",
+    "priceOnRequest": "Precio disponible al consultar",
+    "buyButton": "Comprar por WhatsApp"
+  },
+  "contact": {
+    "heading": "Contacto",
+    "subtitle": "Escríbenos, con gusto te ayudamos a planear tu visita",
+    "emailLabel": "Email",
+    "phoneLabel": "Teléfono",
+    "howToGetThere": "¿Cómo llegar?",
+    "howToGetThereSubtitle": "Te esperamos en el corazón de Boyacá",
+    "addressLabel": "Dirección",
+    "addressLine1": "Vereda El Dátil, Macanal, Boyacá",
+    "addressLine2": "Km 18.5 vía Guateque–Santa María",
+    "fromBogota": "Desde Bogotá",
+    "fromBogotaVia": "Vía Chocontá o La Calera",
+    "fromTunja": "Desde Tunja",
+    "fromTunjaVia": "Vía Ramiriquí",
+    "hoursLabel": "Horarios",
+    "openDays": "Abierto jueves, viernes, sábado, domingo y festivos.",
+    "closedDays": "Cerrado lunes, martes y miércoles.",
+    "parkHoursLabel": "Parque:",
+    "parkHoursValue": "Jue–Dom y lunes festivos · 9:00 am – 9:00 pm",
+    "reservationsWeekdayLabel": "Reservas L–V:",
+    "reservationsWeekdayValue": "7:00 am – 5:00 pm",
+    "reservationsSaturdayLabel": "Reservas Sáb:",
+    "reservationsSaturdayValue": "8:00 am – 12:00 pm",
+    "closedSundayLabel": "Dom y festivos:",
+    "closedSundayValue": "Cerrado (sin reservas)",
+    "parkingText": "Parqueadero incluido con tu alojamiento",
+    "petFriendlyText": "Pet Friendly",
+    "minorsText": "Menores de 12",
+    "minorsValue": "Con adulto",
+    "reviewsLink": "Ver reseñas en Google Maps",
+    "testimonialsHeading": "Lo que dicen de nosotros"
+  },
+  "footer": {
+    "tagline": "Un refugio sagrado para la conservación de la flora y fauna del territorio colombiano. Macanal, Boyacá.",
+    "navHeading": "Navegación",
+    "contactHeading": "Contacto",
+    "copyright": "© 2025 Earth Park. Todos los derechos reservados."
   }
 }

@@ -1,85 +1,51 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { PageHeaderBand } from '../components/ui/PageHeaderBand'
 import { Modal } from '../components/ui/Modal'
 import { asset } from '../lib/asset'
 
-interface Dish {
-  name: string
+interface DishMeta {
+  id: string
   emoji: string
-  description: string
-  side?: string
   featured?: boolean
   image: string
 }
 
+interface DishText {
+  name: string
+  description: string
+  side?: string
+}
+
+type Dish = DishMeta & DishText
+
 // PLACEHOLDER: sin fotos reales de los platos aún — swap por fotografía real de Earth Park
-const breakfast: Dish[] = [
-  {
-    name: 'Caldo de Costilla Earth Park',
-    emoji: '🍲',
-    featured: true,
-    description:
-      'Un caldo de costilla de res con papa criolla, arveja verde y cilantro fresco, preparado desde las 6:00 de la mañana para recibirte con el primer aroma del día. El único desayuno que se sirve así, pensado para llenarte de energía antes de salir a explorar.',
-    side: 'Bebida caliente (chocolate Colanta o aromática de hierbas), arepa dorada en budare y fruta de temporada.',
-    image: 'https://picsum.photos/seed/earthpark-food-caldo/700/560',
-  },
-  {
-    name: 'Arepa con Queso y Mantequilla',
-    emoji: '🫓',
-    description:
-      'Arepa de maíz cocida a fuego lento en budare, servida caliente con queso campesino derritiéndose y mantequilla artesanal. Un clásico sencillo hecho con calma.',
-    side: 'Tinto o aromática.',
-    image: 'https://picsum.photos/seed/earthpark-food-arepa/700/560',
-  },
-  {
-    name: 'Huevos al Gusto',
-    emoji: '🍳',
-    description:
-      'Revueltos, fritos o pericos con tomate y cebolla cabezona — preparados al momento en que los pides, exactamente como te gustan.',
-    side: 'Arepa y bebida caliente.',
-    image: 'https://picsum.photos/seed/earthpark-food-huevos/700/560',
-  },
+const breakfastMetas: DishMeta[] = [
+  { id: 'caldo', emoji: '🍲', featured: true, image: 'https://picsum.photos/seed/earthpark-food-caldo/700/560' },
+  { id: 'arepa', emoji: '🫓', image: 'https://picsum.photos/seed/earthpark-food-arepa/700/560' },
+  { id: 'huevos', emoji: '🍳', image: 'https://picsum.photos/seed/earthpark-food-huevos/700/560' },
 ]
 
-const dinner: Dish[] = [
-  {
-    name: 'Hamburguesa Earth Park',
-    emoji: '🍔',
-    featured: true,
-    description:
-      'Nuestra hamburguesa insignia: carne especialidad de la casa a la plancha, huevo, lechuga fresca, tomate, tocineta crocante, queso derretido y jamón, todo en pan tostado. Acompañada de papa frita o en cascos. Una experiencia completa para cerrar el día.',
-    image: asset('/images/gastronomia/gastronomia-hamburguesa-earth-park.jpg'),
-  },
-  {
-    name: 'Pechuga a la Plancha',
-    emoji: '🍗',
-    description:
-      'Pechuga marinada por 30 minutos en limón, ajo y especias, cocida a la plancha hasta el punto justo. Acompañada de papa frita o en cascos — ligera, jugosa y llena de sabor.',
-    image: 'https://picsum.photos/seed/earthpark-food-pechuga/700/560',
-  },
-  {
-    name: 'Cena del Valle',
-    emoji: '🍽️',
-    description:
-      'El plato del chef, distinto cada temporada: carnes al caldero, mazamorra chiquita o la proteína del día, siempre con ingredientes locales. Pregunta por la opción disponible al hacer tu check-in — cada visita puede traer una sorpresa distinta.',
-    image: 'https://picsum.photos/seed/earthpark-food-valle/700/560',
-  },
+const dinnerMetas: DishMeta[] = [
+  { id: 'hamburguesa', emoji: '🍔', featured: true, image: asset('/images/gastronomia/gastronomia-hamburguesa-earth-park.jpg') },
+  { id: 'pechuga', emoji: '🍗', image: 'https://picsum.photos/seed/earthpark-food-pechuga/700/560' },
+  { id: 'cenaValle', emoji: '🍽️', image: 'https://picsum.photos/seed/earthpark-food-valle/700/560' },
 ]
 
 // Galería extensible: agregar más fotos aquí a medida que estén disponibles
-const otherFlavors: { image: string; alt: string; title: string }[] = [
-  { image: asset('/images/gastronomia/gastronomia-otros-helados.jpeg'), alt: 'Helados artesanales Earth Park', title: 'Helados Artesanales del Valle' },
+const otherFlavorMetas = [
+  { id: 'helados', image: asset('/images/gastronomia/gastronomia-otros-helados.jpeg') },
 ]
 
-function DishModalContent({ dish }: { dish: Dish }) {
+function DishModalContent({ dish, featuredBadge }: { dish: Dish; featuredBadge: string }) {
   return (
     <div>
       <div className="relative h-64 sm:h-80">
         <img src={dish.image} alt={dish.name} loading="lazy" className="w-full h-full object-cover" />
         {dish.featured && (
           <span className="absolute top-4 left-4 bg-dorado text-carbon font-inter text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">
-            Especialidad de la casa
+            {featuredBadge}
           </span>
         )}
       </div>
@@ -99,7 +65,7 @@ function DishModalContent({ dish }: { dish: Dish }) {
   )
 }
 
-function DishCard({ dish, i, dark, onSelect }: { dish: Dish; i: number; dark?: boolean; onSelect: (dish: Dish) => void }) {
+function DishCard({ dish, i, dark, onSelect, featuredBadge }: { dish: Dish; i: number; dark?: boolean; onSelect: (dish: Dish) => void; featuredBadge: string }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -123,7 +89,7 @@ function DishCard({ dish, i, dark, onSelect }: { dish: Dish; i: number; dark?: b
         </span>
         {dish.featured && (
           <span className="absolute top-4 right-4 bg-dorado text-carbon font-inter text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">
-            Especialidad de la casa
+            {featuredBadge}
           </span>
         )}
       </div>
@@ -138,13 +104,20 @@ function DishCard({ dish, i, dark, onSelect }: { dish: Dish; i: number; dark?: b
 }
 
 export function Gastronomy() {
+  const { t } = useTranslation()
+  const dishTexts = t('gastronomy.dishes', { returnObjects: true }) as Record<string, DishText>
+  const flavorTexts = t('gastronomy.otherFlavors', { returnObjects: true }) as Record<string, { title: string }>
+  const breakfast: Dish[] = breakfastMetas.map((m) => ({ ...m, ...dishTexts[m.id] }))
+  const dinner: Dish[] = dinnerMetas.map((m) => ({ ...m, ...dishTexts[m.id] }))
+  const otherFlavors = otherFlavorMetas.map((m) => ({ ...m, title: flavorTexts[m.id].title }))
+  const featuredBadge = t('gastronomy.featuredBadge')
   const [selectedDish, setSelectedDish] = useState<Dish | null>(null)
 
   return (
     <div className="min-h-screen">
       <PageHeaderBand
-        title="Gastronomía"
-        subtitle="Sabores locales que acompañan cada momento del día en Earth Park"
+        title={t('gastronomy.heading')}
+        subtitle={t('gastronomy.subtitle')}
       />
 
       {/* Desayuno — tono cálido, amanecer */}
@@ -157,15 +130,15 @@ export function Gastronomy() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="text-center mb-12"
           >
-            <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema mb-2">Desayuno</h2>
+            <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema mb-2">{t('gastronomy.breakfastHeading')}</h2>
             <p className="font-inter text-terracota dark:text-dorado text-sm uppercase tracking-wide">
-              7:00 AM – 9:00 AM
+              {t('gastronomy.breakfastHours')}
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {breakfast.map((dish, i) => (
-              <DishCard key={dish.name} dish={dish} i={i} onSelect={setSelectedDish} />
+              <DishCard key={dish.id} dish={dish} i={i} onSelect={setSelectedDish} featuredBadge={featuredBadge} />
             ))}
           </div>
         </div>
@@ -184,13 +157,13 @@ export function Gastronomy() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="text-center mb-12"
           >
-            <h2 className="font-fraunces text-4xl md:text-5xl text-crema mb-2">Cena</h2>
-            <p className="font-inter text-dorado text-sm uppercase tracking-wide">7:00 PM – 9:00 PM</p>
+            <h2 className="font-fraunces text-4xl md:text-5xl text-crema mb-2">{t('gastronomy.dinnerHeading')}</h2>
+            <p className="font-inter text-dorado text-sm uppercase tracking-wide">{t('gastronomy.dinnerHours')}</p>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {dinner.map((dish, i) => (
-              <DishCard key={dish.name} dish={dish} i={i} dark onSelect={setSelectedDish} />
+              <DishCard key={dish.id} dish={dish} i={i} dark onSelect={setSelectedDish} featuredBadge={featuredBadge} />
             ))}
           </div>
         </div>
@@ -206,20 +179,20 @@ export function Gastronomy() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema text-center mb-12"
           >
-            Otros sabores de Earth Park
+            {t('gastronomy.otherFlavorsHeading')}
           </motion.h2>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {otherFlavors.map((item, i) => (
               <motion.div
-                key={item.image}
+                key={item.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ delay: i * 0.06, duration: 0.5, ease: 'easeOut' }}
                 className="relative aspect-square rounded-2xl overflow-hidden"
               >
-                <img src={item.image} alt={item.alt} loading="lazy" className="w-full h-full object-cover" />
+                <img src={item.image} alt={item.title} loading="lazy" className="w-full h-full object-cover" />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-carbon/80 to-transparent px-3 pt-8 pb-3">
                   <p className="font-inter text-crema text-sm font-semibold leading-tight">{item.title}</p>
                 </div>
@@ -230,7 +203,7 @@ export function Gastronomy() {
       </section>
 
       <Modal open={selectedDish !== null} onClose={() => setSelectedDish(null)}>
-        {selectedDish && <DishModalContent dish={selectedDish} />}
+        {selectedDish && <DishModalContent dish={selectedDish} featuredBadge={featuredBadge} />}
       </Modal>
     </div>
   )

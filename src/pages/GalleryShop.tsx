@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion'
 import { MessageCircle } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { PageHeaderBand } from '../components/ui/PageHeaderBand'
 import { Button } from '../components/ui/Button'
 import { asset } from '../lib/asset'
 
-const WHATSAPP_NUMBER = '573233195919'
+const WHATSAPP_NUMBER = '573228697438'
 
 interface ArtPiece {
   name: string
@@ -21,11 +22,13 @@ const artPieces: ArtPiece[] = [
 ]
 
 export function GalleryShop() {
+  const { t } = useTranslation()
+
   return (
     <div className="min-h-screen bg-crema dark:bg-bosque-deep">
       <PageHeaderBand
-        title="Galería de Arte"
-        subtitle="En Earth Park los residuos los transformamos en arte."
+        title={t('gallery.heading')}
+        subtitle={t('gallery.subtitle')}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -49,12 +52,12 @@ export function GalleryShop() {
                   {piece.price ? (
                     <p className="font-fraunces text-2xl text-terracota dark:text-dorado mb-4">{piece.price}</p>
                   ) : (
-                    <p className="font-inter text-carbon/40 dark:text-crema/40 text-xs italic mb-4">Precio disponible al consultar</p>
+                    <p className="font-inter text-carbon/40 dark:text-crema/40 text-xs italic mb-4">{t('gallery.priceOnRequest')}</p>
                   )}
                   <a href={waHref} target="_blank" rel="noopener noreferrer" className="block w-fit">
                     <Button variant="whatsapp" size="sm">
                       <MessageCircle size={16} />
-                      Comprar por WhatsApp
+                      {t('gallery.buyButton')}
                     </Button>
                   </a>
                 </div>

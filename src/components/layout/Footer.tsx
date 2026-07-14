@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Phone, Mail } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { asset } from '../../lib/asset'
 
 function IconInstagram() {
@@ -37,15 +38,16 @@ function IconTikTok() {
 }
 
 const navLinks = [
-  { label: 'Inicio', to: '/' },
-  { label: 'Planes Turísticos', to: '/planes-turisticos' },
-  { label: 'Planea tu Visita', to: '/planea-tu-visita' },
-  { label: 'Estaciones', to: '/estaciones' },
-  { label: 'Galería Arte', to: '/galeria-arte' },
-  { label: 'Contacto', to: '/contacto' },
+  { key: 'nav.home', to: '/' },
+  { key: 'nav.plans', to: '/planes-turisticos' },
+  { key: 'nav.stations', to: '/estaciones' },
+  { key: 'nav.gallery', to: '/galeria-arte' },
+  { key: 'nav.contact', to: '/contacto' },
 ]
 
 export function Footer() {
+  const { t } = useTranslation()
+
   return (
     <footer className="bg-bosque dark:bg-bosque-deep border-t border-musgo/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -57,7 +59,7 @@ export function Footer() {
               <span className="font-fraunces text-xl text-crema">Earth Park</span>
             </div>
             <p className="font-inter text-crema/60 text-sm leading-relaxed">
-              Un refugio sagrado para la conservación de la flora y fauna del territorio colombiano. Macanal, Boyacá.
+              {t('footer.tagline')}
             </p>
             {/* Social icons */}
             <div className="flex items-center gap-4 mt-6">
@@ -82,15 +84,15 @@ export function Footer() {
 
           {/* Col 2: Nav links */}
           <div>
-            <h4 className="font-fraunces text-crema text-lg mb-4">Navegación</h4>
+            <h4 className="font-fraunces text-crema text-lg mb-4">{t('footer.navHeading')}</h4>
             <ul className="space-y-2">
-              {navLinks.map(({ label, to }) => (
+              {navLinks.map(({ key, to }) => (
                 <li key={to}>
                   <Link
                     to={to}
                     className="font-inter text-crema/60 hover:text-crema text-sm transition-colors"
                   >
-                    {label}
+                    {t(key)}
                   </Link>
                 </li>
               ))}
@@ -99,7 +101,7 @@ export function Footer() {
 
           {/* Col 3: Contact */}
           <div>
-            <h4 className="font-fraunces text-crema text-lg mb-4">Contacto</h4>
+            <h4 className="font-fraunces text-crema text-lg mb-4">{t('footer.contactHeading')}</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-crema/60 text-sm">
                 <Phone size={16} className="shrink-0 text-dorado" />
@@ -129,7 +131,7 @@ export function Footer() {
 
         <div className="border-t border-crema/10 mt-10 pt-6 text-center">
           <p className="font-inter text-crema/40 text-sm">
-            © 2025 Earth Park. Todos los derechos reservados.
+            {t('footer.copyright')}
           </p>
         </div>
       </div>

@@ -1,64 +1,28 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react'
 
 export interface Testimonial {
+  id: string
   name: string
   rating: number
-  quote: string
   localGuide?: boolean
 }
 
-// Reseñas reales de Google Maps
+// Reseñas reales de Google Maps — texto en src/i18n/es.json y en.json bajo testimonials.items
 export const testimonials: Testimonial[] = [
-  {
-    name: 'Natalie Bonilla Pesca',
-    rating: 5,
-    quote:
-      'Es un parque temático hermoso con una vista espectacular hacia el embalse, sus bellas flores y plantas atraen unas mariposas muy lindas que también adornan el lugar... Debo resaltar que la amabilidad, carisma y gentileza con la que nos recibieron el señor Oscar Martín Roa y su bonita familia propician una estadía acogedora y muy agradable.',
-  },
-  {
-    name: 'Julio César Pinzón',
-    rating: 5,
-    localGuide: true,
-    quote:
-      'Un lugar mágico lleno de flores y naturaleza, con un paisaje espectacular en un mirador para relajarte. Sus propietarios don Oscar y Olga e hijos son seres humanos maravillosos que transmiten una energía muy bonita.',
-  },
-  {
-    name: 'Oscar Velásquez',
-    rating: 5,
-    localGuide: true,
-    quote:
-      'Excelente experiencia, un lugar maravilloso, los propietarios hacen que la estadía sea aún más especial, sin duda alguna lo recomiendo y espero volver muy pronto.',
-  },
-  {
-    name: 'Juan Pablo Rodríguez',
-    rating: 5,
-    localGuide: true,
-    quote: 'Una muy bella e inolvidable experiencia con la familia y lo mejor son pet friendly.',
-  },
-  {
-    name: 'Laura Natalia Pinilla Barahona',
-    rating: 5,
-    quote: 'La experiencia es renovadora, reflexiva y permite encontrar un espacio y anfitriones maravillosos.',
-  },
-  {
-    name: 'Maria Angelica Silva Rojas',
-    rating: 5,
-    localGuide: true,
-    quote:
-      'Tuvimos la oportunidad de disfrutar de la Semana Santa en familia en el Valle de Tenza... definitivamente lo mejor que nos pudo suceder fue haber contado con la compañía, asesoría y profesionalismo del Señor Oscar Martín Roa.',
-  },
-  {
-    name: 'ed casher',
-    rating: 5,
-    localGuide: true,
-    quote:
-      'Excelente lugar para vivir una experiencia única de conexión con la naturaleza y del propósito de ser humano en este planeta. Hermosos paisajes, actividades de esparcimiento familiar.',
-  },
+  { id: 'natalie', name: 'Natalie Bonilla Pesca', rating: 5 },
+  { id: 'julio', name: 'Julio César Pinzón', rating: 5, localGuide: true },
+  { id: 'oscarv', name: 'Oscar Velásquez', rating: 5, localGuide: true },
+  { id: 'juanpablo', name: 'Juan Pablo Rodríguez', rating: 5, localGuide: true },
+  { id: 'laura', name: 'Laura Natalia Pinilla Barahona', rating: 5 },
+  { id: 'mariaangelica', name: 'Maria Angelica Silva Rojas', rating: 5, localGuide: true },
+  { id: 'ed', name: 'ed casher', rating: 5, localGuide: true },
 ]
 
 export function TestimonialsCarousel({ items }: { items: Testimonial[] }) {
+  const { t } = useTranslation()
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
 
@@ -90,11 +54,11 @@ export function TestimonialsCarousel({ items }: { items: Testimonial[] }) {
               <Star key={i} size={18} className="fill-dorado text-dorado" />
             ))}
           </div>
-          <p className="font-inter text-carbon/80 dark:text-crema/80 leading-relaxed mb-5">"{current.quote}"</p>
+          <p className="font-inter text-carbon/80 dark:text-crema/80 leading-relaxed mb-5">"{t(`testimonials.items.${current.id}`)}"</p>
           <p className="font-fraunces text-bosque dark:text-crema text-lg">{current.name}</p>
           {current.localGuide && (
             <span className="inline-block mt-2 font-inter text-[11px] font-bold uppercase tracking-wide text-musgo dark:text-dorado bg-musgo/10 dark:bg-dorado/10 px-3 py-1 rounded-full">
-              Local Guide
+              {t('testimonials.localGuide')}
             </span>
           )}
         </motion.div>

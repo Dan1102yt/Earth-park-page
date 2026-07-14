@@ -1,13 +1,11 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { TestimonialsCarousel, testimonials } from '../ui/TestimonialsCarousel'
 
-const stats = [
-  { value: '+500', label: 'Visitantes felices' },
-  { value: '7', label: 'Estaciones temáticas' },
-  { value: '6', label: 'Planes disponibles' },
-]
-
 export function SocialProof() {
+  const { t } = useTranslation()
+  const stats = t('socialProof.stats', { returnObjects: true }) as { value: string; label: string }[]
+
   return (
     <section className="py-24 bg-crema dark:bg-bosque-deep">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,7 +16,7 @@ export function SocialProof() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
           <h2 className="font-fraunces text-2xl md:text-3xl text-bosque dark:text-crema text-center mb-10">
-            Lo que dicen de nosotros
+            {t('socialProof.heading')}
           </h2>
 
           <TestimonialsCarousel items={testimonials} />

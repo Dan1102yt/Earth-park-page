@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion'
 import { MessageCircle } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/Button'
 
 export function CTAReserva() {
+  const { t } = useTranslation()
+
   return (
     <section className="py-24 bg-bosque dark:bg-bosque-deep relative overflow-hidden">
       {/* Decorative blobs */}
@@ -17,16 +20,16 @@ export function CTAReserva() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
           <h2 className="font-fraunces text-5xl md:text-6xl text-crema mb-4">
-            Reserva tu experiencia
+            {t('ctaReserva.title')}
           </h2>
           <p className="font-inter text-crema/80 text-xl mb-10">
-            Cupos limitados — experiencia exclusiva con reserva previa
+            {t('ctaReserva.subtitle')}
           </p>
 
-          <a href="https://wa.me/573233195919" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/573228697438" target="_blank" rel="noopener noreferrer">
             <Button variant="whatsapp" size="lg">
               <MessageCircle size={20} />
-              Escribir por WhatsApp
+              {t('ctaReserva.button')}
             </Button>
           </a>
         </motion.div>
