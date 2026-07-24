@@ -50,12 +50,12 @@ export function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
             {navLinks.map(({ key, to }) => (
               <Link
                 key={key}
                 to={to}
-                className={`font-inter text-sm transition-colors duration-200 ${
+                className={`font-inter text-base font-medium transition-colors duration-200 ${
                   location.pathname === to
                     ? 'text-terracota dark:text-dorado'
                     : scrolled
@@ -127,7 +127,7 @@ export function Navbar() {
                 <Link
                   key={key}
                   to={to}
-                  className="font-inter text-carbon/80 hover:text-bosque dark:text-crema/80 dark:hover:text-crema py-3 border-b border-bosque/10 dark:border-crema/10 last:border-0 transition-colors"
+                  className="font-inter text-lg font-medium text-carbon/80 hover:text-bosque dark:text-crema/80 dark:hover:text-crema py-3 border-b border-bosque/10 dark:border-crema/10 last:border-0 transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   {t(key)}

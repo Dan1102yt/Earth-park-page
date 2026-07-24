@@ -6,7 +6,7 @@
     "stations": "Stations",
     "lodging": "Lodging",
     "gastronomy": "Gastronomy",
-    "gallery": "Art Gallery",
+    "gallery": "Souvenirs",
     "contact": "Contact",
     "reserve": "Book Now"
   },
@@ -83,9 +83,7 @@
     "showLess": "Show less"
   },
   "about": {
-    "heroTitle": "Welcome to Earth Park",
-    "heroSubtitle": "This isn't just a park — it's a call to conscience",
-    "intro": "Welcome to a space where natural life takes center stage, and you are part of its story. Come to feel, think, and act for a planet that gives us everything",
+    "intro": "This is a space created for you. So you can reconnect with nature, so your family can live something different, so together we can take care of what has given us the most: the earth.",
     "quienesHeading": "Who we are",
     "quienesP1": "We are a Colombian family who decided to pay tribute to planet Earth by creating a living space to honor it, protect it, and share its beauty with everyone.",
     "quienesP2": "Our dream is to build a sacred refuge for the conservation of our territory's flora and fauna. A place where every visitor — children, young people, adults, and grandparents — can reconnect with nature, awaken awareness, and find the balance between caring for the planet and caring for themselves.",
@@ -96,7 +94,7 @@
     "closingCta": "Live the experience"
   },
   "plans": {
-    "heading": "Tour Plans",
+    "heading": "Choose how you want to experience Earth Park",
     "subtitle": "Choose the experience that inspires you most",
     "includesLabel": "Includes",
     "excludesLabel": "Not included",
@@ -202,7 +200,7 @@
     }
   },
   "stationsPage": {
-    "heading": "The 7 Stations",
+    "heading": "A journey that awakens the senses",
     "subtitle": "Every corner of Earth Park tells a unique story",
     "items": {
       "piramide": { "title": "Pirámide de los Teguas", "desc": "A tribute to ancestral indigenous wisdom" },
@@ -215,7 +213,7 @@
     }
   },
   "lodging": {
-    "heading": "Lodging",
+    "heading": "Your refuge within nature",
     "subtitle": "Five rooms, five ways to connect with nature",
     "detailsLabel": "Details",
     "statusAvailable": "Available",
@@ -253,7 +251,7 @@
     }
   },
   "gastronomy": {
-    "heading": "Gastronomy",
+    "heading": "Flavors born from the land",
     "subtitle": "Local flavors that accompany every moment of the day at Earth Park",
     "breakfastHeading": "Breakfast",
     "breakfastHours": "7:00 AM – 9:00 AM",
@@ -295,13 +293,13 @@
     }
   },
   "gallery": {
-    "heading": "Art Gallery",
+    "heading": "A piece of Earth Park to take home",
     "subtitle": "At Earth Park, we turn waste into art.",
     "priceOnRequest": "Price available on request",
     "buyButton": "Buy via WhatsApp"
   },
   "contact": {
-    "heading": "Contact",
+    "heading": "Let's talk, we want to welcome you",
     "subtitle": "Write to us — we're happy to help you plan your visit",
     "emailLabel": "Email",
     "phoneLabel": "Phone",
