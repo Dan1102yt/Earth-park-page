@@ -26,7 +26,7 @@ export function PlansTeaser() {
   const items = t('plansTeaser.items', { returnObjects: true }) as Record<string, { title: string; duration: string; badge: string }>
 
   return (
-    <section className="py-24 bg-crema dark:bg-bosque-deep">
+    <section className="py-24 bg-crema/90 dark:bg-bosque-deep/90">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema text-center mb-12">{t('plansTeaser.heading')}</h2>
 

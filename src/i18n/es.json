@@ -78,9 +78,15 @@
     "button": "Escribir por WhatsApp"
   },
   "galleryPreview": {
-    "heading": "Momentos en Earth Park",
-    "showMore": "Ver galería completa",
-    "showLess": "Ver menos"
+    "heading": "Momentos que vives en Earth Park",
+    "showMore": "Ver más",
+    "showLess": "Ver menos",
+    "albums": {
+      "naturaleza": "Naturaleza y paisajes",
+      "actividades": "Actividades y aventura",
+      "familia": "Momentos en familia",
+      "earthpark": "Earth Park"
+    }
   },
   "about": {
     "intro": "Este es un espacio creado para ti. Para que reconectes con la naturaleza, para que tu familia viva algo distinto, para que juntos cuidemos lo que más nos ha dado: la tierra.",
@@ -202,6 +208,7 @@
   "stationsPage": {
     "heading": "Un recorrido que despierta los sentidos",
     "subtitle": "Cada rincón de Earth Park cuenta una historia única",
+    "intro": "Este es nuestro recorrido dentro de Earth Park — 7 paradas pensadas para que vivas, sientas y descubras algo distinto en cada una. Te invitamos a hacerlo completo, paso a paso, dejando que cada estación te sorprenda.",
     "items": {
       "piramide": { "title": "Pirámide de los Teguas", "desc": "Un tributo a la sabiduría ancestral indígena" },
       "mariposa-89": { "title": "Mariposa 89 Columpio", "desc": "Símbolo de libertad y el infinito de la vida" },

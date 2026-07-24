@@ -7,7 +7,7 @@ export function SocialProof() {
   const stats = t('socialProof.stats', { returnObjects: true }) as { value: string; label: string }[]
 
   return (
-    <section className="py-24 bg-crema dark:bg-bosque-deep">
+    <section className="py-24 bg-crema/90 dark:bg-bosque-deep/90">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

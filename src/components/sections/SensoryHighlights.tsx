@@ -14,7 +14,7 @@ export function SensoryHighlights() {
   const highlights = (t('sensory.items', { returnObjects: true }) as { title: string; text: string }[]).map((h, i) => ({ ...h, image: images[i] }))
 
   return (
-    <section className="py-24 bg-crema dark:bg-bosque-deep">
+    <section className="py-24 bg-crema/90 dark:bg-bosque-deep/90">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {highlights.map((item, i) => (

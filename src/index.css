@@ -11,3 +11,35 @@
     @apply w-full min-h-screen;
   }
 }
+
+@layer utilities {
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .animate-aurora-a {
+    animation: aurora-a 26s ease-in-out infinite alternate;
+  }
+  .animate-aurora-b {
+    animation: aurora-b 32s ease-in-out infinite alternate;
+  }
+  .animate-aurora-c {
+    animation: aurora-c 22s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes aurora-a {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(60px, 40px) scale(1.15); }
+}
+@keyframes aurora-b {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-50px, 60px) scale(1.1); }
+}
+@keyframes aurora-c {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(40px, -50px) scale(1.2); }
+}

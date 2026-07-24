@@ -78,9 +78,15 @@
     "button": "Message us on WhatsApp"
   },
   "galleryPreview": {
-    "heading": "Moments at Earth Park",
-    "showMore": "See full gallery",
-    "showLess": "Show less"
+    "heading": "Moments you live at Earth Park",
+    "showMore": "See more",
+    "showLess": "Show less",
+    "albums": {
+      "naturaleza": "Nature & landscapes",
+      "actividades": "Activities & adventure",
+      "familia": "Family moments",
+      "earthpark": "Earth Park"
+    }
   },
   "about": {
     "intro": "This is a space created for you. So you can reconnect with nature, so your family can live something different, so together we can take care of what has given us the most: the earth.",
@@ -202,6 +208,7 @@
   "stationsPage": {
     "heading": "A journey that awakens the senses",
     "subtitle": "Every corner of Earth Park tells a unique story",
+    "intro": "This is our journey through Earth Park — 7 stops designed for you to live, feel, and discover something different at each one. We invite you to experience it all, step by step, letting every station surprise you.",
     "items": {
       "piramide": { "title": "Pirámide de los Teguas", "desc": "A tribute to ancestral indigenous wisdom" },
       "mariposa-89": { "title": "Mariposa 89 Swing", "desc": "A symbol of freedom and the infinity of life" },
