@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion'
-import { Mail, Phone, Star, MapPin, Clock, Car, PawPrint, Users } from 'lucide-react'
+import { MessageCircle, Phone, Star, MapPin } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { PageHeaderBand } from '../components/ui/PageHeaderBand'
 import { CTAReserva } from '../components/sections/CTAReserva'
 import { TestimonialsCarousel, testimonials } from '../components/ui/TestimonialsCarousel'
+import { TravelTimesCarousel } from '../components/ui/TravelTimesCarousel'
+import { FaqAccordion } from '../components/ui/FaqAccordion'
 
 const GOOGLE_REVIEWS_URL = 'https://maps.app.goo.gl/tTFDN7FhHJoNBiLG8?g_st=ac'
 
@@ -34,21 +36,29 @@ function TikTokIcon({ size = 22, className = '' }: IconProps) {
   )
 }
 
-const infoCards = [
-  { icon: Mail, labelKey: 'contact.emailLabel', value: 'info@earthpark.com.co', href: 'mailto:info@earthpark.com.co' },
-  { icon: Mail, labelKey: 'contact.emailLabel', value: 'earthparkmacanal@gmail.com', href: 'mailto:earthparkmacanal@gmail.com' },
-  { icon: Phone, labelKey: 'contact.phoneLabel', value: '322 869 7438', href: 'tel:+573228697438' },
-  { icon: Phone, labelKey: 'contact.phoneLabel', value: '323 319 5919', href: 'tel:+573233195919' },
-]
-
 const socials = [
   { icon: InstagramIcon, label: 'Instagram', handle: '@earthpark.co', href: 'https://instagram.com/earthpark.co' },
   { icon: TikTokIcon, label: 'TikTok', handle: '@earthpark.co', href: 'https://tiktok.com/@earthpark.co' },
   { icon: FacebookIcon, label: 'Facebook', handle: 'Earth Park', href: 'https://facebook.com/earthpark' },
 ]
 
+// Orden de preguntas para el accordion de FAQ — el texto vive en i18n bajo contact.faq.<key>
+const faqKeys = [
+  'hours',
+  'parking',
+  'transport',
+  'reserve',
+  'whatToBring',
+  // PENDIENTE CONFIRMAR CON OSCAR antes de publicar: respuesta basada en comentarios de huéspedes, no en política oficial confirmada
+  'petFriendly',
+] as const
+
 export function Contact() {
   const { t } = useTranslation()
+  const faqItems = faqKeys.map((key) => ({
+    q: t(`contact.faq.${key}.q`),
+    a: t(`contact.faq.${key}.a`),
+  }))
 
   return (
     <div className="min-h-screen">
@@ -59,125 +69,37 @@ export function Contact() {
 
       <div className="bg-crema dark:bg-bosque-deep py-20 px-4">
         <div className="max-w-5xl mx-auto">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {infoCards.map((c, i) => (
-              <motion.a
-                key={c.value}
-                href={c.href}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-80px' }}
-                transition={{ delay: i * 0.08, duration: 0.6, ease: 'easeOut' }}
-                className="bg-white dark:bg-bosque-surface rounded-2xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow duration-300"
-              >
-                <c.icon className="mx-auto mb-3 text-terracota dark:text-dorado" size={26} />
-                <p className="font-inter text-carbon/50 dark:text-crema/50 text-xs uppercase tracking-wide mb-1">{t(c.labelKey)}</p>
-                <p className="font-fraunces text-bosque dark:text-crema text-lg break-words">{c.value}</p>
-              </motion.a>
-            ))}
-          </div>
-
+          {/* Tiempos de viaje desde ciudades principales */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="flex justify-center gap-10 mb-20"
+            className="text-center mb-10"
           >
-            {socials.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center gap-2 text-center group"
-              >
-                <s.icon size={26} className="text-terracota dark:text-dorado group-hover:scale-110 transition-transform" />
-                <p className="font-inter text-carbon/60 dark:text-crema/60 text-sm">{s.handle}</p>
-              </a>
-            ))}
-          </motion.div>
-
-          {/* ¿Cómo llegar? — fusionado desde Planea tu Visita */}
-          <div className="text-center mb-12">
             <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema mb-3">{t('contact.howToGetThere')}</h2>
             <p className="font-inter text-carbon/70 dark:text-crema/70 text-lg">{t('contact.howToGetThereSubtitle')}</p>
+          </motion.div>
+
+          <div className="mb-16">
+            <TravelTimesCarousel />
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-6">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
-              className="space-y-8"
-            >
-              <div className="flex gap-4">
-                <MapPin size={24} className="text-terracota dark:text-dorado shrink-0 mt-1" />
-                <div>
-                  <h4 className="font-fraunces text-bosque dark:text-crema text-lg mb-1">{t('contact.addressLabel')}</h4>
-                  <p className="font-inter text-carbon/70 dark:text-crema/70 text-sm leading-relaxed">
-                    {t('contact.addressLine1')}<br />
-                    {t('contact.addressLine2')}
-                  </p>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white dark:bg-bosque-surface rounded-xl p-4 border border-carbon/10 dark:border-crema/10">
-                  <p className="font-inter text-xs text-carbon/50 dark:text-crema/50 mb-1">{t('contact.fromBogota')}</p>
-                  <p className="font-fraunces text-2xl text-terracota dark:text-dorado">2.5 hrs</p>
-                  <p className="font-inter text-xs text-carbon/60 dark:text-crema/60 mt-1">{t('contact.fromBogotaVia')}</p>
-                </div>
-                <div className="bg-white dark:bg-bosque-surface rounded-xl p-4 border border-carbon/10 dark:border-crema/10">
-                  <p className="font-inter text-xs text-carbon/50 dark:text-crema/50 mb-1">{t('contact.fromTunja')}</p>
-                  <p className="font-fraunces text-2xl text-terracota dark:text-dorado">2.5 hrs</p>
-                  <p className="font-inter text-xs text-carbon/60 dark:text-crema/60 mt-1">{t('contact.fromTunjaVia')}</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <Clock size={24} className="text-terracota dark:text-dorado shrink-0 mt-1" />
-                <div>
-                  <h4 className="font-fraunces text-bosque dark:text-crema text-lg mb-2">{t('contact.hoursLabel')}</h4>
-                  <p className="font-inter font-bold text-musgo dark:text-dorado text-sm mb-3 leading-relaxed">
-                    {t('contact.openDays')}<br />
-                    {t('contact.closedDays')}
-                  </p>
-                  <div className="space-y-1 font-inter text-carbon/70 dark:text-crema/70 text-sm">
-                    <p><span className="text-bosque dark:text-crema">{t('contact.parkHoursLabel')}</span> {t('contact.parkHoursValue')}</p>
-                    <p><span className="text-bosque dark:text-crema">{t('contact.reservationsWeekdayLabel')}</span> {t('contact.reservationsWeekdayValue')}</p>
-                    <p><span className="text-bosque dark:text-crema">{t('contact.reservationsSaturdayLabel')}</span> {t('contact.reservationsSaturdayValue')}</p>
-                    <p><span className="text-bosque dark:text-crema">{t('contact.closedSundayLabel')}</span> {t('contact.closedSundayValue')}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-3 gap-3">
-                <div className="bg-white dark:bg-bosque-surface rounded-xl p-3 border border-carbon/10 dark:border-crema/10 text-center">
-                  <Car size={20} className="text-dorado mx-auto mb-2" />
-                  <p className="font-inter text-xs text-carbon/70 dark:text-crema/70 leading-snug">{t('contact.parkingText')}</p>
-                </div>
-                <div className="bg-white dark:bg-bosque-surface rounded-xl p-3 border border-carbon/10 dark:border-crema/10 text-center">
-                  <PawPrint size={20} className="text-musgo mx-auto mb-2" />
-                  <p className="font-inter text-xs text-carbon/70 dark:text-crema/70">{t('contact.petFriendlyText')}</p>
-                  <p className="font-fraunces text-sm text-musgo">✅</p>
-                </div>
-                <div className="bg-white dark:bg-bosque-surface rounded-xl p-3 border border-carbon/10 dark:border-crema/10 text-center">
-                  <Users size={20} className="text-musgo mx-auto mb-2" />
-                  <p className="font-inter text-xs text-carbon/70 dark:text-crema/70">{t('contact.minorsText')}</p>
-                  <p className="font-fraunces text-sm text-musgo">{t('contact.minorsValue')}</p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
-              className="rounded-2xl overflow-hidden border border-carbon/10 dark:border-crema/10 shadow-lg"
-            >
+          {/* Mapa embebido */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="mb-20"
+          >
+            <div className="flex items-center justify-center gap-2 mb-4 text-center">
+              <MapPin size={18} className="text-terracota dark:text-dorado shrink-0" />
+              <p className="font-inter text-carbon/70 dark:text-crema/70 text-sm">
+                {t('contact.addressLine1')} · {t('contact.addressLine2')}
+              </p>
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-carbon/10 dark:border-crema/10 shadow-lg">
               <iframe
                 src="https://www.google.com/maps?q=Earth+Park,+Macanal,+Boyac%C3%A1&output=embed"
                 width="100%"
@@ -188,16 +110,56 @@ export function Contact() {
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Ubicación Earth Park — Macanal, Boyacá"
               />
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
 
+          {/* Preguntas Frecuentes */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
-            className="text-center mt-6"
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="mb-20"
           >
+            <h2 className="font-fraunces text-3xl md:text-4xl text-bosque dark:text-crema text-center mb-10">{t('contact.faqHeading')}</h2>
+            <FaqAccordion items={faqItems} />
+          </motion.div>
+
+          {/* Contacto directo — línea simple, no protagonista */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="text-center pt-10 border-t border-carbon/10 dark:border-crema/10"
+          >
+            <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 mb-8">
+              <a href="https://wa.me/573228697438" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-inter text-carbon/80 dark:text-crema/80 hover:text-terracota dark:hover:text-dorado text-sm transition-colors">
+                <MessageCircle size={18} className="text-terracota dark:text-dorado" /> WhatsApp
+              </a>
+              <a href="tel:+573228697438" className="inline-flex items-center gap-2 font-inter text-carbon/80 dark:text-crema/80 hover:text-terracota dark:hover:text-dorado text-sm transition-colors">
+                <Phone size={18} className="text-terracota dark:text-dorado" /> 322 869 7438
+              </a>
+              <a href="tel:+573233195919" className="inline-flex items-center gap-2 font-inter text-carbon/80 dark:text-crema/80 hover:text-terracota dark:hover:text-dorado text-sm transition-colors">
+                <Phone size={18} className="text-terracota dark:text-dorado" /> 323 319 5919
+              </a>
+            </div>
+
+            <div className="flex justify-center gap-10 mb-6">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center gap-2 text-center group"
+                >
+                  <s.icon size={22} className="text-terracota dark:text-dorado group-hover:scale-110 transition-transform" />
+                  <p className="font-inter text-carbon/60 dark:text-crema/60 text-xs">{s.handle}</p>
+                </a>
+              ))}
+            </div>
+
             <a
               href={GOOGLE_REVIEWS_URL}
               target="_blank"
