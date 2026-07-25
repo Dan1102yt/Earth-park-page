@@ -1,11 +1,11 @@
 import { useRef, type CSSProperties, type PointerEvent, type ReactNode } from 'react'
 
-type GlowColor = 'terracota' | 'dorado'
+type GlowColor = 'yellow' | 'neon'
 
-// Tonos de marca Earth Park en rgb (para usar dentro de rgba() en el gradiente)
+// Degradado amarillo -> verde neón para el spotlight (en rgb, para rgba() en el gradiente)
 const GLOW_RGB: Record<GlowColor, string> = {
-  terracota: '181, 96, 47', // #B5602F
-  dorado: '212, 162, 78', // #D4A24E
+  yellow: '212, 225, 87', // #D4E157
+  neon: '57, 255, 20', // #39FF14
 }
 
 interface GlowCardProps {
@@ -16,7 +16,7 @@ interface GlowCardProps {
 
 // Spotlight que sigue el cursor: una capa de brillo suave sobre el fondo y un anillo
 // de brillo en el borde (recortado con mask-composite), ambos posicionados via --x/--y.
-export function GlowCard({ children, glowColor = 'terracota', className = '' }: GlowCardProps) {
+export function GlowCard({ children, glowColor = 'yellow', className = '' }: GlowCardProps) {
   const ref = useRef<HTMLDivElement>(null)
   const rgb = GLOW_RGB[glowColor]
 

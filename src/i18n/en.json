@@ -23,10 +23,10 @@
     "en": "EN"
   },
   "essence": {
-    "title": "In Macanal, the land holds its own kind of magic — and we want to show it to you.",
-    "scrollHint": "Scroll to discover"
+    "title": "A sacred refuge for the conservation of Colombia's flora and fauna. Macanal, Boyacá."
   },
   "sensory": {
+    "heading": "Everything you can feel here",
     "items": [
       { "title": "Butterflies", "text": "A symbol of freedom and the infinity of life." },
       { "title": "Nature", "text": "A space where natural life takes center stage." },
@@ -65,6 +65,7 @@
   },
   "stationsTeaser": {
     "heading": "The 7 Stations",
+    "intro": "Our 7-stop route through Earth Park",
     "cta": "Explore all the stations",
     "items": {
       "mariposa-89": { "title": "Mariposa 89 Swing", "desc": "A symbol of freedom and the infinity of life" },
@@ -97,7 +98,6 @@
     "quotePre": "\"Here, the",
     "quoteHighlight": "Tierrita",
     "quotePost": "teaches us that protecting it also means protecting our own existence.\"",
-    "closing": "🌎 Because caring for the planet can be exciting too.",
     "closingCta": "Live the experience"
   },
   "plans": {
@@ -330,7 +330,7 @@
   },
   "footer": {
     "tagline": "A sacred refuge for the conservation of Colombia's flora and fauna. Macanal, Boyacá.",
-    "navHeading": "Navigation",
+    "navHeading": "Menu",
     "contactHeading": "Contact",
     "copyright": "© 2025 Earth Park. All rights reserved."
   }

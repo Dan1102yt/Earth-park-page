@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronLeft, ChevronRight, MapPin } from 'lucide-react'
+import { ChevronLeft, ChevronRight, MapPin, Navigation } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 export interface TravelTime {
@@ -23,19 +23,26 @@ export function TravelTimesCarousel() {
   const current = travelTimes[index]
 
   return (
-    <div className="relative max-w-md mx-auto px-10">
+    <div className="relative max-w-2xl mx-auto px-14 sm:px-16">
       <AnimatePresence mode="wait">
         <motion.div
           key={index}
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -12 }}
+          initial={{ opacity: 0, scale: 0.97 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.97 }}
           transition={{ duration: 0.4, ease: 'easeOut' }}
-          className="bg-white dark:bg-bosque-surface rounded-2xl p-8 shadow-sm text-center min-h-[10rem] flex flex-col items-center justify-center"
+          className="bg-white dark:bg-bosque-surface rounded-3xl p-10 sm:p-14 shadow-lg text-center min-h-[18rem] flex flex-col items-center justify-center"
         >
-          <MapPin size={22} className="mx-auto mb-3 text-terracota dark:text-dorado" />
-          <p className="font-fraunces text-2xl text-bosque dark:text-crema mb-2">{current.city}</p>
-          <p className="font-inter text-carbon/70 dark:text-crema/70 text-sm">{current.distance} · {current.time}</p>
+          <Navigation size={40} className="mx-auto mb-5 text-terracota dark:text-dorado" />
+          <p className="font-fraunces text-4xl sm:text-5xl text-bosque dark:text-crema mb-4">{current.city}</p>
+          <p className="font-inter text-carbon/70 dark:text-crema/70 text-xl flex items-center justify-center gap-2 flex-wrap">
+            <span className="font-bold text-terracota dark:text-dorado">{current.distance}</span>
+            <span className="text-carbon/30 dark:text-crema/30">·</span>
+            <span className="inline-flex items-center gap-1.5">
+              <MapPin size={18} />
+              {current.time}
+            </span>
+          </p>
         </motion.div>
       </AnimatePresence>
 
@@ -43,27 +50,27 @@ export function TravelTimesCarousel() {
         type="button"
         onClick={() => setIndex((i) => (i - 1 + travelTimes.length) % travelTimes.length)}
         aria-label={t('contact.prevCity')}
-        className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-bosque-surface/90 shadow rounded-full p-1.5 text-bosque/60 dark:text-crema/60 hover:text-terracota dark:hover:text-dorado transition-colors"
+        className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-bosque-surface/90 shadow rounded-full p-3 text-bosque/60 dark:text-crema/60 hover:text-terracota dark:hover:text-dorado transition-colors"
       >
-        <ChevronLeft size={20} />
+        <ChevronLeft size={26} />
       </button>
       <button
         type="button"
         onClick={() => setIndex((i) => (i + 1) % travelTimes.length)}
         aria-label={t('contact.nextCity')}
-        className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-bosque-surface/90 shadow rounded-full p-1.5 text-bosque/60 dark:text-crema/60 hover:text-terracota dark:hover:text-dorado transition-colors"
+        className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-bosque-surface/90 shadow rounded-full p-3 text-bosque/60 dark:text-crema/60 hover:text-terracota dark:hover:text-dorado transition-colors"
       >
-        <ChevronRight size={20} />
+        <ChevronRight size={26} />
       </button>
 
-      <div className="flex justify-center gap-2 mt-6">
+      <div className="flex justify-center gap-2.5 mt-8">
         {travelTimes.map((c, i) => (
           <button
             key={c.city}
             type="button"
             onClick={() => setIndex(i)}
             aria-label={c.city}
-            className={`w-2 h-2 rounded-full transition-colors ${
+            className={`w-2.5 h-2.5 rounded-full transition-colors ${
               i === index ? 'bg-terracota dark:bg-dorado' : 'bg-carbon/20 dark:bg-crema/20'
             }`}
           />

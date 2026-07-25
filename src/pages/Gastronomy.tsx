@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { PageHeaderBand } from '../components/ui/PageHeaderBand'
 import { Modal } from '../components/ui/Modal'
+import { GlowCard } from '../components/ui/GlowCard'
 import { asset } from '../lib/asset'
 
 interface DishMeta {
@@ -67,39 +68,41 @@ function DishModalContent({ dish, featuredBadge }: { dish: Dish; featuredBadge: 
 
 function DishCard({ dish, i, dark, onSelect, featuredBadge }: { dish: Dish; i: number; dark?: boolean; onSelect: (dish: Dish) => void; featuredBadge: string }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ delay: i * 0.08, duration: 0.6, ease: 'easeOut' }}
-      role="button"
-      tabIndex={0}
-      onClick={() => onSelect(dish)}
-      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelect(dish) } }}
-      className={`cursor-pointer ${
-        dark
-          ? 'bg-crema/5 border border-crema/10 backdrop-blur-sm rounded-3xl overflow-hidden'
-          : 'bg-white dark:bg-bosque-surface rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300'
-      }`}
-    >
-      <div className="relative h-56 sm:h-64 overflow-hidden">
-        <img src={dish.image} alt={dish.name} loading="lazy" className="w-full h-full object-cover" />
-        <span className="absolute top-4 left-4 text-3xl bg-white/90 dark:bg-bosque-surface/90 rounded-full w-12 h-12 flex items-center justify-center">
-          {dish.emoji}
-        </span>
-        {dish.featured && (
-          <span className="absolute top-4 right-4 bg-dorado text-carbon font-inter text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">
-            {featuredBadge}
+    <GlowCard glowColor={i % 2 === 0 ? 'yellow' : 'neon'} className="h-full">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ delay: i * 0.08, duration: 0.6, ease: 'easeOut' }}
+        role="button"
+        tabIndex={0}
+        onClick={() => onSelect(dish)}
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelect(dish) } }}
+        className={`relative z-10 h-full cursor-pointer ${
+          dark
+            ? 'bg-crema/5 border border-crema/10 backdrop-blur-sm rounded-3xl overflow-hidden'
+            : 'bg-white dark:bg-bosque-surface rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300'
+        }`}
+      >
+        <div className="relative h-56 sm:h-64 overflow-hidden">
+          <img src={dish.image} alt={dish.name} loading="lazy" className="w-full h-full object-cover" />
+          <span className="absolute top-4 left-4 text-3xl bg-white/90 dark:bg-bosque-surface/90 rounded-full w-12 h-12 flex items-center justify-center">
+            {dish.emoji}
           </span>
-        )}
-      </div>
+          {dish.featured && (
+            <span className="absolute top-4 right-4 bg-dorado text-carbon font-inter text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">
+              {featuredBadge}
+            </span>
+          )}
+        </div>
 
-      <div className="p-6 md:p-8">
-        <h3 className={`font-fraunces text-2xl ${dark ? 'text-crema' : 'text-bosque dark:text-crema'}`}>
-          {dish.name}
-        </h3>
-      </div>
-    </motion.div>
+        <div className="p-6 md:p-8">
+          <h3 className={`font-fraunces text-2xl ${dark ? 'text-crema' : 'text-bosque dark:text-crema'}`}>
+            {dish.name}
+          </h3>
+        </div>
+      </motion.div>
+    </GlowCard>
   )
 }
 

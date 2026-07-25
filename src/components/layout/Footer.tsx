@@ -60,7 +60,7 @@ export function Footer() {
           {/* Col 1: Earth Park */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src={asset('/logo.png')} alt="Earth Park" className="h-12 w-auto object-contain" />
+              <img src={asset('/images/logo.png')} alt="Earth Park" className="h-12 w-auto object-contain" />
               <span className="font-fraunces text-xl text-crema">Earth Park</span>
             </div>
             <p className="font-inter text-crema/60 text-sm leading-relaxed">

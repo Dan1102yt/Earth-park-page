@@ -26,16 +26,22 @@ export function StationsPage() {
         subtitle={t('stationsPage.subtitle')}
       />
 
-      <div className="max-w-3xl mx-auto px-4 pt-16 pb-4 text-center">
-        <motion.p
+      <div className="max-w-3xl mx-auto px-4 pt-16 pb-8">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="font-fraunces text-2xl md:text-3xl text-bosque dark:text-crema leading-snug"
+          className="relative"
         >
-          {t('stationsPage.intro')}
-        </motion.p>
+          <span aria-hidden className="absolute -top-10 -left-2 md:-left-8 font-fraunces text-7xl md:text-8xl text-terracota/20 dark:text-dorado/25 leading-none select-none">
+            "
+          </span>
+          <p className="relative font-fraunces text-2xl md:text-3xl text-bosque dark:text-crema leading-relaxed text-justify">
+            {t('stationsPage.intro')}
+          </p>
+          <div className="w-16 h-[3px] bg-terracota dark:bg-dorado mt-6 mx-auto" />
+        </motion.div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-20">

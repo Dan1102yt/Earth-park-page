@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useMemo } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/Button'
 import { asset } from '../../lib/asset'
@@ -8,8 +8,6 @@ const hero = (n: number) => asset(`/images/hero/hero-galeria-${n}.jpeg`)
 const tesoros = (n: number) => asset(`/images/planes/tesoros-del-valle-de-tenza/tesoros-del-valle-de-tenza-${n}.${n <= 9 ? 'jpg' : 'jpeg'}`)
 const macanal = (n: number) => asset(`/images/planes/conoce-y-descansa-en-macanal/conoce-y-descansa-en-macanal-${n}.jpeg`)
 
-const highlights = [macanal(1), tesoros(1), hero(4), macanal(13), hero(2), macanal(10), hero(25), hero(7)]
-
 const albums = [
   { key: 'naturaleza', images: [hero(7), hero(9), hero(14), hero(15), hero(8), hero(18), hero(19), hero(23), hero(27), tesoros(1), macanal(1), macanal(10), macanal(13)] },
   { key: 'actividades', images: [hero(20), hero(21), hero(22), hero(24), hero(25), hero(26), macanal(11), macanal(3)] },
@@ -17,10 +15,14 @@ const albums = [
   { key: 'earthpark', images: [hero(3), hero(4), hero(11), hero(16), hero(28), hero(29), macanal(4)] },
 ]
 
+// Pool completo (todas las fotos unicas de los albumes) para el carrusel continuo
+const allPhotos = Array.from(new Set(albums.flatMap((a) => a.images)))
+
 export function GalleryPreview() {
   const { t } = useTranslation()
   const [expanded, setExpanded] = useState(false)
   const [active, setActive] = useState(0)
+  const track = useMemo(() => [...allPhotos, ...allPhotos], [])
 
   return (
     <section className="py-24 bg-crema/80 dark:bg-bosque-deep/80">
@@ -28,22 +30,19 @@ export function GalleryPreview() {
         <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema text-center mb-12">
           {t('galleryPreview.heading')}
         </h2>
+      </div>
 
-        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 scrollbar-hide">
-          {highlights.map((src, i) => (
-            <motion.div
-              key={src}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ delay: i * 0.05, duration: 0.5, ease: 'easeOut' }}
-              className="shrink-0 w-64 sm:w-80 aspect-[4/5] rounded-2xl overflow-hidden snap-start"
-            >
+      <div className="overflow-hidden">
+        <div className="flex gap-4 w-max animate-marquee hover:[animation-play-state:paused]">
+          {track.map((src, i) => (
+            <div key={i} className="shrink-0 w-64 sm:w-80 aspect-[4/5] rounded-2xl overflow-hidden">
               <img src={src} alt="Earth Park" loading="lazy" className="w-full h-full object-cover" />
-            </motion.div>
+            </div>
           ))}
         </div>
+      </div>
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mt-8">
           <Button variant="terracota" size="lg" onClick={() => setExpanded((v) => !v)}>
             {expanded ? t('galleryPreview.showLess') : t('galleryPreview.showMore')}

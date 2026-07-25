@@ -17,17 +17,23 @@ export function About() {
 
   return (
     <div className="min-h-screen">
-      {/* Bloque 1 — Apertura humanizada */}
-      <section className="bg-bosque dark:bg-bosque-deep pt-36 pb-20 px-4">
-        <motion.h1
+      {/* Bloque 1 — Apertura humanizada, tratamiento editorial */}
+      <section className="bg-bosque dark:bg-bosque-deep pt-36 pb-24 px-4">
+        <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
           variants={fadeIn}
-          className="font-fraunces text-3xl md:text-5xl text-crema leading-snug text-center max-w-3xl mx-auto"
+          className="relative max-w-3xl mx-auto"
         >
-          {t('about.intro')}
-        </motion.h1>
+          <span aria-hidden className="absolute -top-14 -left-2 md:-left-10 font-fraunces text-8xl md:text-9xl text-dorado/30 leading-none select-none">
+            "
+          </span>
+          <h1 className="relative font-fraunces text-3xl md:text-5xl text-crema leading-relaxed md:leading-relaxed text-justify">
+            {t('about.intro')}
+          </h1>
+          <div className="w-16 h-[3px] bg-dorado mt-8 mx-auto" />
+        </motion.div>
       </section>
 
       {/* Bloque 3 — ¿Quiénes somos? */}
@@ -40,7 +46,7 @@ export function About() {
             transition={{ duration: 0.7, ease: 'easeOut' }}
           >
             <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema mb-6">{t('about.quienesHeading')}</h2>
-            <div className="space-y-5 font-inter text-carbon/80 dark:text-crema/80 text-lg leading-relaxed">
+            <div className="space-y-5 font-inter text-carbon dark:text-crema text-xl leading-relaxed">
               <p>{t('about.quienesP1')}</p>
               <p>{t('about.quienesP2')}</p>
             </div>
@@ -58,8 +64,8 @@ export function About() {
         </div>
       </section>
 
-      {/* Bloque 4 — Cita destacada */}
-      <section className="relative py-28 px-4 overflow-hidden">
+      {/* Bloque 4 — Cita destacada + CTA */}
+      <section className="relative py-28 px-4 overflow-hidden text-center">
         <img src={QUOTE_IMAGE} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-bosque/90 dark:bg-bosque-deep/92" />
         <motion.blockquote
@@ -67,23 +73,17 @@ export function About() {
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
           variants={fadeIn}
-          className="relative z-10 font-fraunces text-3xl md:text-5xl text-center text-crema max-w-4xl mx-auto leading-snug"
+          className="relative z-10 font-fraunces text-3xl md:text-5xl text-center text-crema max-w-4xl mx-auto leading-snug mb-10"
         >
           {t('about.quotePre')} <span className="text-dorado">{t('about.quoteHighlight')}</span> {t('about.quotePost')}
         </motion.blockquote>
-      </section>
-
-      {/* Bloque 5 — Cierre emocional + CTA */}
-      <section className="bg-crema dark:bg-bosque-deep py-24 px-4 text-center">
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
           variants={fadeIn}
+          className="relative z-10"
         >
-          <p className="font-fraunces text-2xl md:text-3xl text-bosque dark:text-crema mb-10">
-            {t('about.closing')}
-          </p>
           <Link to="/planes-turisticos">
             <Button variant="terracota" size="lg">{t('about.closingCta')}</Button>
           </Link>

@@ -3,6 +3,7 @@ import { MessageCircle } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { PageHeaderBand } from '../components/ui/PageHeaderBand'
 import { Button } from '../components/ui/Button'
+import { GlowCard } from '../components/ui/GlowCard'
 import { asset } from '../lib/asset'
 
 const WHATSAPP_NUMBER = '573228697438'
@@ -36,32 +37,33 @@ export function GalleryShop() {
           {artPieces.map((piece, i) => {
             const waHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hola, me interesa la pieza ${piece.name}`)}`
             return (
-              <motion.div
-                key={piece.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-80px' }}
-                transition={{ delay: i * 0.08, duration: 0.6, ease: 'easeOut' }}
-                className="bg-white dark:bg-bosque-surface rounded-2xl overflow-hidden shadow-sm"
-              >
-                <div className="aspect-square overflow-hidden">
-                  <img src={piece.image} alt={piece.name} loading="lazy" className="w-full h-full object-cover" />
-                </div>
-                <div className="p-5">
-                  <h3 className="font-fraunces text-lg text-bosque dark:text-crema mb-1">{piece.name}</h3>
-                  {piece.price ? (
-                    <p className="font-fraunces text-2xl text-terracota dark:text-dorado mb-4">{piece.price}</p>
-                  ) : (
-                    <p className="font-inter text-carbon/40 dark:text-crema/40 text-xs italic mb-4">{t('gallery.priceOnRequest')}</p>
-                  )}
-                  <a href={waHref} target="_blank" rel="noopener noreferrer" className="block w-fit">
-                    <Button variant="whatsapp" size="sm">
-                      <MessageCircle size={16} />
-                      {t('gallery.buyButton')}
-                    </Button>
-                  </a>
-                </div>
-              </motion.div>
+              <GlowCard key={piece.name} glowColor={i % 2 === 0 ? 'yellow' : 'neon'} className="h-full">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-80px' }}
+                  transition={{ delay: i * 0.08, duration: 0.6, ease: 'easeOut' }}
+                  className="relative z-10 h-full bg-white dark:bg-bosque-surface rounded-2xl overflow-hidden shadow-sm"
+                >
+                  <div className="aspect-square overflow-hidden">
+                    <img src={piece.image} alt={piece.name} loading="lazy" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-fraunces text-lg text-bosque dark:text-crema mb-1">{piece.name}</h3>
+                    {piece.price ? (
+                      <p className="font-fraunces text-2xl text-terracota dark:text-dorado mb-4">{piece.price}</p>
+                    ) : (
+                      <p className="font-inter text-carbon/40 dark:text-crema/40 text-xs italic mb-4">{t('gallery.priceOnRequest')}</p>
+                    )}
+                    <a href={waHref} target="_blank" rel="noopener noreferrer" className="block w-fit">
+                      <Button variant="whatsapp" size="sm">
+                        <MessageCircle size={16} />
+                        {t('gallery.buyButton')}
+                      </Button>
+                    </a>
+                  </div>
+                </motion.div>
+              </GlowCard>
             )
           })}
         </div>

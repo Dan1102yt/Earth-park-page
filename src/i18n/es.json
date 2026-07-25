@@ -23,10 +23,10 @@
     "en": "EN"
   },
   "essence": {
-    "title": "En Macanal, la tierra guarda su propia magia — y te la queremos mostrar.",
-    "scrollHint": "Desplázate para descubrir"
+    "title": "Un refugio sagrado para la conservación de la flora y fauna del territorio colombiano. Macanal, Boyacá."
   },
   "sensory": {
+    "heading": "Todo lo que puedes sentir aquí",
     "items": [
       { "title": "Mariposas", "text": "Símbolo de libertad y el infinito de la vida." },
       { "title": "Naturaleza", "text": "Un espacio donde la vida natural es la protagonista." },
@@ -65,6 +65,7 @@
   },
   "stationsTeaser": {
     "heading": "Las 7 Estaciones",
+    "intro": "Nuestro recorrido de 7 paradas dentro de Earth Park",
     "cta": "Explora todas las estaciones",
     "items": {
       "mariposa-89": { "title": "Mariposa 89 Columpio", "desc": "Símbolo de libertad y el infinito de la vida" },
@@ -97,7 +98,6 @@
     "quotePre": "\"Aquí, la",
     "quoteHighlight": "Tierrita",
     "quotePost": "nos enseña que protegerla es también proteger nuestra propia existencia.\"",
-    "closing": "🌎 Porque cuidar el planeta también puede ser emocionante.",
     "closingCta": "Vive la experiencia"
   },
   "plans": {
@@ -330,7 +330,7 @@
   },
   "footer": {
     "tagline": "Un refugio sagrado para la conservación de la flora y fauna del territorio colombiano. Macanal, Boyacá.",
-    "navHeading": "Navegación",
+    "navHeading": "Menú",
     "contactHeading": "Contacto",
     "copyright": "© 2025 Earth Park. Todos los derechos reservados."
   }
