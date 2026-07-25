@@ -49,7 +49,6 @@ const faqKeys = [
   'transport',
   'reserve',
   'whatToBring',
-  // PENDIENTE CONFIRMAR CON OSCAR antes de publicar: respuesta basada en comentarios de huéspedes, no en política oficial confirmada
   'petFriendly',
 ] as const
 

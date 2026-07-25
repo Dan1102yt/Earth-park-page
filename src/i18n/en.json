@@ -322,7 +322,7 @@
       "transport": { "q": "Do the plans include transportation?", "a": "No, transportation and the guide are not included in the plans — but we're happy to help you arrange it if you message us." },
       "reserve": { "q": "How do I book my visit?", "a": "Message us directly on WhatsApp and we'll help you choose the plan that best suits you." },
       "whatToBring": { "q": "What should I bring for my visit?", "a": "Comfortable clothing, sunscreen, and lots of enthusiasm to connect with nature." },
-      "petFriendly": { "q": "Is Earth Park pet-friendly?", "a": "Based on the experience of some of our guests, yes — but please confirm the conditions for your pet with us on WhatsApp before traveling." }
+      "petFriendly": { "q": "Is Earth Park pet-friendly?", "a": "Yes! We love having your pet join you. We ask that you keep them on a leash, not let them up on the beds (for hygiene), and always clean up after them, no exceptions — that way we keep the space nice for everyone." }
     },
     "reviewsLink": "See reviews on Google Maps",
     "testimonialsHeading": "What people say about us"
