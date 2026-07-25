@@ -23,7 +23,7 @@ export function GalleryPreview() {
   const [active, setActive] = useState(0)
 
   return (
-    <section className="py-24 bg-crema/90 dark:bg-bosque-deep/90">
+    <section className="py-24 bg-crema/80 dark:bg-bosque-deep/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema text-center mb-12">
           {t('galleryPreview.heading')}

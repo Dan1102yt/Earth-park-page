@@ -3,6 +3,10 @@ import { motion, type Variants } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Button } from '../ui/Button'
 
+export const HERO_VIDEO_SRC = 'https://videos.pexels.com/video-files/4763824/4763824-uhd_2560_1440_24fps.mp4'
+export const HERO_VIDEO_POSTER =
+  'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1280,h=720,fit=crop/Yg2ya4gl5Rtg3nyW/ptv6-dJobZpwzLnFrMEzM.jpeg'
+
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   show: (i: number) => ({
@@ -24,12 +28,9 @@ export function Hero() {
         muted
         loop
         playsInline
-        poster="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1280,h=720,fit=crop/Yg2ya4gl5Rtg3nyW/ptv6-dJobZpwzLnFrMEzM.jpeg"
+        poster={HERO_VIDEO_POSTER}
       >
-        <source
-          src="https://videos.pexels.com/video-files/4763824/4763824-uhd_2560_1440_24fps.mp4"
-          type="video/mp4"
-        />
+        <source src={HERO_VIDEO_SRC} type="video/mp4" />
       </video>
 
       {/* Overlay */}
