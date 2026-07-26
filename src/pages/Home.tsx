@@ -18,9 +18,9 @@ export function Home() {
         <ScrollExpandMedia mediaSrc={HERO_VIDEO_SRC}>
           <EssenceMoment />
         </ScrollExpandMedia>
+        <PlansTeaser />
         <SensoryHighlights />
         <SocialProof />
-        <PlansTeaser />
         <StationsTeaser />
         <CTAReserva />
         <GalleryPreview />

@@ -37,7 +37,7 @@ export function GlowCard({ children, glowColor = 'yellow', className = '' }: Glo
       {/* Brillo de fondo, suave */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 z-20 rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        className="glow-ambient pointer-events-none absolute inset-0 z-20 rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{
           background: `radial-gradient(280px circle at var(--x) var(--y), rgba(${rgb}, 0.22), transparent 70%)`,
         }}
@@ -45,7 +45,7 @@ export function GlowCard({ children, glowColor = 'yellow', className = '' }: Glo
       {/* Anillo de brillo en el borde */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 z-20 rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        className="glow-ambient pointer-events-none absolute inset-0 z-20 rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={
           {
             padding: 1,

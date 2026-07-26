@@ -105,6 +105,7 @@
     "subtitle": "Choose the experience that inspires you most",
     "includesLabel": "Includes",
     "excludesLabel": "Not included",
+    "perPerson": "/person",
     "reserveButton": "Book via WhatsApp",
     "institutionalButton": "Get a quote for my institution",
     "items": {
@@ -318,7 +319,7 @@
     "addressLine2": "Km 18.5 on the Guateque–Santa María road",
     "faqHeading": "Frequently Asked Questions",
     "faq": {
-      "hours": { "q": "What are your opening hours?", "a": "We're open Thursday, Friday, Saturday, Sunday, and holidays. Closed Monday, Tuesday, and Wednesday." },
+      "hours": { "q": "What are your opening hours?", "a": "We welcome you Thursday, Friday, Saturday, Sunday, and holidays, from 8:00 a.m. to 10:00 p.m. We always work by reservation, so message us before your visit so we can make sure to receive you the way you deserve. We rest on Mondays, Tuesdays, and Wednesdays." },
       "parking": { "q": "Is there an extra charge for parking?", "a": "No, parking is included if you stay with us." },
       "transport": { "q": "Do the plans include transportation?", "a": "No, transportation and the guide are not included in the plans — but we're happy to help you arrange it if you message us." },
       "reserve": { "q": "How do I book my visit?", "a": "Message us directly on WhatsApp and we'll help you choose the plan that best suits you." },

@@ -56,7 +56,11 @@ export function Plans() {
                 <div className="p-6">
                   <h2 className="font-fraunces text-xl text-bosque dark:text-crema mb-1 leading-tight">{plan.title}</h2>
                   {plan.duration && <p className="font-inter text-carbon/60 dark:text-crema/60 text-xs mb-2">{plan.duration}</p>}
-                  {plan.price && <p className="font-fraunces text-2xl text-terracota dark:text-dorado">{plan.price}</p>}
+                  {plan.price && (
+                    <p className="font-fraunces text-2xl text-terracota dark:text-dorado">
+                      {plan.price}<span className="text-sm font-inter text-terracota/70 dark:text-dorado/70">{t('plans.perPerson')}</span>
+                    </p>
+                  )}
                 </div>
               </motion.button>
             </GlowCard>
@@ -76,7 +80,11 @@ export function Plans() {
                 </span>
               )}
               <h2 className="font-fraunces text-3xl text-bosque dark:text-crema mb-2">{activePlan.title}</h2>
-              {activePlan.price && <p className="font-fraunces text-4xl text-terracota dark:text-dorado mb-4">{activePlan.price}</p>}
+              {activePlan.price && (
+                <p className="font-fraunces text-4xl text-terracota dark:text-dorado mb-4">
+                  {activePlan.price}<span className="text-lg font-inter text-terracota/70 dark:text-dorado/70">{t('plans.perPerson')}</span>
+                </p>
+              )}
               <p className="font-inter text-carbon/70 dark:text-crema/70 leading-relaxed mb-6">{activePlan.description}</p>
 
               {activePlan.includes && (

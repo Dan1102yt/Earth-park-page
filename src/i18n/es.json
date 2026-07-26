@@ -105,6 +105,7 @@
     "subtitle": "Escoge la experiencia que más te inspire",
     "includesLabel": "Incluye",
     "excludesLabel": "No incluye",
+    "perPerson": "/persona",
     "reserveButton": "Reservar por WhatsApp",
     "institutionalButton": "Cotizar para mi institución",
     "items": {
@@ -318,7 +319,7 @@
     "addressLine2": "Km 18.5 vía Guateque–Santa María",
     "faqHeading": "Preguntas Frecuentes",
     "faq": {
-      "hours": { "q": "¿Cuáles son los horarios de atención?", "a": "Abrimos jueves, viernes, sábado, domingo y festivos. Cerramos lunes, martes y miércoles." },
+      "hours": { "q": "¿Cuáles son los horarios de atención?", "a": "Te esperamos jueves, viernes, sábado, domingo y festivos, de 8:00 a.m. a 10:00 p.m. Trabajamos siempre bajo reserva, así que escríbenos antes de tu visita para asegurarnos de recibirte como te lo mereces. Los lunes, martes y miércoles descansamos." },
       "parking": { "q": "¿El parqueadero tiene costo adicional?", "a": "No, el parqueadero está incluido si te hospedas con nosotros." },
       "transport": { "q": "¿Los planes incluyen transporte?", "a": "No, el transporte y la guía no están incluidos en los planes — pero con gusto te ayudamos a coordinarlo si nos escribes." },
       "reserve": { "q": "¿Cómo reservo mi visita?", "a": "Escríbenos directamente por WhatsApp y te ayudamos a elegir el plan que mejor se ajuste a ti." },

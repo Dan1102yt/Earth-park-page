@@ -49,7 +49,9 @@ export function PlansTeaser() {
               <div className="p-6">
                 <h3 className="font-fraunces text-xl text-bosque dark:text-crema mb-1 leading-tight">{items[plan.slug].title}</h3>
                 <p className="font-inter text-carbon/60 dark:text-crema/60 text-sm mb-3">{items[plan.slug].duration}</p>
-                <p className="font-fraunces text-2xl text-terracota dark:text-dorado">{plan.price}</p>
+                <p className="font-fraunces text-2xl text-terracota dark:text-dorado">
+                  {plan.price}<span className="text-sm font-inter text-terracota/70 dark:text-dorado/70">{t('plans.perPerson')}</span>
+                </p>
               </div>
             </motion.div>
           ))}
