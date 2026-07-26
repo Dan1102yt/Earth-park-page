@@ -32,20 +32,20 @@ export function GlowCard({ children, glowColor = 'yellow', className = '' }: Glo
       ref={ref}
       onPointerMove={handlePointerMove}
       className={`group relative isolate rounded-3xl ${className}`}
-      style={{ '--x': '50%', '--y': '50%' } as CSSProperties}
+      style={{ '--x': '50%', '--y': '50%', '--glow-rgb': rgb } as CSSProperties}
     >
-      {/* Brillo de fondo, suave */}
+      {/* Brillo de fondo, suave (desktop: sigue el cursor) */}
       <div
         aria-hidden
-        className="glow-ambient pointer-events-none absolute inset-0 z-20 rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 z-20 rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{
           background: `radial-gradient(280px circle at var(--x) var(--y), rgba(${rgb}, 0.22), transparent 70%)`,
         }}
       />
-      {/* Anillo de brillo en el borde */}
+      {/* Anillo de brillo en el borde (desktop: sigue el cursor) */}
       <div
         aria-hidden
-        className="glow-ambient pointer-events-none absolute inset-0 z-20 rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 z-20 rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={
           {
             padding: 1,
@@ -56,6 +56,8 @@ export function GlowCard({ children, glowColor = 'yellow', className = '' }: Glo
           } as CSSProperties
         }
       />
+      {/* Marco brillante (touch/movil: contorno completo en loop, sin cursor) */}
+      <div aria-hidden className="glow-frame pointer-events-none absolute inset-0 z-20 rounded-[inherit]" />
       {children}
     </div>
   )

@@ -37,17 +37,27 @@
   }
 }
 
-/* Brillo ambiente para GlowCard en touch/movil: sin cursor no hay hover, asi que
-   pulsamos la opacidad en loop para que las cards se vean vivas sin interaccion. */
+/* Marco brillante para GlowCard en touch/movil: sin cursor no hay hover, asi que
+   iluminamos el CONTORNO completo de la card en loop (no un brillo central). */
+.glow-frame {
+  opacity: 0;
+  border: 2px solid transparent;
+}
 @media (hover: none) and (pointer: coarse) {
-  .glow-ambient {
+  .glow-frame {
     opacity: 1;
-    animation: glow-ambient-pulse 3.5s ease-in-out infinite;
+    animation: glow-frame-pulse 3s ease-in-out infinite;
   }
 }
-@keyframes glow-ambient-pulse {
-  0%, 100% { opacity: 0.25; }
-  50% { opacity: 0.65; }
+@keyframes glow-frame-pulse {
+  0%, 100% {
+    border-color: rgba(var(--glow-rgb), 0.4);
+    box-shadow: 0 0 6px 0 rgba(var(--glow-rgb), 0.4);
+  }
+  50% {
+    border-color: rgba(var(--glow-rgb), 0.95);
+    box-shadow: 0 0 18px 3px rgba(var(--glow-rgb), 0.95);
+  }
 }
 
 @keyframes aurora-a {
