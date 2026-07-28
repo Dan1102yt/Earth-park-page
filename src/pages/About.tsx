@@ -89,6 +89,22 @@ export function About() {
           </Link>
         </motion.div>
       </section>
+
+      {/* Bloque 5 — Invitación a ser parte del sueño */}
+      <section className="bg-white dark:bg-bosque-surface py-24 px-4">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-80px' }}
+          variants={fadeIn}
+          className="relative max-w-3xl mx-auto text-center"
+        >
+          <p className="font-fraunces text-2xl md:text-3xl text-carbon dark:text-crema leading-relaxed text-justify">
+            {t('about.invitation')}
+          </p>
+          <div className="w-16 h-[3px] bg-dorado mt-8 mx-auto" />
+        </motion.div>
+      </section>
     </div>
   )
 }
