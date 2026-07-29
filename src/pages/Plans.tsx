@@ -19,7 +19,7 @@ export function Plans() {
   const [activePlan, setActivePlan] = useState<Plan | null>(null)
 
   return (
-    <div className="min-h-screen bg-crema dark:bg-bosque-deep">
+    <div className="min-h-screen">
       <PageHeaderBand
         title={t('plans.heading')}
         subtitle={t('plans.subtitle')}

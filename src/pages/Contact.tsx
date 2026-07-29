@@ -66,7 +66,7 @@ export function Contact() {
         subtitle={t('contact.subtitle')}
       />
 
-      <div className="bg-crema dark:bg-bosque-deep py-20 px-4">
+      <div className="bg-crema/80 dark:bg-bosque-deep/80 py-20 px-4">
         <div className="max-w-5xl mx-auto">
           {/* Tiempos de viaje desde ciudades principales */}
           <motion.div

@@ -118,7 +118,7 @@ export function Lodging() {
   const [selectedRoom, setSelectedRoom] = useState<Room | null>(null)
 
   return (
-    <div className="min-h-screen bg-crema dark:bg-bosque-deep">
+    <div className="min-h-screen">
       <PageHeaderBand
         title={t('lodging.heading')}
         subtitle={t('lodging.subtitle')}

@@ -26,7 +26,7 @@ export function GalleryShop() {
   const { t } = useTranslation()
 
   return (
-    <div className="min-h-screen bg-crema dark:bg-bosque-deep">
+    <div className="min-h-screen">
       <PageHeaderBand
         title={t('gallery.heading')}
         subtitle={t('gallery.subtitle')}

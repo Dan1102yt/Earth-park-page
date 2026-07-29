@@ -20,7 +20,7 @@ export function StationsPage() {
   const items = t('stationsPage.items', { returnObjects: true }) as Record<string, { title: string; desc: string }>
 
   return (
-    <div className="min-h-screen bg-crema dark:bg-bosque-deep">
+    <div className="min-h-screen">
       <PageHeaderBand
         title={t('stationsPage.heading')}
         subtitle={t('stationsPage.subtitle')}

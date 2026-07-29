@@ -124,7 +124,7 @@ export function Gastronomy() {
       />
 
       {/* Desayuno — tono cálido, amanecer */}
-      <section className="bg-gradient-to-b from-dorado/15 via-crema to-crema dark:from-terracota/10 dark:via-bosque-deep dark:to-bosque-deep py-24 px-4">
+      <section className="bg-gradient-to-b from-dorado/15 via-crema/80 to-crema/80 dark:from-terracota/10 dark:via-bosque-deep/80 dark:to-bosque-deep/80 py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -173,7 +173,7 @@ export function Gastronomy() {
       </section>
 
       {/* Otros sabores de Earth Park */}
-      <section className="bg-crema dark:bg-bosque-deep py-24 px-4">
+      <section className="bg-crema/80 dark:bg-bosque-deep/80 py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}

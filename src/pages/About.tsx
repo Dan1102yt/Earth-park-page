@@ -37,7 +37,7 @@ export function About() {
       </section>
 
       {/* Bloque 3 — ¿Quiénes somos? */}
-      <section className="bg-white dark:bg-bosque-surface py-24 px-4">
+      <section className="bg-white/80 dark:bg-bosque-surface/80 py-24 px-4">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -91,7 +91,7 @@ export function About() {
       </section>
 
       {/* Bloque 5 — Invitación a ser parte del sueño */}
-      <section className="bg-white dark:bg-bosque-surface py-24 px-4">
+      <section className="bg-white/80 dark:bg-bosque-surface/80 py-24 px-4">
         <motion.div
           initial="hidden"
           whileInView="show"
