@@ -20,12 +20,6 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
-  .bg-earth-gradient {
-    background: linear-gradient(to bottom, #7eaf17 0%, #7eaf17 36%, #AD3A32 44%, #AD3A32 66%, #D4A24E 74%, #D4A24E 100%);
-  }
-  .dark .bg-earth-gradient {
-    background: linear-gradient(to bottom, #689318 0%, #689318 36%, #8D372D 44%, #8D372D 66%, #AB8843 74%, #AB8843 100%);
-  }
   .animate-marquee {
     animation: marquee 75s linear infinite;
   }

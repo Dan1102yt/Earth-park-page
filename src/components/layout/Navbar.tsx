@@ -33,7 +33,9 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-crema/95 dark:bg-bosque-deep/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        scrolled
+          ? 'bg-crema/95 dark:bg-bosque-deep/95 backdrop-blur-md shadow-lg border-b border-bosque/10 dark:border-crema/10'
+          : 'bg-transparent border-b border-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,7 +45,7 @@ export function Navbar() {
             <img
               src={asset('/images/logo.png')}
               alt="Earth Park"
-              className={`h-10 sm:h-12 w-auto object-contain transition-all duration-300 ${
+              className={`h-14 sm:h-16 w-auto object-contain transition-all duration-300 ${
                 scrolled ? '' : 'drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]'
               }`}
             />

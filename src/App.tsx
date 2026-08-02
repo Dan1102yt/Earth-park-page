@@ -2,7 +2,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom'
 import { ScrollToTop } from './components/ScrollToTop'
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
-import { GradientBackground } from './components/ui/GradientBackground'
+import { AnimatedFauna } from './components/ui/AnimatedFauna'
 import { Home } from './pages/Home'
 import { Plans } from './pages/Plans'
 import { StationsPage } from './pages/StationsPage'
@@ -16,7 +16,7 @@ export default function App() {
   return (
     <HashRouter>
       <ScrollToTop />
-      <GradientBackground />
+      <AnimatedFauna />
       <div className="relative z-10 min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-1">

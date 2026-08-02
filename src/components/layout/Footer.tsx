@@ -51,7 +51,7 @@ export function Footer() {
   const plans = usePlans()
 
   return (
-    <footer className="relative border-t border-musgo/30 overflow-hidden">
+    <footer className="relative border-t-2 border-dorado/40 overflow-hidden">
       <img src={FOOTER_BG} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 bg-bosque/95 dark:bg-bosque-deep/96" />
 
