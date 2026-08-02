@@ -2,6 +2,8 @@
   "nav": {
     "home": "Home",
     "about": "About Us",
+    "ourHistory": "Our Story",
+    "themePark": "Theme Park",
     "plans": "Tour Plans",
     "stations": "Stations",
     "lodging": "Lodging",
@@ -102,6 +104,7 @@
     }
   },
   "about": {
+    "parkStatement": "Earth Park is a theme park located in Macanal, Boyacá, in the heart of the Tenza Valley. Our mission is to inspire connection with nature through educational and memorable experiences, honoring the flora and fauna of our territory.",
     "intro": "This is a space created for you. So you can reconnect with nature, so your family can live something different, so together we can take care of what has given us the most: the earth.",
     "quienesHeading": "Who we are",
     "quienesP1": "We are a Colombian family who decided to pay tribute to planet Earth by creating a living space to honor it, protect it, and share its beauty with everyone.",

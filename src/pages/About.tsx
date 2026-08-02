@@ -5,7 +5,7 @@ import { Button } from '../components/ui/Button'
 import { asset } from '../lib/asset'
 
 const QUOTE_IMAGE = asset('/images/nosotros/fondo-campo-papa.jpg')
-const FAMILY_IMAGE = asset('/images/nosotros/nosotros-quienes-spmps.jpg')
+const FAMILY_IMAGE = asset('/images/hero/hero-familia.jpg')
 
 const fadeIn = {
   hidden: { opacity: 0, y: 40 },
@@ -17,8 +17,24 @@ export function About() {
 
   return (
     <div className="min-h-screen">
+      {/* Bloque 0 — Apertura institucional: qué es Earth Park */}
+      <section className="bg-white/80 dark:bg-bosque-surface/80 pt-36 pb-16 px-4">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-80px' }}
+          variants={fadeIn}
+          className="max-w-3xl mx-auto"
+        >
+          <p className="font-inter text-carbon dark:text-crema text-lg md:text-xl leading-relaxed text-center">
+            {t('about.parkStatement')}
+          </p>
+        </motion.div>
+      </section>
+      {/* PENDIENTE: agregar aquí debajo la historia familiar (la escribe Oscar/su papá) — no inventar esa parte */}
+
       {/* Bloque 1 — Apertura humanizada, tratamiento editorial */}
-      <section className="bg-bosque dark:bg-bosque-deep pt-36 pb-24 px-4">
+      <section className="bg-bosque dark:bg-bosque-deep pt-16 pb-24 px-4">
         <motion.div
           initial="hidden"
           whileInView="show"

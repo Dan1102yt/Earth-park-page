@@ -2,6 +2,8 @@
   "nav": {
     "home": "Inicio",
     "about": "Nosotros",
+    "ourHistory": "Nuestra Historia",
+    "themePark": "Parque Temático",
     "plans": "Planes Turísticos",
     "stations": "Estaciones",
     "lodging": "Hospedaje",
@@ -102,6 +104,7 @@
     }
   },
   "about": {
+    "parkStatement": "Earth Park es un parque temático ubicado en Macanal, Boyacá, en el corazón del Valle de Tenza. Nuestra misión es inspirar la conexión con la naturaleza a través de experiencias educativas y memorables, honrando la flora y fauna de nuestro territorio.",
     "intro": "Este es un espacio creado para ti. Para que reconectes con la naturaleza, para que tu familia viva algo distinto, para que juntos cuidemos lo que más nos ha dado: la tierra.",
     "quienesHeading": "¿Quiénes somos?",
     "quienesP1": "Somos una familia colombiana que decidió rendir homenaje al planeta Tierra, creando un espacio vivo para honrarla, protegerla y compartir su belleza con todos.",
