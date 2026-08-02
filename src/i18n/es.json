@@ -23,14 +23,15 @@
     "en": "EN"
   },
   "essence": {
-    "title": "Un refugio sagrado para la conservación de la flora y fauna del territorio colombiano. Macanal, Boyacá."
+    "title": "Entre las montañas del Valle de Tenza y la niebla de Macanal, la tierra nos regala su propia magia."
   },
   "sensory": {
     "heading": "Todo lo que puedes sentir aquí",
     "items": [
-      { "title": "Mariposas", "text": "Símbolo de libertad y el infinito de la vida." },
-      { "title": "Naturaleza", "text": "Un espacio donde la vida natural es la protagonista." },
-      { "title": "Familia", "text": "Una experiencia inolvidable en familia — y pet friendly." },
+      { "title": "Descubre flora y fauna", "text": "Símbolo de libertad y el infinito de la vida." },
+      { "title": "Contacto con la naturaleza", "text": "Un espacio donde la vida natural es la protagonista." },
+      { "title": "Comparte en familia", "text": "Una experiencia inolvidable en familia — y pet friendly." },
+      { "title": "Merecido descanso", "text": "Habitaciones pensadas para recargar energía después de un día de aventura." },
       { "title": "Gastronomía", "text": "Gastronomía local al aire libre entre árboles." }
     ]
   },
@@ -271,26 +272,26 @@
     "featuredBadge": "Especialidad de la casa",
     "dishes": {
       "caldo": {
-        "name": "Caldo de Costilla Earth Park",
+        "name": "Caldo Campesino Earth Park",
         "description": "Un caldo de costilla de res con papa criolla, arveja verde y cilantro fresco, preparado desde las 6:00 de la mañana para recibirte con el primer aroma del día. El único desayuno que se sirve así, pensado para llenarte de energía antes de salir a explorar.",
         "side": "Bebida caliente (chocolate Colanta o aromática de hierbas), arepa dorada en budare y fruta de temporada."
       },
       "arepa": {
-        "name": "Arepa con Queso y Mantequilla",
+        "name": "Arepa Boyacense Earth Park",
         "description": "Arepa de maíz cocida a fuego lento en budare, servida caliente con queso campesino derritiéndose y mantequilla artesanal. Un clásico sencillo hecho con calma.",
         "side": "Tinto o aromática."
       },
       "huevos": {
-        "name": "Huevos al Gusto",
+        "name": "Huevos de la Finca Earth Park",
         "description": "Revueltos, fritos o pericos con tomate y cebolla cabezona — preparados al momento en que los pides, exactamente como te gustan.",
         "side": "Arepa y bebida caliente."
       },
       "hamburguesa": {
-        "name": "Hamburguesa Earth Park",
+        "name": "La Boyacense Earth Park",
         "description": "Nuestra hamburguesa insignia: carne especialidad de la casa a la plancha, huevo, lechuga fresca, tomate, tocineta crocante, queso derretido y jamón, todo en pan tostado. Acompañada de papa frita o en cascos. Una experiencia completa para cerrar el día."
       },
       "pechuga": {
-        "name": "Pechuga a la Plancha",
+        "name": "Pechuga del Valle Earth Park",
         "description": "Pechuga marinada por 30 minutos en limón, ajo y especias, cocida a la plancha hasta el punto justo. Acompañada de papa frita o en cascos — ligera, jugosa y llena de sabor."
       },
       "cenaValle": {

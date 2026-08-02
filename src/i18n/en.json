@@ -23,14 +23,15 @@
     "en": "EN"
   },
   "essence": {
-    "title": "A sacred refuge for the conservation of Colombia's flora and fauna. Macanal, Boyacá."
+    "title": "Between the mountains of the Tenza Valley and the mist of Macanal, the land offers its own magic."
   },
   "sensory": {
     "heading": "Everything you can feel here",
     "items": [
-      { "title": "Butterflies", "text": "A symbol of freedom and the infinity of life." },
-      { "title": "Nature", "text": "A space where natural life takes center stage." },
-      { "title": "Family", "text": "An unforgettable experience with the family — and pet friendly." },
+      { "title": "Discover flora and fauna", "text": "A symbol of freedom and the infinity of life." },
+      { "title": "Connection with nature", "text": "A space where natural life takes center stage." },
+      { "title": "Share with family", "text": "An unforgettable experience with the family — and pet friendly." },
+      { "title": "Well-deserved rest", "text": "Rooms designed to recharge your energy after a day of adventure." },
       { "title": "Gastronomy", "text": "Local, open-air dining among the trees." }
     ]
   },
@@ -271,26 +272,26 @@
     "featuredBadge": "House specialty",
     "dishes": {
       "caldo": {
-        "name": "Caldo de Costilla Earth Park (Beef Rib Soup)",
+        "name": "Caldo Campesino Earth Park (Farmer's Soup)",
         "description": "A beef rib soup with creole potato, green peas, and fresh cilantro, prepared from 6:00 a.m. to greet you with the day's first aroma. The only breakfast served this way, made to fuel you before you head out to explore.",
         "side": "Hot beverage (Colanta hot chocolate or herbal tea), golden griddle-cooked arepa, and seasonal fruit."
       },
       "arepa": {
-        "name": "Arepa con Queso y Mantequilla (Arepa with Cheese and Butter)",
+        "name": "Arepa Boyacense Earth Park (Boyacá-Style Arepa)",
         "description": "Corn arepa slow-cooked on a griddle (budare), served hot with melting farmer's cheese and artisanal butter. A simple classic made unhurried.",
         "side": "Black coffee or herbal tea."
       },
       "huevos": {
-        "name": "Huevos al Gusto (Eggs Your Way)",
+        "name": "Huevos de la Finca Earth Park (Farm Eggs)",
         "description": "Scrambled, fried, or pericos-style with tomato and onion — made to order, exactly the way you like them.",
         "side": "Arepa and a hot beverage."
       },
       "hamburguesa": {
-        "name": "Hamburguesa Earth Park (Earth Park Burger)",
+        "name": "La Boyacense Earth Park (The Boyacá Burger)",
         "description": "Our signature burger: house-specialty grilled beef patty, egg, fresh lettuce, tomato, crispy bacon, melted cheese, and ham, all on toasted bread. Served with french fries or potato wedges. A complete experience to close out the day."
       },
       "pechuga": {
-        "name": "Pechuga a la Plancha (Grilled Chicken Breast)",
+        "name": "Pechuga del Valle Earth Park (Valley Grilled Chicken)",
         "description": "Chicken breast marinated for 30 minutes in lemon, garlic, and spices, grilled to the perfect point. Served with french fries or potato wedges — light, juicy, and full of flavor."
       },
       "cenaValle": {
