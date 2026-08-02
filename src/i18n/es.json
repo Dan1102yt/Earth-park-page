@@ -45,6 +45,16 @@
   },
   "testimonials": {
     "localGuide": "Local Guide",
+    "categories": {
+      "all": "Todas",
+      "servicio": "Servicio",
+      "paisajes": "Paisajes",
+      "familiar": "Descanso y experiencia familiar"
+    },
+    "trustBadge": {
+      "title": "Excelente",
+      "basedOn": "A base de 12 reseñas"
+    },
     "items": {
       "natalie": "Es un parque temático hermoso con una vista espectacular hacia el embalse, sus bellas flores y plantas atraen unas mariposas muy lindas que también adornan el lugar... Debo resaltar que la amabilidad, carisma y gentileza con la que nos recibieron el señor Oscar Martín Roa y su bonita familia propician una estadía acogedora y muy agradable.",
       "julio": "Un lugar mágico lleno de flores y naturaleza, con un paisaje espectacular en un mirador para relajarte. Sus propietarios don Oscar y Olga e hijos son seres humanos maravillosos que transmiten una energía muy bonita.",

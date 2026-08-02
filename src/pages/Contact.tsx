@@ -3,7 +3,7 @@ import { MessageCircle, Phone, Star, MapPin } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { PageHeaderBand } from '../components/ui/PageHeaderBand'
 import { CTAReserva } from '../components/sections/CTAReserva'
-import { TestimonialsCarousel, testimonials } from '../components/ui/TestimonialsCarousel'
+import { GoogleRatingBadge, TestimonialsGrid, testimonials } from '../components/ui/TestimonialsGrid'
 import { TravelTimesCarousel } from '../components/ui/TravelTimesCarousel'
 import { FaqAccordion } from '../components/ui/FaqAccordion'
 
@@ -177,10 +177,13 @@ export function Contact() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="mt-20"
           >
-            <h2 className="font-fraunces text-3xl md:text-4xl text-bosque dark:text-crema text-center mb-10">
+            <h2 className="font-fraunces text-3xl md:text-4xl text-bosque dark:text-crema text-center mb-6">
               {t('contact.testimonialsHeading')}
             </h2>
-            <TestimonialsCarousel items={testimonials} />
+            <div className="flex justify-center mb-10">
+              <GoogleRatingBadge />
+            </div>
+            <TestimonialsGrid items={testimonials} />
           </motion.div>
         </div>
       </div>

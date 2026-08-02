@@ -45,6 +45,16 @@
   },
   "testimonials": {
     "localGuide": "Local Guide",
+    "categories": {
+      "all": "All",
+      "servicio": "Service",
+      "paisajes": "Scenery",
+      "familiar": "Rest & Family Experience"
+    },
+    "trustBadge": {
+      "title": "Excellent",
+      "basedOn": "Based on 12 reviews"
+    },
     "items": {
       "natalie": "It's a beautiful theme park with a spectacular view of the reservoir; its lovely flowers and plants attract gorgeous butterflies that also adorn the place... I have to highlight the kindness, charisma, and warmth with which Mr. Oscar Martín Roa and his lovely family welcomed us, making for a cozy and very pleasant stay.",
       "julio": "A magical place full of flowers and nature, with a spectacular landscape at a lookout point to relax. Its owners, don Oscar and Olga, and their children are wonderful human beings who radiate a beautiful energy.",

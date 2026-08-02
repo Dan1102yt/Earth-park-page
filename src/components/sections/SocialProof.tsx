@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import { TestimonialsCarousel, testimonials } from '../ui/TestimonialsCarousel'
+import { GoogleRatingBadge, TestimonialsGrid, testimonials } from '../ui/TestimonialsGrid'
 
 export function SocialProof() {
   const { t } = useTranslation()
@@ -8,18 +8,22 @@ export function SocialProof() {
 
   return (
     <section className="py-24 bg-crema/80 dark:bg-bosque-deep/80">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <h2 className="font-fraunces text-2xl md:text-3xl text-bosque dark:text-crema text-center mb-10">
+          <h2 className="font-fraunces text-2xl md:text-3xl text-bosque dark:text-crema text-center mb-6">
             {t('socialProof.heading')}
           </h2>
 
-          <TestimonialsCarousel items={testimonials} />
+          <div className="flex justify-center mb-10">
+            <GoogleRatingBadge />
+          </div>
+
+          <TestimonialsGrid items={testimonials} />
 
           <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto border-t border-carbon/10 dark:border-crema/10 pt-8 mt-12">
             {stats.map((s) => (
