@@ -18,7 +18,9 @@
     "subtitle": "Vive una experiencia inolvidable en las montañas de Boyacá",
     "cta_primary": "Reserva tu experiencia",
     "cta_secondary": "Ver planes",
-    "info": "2.5 hrs desde Bogotá · Reserva previa obligatoria · Abierto Jue–Dom"
+    "info": "2.5 hrs desde Bogotá · Reserva previa obligatoria · Abierto Jue–Dom",
+    "mute": "Silenciar sonido del video",
+    "unmute": "Activar sonido del video"
   },
   "lang": {
     "es": "ES",

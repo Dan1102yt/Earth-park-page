@@ -1,9 +1,12 @@
+import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion, type Variants } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { Volume2, VolumeX } from 'lucide-react'
 import { Button } from '../ui/Button'
+import { asset } from '../../lib/asset'
 
-export const HERO_VIDEO_SRC = 'https://videos.pexels.com/video-files/4763824/4763824-uhd_2560_1440_24fps.mp4'
+export const HERO_VIDEO_SRC = asset('/videos/hero-video.mp4')
 export const HERO_VIDEO_POSTER =
   'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1280,h=720,fit=crop/Yg2ya4gl5Rtg3nyW/ptv6-dJobZpwzLnFrMEzM.jpeg'
 
@@ -18,11 +21,21 @@ const fadeUp: Variants = {
 
 export function Hero() {
   const { t } = useTranslation()
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [muted, setMuted] = useState(true)
+
+  const toggleSound = () => {
+    const video = videoRef.current
+    if (!video) return
+    video.muted = !video.muted
+    setMuted(video.muted)
+  }
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Video background */}
       <video
+        ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
         autoPlay
         muted
@@ -32,6 +45,16 @@ export function Hero() {
       >
         <source src={HERO_VIDEO_SRC} type="video/mp4" />
       </video>
+
+      {/* Sound toggle */}
+      <button
+        type="button"
+        onClick={toggleSound}
+        aria-label={t(muted ? 'hero.unmute' : 'hero.mute')}
+        className="absolute bottom-20 md:bottom-6 right-4 z-20 flex items-center justify-center w-11 h-11 rounded-full bg-bosque-deep/60 text-crema backdrop-blur-sm hover:bg-bosque-deep/80 transition-colors"
+      >
+        {muted ? <VolumeX size={20} /> : <Volume2 size={20} className="text-dorado" />}
+      </button>
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-bosque/80 via-bosque/40 to-bosque/20 dark:from-bosque-deep/85 dark:via-bosque-deep/45 dark:to-bosque-deep/25" />

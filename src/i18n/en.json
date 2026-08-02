@@ -18,7 +18,9 @@
     "subtitle": "Live an unforgettable experience in the mountains of Boyacá",
     "cta_primary": "Book your experience",
     "cta_secondary": "See plans",
-    "info": "2.5 hrs from Bogotá · Prior reservation required · Open Thu–Sun"
+    "info": "2.5 hrs from Bogotá · Prior reservation required · Open Thu–Sun",
+    "mute": "Mute video sound",
+    "unmute": "Unmute video sound"
   },
   "lang": {
     "es": "ES",
