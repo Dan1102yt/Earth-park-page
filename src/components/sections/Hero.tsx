@@ -7,6 +7,7 @@ import { Button } from '../ui/Button'
 import { asset } from '../../lib/asset'
 
 export const HERO_VIDEO_SRC = asset('/videos/hero-video.mp4')
+export const HERO_VIDEO_SRC_MOBILE = asset('/videos/hero-video-celular.mp4')
 export const HERO_VIDEO_POSTER =
   'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1280,h=720,fit=crop/Yg2ya4gl5Rtg3nyW/ptv6-dJobZpwzLnFrMEzM.jpeg'
 
@@ -43,6 +44,7 @@ export function Hero() {
         playsInline
         poster={HERO_VIDEO_POSTER}
       >
+        <source src={HERO_VIDEO_SRC_MOBILE} media="(max-width: 768px)" type="video/mp4" />
         <source src={HERO_VIDEO_SRC} type="video/mp4" />
       </video>
 
