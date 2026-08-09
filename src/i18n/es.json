@@ -121,7 +121,15 @@
     "quote2Lead": "Porque comprendimos algo fundamental:",
     "quote2": "Cuidar el planeta no comienza en los grandes discursos. Comienza cuando aprendemos a valorar lo que tenemos cerca.",
     "p8": "Por eso Earth Park es mucho más que un lugar para visitar. Es una historia de transformación que continúa escribiéndose cada día. Una finca que decidió volver a la vida. Una familia que decidió aprender de la naturaleza. Un refugio para los polinizadores. Y una invitación para que cada visitante descubra que también puede ser parte del cambio.",
-    "closing": "Bienvenidos a Earth Park. Ven a caminar, observar, respirar y aprender. La naturaleza tiene mucho que enseñarnos."
+    "closing": "Bienvenidos a Earth Park. Ven a caminar, observar, respirar y aprender. La naturaleza tiene mucho que enseñarnos.",
+    "stops": {
+      "stop1": { "title": "Una tierra agotada" },
+      "stop2": { "title": "La pregunta" },
+      "stop3": { "title": "Empezamos poco a poco" },
+      "stop4": { "title": "Regresaron las pequeñas criaturas" },
+      "stop5": { "title": "Así nació Earth Park" },
+      "stop6": { "title": "El tesoro" }
+    }
   },
   "quienesHeading": "¿Quiénes somos?",
     "quienesP1": "Somos una familia colombiana que decidió rendir homenaje al planeta Tierra, creando un espacio vivo para honrarla, protegerla y compartir su belleza con todos.",

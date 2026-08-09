@@ -2,10 +2,12 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Button } from '../components/ui/Button'
+import { HistoriaSendero } from '../components/sections/HistoriaSendero'
 import { asset } from '../lib/asset'
 
 const QUOTE_IMAGE = asset('/images/nosotros/fondo-campo-papa.jpg')
-const FAMILY_IMAGE = asset('/images/hero/hero-familia.jpg')
+const FAMILY_IMAGE = asset('/images/nosotros/Nosotros-2.jpeg')
+const FAMILY_IMAGE_SECONDARY = asset('/images/nosotros/Nosotros-1.jpeg')
 
 const fadeIn = {
   hidden: { opacity: 0, y: 40 },
@@ -31,52 +33,8 @@ export function About() {
           </p>
         </motion.div>
       </section>
-      {/* Bloque 0.5 — Nuestra Historia: de una tierra agotada a un refugio para la vida */}
-      <section className="bg-white/80 dark:bg-bosque-surface/80 py-24 px-4">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-80px' }}
-          variants={fadeIn}
-          className="max-w-3xl mx-auto"
-        >
-          <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema mb-10 text-center">
-            {t('about.historia.heading')}
-          </h2>
-
-          <div className="space-y-5 font-inter text-carbon dark:text-crema text-lg md:text-xl leading-relaxed">
-            <p>{t('about.historia.p1')}</p>
-            <p>{t('about.historia.p2')}</p>
-          </div>
-
-          <blockquote className="my-10 border-l-4 border-dorado pl-6 md:pl-8 font-fraunces italic text-2xl md:text-3xl text-bosque dark:text-crema leading-snug">
-            {t('about.historia.quote1')}
-          </blockquote>
-
-          <div className="space-y-5 font-inter text-carbon dark:text-crema text-lg md:text-xl leading-relaxed">
-            <p>{t('about.historia.p3')}</p>
-            <p>{t('about.historia.p4')}</p>
-            <p>{t('about.historia.p5')}</p>
-            <p>{t('about.historia.p6')}</p>
-            <p>{t('about.historia.p7')}</p>
-            <p>{t('about.historia.quote2Lead')}</p>
-          </div>
-
-          <blockquote className="my-10 border-l-4 border-dorado pl-6 md:pl-8 font-fraunces italic text-2xl md:text-3xl text-bosque dark:text-crema leading-snug">
-            {t('about.historia.quote2')}
-          </blockquote>
-
-          <div className="space-y-5 font-inter text-carbon dark:text-crema text-lg md:text-xl leading-relaxed">
-            <p>{t('about.historia.p8')}</p>
-          </div>
-
-          <p className="mt-10 font-fraunces text-2xl md:text-3xl text-center text-bosque dark:text-crema leading-relaxed">
-            {t('about.historia.closing')}
-          </p>
-
-          <div className="w-16 h-[3px] bg-dorado mt-10 mx-auto" />
-        </motion.div>
-      </section>
+      {/* Bloque 0.5 — Nuestra Historia: sendero interactivo por scroll */}
+      <HistoriaSendero />
 
       {/* Bloque 1 — Apertura humanizada, tratamiento editorial */}
       <section className="bg-bosque dark:bg-bosque-deep pt-16 pb-24 px-4">
@@ -118,9 +76,14 @@ export function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
-            className="rounded-3xl overflow-hidden aspect-[3/4] shadow-xl"
+            className="relative mb-8 sm:mb-0"
           >
-            <img src={FAMILY_IMAGE} alt="La familia detrás de Earth Park" loading="lazy" className="w-full h-full object-cover" />
+            <div className="rounded-3xl overflow-hidden aspect-[3/4] shadow-xl">
+              <img src={FAMILY_IMAGE} alt="La familia detrás de Earth Park" loading="lazy" className="w-full h-full object-cover" />
+            </div>
+            <div className="absolute -bottom-6 -left-6 w-[36%] aspect-[3/4] rounded-2xl overflow-hidden shadow-xl border-4 border-crema dark:border-bosque-surface">
+              <img src={FAMILY_IMAGE_SECONDARY} alt="La familia explorando el territorio de Earth Park" loading="lazy" className="w-full h-full object-cover" />
+            </div>
           </motion.div>
         </div>
       </section>

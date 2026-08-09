@@ -121,7 +121,15 @@
     "quote2Lead": "Because we understood something fundamental:",
     "quote2": "Caring for the planet does not begin with grand speeches. It begins when we learn to value what we have close to us.",
     "p8": "That's why Earth Park is much more than a place to visit. It is a story of transformation that continues to be written every day. A farm that decided to come back to life. A family that decided to learn from nature. A refuge for pollinators. And an invitation for every visitor to discover that they too can be part of the change.",
-    "closing": "Welcome to Earth Park. Come walk, observe, breathe, and learn. Nature has much to teach us."
+    "closing": "Welcome to Earth Park. Come walk, observe, breathe, and learn. Nature has much to teach us.",
+    "stops": {
+      "stop1": { "title": "A depleted land" },
+      "stop2": { "title": "The question" },
+      "stop3": { "title": "We started little by little" },
+      "stop4": { "title": "The small creatures returned" },
+      "stop5": { "title": "That's how Earth Park was born" },
+      "stop6": { "title": "The treasure" }
+    }
   },
   "quienesHeading": "Who we are",
     "quienesP1": "We are a Colombian family who decided to pay tribute to planet Earth by creating a living space to honor it, protect it, and share its beauty with everyone.",
