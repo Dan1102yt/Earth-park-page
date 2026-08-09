@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useScroll, useTransform, useSpring, type MotionValue } from 'framer-motion'
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { Sprout, Leaf } from 'lucide-react'
 import { asset } from '../../lib/asset'
@@ -31,8 +31,6 @@ const STOPS = [
 
 interface StopProps {
   index: number
-  total: number
-  scrollYProgress: MotionValue<number>
   titleKey: string
   paragraphs: readonly string[]
   quote?: string
@@ -53,18 +51,22 @@ function MarkerIcon({ index, isFinal }: { index: number; isFinal?: boolean }) {
   return <span className="font-fraunces text-dorado text-sm md:text-base">{index + 1}</span>
 }
 
-function Stop({ index, total, scrollYProgress, titleKey, paragraphs, quote, quoteLead, closing, isFinal }: StopProps) {
+// Cada parada rastrea su propia entrada al viewport (en fracciones de la
+// altura del viewport, no de la altura total de la sección) para que la
+// velocidad de revelación no dependa de cuánto más alta es la sección en
+// móvil por el text-wrap de una columna angosta — mismo feel en cualquier
+// pantalla, a diferencia de rebanar una única scrollYProgress de sección.
+function Stop({ index, titleKey, paragraphs, quote, quoteLead, closing, isFinal }: StopProps) {
   const { t } = useTranslation()
-  const start = index / total
-  const end = (index + 0.35) / total
-  const markerStart = Math.max(0, start - 0.03)
-  const opacity = useTransform(scrollYProgress, [start, end], [0, 1])
-  const y = useTransform(scrollYProgress, [start, end], [22, 0])
-  const markerOpacity = useTransform(scrollYProgress, [markerStart, start + 0.015], [0.35, 1])
-  const markerScale = useTransform(scrollYProgress, [markerStart, start + 0.015], [0.75, 1])
+  const ref = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start 0.88', 'start 0.42'] })
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1])
+  const y = useTransform(scrollYProgress, [0, 1], [22, 0])
+  const markerOpacity = useTransform(scrollYProgress, [0, 0.4], [0.35, 1])
+  const markerScale = useTransform(scrollYProgress, [0, 0.4], [0.75, 1])
 
   return (
-    <div className="relative pl-14 md:pl-20">
+    <div ref={ref} className="relative pl-14 md:pl-20">
       <motion.div
         style={{ opacity: markerOpacity, scale: markerScale }}
         className={`absolute left-0 md:left-0.5 top-0 rounded-full bg-crema dark:bg-bosque-surface border-2 border-dorado flex items-center justify-center z-10 ${
@@ -153,9 +155,9 @@ export function HistoriaSendero() {
             </defs>
           </svg>
 
-          <div className="flex flex-col gap-20 md:gap-28">
+          <div className="flex flex-col gap-14 md:gap-28">
             {STOPS.map((s, i) => (
-              <Stop key={s.titleKey} index={i} total={STOPS.length} scrollYProgress={scrollYProgress} {...s} />
+              <Stop key={s.titleKey} index={i} {...s} />
             ))}
           </div>
         </div>
