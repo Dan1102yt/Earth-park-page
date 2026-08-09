@@ -108,7 +108,22 @@
   "about": {
     "parkStatement": "Earth Park es un parque temático ubicado en Macanal, Boyacá, en el corazón del Valle de Tenza. Nuestra misión es inspirar la conexión con la naturaleza a través de experiencias educativas y memorables, honrando la flora y fauna de nuestro territorio.",
     "intro": "Este es un espacio creado para ti. Para que reconectes con la naturaleza, para que tu familia viva algo distinto, para que juntos cuidemos lo que más nos ha dado: la tierra.",
-    "quienesHeading": "¿Quiénes somos?",
+    "historia": {
+    "heading": "De una tierra agotada a un refugio para la vida",
+    "p1": "Earth Park no nació como un parque. Nació de una decisión: transformar la manera de relacionarnos con la tierra.",
+    "p2": "En el Valle de Tenza, Boyacá, una familia encontró un lugar para vivir, trabajar y disfrutar del campo. Durante años, como ocurría en muchas tierras agrícolas, la producción estuvo acompañada por el uso de productos químicos y prácticas que, poco a poco, fueron dejando huella: el suelo perdió vida, disminuyó la diversidad de plantas y animales y el ecosistema comenzó a deteriorarse.",
+    "quote1": "¿Qué podemos hacer para que esta tierra vuelva a estar viva?",
+    "p3": "Decidimos no abandonar la finca ni seguir haciendo las cosas de la misma manera. Comenzamos poco a poco. Sembramos árboles y plantas nativas. Protegimos el agua. Recuperamos espacios. Dejamos que la vegetación volviera a crecer. Observamos.",
+    "p4": "Y entonces ocurrió algo maravilloso. Regresaron las pequeñas criaturas. Llegaron las abejas, las aves, los insectos y, especialmente, las mariposas.",
+    "p5": "Descubrimos que aquellas pequeñas criaturas tenían mucho que enseñarnos. Las mariposas se convirtieron en un símbolo de nuestra transformación: representan el cambio, la vida, la fragilidad de los ecosistemas y la posibilidad de volver a empezar.",
+    "p6": "Así nació Earth Park. Hoy este lugar es un pequeño refugio para los polinizadores y un espacio donde las personas pueden acercarse nuevamente a la naturaleza.",
+    "p7": "Aquí no pretendemos tener todas las respuestas. Estamos aprendiendo. Aprendemos de las plantas que vuelven a crecer, de las mariposas que encuentran alimento, de las aves que regresan, del agua que debemos proteger y de cada visitante que llega con la curiosidad de descubrir.",
+    "quote2Lead": "Porque comprendimos algo fundamental:",
+    "quote2": "Cuidar el planeta no comienza en los grandes discursos. Comienza cuando aprendemos a valorar lo que tenemos cerca.",
+    "p8": "Por eso Earth Park es mucho más que un lugar para visitar. Es una historia de transformación que continúa escribiéndose cada día. Una finca que decidió volver a la vida. Una familia que decidió aprender de la naturaleza. Un refugio para los polinizadores. Y una invitación para que cada visitante descubra que también puede ser parte del cambio.",
+    "closing": "Bienvenidos a Earth Park. Ven a caminar, observar, respirar y aprender. La naturaleza tiene mucho que enseñarnos."
+  },
+  "quienesHeading": "¿Quiénes somos?",
     "quienesP1": "Somos una familia colombiana que decidió rendir homenaje al planeta Tierra, creando un espacio vivo para honrarla, protegerla y compartir su belleza con todos.",
     "quienesP2": "Nuestro sueño es construir un refugio sagrado para la conservación de la flora y fauna de nuestro territorio. Un lugar donde cada visitante —niños, jóvenes, adultos y abuelos— pueda reconectar con la naturaleza, despertar conciencia y encontrar el equilibrio entre el cuidado del planeta y el cuidado de sí mismo.",
     "quotePre": "\"Aquí, la",

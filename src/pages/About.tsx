@@ -31,7 +31,52 @@ export function About() {
           </p>
         </motion.div>
       </section>
-      {/* PENDIENTE: agregar aquí debajo la historia familiar (la escribe Oscar/su papá) — no inventar esa parte */}
+      {/* Bloque 0.5 — Nuestra Historia: de una tierra agotada a un refugio para la vida */}
+      <section className="bg-white/80 dark:bg-bosque-surface/80 py-24 px-4">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-80px' }}
+          variants={fadeIn}
+          className="max-w-3xl mx-auto"
+        >
+          <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema mb-10 text-center">
+            {t('about.historia.heading')}
+          </h2>
+
+          <div className="space-y-5 font-inter text-carbon dark:text-crema text-lg md:text-xl leading-relaxed">
+            <p>{t('about.historia.p1')}</p>
+            <p>{t('about.historia.p2')}</p>
+          </div>
+
+          <blockquote className="my-10 border-l-4 border-dorado pl-6 md:pl-8 font-fraunces italic text-2xl md:text-3xl text-bosque dark:text-crema leading-snug">
+            {t('about.historia.quote1')}
+          </blockquote>
+
+          <div className="space-y-5 font-inter text-carbon dark:text-crema text-lg md:text-xl leading-relaxed">
+            <p>{t('about.historia.p3')}</p>
+            <p>{t('about.historia.p4')}</p>
+            <p>{t('about.historia.p5')}</p>
+            <p>{t('about.historia.p6')}</p>
+            <p>{t('about.historia.p7')}</p>
+            <p>{t('about.historia.quote2Lead')}</p>
+          </div>
+
+          <blockquote className="my-10 border-l-4 border-dorado pl-6 md:pl-8 font-fraunces italic text-2xl md:text-3xl text-bosque dark:text-crema leading-snug">
+            {t('about.historia.quote2')}
+          </blockquote>
+
+          <div className="space-y-5 font-inter text-carbon dark:text-crema text-lg md:text-xl leading-relaxed">
+            <p>{t('about.historia.p8')}</p>
+          </div>
+
+          <p className="mt-10 font-fraunces text-2xl md:text-3xl text-center text-bosque dark:text-crema leading-relaxed">
+            {t('about.historia.closing')}
+          </p>
+
+          <div className="w-16 h-[3px] bg-dorado mt-10 mx-auto" />
+        </motion.div>
+      </section>
 
       {/* Bloque 1 — Apertura humanizada, tratamiento editorial */}
       <section className="bg-bosque dark:bg-bosque-deep pt-16 pb-24 px-4">

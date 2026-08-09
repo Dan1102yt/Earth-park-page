@@ -108,7 +108,22 @@
   "about": {
     "parkStatement": "Earth Park is a theme park located in Macanal, Boyacá, in the heart of the Tenza Valley. Our mission is to inspire connection with nature through educational and memorable experiences, honoring the flora and fauna of our territory.",
     "intro": "This is a space created for you. So you can reconnect with nature, so your family can live something different, so together we can take care of what has given us the most: the earth.",
-    "quienesHeading": "Who we are",
+    "historia": {
+    "heading": "From depleted land to a refuge for life",
+    "p1": "Earth Park was not born as a park. It was born from a decision: to transform the way we relate to the land.",
+    "p2": "In the Tenza Valley, Boyacá, a family found a place to live, work, and enjoy the countryside. For years, as happened on many farmlands, production was accompanied by the use of chemical products and practices that, little by little, left their mark: the soil lost life, the diversity of plants and animals decreased, and the ecosystem began to deteriorate.",
+    "quote1": "What can we do to bring this land back to life?",
+    "p3": "We decided not to abandon the farm or keep doing things the same way. We started little by little. We planted native trees and plants. We protected the water. We restored spaces. We let the vegetation grow back. We observed.",
+    "p4": "And then something wonderful happened. The small creatures returned. The bees, the birds, the insects arrived, and especially, the butterflies.",
+    "p5": "We discovered that those small creatures had a lot to teach us. Butterflies became a symbol of our transformation: they represent change, life, the fragility of ecosystems, and the possibility of starting over.",
+    "p6": "That's how Earth Park was born. Today this place is a small refuge for pollinators and a space where people can reconnect with nature.",
+    "p7": "Here we don't claim to have all the answers. We are learning. We learn from the plants that grow back, from the butterflies that find food, from the birds that return, from the water we must protect, and from every visitor who arrives with the curiosity to discover.",
+    "quote2Lead": "Because we understood something fundamental:",
+    "quote2": "Caring for the planet does not begin with grand speeches. It begins when we learn to value what we have close to us.",
+    "p8": "That's why Earth Park is much more than a place to visit. It is a story of transformation that continues to be written every day. A farm that decided to come back to life. A family that decided to learn from nature. A refuge for pollinators. And an invitation for every visitor to discover that they too can be part of the change.",
+    "closing": "Welcome to Earth Park. Come walk, observe, breathe, and learn. Nature has much to teach us."
+  },
+  "quienesHeading": "Who we are",
     "quienesP1": "We are a Colombian family who decided to pay tribute to planet Earth by creating a living space to honor it, protect it, and share its beauty with everyone.",
     "quienesP2": "Our dream is to build a sacred refuge for the conservation of our territory's flora and fauna. A place where every visitor — children, young people, adults, and grandparents — can reconnect with nature, awaken awareness, and find the balance between caring for the planet and caring for themselves.",
     "quotePre": "\"Here, the",
