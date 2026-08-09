@@ -1,13 +1,24 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useSpring, type MotionValue } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import { Sprout, Leaf } from 'lucide-react'
 import { asset } from '../../lib/asset'
+import { FaunaSprite } from '../ui/FaunaSprite'
 
-const TREASURE_ICON = asset('/images/Mariposas/5.png')
+const TREASURE_ICON = asset('/images/Mariposas/6.png')
+const RETURN_ICON = asset('/images/Mariposas/5.png')
 
 // Trazo con leve ondulación, en un viewBox angosto: preserveAspectRatio="none"
 // lo estira para llenar la altura real de la columna sin importar el largo del texto.
 const TRAIL_PATH = 'M12,0 C4,10 20,18 12,28 C4,38 20,46 12,56 C4,66 20,74 12,84 C4,92 20,97 12,100'
+
+// Fauna decorativa junto al trazo, reutilizando FaunaSprite (mismo sistema que
+// AnimatedFauna): distinta de los íconos de marcador para no repetir motivo.
+const TRAIL_FAUNA = [
+  { img: 3, top: '14%', side: 'left' as const, size: 'w-14', duration: 7.5, drift: [10, 8] as [number, number], delay: 0.2 },
+  { img: 4, top: '48%', side: 'right' as const, size: 'w-16', duration: 8.5, drift: [-12, 10] as [number, number], delay: 0.7, flip: true },
+  { img: 1, top: '78%', side: 'left' as const, size: 'w-14', duration: 7, drift: [10, -10] as [number, number], delay: 0.4 },
+]
 
 const STOPS = [
   { titleKey: 'stop1', paragraphs: ['p1', 'p2'] },
@@ -30,29 +41,39 @@ interface StopProps {
   isFinal?: boolean
 }
 
+// Ícono de marcador por parada: distinto según el momento de la historia,
+// en vez de repetir el mismo glifo. 1 y 2 se dejan como número/interrogante
+// (arranque abstracto, antes de que la vida empiece a regresar).
+function MarkerIcon({ index, isFinal }: { index: number; isFinal?: boolean }) {
+  if (isFinal) return <img src={TREASURE_ICON} alt="" className="w-9 h-9 md:w-10 md:h-10 object-contain" />
+  if (index === 2) return <Sprout className="w-4 h-4 md:w-5 md:h-5 text-dorado" strokeWidth={2} />
+  if (index === 3) return <img src={RETURN_ICON} alt="" className="w-6 h-6 md:w-7 md:h-7 object-contain" />
+  if (index === 4) return <Leaf className="w-4 h-4 md:w-5 md:h-5 text-dorado" strokeWidth={2} />
+  if (index === 1) return <span className="font-fraunces text-dorado text-base md:text-lg">?</span>
+  return <span className="font-fraunces text-dorado text-sm md:text-base">{index + 1}</span>
+}
+
 function Stop({ index, total, scrollYProgress, titleKey, paragraphs, quote, quoteLead, closing, isFinal }: StopProps) {
   const { t } = useTranslation()
   const start = index / total
-  const end = (index + 0.7) / total
-  const markerStart = Math.max(0, start - 0.04)
+  const end = (index + 0.35) / total
+  const markerStart = Math.max(0, start - 0.03)
   const opacity = useTransform(scrollYProgress, [start, end], [0, 1])
-  const y = useTransform(scrollYProgress, [start, end], [28, 0])
-  const markerOpacity = useTransform(scrollYProgress, [markerStart, start + 0.02], [0.35, 1])
-  const markerScale = useTransform(scrollYProgress, [markerStart, start + 0.02], [0.75, 1])
+  const y = useTransform(scrollYProgress, [start, end], [22, 0])
+  const markerOpacity = useTransform(scrollYProgress, [markerStart, start + 0.015], [0.35, 1])
+  const markerScale = useTransform(scrollYProgress, [markerStart, start + 0.015], [0.75, 1])
 
   return (
     <div className="relative pl-14 md:pl-20">
       <motion.div
         style={{ opacity: markerOpacity, scale: markerScale }}
         className={`absolute left-0 md:left-0.5 top-0 rounded-full bg-crema dark:bg-bosque-surface border-2 border-dorado flex items-center justify-center z-10 ${
-          isFinal ? 'w-12 h-12 md:w-14 md:h-14 shadow-[0_0_16px_rgba(212,162,78,0.55)]' : 'w-9 h-9 md:w-11 md:h-11 shadow-md'
+          isFinal
+            ? 'w-12 h-12 md:w-14 md:h-14 shadow-[0_0_20px_rgba(212,162,78,0.65)]'
+            : 'w-9 h-9 md:w-11 md:h-11 shadow-md'
         }`}
       >
-        {isFinal ? (
-          <img src={TREASURE_ICON} alt="" className="w-9 h-9 md:w-10 md:h-10 object-contain" />
-        ) : (
-          <span className="font-fraunces text-dorado text-sm md:text-base">{index + 1}</span>
-        )}
+        <MarkerIcon index={index} isFinal={isFinal} />
       </motion.div>
 
       <motion.div style={{ opacity, y }}>
@@ -83,12 +104,26 @@ function Stop({ index, total, scrollYProgress, titleKey, paragraphs, quote, quot
 export function HistoriaSendero() {
   const { t } = useTranslation()
   const sectionRef = useRef<HTMLElement>(null)
-  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start end', 'end start'] })
-  const pathLength = useSpring(scrollYProgress, { stiffness: 60, damping: 20, mass: 0.4 })
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start 0.9', 'end 0.25'] })
+  const pathLength = useSpring(scrollYProgress, { stiffness: 90, damping: 22, mass: 0.3 })
 
   return (
     <section ref={sectionRef} className="relative bg-white/80 dark:bg-bosque-surface/80 py-24 px-4 overflow-hidden">
-      <div className="max-w-3xl mx-auto">
+      {TRAIL_FAUNA.map((f, i) => (
+        <FaunaSprite
+          key={i}
+          img={f.img}
+          size={f.size}
+          duration={f.duration}
+          drift={f.drift}
+          delay={f.delay}
+          flip={f.flip}
+          className="hidden lg:block opacity-70"
+          style={{ top: f.top, [f.side]: '4%' }}
+        />
+      ))}
+
+      <div className="max-w-3xl mx-auto relative">
         <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema mb-16 text-center">
           {t('about.historia.heading')}
         </h2>

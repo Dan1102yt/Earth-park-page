@@ -1,9 +1,5 @@
-import { motion } from 'framer-motion'
 import { useLocation } from 'react-router-dom'
-import { asset } from '../../lib/asset'
-
-// public/images/Mariposas: 1-6 mariposas, 7-9 pajaros/colibries, 10 abeja
-const fauna = (n: number) => asset(`/images/Mariposas/${n}.png`)
+import { FaunaSprite } from './FaunaSprite'
 
 interface Spot {
   img: number
@@ -70,23 +66,17 @@ export function AnimatedFauna() {
   return (
     <div className="fixed inset-0 z-30 pointer-events-none overflow-hidden">
       {spots.map((s, i) => (
-        <motion.div
+        <FaunaSprite
           key={`${pathname}-${s.img}-${i}`}
-          className={`absolute ${s.hideMobile ? 'hidden sm:block' : ''}`}
+          img={s.img}
+          size={s.size}
+          duration={s.duration}
+          drift={s.drift}
+          delay={s.delay}
+          flip={s.flip}
+          className={s.hideMobile ? 'hidden sm:block' : ''}
           style={s.style}
-          animate={{ x: [0, s.drift[0], 0], y: [0, s.drift[1], 0] }}
-          transition={{ duration: s.duration, repeat: Infinity, ease: 'easeInOut', delay: s.delay }}
-        >
-          <motion.img
-            src={fauna(s.img)}
-            alt=""
-            aria-hidden="true"
-            draggable={false}
-            className={`${s.size} object-contain opacity-80 select-none ${s.flip ? '-scale-x-100' : ''}`}
-            animate={{ rotate: [-8, 8, -8] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut', delay: s.delay * 0.4 }}
-          />
-        </motion.div>
+        />
       ))}
     </div>
   )
