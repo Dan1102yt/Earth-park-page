@@ -84,7 +84,7 @@
     "intro": "Nuestro recorrido de 7 paradas dentro de Earth Park",
     "cta": "Explora todas las estaciones",
     "items": {
-      "mariposa-89": { "title": "Mariposa 89 Columpio", "desc": "Símbolo de libertad y el infinito de la vida" },
+      "mariposa-88": { "title": "Mariposa 88 Columpio", "desc": "Símbolo de libertad y el infinito de la vida" },
       "piramide": { "title": "Pirámide de los Teguas", "desc": "Un tributo a la sabiduría ancestral indígena" },
       "cuatro-elementos": { "title": "Los Cuatro Elementos", "desc": "Agua, Tierra, Aire y Fuego: experiencia sensorial" },
       "luna-360": { "title": "Luna 360°", "desc": "Estructura inmersiva que gira contigo" }
@@ -251,15 +251,29 @@
   "stationsPage": {
     "heading": "Un recorrido que despierta los sentidos",
     "subtitle": "Cada rincón de Earth Park cuenta una historia única",
-    "intro": "Este es nuestro recorrido dentro de Earth Park — 7 paradas pensadas para que vivas, sientas y descubras algo distinto en cada una. Te invitamos a hacerlo completo, paso a paso, dejando que cada estación te sorprenda.",
+    "intro": "Toca cualquier punto del mapa para descubrir cada estación de nuestro recorrido.",
+    "placeholderDesc": "Descubre esta parada de nuestro recorrido.",
     "items": {
-      "piramide": { "title": "Pirámide de los Teguas", "desc": "Un tributo a la sabiduría ancestral indígena" },
-      "mariposa-89": { "title": "Mariposa 89 Columpio", "desc": "Símbolo de libertad y el infinito de la vida" },
-      "cuatro-elementos": { "title": "Los Cuatro Elementos", "desc": "Agua, Tierra, Aire y Fuego: experiencia sensorial" },
-      "rover-lunar": { "title": "Rover Lunar", "desc": "Viaja al futuro sin salir de la Tierra" },
-      "luna-360": { "title": "Luna 360°", "desc": "Estructura inmersiva que gira contigo" },
-      "vivero-cafe": { "title": "Vivero & Café", "desc": "Gastronomía local al aire libre, rodeada de plantas, cactus y suculentas" },
-      "galeria-arte": { "title": "Galería de Arte", "desc": "En Earth Park los residuos los transformamos en arte." }
+      "piramide": { "title": "Pirámide de los Teguas" },
+      "mariposa-88": { "title": "Mariposa 88 Columpio" },
+      "cuatro-elementos": { "title": "Los Cuatro Elementos" },
+      "luna-360": { "title": "Luna 360°" },
+      "rover-lunar": { "title": "Rover Lunar" },
+      "vivero-cafe": { "title": "Vivero & Café" }
+    },
+    "elements": {
+      "aire": "Aire",
+      "agua": "Agua",
+      "fuego": "Fuego",
+      "tierra": "Tierra"
+    },
+    "zones": {
+      "hotel": "Hotel Earth Park",
+      "restaurante": "Restaurante",
+      "hamacas": "Zona Hamacas",
+      "camping": "Zona Camping",
+      "bosque": "Zona Bosque",
+      "parqueadero": "Parqueadero"
     }
   },
   "lodging": {

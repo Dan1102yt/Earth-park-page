@@ -84,7 +84,7 @@
     "intro": "Our 7-stop route through Earth Park",
     "cta": "Explore all the stations",
     "items": {
-      "mariposa-89": { "title": "Mariposa 89 Swing", "desc": "A symbol of freedom and the infinity of life" },
+      "mariposa-88": { "title": "Mariposa 88 Swing", "desc": "A symbol of freedom and the infinity of life" },
       "piramide": { "title": "Pirámide de los Teguas", "desc": "A tribute to ancestral indigenous wisdom" },
       "cuatro-elementos": { "title": "The Four Elements", "desc": "Water, Earth, Air and Fire: a sensory experience" },
       "luna-360": { "title": "Luna 360°", "desc": "An immersive structure that spins with you" }
@@ -251,15 +251,29 @@
   "stationsPage": {
     "heading": "A journey that awakens the senses",
     "subtitle": "Every corner of Earth Park tells a unique story",
-    "intro": "This is our journey through Earth Park — 7 stops designed for you to live, feel, and discover something different at each one. We invite you to experience it all, step by step, letting every station surprise you.",
+    "intro": "Tap any point on the map to discover each station of our journey.",
+    "placeholderDesc": "Discover this stop on our journey.",
     "items": {
-      "piramide": { "title": "Pirámide de los Teguas", "desc": "A tribute to ancestral indigenous wisdom" },
-      "mariposa-89": { "title": "Mariposa 89 Swing", "desc": "A symbol of freedom and the infinity of life" },
-      "cuatro-elementos": { "title": "The Four Elements", "desc": "Water, Earth, Air and Fire: a sensory experience" },
-      "rover-lunar": { "title": "Lunar Rover", "desc": "Travel to the future without leaving Earth" },
-      "luna-360": { "title": "Luna 360°", "desc": "An immersive structure that spins with you" },
-      "vivero-cafe": { "title": "Nursery & Café", "desc": "Local, open-air dining surrounded by plants, cacti, and succulents" },
-      "galeria-arte": { "title": "Art Gallery", "desc": "At Earth Park, we turn waste into art." }
+      "piramide": { "title": "Pirámide de los Teguas" },
+      "mariposa-88": { "title": "Mariposa 88 Swing" },
+      "cuatro-elementos": { "title": "The Four Elements" },
+      "luna-360": { "title": "Luna 360°" },
+      "rover-lunar": { "title": "Lunar Rover" },
+      "vivero-cafe": { "title": "Nursery & Café" }
+    },
+    "elements": {
+      "aire": "Air",
+      "agua": "Water",
+      "fuego": "Fire",
+      "tierra": "Earth"
+    },
+    "zones": {
+      "hotel": "Hotel Earth Park",
+      "restaurante": "Restaurant",
+      "hamacas": "Hammock Area",
+      "camping": "Camping Area",
+      "bosque": "Forest Area",
+      "parqueadero": "Parking"
     }
   },
   "lodging": {

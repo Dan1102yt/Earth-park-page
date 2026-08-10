@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/Button'
 
 const stations = [
-  { id: 'mariposa-89', emoji: '🦋' },
+  { id: 'mariposa-88', emoji: '🦋' },
   { id: 'piramide', emoji: '🛕' },
   { id: 'cuatro-elementos', emoji: '🔥' },
   { id: 'luna-360', emoji: '🌕' },
