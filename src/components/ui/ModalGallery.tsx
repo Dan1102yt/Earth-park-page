@@ -1,13 +1,26 @@
 import { useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
-export function ModalGallery({ images, alt }: { images: string[]; alt: string }) {
-  const [index, setIndex] = useState(0)
+interface ModalGalleryProps {
+  images: string[]
+  alt: string
+  initialIndex?: number
+  objectPositions?: (string | undefined)[] // encuadre por foto, opcional (default: center)
+}
+
+export function ModalGallery({ images, alt, initialIndex = 0, objectPositions }: ModalGalleryProps) {
+  const [index, setIndex] = useState(initialIndex)
 
   return (
     <div>
       <div className="relative h-72 sm:h-96 bg-carbon/10">
-        <img src={images[index]} alt={`${alt} — foto ${index + 1}`} loading="lazy" className="w-full h-full object-cover" />
+        <img
+          src={images[index]}
+          alt={`${alt} — foto ${index + 1}`}
+          loading="lazy"
+          style={{ objectPosition: objectPositions?.[index] }}
+          className="w-full h-full object-cover"
+        />
         {images.length > 1 && (
           <>
             <button
@@ -40,7 +53,13 @@ export function ModalGallery({ images, alt }: { images: string[]; alt: string })
                 i === index ? 'border-terracota dark:border-dorado' : 'border-transparent opacity-70 hover:opacity-100'
               }`}
             >
-              <img src={img} alt="" loading="lazy" className="w-full h-full object-cover" />
+              <img
+                src={img}
+                alt=""
+                loading="lazy"
+                style={{ objectPosition: objectPositions?.[i] }}
+                className="w-full h-full object-cover"
+              />
             </button>
           ))}
         </div>

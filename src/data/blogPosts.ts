@@ -2,12 +2,18 @@ import { asset } from '../lib/asset'
 
 export type BlogCategory = 'fecha-conmemorativa' | 'especie' | 'aniversario' | 'semanal'
 
+// Foto de una seccion: string simple (encuadre por defecto) u objeto con
+// object-position propio para corregir el encuadre de una foto puntual.
+export type PostImage = string | { src: string; objectPosition: string }
+
 // Seccion de contenido enriquecido (encabezado + parrafos + fotos intercaladas),
 // usada por posts tipo resumen semanal. Los posts simples solo usan `content`.
+// Los parrafos pueden llevar marcadores `{n}` (nota al pie) que se emparejan
+// con la foto n-esima de `images` — ver richText() en BlogPost.tsx.
 export interface PostSection {
   heading?: string
   paragraphs: string[]
-  images?: string[]
+  images?: PostImage[]
 }
 
 export interface BlogPost {
@@ -309,22 +315,22 @@ export const blogPosts: BlogPost[] = [
         {
           heading: 'El cielo hizo lo suyo',
           paragraphs: [
-            'Un atardecer naranja que paró todo por un momento. Mi papá, como casi cada tarde, se quedó mirando el horizonte desde el mismo lugar de siempre — y si algo resume lo que significa este proyecto para nuestra familia, es justamente eso: detenerse a mirar lo que la tierra nos regala.',
+            'Un atardecer naranja que paró todo por un momento.{1} Mi papá, como casi cada tarde, se quedó mirando el horizonte desde el mismo lugar de siempre{2} — y si algo resume lo que significa este proyecto para nuestra familia, es justamente eso: detenerse a mirar lo que la tierra nos regala.',
           ],
           images: [weeklyImg(1), weeklyImg(2)],
         },
         {
           heading: 'Subiendo por el sendero',
           paragraphs: [
-            'Camino a la Pirámide de los Teguas nos encontramos con una Mariposa Saltarina de cola larga común (*Urbanus dorantes*) — de esas visitas pequeñas que nos recuerdan por qué empezamos todo esto. Desde la estación Mariposa 88, la vista del valle sigue dejándonos sin palabras, sin importar cuántas veces la veamos.',
+            'Camino a la Pirámide de los Teguas{2} nos encontramos con una Mariposa Saltarina de cola larga común (*Urbanus dorantes*){1} — de esas visitas pequeñas que nos recuerdan por qué empezamos todo esto. Desde la estación Mariposa 88, la vista del valle sigue dejándonos sin palabras, sin importar cuántas veces la veamos.{3}',
           ],
           images: [weeklyImg(4), weeklyImg(5), weeklyImg(6)],
         },
         {
           heading: 'Lo que estamos probando',
           paragraphs: [
-            'Esta semana seguimos con nuestro experimento en la canastilla: ahí vamos probando distintas maneras de reproducir plantas tapizantes y suculentas, buscando la técnica que mejor funcione antes de llevarlas a gran escala.',
-            'Entre las plantas que también nos acompañaron esta semana: el Sombrero Chino (*Holmskioldia sanguinea*), el Cayeno (*Hibiscus rosa-sinensis*), una Dalia (*Dahlia pinnata*) en todo su esplendor amarillo, el Carbonero Rojo (*Calliandra haematocephala*) — favorito de los polinizadores — y una Orquídea de Tierra (*Phaius tankervilleae*) que apenas empieza a florecer.',
+            'Esta semana seguimos con nuestro experimento en la canastilla:{1} ahí vamos probando distintas maneras de reproducir plantas tapizantes y suculentas, buscando la técnica que mejor funcione antes de llevarlas a gran escala.',
+            'Entre las plantas que también nos acompañaron esta semana: el Sombrero Chino (*Holmskioldia sanguinea*){2}, el Cayeno (*Hibiscus rosa-sinensis*){3}, una Dalia (*Dahlia pinnata*){4} en todo su esplendor amarillo, el Carbonero Rojo (*Calliandra haematocephala*){5} — favorito de los polinizadores — y una Orquídea de Tierra (*Phaius tankervilleae*){6} que apenas empieza a florecer.',
           ],
           images: [weeklyImg(3), weeklyImg(7), weeklyImg(8), weeklyImg(9), weeklyImg(10), weeklyImg(11)],
         },
@@ -333,7 +339,7 @@ export const blogPosts: BlogPost[] = [
           paragraphs: [
             'Y no podíamos cerrar sin presentarte a uno de nuestros compañeros de siempre: Maylo, todo un caballero — respetuoso, pero también muy territorial, por eso lo cuidamos aparte durante tu visita. Aunque si de guardianes juguetones se trata, hay alguien más en Earth Park que le encanta hacerse amigo de cada turista que llega... descúbrelo visitándonos, o quédate atento a nuestro blog.',
           ],
-          images: [weeklyImg(12)],
+          images: [{ src: weeklyImg(12), objectPosition: '50% 20%' }],
         },
       ],
       en: [
@@ -345,22 +351,22 @@ export const blogPosts: BlogPost[] = [
         {
           heading: 'The sky did its thing',
           paragraphs: [
-            "An orange sunset that stopped everything for a moment. My dad, like almost every evening, stood watching the horizon from his usual spot — and if anything sums up what this project means to our family, it's exactly that: stopping to look at what the land gives us.",
+            "An orange sunset that stopped everything for a moment.{1} My dad, like almost every evening, stood watching the horizon from his usual spot{2} — and if anything sums up what this project means to our family, it's exactly that: stopping to look at what the land gives us.",
           ],
           images: [weeklyImg(1), weeklyImg(2)],
         },
         {
           heading: 'Climbing the trail',
           paragraphs: [
-            "On the way to the Pirámide de los Teguas we ran into a Long-tailed Skipper (*Urbanus dorantes*) — one of those small visits that remind us why we started all this. From the Mariposa 88 station, the view of the valley still leaves us speechless, no matter how many times we see it.",
+            "On the way to the Pirámide de los Teguas{2} we ran into a Long-tailed Skipper (*Urbanus dorantes*){1} — one of those small visits that remind us why we started all this. From the Mariposa 88 station, the view of the valley still leaves us speechless, no matter how many times we see it.{3}",
           ],
           images: [weeklyImg(4), weeklyImg(5), weeklyImg(6)],
         },
         {
           heading: "What we're testing",
           paragraphs: [
-            "This week we kept working on our experiment in the canastilla: there we're trying out different ways to propagate ground-cover plants and succulents, looking for the technique that works best before scaling it up.",
-            'Among the plants that also kept us company this week: the Chinese hat plant (*Holmskioldia sanguinea*), the Hibiscus (*Hibiscus rosa-sinensis*), a Dahlia (*Dahlia pinnata*) in full yellow bloom, the Red Powder Puff (*Calliandra haematocephala*) — a pollinator favorite — and a Ground Orchid (*Phaius tankervilleae*) just beginning to flower.',
+            "This week we kept working on our experiment in the canastilla:{1} there we're trying out different ways to propagate ground-cover plants and succulents, looking for the technique that works best before scaling it up.",
+            'Among the plants that also kept us company this week: the Chinese hat plant (*Holmskioldia sanguinea*){2}, the Hibiscus (*Hibiscus rosa-sinensis*){3}, a Dahlia (*Dahlia pinnata*){4} in full yellow bloom, the Red Powder Puff (*Calliandra haematocephala*){5} — a pollinator favorite — and a Ground Orchid (*Phaius tankervilleae*){6} just beginning to flower.',
           ],
           images: [weeklyImg(3), weeklyImg(7), weeklyImg(8), weeklyImg(9), weeklyImg(10), weeklyImg(11)],
         },
@@ -369,7 +375,7 @@ export const blogPosts: BlogPost[] = [
           paragraphs: [
             "And we couldn't close without introducing you to one of our longtime companions: Maylo, quite the gentleman — respectful, but also very territorial, which is why we keep him separate during your visit. Though if playful guardians are what you're after, there's someone else at Earth Park who loves making friends with every visitor who arrives... find out by visiting us, or stay tuned to our blog.",
           ],
-          images: [weeklyImg(12)],
+          images: [{ src: weeklyImg(12), objectPosition: '50% 20%' }],
         },
       ],
     },

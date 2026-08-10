@@ -1,9 +1,12 @@
+import { useState } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import { ArrowLeft, Calendar, PawPrint, PartyPopper, Camera } from 'lucide-react'
-import { getPostBySlug, isPublished, resolveTokens, type BlogCategory } from '../data/blogPosts'
+import { getPostBySlug, isPublished, resolveTokens, type BlogCategory, type PostImage } from '../data/blogPosts'
 import { formatDate } from '../lib/formatDate'
+import { Modal } from '../components/ui/Modal'
+import { ModalGallery } from '../components/ui/ModalGallery'
 
 const categoryIcons: Record<BlogCategory, typeof Calendar> = {
   'fecha-conmemorativa': Calendar,
@@ -12,21 +15,44 @@ const categoryIcons: Record<BlogCategory, typeof Calendar> = {
   semanal: Camera,
 }
 
-// Soporte minimo de *cursiva* para nombres cientificos dentro del texto de los posts.
+const imgSrc = (img: PostImage) => (typeof img === 'string' ? img : img.src)
+const imgPosition = (img: PostImage) => (typeof img === 'string' ? undefined : img.objectPosition)
+
+// Soporte minimo de *cursiva* (nombres cientificos) y {n} como nota al pie
+// que remite a la foto n-esima de la seccion — ver ImageGrid.
 function richText(text: string) {
-  return text.split(/(\*[^*]+\*)/g).map((part, i) =>
-    part.startsWith('*') && part.endsWith('*') ? <em key={i}>{part.slice(1, -1)}</em> : part
-  )
+  return text.split(/(\*[^*]+\*|\{\d+\})/g).map((part, i) => {
+    if (part.startsWith('*') && part.endsWith('*')) return <em key={i}>{part.slice(1, -1)}</em>
+    const footnote = /^\{(\d+)\}$/.exec(part)
+    if (footnote) return <sup key={i} className="text-dorado font-bold ml-0.5">{footnote[1]}</sup>
+    return part
+  })
 }
 
-function ImageGrid({ images }: { images: string[] }) {
+function ImageGrid({ images, onOpen }: { images: PostImage[]; onOpen: (index: number) => void }) {
   const cols = images.length === 1 ? 'grid-cols-1 max-w-sm' : images.length === 2 ? 'grid-cols-2' : 'grid-cols-2 sm:grid-cols-3'
   return (
     <div className={`mt-5 grid gap-3 ${cols}`}>
-      {images.map((src) => (
-        <div key={src} className="rounded-xl overflow-hidden aspect-[4/3]">
-          <img src={src} alt="" loading="lazy" className="w-full h-full object-cover" />
-        </div>
+      {images.map((img, i) => (
+        <button
+          key={imgSrc(img)}
+          type="button"
+          onClick={() => onOpen(i)}
+          className="relative rounded-xl overflow-hidden aspect-[4/3] cursor-zoom-in"
+        >
+          <img
+            src={imgSrc(img)}
+            alt=""
+            loading="lazy"
+            style={{ objectPosition: imgPosition(img) }}
+            className="w-full h-full object-cover"
+          />
+          {images.length > 1 && (
+            <span className="absolute top-2 right-2 w-5 h-5 rounded-full bg-dorado text-carbon text-xs font-bold flex items-center justify-center">
+              {i + 1}
+            </span>
+          )}
+        </button>
       ))}
     </div>
   )
@@ -37,6 +63,7 @@ export function BlogPost() {
   const { t, i18n } = useTranslation()
   const lang = i18n.language === 'en' ? 'en' : 'es'
   const post = slug ? getPostBySlug(slug) : undefined
+  const [gallery, setGallery] = useState<{ images: PostImage[]; index: number } | null>(null)
 
   if (!post) return <Navigate to="/blog" replace />
 
@@ -95,7 +122,12 @@ export function BlogPost() {
                         <p key={pi}>{richText(resolveTokens(paragraph))}</p>
                       ))}
                     </div>
-                    {section.images && <ImageGrid images={section.images} />}
+                    {section.images && (
+                      <ImageGrid
+                        images={section.images}
+                        onOpen={(index) => setGallery({ images: section.images!, index })}
+                      />
+                    )}
                   </div>
                 ))}
               </div>
@@ -109,6 +141,17 @@ export function BlogPost() {
           </motion.article>
         )}
       </div>
+
+      <Modal open={gallery !== null} onClose={() => setGallery(null)}>
+        {gallery && (
+          <ModalGallery
+            images={gallery.images.map(imgSrc)}
+            objectPositions={gallery.images.map(imgPosition)}
+            alt={resolveTokens(post.title[lang])}
+            initialIndex={gallery.index}
+          />
+        )}
+      </Modal>
     </div>
   )
 }
