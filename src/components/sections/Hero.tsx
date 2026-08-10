@@ -8,8 +8,6 @@ import { asset } from '../../lib/asset'
 
 export const HERO_VIDEO_SRC = asset('/videos/hero-video.mp4')
 export const HERO_VIDEO_SRC_MOBILE = asset('/videos/hero-video-celular.mp4')
-export const HERO_VIDEO_POSTER =
-  'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1280,h=720,fit=crop/Yg2ya4gl5Rtg3nyW/ptv6-dJobZpwzLnFrMEzM.jpeg'
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -24,6 +22,7 @@ export function Hero() {
   const { t } = useTranslation()
   const videoRef = useRef<HTMLVideoElement>(null)
   const [muted, setMuted] = useState(true)
+  const [videoReady, setVideoReady] = useState(false)
 
   const toggleSound = () => {
     const video = videoRef.current
@@ -33,16 +32,17 @@ export function Hero() {
   }
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Video background */}
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-bosque-deep">
+      {/* Video background: sin poster/imagen de respaldo — fondo solido de marca
+          mientras carga, luego fade-in del video cuando tiene su primer frame listo */}
       <video
         ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover"
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-out ${videoReady ? 'opacity-100' : 'opacity-0'}`}
         autoPlay
         muted
         loop
         playsInline
-        poster={HERO_VIDEO_POSTER}
+        onLoadedData={() => setVideoReady(true)}
       >
         <source src={HERO_VIDEO_SRC_MOBILE} media="(max-width: 768px)" type="video/mp4" />
         <source src={HERO_VIDEO_SRC} type="video/mp4" />
