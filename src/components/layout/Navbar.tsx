@@ -26,12 +26,16 @@ const navLinks: NavLink[] = [
   },
   { key: 'nav.plans', to: '/planes-turisticos' },
   { key: 'nav.gallery', to: '/galeria-arte' },
+  { key: 'nav.blog', to: '/blog' },
   { key: 'nav.contact', to: '/contacto' },
 ]
 
 function DesktopNavItem({ link, scrolled, location, t }: { link: NavLink; scrolled: boolean; location: Location; t: TFunction }) {
   const [open, setOpen] = useState(false)
-  const active = link.to === location.pathname || (link.children?.some((c) => c.to === location.pathname) ?? false)
+  const active =
+    link.to === location.pathname ||
+    location.pathname.startsWith(`${link.to}/`) ||
+    (link.children?.some((c) => c.to === location.pathname) ?? false)
   const colorClass = active
     ? 'text-terracota dark:text-dorado'
     : scrolled

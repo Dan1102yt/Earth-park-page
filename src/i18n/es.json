@@ -9,6 +9,7 @@
     "lodging": "Hospedaje",
     "gastronomy": "Gastronomía",
     "gallery": "Souvenirs",
+    "blog": "Blog",
     "contact": "Contacto",
     "reserve": "Reservar"
   },
@@ -346,6 +347,20 @@
     "subtitle": "En Earth Park los residuos los transformamos en arte.",
     "priceOnRequest": "Precio disponible al consultar",
     "buyButton": "Comprar por WhatsApp"
+  },
+  "blog": {
+    "heading": "Nuestro Blog",
+    "subtitle": "Reflexiones, fechas y momentos de la vida en Earth Park",
+    "readMore": "Leer más",
+    "backToBlog": "Volver al blog",
+    "empty": "Muy pronto compartiremos las primeras historias.",
+    "comingSoonTitle": "Muy pronto",
+    "comingSoonMessage": "Esta publicación estará disponible próximamente.",
+    "categories": {
+      "fecha-conmemorativa": "Fecha conmemorativa",
+      "especie": "Especie",
+      "aniversario": "Aniversario"
+    }
   },
   "contact": {
     "heading": "Hablemos, queremos recibirte",

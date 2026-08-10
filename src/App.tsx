@@ -11,6 +11,8 @@ import { Contact } from './pages/Contact'
 import { About } from './pages/About'
 import { Lodging } from './pages/Lodging'
 import { Gastronomy } from './pages/Gastronomy'
+import { Blog } from './pages/Blog'
+import { BlogPost } from './pages/BlogPost'
 
 export default function App() {
   return (
@@ -25,6 +27,8 @@ export default function App() {
             <Route path="/planes-turisticos" element={<Plans />} />
             <Route path="/estaciones" element={<StationsPage />} />
             <Route path="/galeria-arte" element={<GalleryShop />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contacto" element={<Contact />} />
             <Route path="/nosotros" element={<About />} />
             <Route path="/hospedaje" element={<Lodging />} />
