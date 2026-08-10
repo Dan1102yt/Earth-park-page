@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
-import { Calendar, PawPrint, PartyPopper } from 'lucide-react'
+import { Calendar, PawPrint, PartyPopper, Camera } from 'lucide-react'
 import { PageHeaderBand } from '../components/ui/PageHeaderBand'
 import { getPublishedPosts, resolveTokens, type BlogCategory } from '../data/blogPosts'
 import { formatDate } from '../lib/formatDate'
@@ -10,6 +10,7 @@ const categoryIcons: Record<BlogCategory, typeof Calendar> = {
   'fecha-conmemorativa': Calendar,
   especie: PawPrint,
   aniversario: PartyPopper,
+  semanal: Camera,
 }
 
 export function Blog() {

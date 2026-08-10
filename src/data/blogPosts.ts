@@ -1,4 +1,14 @@
-export type BlogCategory = 'fecha-conmemorativa' | 'especie' | 'aniversario'
+import { asset } from '../lib/asset'
+
+export type BlogCategory = 'fecha-conmemorativa' | 'especie' | 'aniversario' | 'semanal'
+
+// Seccion de contenido enriquecido (encabezado + parrafos + fotos intercaladas),
+// usada por posts tipo resumen semanal. Los posts simples solo usan `content`.
+export interface PostSection {
+  heading?: string
+  paragraphs: string[]
+  images?: string[]
+}
 
 export interface BlogPost {
   slug: string
@@ -6,9 +16,12 @@ export interface BlogPost {
   category: BlogCategory
   title: { es: string; en: string }
   excerpt: { es: string; en: string }
-  content: { es: string[]; en: string[] }
+  content?: { es: string[]; en: string[] }
+  sections?: { es: PostSection[]; en: PostSection[] }
   coverImage: string | null // null = sin foto real todavia (PLACEHOLDER), Oscar la agrega despues
 }
+
+const weeklyImg = (n: number) => asset(`/images/BLOG/semana-02-09-agosto/${n}.jpg`)
 
 export const EARTH_PARK_FOUNDING_DATE = new Date('2024-12-07T00:00:00')
 
@@ -273,6 +286,94 @@ export const blogPosts: BlogPost[] = [
       ],
     },
     coverImage: null,
+  },
+  {
+    slug: 'semana-02-09-agosto-2026',
+    publishDate: '2026-08-09',
+    category: 'semanal',
+    title: {
+      es: 'Momentos de la semana: 2 al 9 de agosto en Earth Park',
+      en: 'This week at Earth Park: August 2-9',
+    },
+    excerpt: {
+      es: 'Un atardecer que paró todo, una mariposa en el sendero, y los experimentos de esta semana en nuestro rincón de propagación de plantas.',
+      en: "A sunset that stopped everything, a butterfly on the trail, and this week's experiments in our plant propagation corner.",
+    },
+    sections: {
+      es: [
+        {
+          paragraphs: [
+            'Cada semana en Earth Park pasan pequeñas cosas que merecen contarse: un atardecer que se roba la mirada, una mariposa que aparece justo cuando subes por el sendero, una flor que decidió abrir sus pétalos justo ese día. Así vivimos esta semana.',
+          ],
+        },
+        {
+          heading: 'El cielo hizo lo suyo',
+          paragraphs: [
+            'Un atardecer naranja que paró todo por un momento. Mi papá, como casi cada tarde, se quedó mirando el horizonte desde el mismo lugar de siempre — y si algo resume lo que significa este proyecto para nuestra familia, es justamente eso: detenerse a mirar lo que la tierra nos regala.',
+          ],
+          images: [weeklyImg(1), weeklyImg(2)],
+        },
+        {
+          heading: 'Subiendo por el sendero',
+          paragraphs: [
+            'Camino a la Pirámide de los Teguas nos encontramos con una Mariposa Saltarina de cola larga común (*Urbanus dorantes*) — de esas visitas pequeñas que nos recuerdan por qué empezamos todo esto. Desde la estación Mariposa 88, la vista del valle sigue dejándonos sin palabras, sin importar cuántas veces la veamos.',
+          ],
+          images: [weeklyImg(4), weeklyImg(5), weeklyImg(6)],
+        },
+        {
+          heading: 'Lo que estamos probando',
+          paragraphs: [
+            'Esta semana seguimos con nuestro experimento en la canastilla: ahí vamos probando distintas maneras de reproducir plantas tapizantes y suculentas, buscando la técnica que mejor funcione antes de llevarlas a gran escala.',
+            'Entre las plantas que también nos acompañaron esta semana: el Sombrero Chino (*Holmskioldia sanguinea*), el Cayeno (*Hibiscus rosa-sinensis*), una Dalia (*Dahlia pinnata*) en todo su esplendor amarillo, el Carbonero Rojo (*Calliandra haematocephala*) — favorito de los polinizadores — y una Orquídea de Tierra (*Phaius tankervilleae*) que apenas empieza a florecer.',
+          ],
+          images: [weeklyImg(3), weeklyImg(7), weeklyImg(8), weeklyImg(9), weeklyImg(10), weeklyImg(11)],
+        },
+        {
+          heading: 'Los guardianes de Earth Park',
+          paragraphs: [
+            'Y no podíamos cerrar sin presentarte a uno de nuestros compañeros de siempre: Maylo, todo un caballero — respetuoso, pero también muy territorial, por eso lo cuidamos aparte durante tu visita. Aunque si de guardianes juguetones se trata, hay alguien más en Earth Park que le encanta hacerse amigo de cada turista que llega... descúbrelo visitándonos, o quédate atento a nuestro blog.',
+          ],
+          images: [weeklyImg(12)],
+        },
+      ],
+      en: [
+        {
+          paragraphs: [
+            "Every week at Earth Park, small things happen that are worth telling: a sunset that steals the view, a butterfly that shows up just as you're climbing the trail, a flower that decided to open its petals on that exact day. That's how we lived this week.",
+          ],
+        },
+        {
+          heading: 'The sky did its thing',
+          paragraphs: [
+            "An orange sunset that stopped everything for a moment. My dad, like almost every evening, stood watching the horizon from his usual spot — and if anything sums up what this project means to our family, it's exactly that: stopping to look at what the land gives us.",
+          ],
+          images: [weeklyImg(1), weeklyImg(2)],
+        },
+        {
+          heading: 'Climbing the trail',
+          paragraphs: [
+            "On the way to the Pirámide de los Teguas we ran into a Long-tailed Skipper (*Urbanus dorantes*) — one of those small visits that remind us why we started all this. From the Mariposa 88 station, the view of the valley still leaves us speechless, no matter how many times we see it.",
+          ],
+          images: [weeklyImg(4), weeklyImg(5), weeklyImg(6)],
+        },
+        {
+          heading: "What we're testing",
+          paragraphs: [
+            "This week we kept working on our experiment in the canastilla: there we're trying out different ways to propagate ground-cover plants and succulents, looking for the technique that works best before scaling it up.",
+            'Among the plants that also kept us company this week: the Chinese hat plant (*Holmskioldia sanguinea*), the Hibiscus (*Hibiscus rosa-sinensis*), a Dahlia (*Dahlia pinnata*) in full yellow bloom, the Red Powder Puff (*Calliandra haematocephala*) — a pollinator favorite — and a Ground Orchid (*Phaius tankervilleae*) just beginning to flower.',
+          ],
+          images: [weeklyImg(3), weeklyImg(7), weeklyImg(8), weeklyImg(9), weeklyImg(10), weeklyImg(11)],
+        },
+        {
+          heading: "Earth Park's guardians",
+          paragraphs: [
+            "And we couldn't close without introducing you to one of our longtime companions: Maylo, quite the gentleman — respectful, but also very territorial, which is why we keep him separate during your visit. Though if playful guardians are what you're after, there's someone else at Earth Park who loves making friends with every visitor who arrives... find out by visiting us, or stay tuned to our blog.",
+          ],
+          images: [weeklyImg(12)],
+        },
+      ],
+    },
+    coverImage: weeklyImg(1),
   },
 ]
 

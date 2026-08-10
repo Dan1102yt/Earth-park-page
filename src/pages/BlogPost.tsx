@@ -1,7 +1,7 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
-import { ArrowLeft, Calendar, PawPrint, PartyPopper } from 'lucide-react'
+import { ArrowLeft, Calendar, PawPrint, PartyPopper, Camera } from 'lucide-react'
 import { getPostBySlug, isPublished, resolveTokens, type BlogCategory } from '../data/blogPosts'
 import { formatDate } from '../lib/formatDate'
 
@@ -9,6 +9,27 @@ const categoryIcons: Record<BlogCategory, typeof Calendar> = {
   'fecha-conmemorativa': Calendar,
   especie: PawPrint,
   aniversario: PartyPopper,
+  semanal: Camera,
+}
+
+// Soporte minimo de *cursiva* para nombres cientificos dentro del texto de los posts.
+function richText(text: string) {
+  return text.split(/(\*[^*]+\*)/g).map((part, i) =>
+    part.startsWith('*') && part.endsWith('*') ? <em key={i}>{part.slice(1, -1)}</em> : part
+  )
+}
+
+function ImageGrid({ images }: { images: string[] }) {
+  const cols = images.length === 1 ? 'grid-cols-1 max-w-sm' : images.length === 2 ? 'grid-cols-2' : 'grid-cols-2 sm:grid-cols-3'
+  return (
+    <div className={`mt-5 grid gap-3 ${cols}`}>
+      {images.map((src) => (
+        <div key={src} className="rounded-xl overflow-hidden aspect-[4/3]">
+          <img src={src} alt="" loading="lazy" className="w-full h-full object-cover" />
+        </div>
+      ))}
+    </div>
+  )
 }
 
 export function BlogPost() {
@@ -62,11 +83,29 @@ export function BlogPost() {
             </span>
             <p className="font-inter text-carbon/50 dark:text-crema/50 text-sm mb-3">{formatDate(post.publishDate, lang)}</p>
             <h1 className="font-fraunces text-3xl md:text-4xl text-bosque dark:text-crema mb-8">{resolveTokens(post.title[lang])}</h1>
-            <div className="space-y-5 font-inter text-carbon dark:text-crema text-lg leading-relaxed">
-              {post.content[lang].map((paragraph, i) => (
-                <p key={i}>{resolveTokens(paragraph)}</p>
-              ))}
-            </div>
+            {post.sections ? (
+              <div className="space-y-10">
+                {post.sections[lang].map((section, si) => (
+                  <div key={si}>
+                    {section.heading && (
+                      <h3 className="font-fraunces text-2xl text-bosque dark:text-crema mb-3">{section.heading}</h3>
+                    )}
+                    <div className="space-y-4 font-inter text-carbon dark:text-crema text-lg leading-relaxed">
+                      {section.paragraphs.map((paragraph, pi) => (
+                        <p key={pi}>{richText(resolveTokens(paragraph))}</p>
+                      ))}
+                    </div>
+                    {section.images && <ImageGrid images={section.images} />}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="space-y-5 font-inter text-carbon dark:text-crema text-lg leading-relaxed">
+                {post.content![lang].map((paragraph, i) => (
+                  <p key={i}>{resolveTokens(paragraph)}</p>
+                ))}
+              </div>
+            )}
           </motion.article>
         )}
       </div>

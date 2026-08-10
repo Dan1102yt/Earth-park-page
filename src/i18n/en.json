@@ -359,7 +359,8 @@
     "categories": {
       "fecha-conmemorativa": "Commemorative date",
       "especie": "Species",
-      "aniversario": "Anniversary"
+      "aniversario": "Anniversary",
+      "semanal": "Weekly"
     }
   },
   "contact": {
