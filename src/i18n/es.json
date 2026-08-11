@@ -255,25 +255,25 @@
     "placeholderDesc": "Descubre esta parada de nuestro recorrido.",
     "items": {
       "piramide": { "title": "Pirámide de los Teguas" },
-      "mariposa-88": { "title": "Mariposa 88 Columpio" },
-      "cuatro-elementos": { "title": "Los Cuatro Elementos" },
-      "luna-360": { "title": "Luna 360°" },
+      "luna-360": { "title": "Estación Luna 360°" },
       "rover-lunar": { "title": "Rover Lunar" },
+      "mariposa-88": { "title": "Mariposa 88 (Columpio)" },
+      "aire": { "title": "Estación del Aire" },
+      "tierra": { "title": "Estación de la Tierra" },
+      "agua": { "title": "Estación del Agua" },
+      "fuego": { "title": "Estación del Fuego" },
       "vivero-cafe": { "title": "Vivero & Café" }
     },
-    "elements": {
-      "aire": "Aire",
-      "agua": "Agua",
-      "fuego": "Fuego",
-      "tierra": "Tierra"
-    },
     "zones": {
-      "hotel": "Hotel Earth Park",
+      "parqueadero": "Parqueadero",
       "restaurante": "Restaurante",
+      "casa-principal": "Casa Principal",
+      "hotel": "Hotel Earth Park",
       "hamacas": "Zona Hamacas",
-      "camping": "Zona Camping",
+      "camping": "Camping",
+      "mariposario": "Mariposario",
       "bosque": "Zona Bosque",
-      "parqueadero": "Parqueadero"
+      "salida": "Salida/Fin"
     }
   },
   "lodging": {

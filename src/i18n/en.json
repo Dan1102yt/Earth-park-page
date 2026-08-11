@@ -255,25 +255,25 @@
     "placeholderDesc": "Discover this stop on our journey.",
     "items": {
       "piramide": { "title": "Pirámide de los Teguas" },
-      "mariposa-88": { "title": "Mariposa 88 Swing" },
-      "cuatro-elementos": { "title": "The Four Elements" },
-      "luna-360": { "title": "Luna 360°" },
+      "luna-360": { "title": "Luna 360° Station" },
       "rover-lunar": { "title": "Lunar Rover" },
+      "mariposa-88": { "title": "Mariposa 88 (Swing)" },
+      "aire": { "title": "Air Station" },
+      "tierra": { "title": "Earth Station" },
+      "agua": { "title": "Water Station" },
+      "fuego": { "title": "Fire Station" },
       "vivero-cafe": { "title": "Nursery & Café" }
     },
-    "elements": {
-      "aire": "Air",
-      "agua": "Water",
-      "fuego": "Fire",
-      "tierra": "Earth"
-    },
     "zones": {
-      "hotel": "Hotel Earth Park",
+      "parqueadero": "Parking",
       "restaurante": "Restaurant",
+      "casa-principal": "Main House",
+      "hotel": "Hotel Earth Park",
       "hamacas": "Hammock Area",
-      "camping": "Camping Area",
+      "camping": "Camping",
+      "mariposario": "Butterfly House",
       "bosque": "Forest Area",
-      "parqueadero": "Parking"
+      "salida": "Exit"
     }
   },
   "lodging": {

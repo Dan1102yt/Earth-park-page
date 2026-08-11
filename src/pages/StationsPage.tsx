@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { MapPin, Wind, Droplet, Flame, Mountain } from 'lucide-react'
+import { MapPin } from 'lucide-react'
 import { PageHeaderBand } from '../components/ui/PageHeaderBand'
 import { Modal } from '../components/ui/Modal'
 import { asset } from '../lib/asset'
 
-const MAP_IMAGE = asset('/images/estaciones/mapa-earth-park.jpeg')
+const MAP_IMAGE = asset('/images/estaciones/mapa-earth-park.png')
 
 interface Station {
   id: string
@@ -15,26 +15,31 @@ interface Station {
 }
 
 // Coordenadas en % ajustadas a ojo sobre la ilustracion real del mapa —
-// afinar despues comparando visualmente si alguna queda desalineada.
+// el texto pintado en la imagen tiene inconsistencias menores, por eso se
+// ubican por posicion visual relativa en vez de confiar en las etiquetas.
 const stations: Station[] = [
-  { id: 'piramide', x: 93, y: 8, image: asset('/images/estaciones/estacion-piramide.jpeg') },
-  { id: 'mariposa-88', x: 76, y: 30, image: asset('/images/estaciones/estacion-mariposa.jpeg') },
-  { id: 'cuatro-elementos', x: 50, y: 47, image: asset('/images/estaciones/estacion-fuego.jpeg') },
-  { id: 'luna-360', x: 62, y: 10, image: asset('/images/estaciones/estacion-luna360.jpeg') },
-  { id: 'rover-lunar', x: 77, y: 43, image: asset('/images/estaciones/estacion-rover.jpeg') },
-  { id: 'vivero-cafe', x: 54, y: 17 },
+  { id: 'piramide', x: 90, y: 10, image: asset('/images/estaciones/estacion-piramide.jpeg') },
+  { id: 'luna-360', x: 68, y: 11, image: asset('/images/estaciones/estacion-luna360.jpeg') },
+  { id: 'rover-lunar', x: 58, y: 10, image: asset('/images/estaciones/estacion-rover.jpeg') },
+  { id: 'mariposa-88', x: 46, y: 51, image: asset('/images/estaciones/estacion-mariposa.jpeg') },
+  { id: 'aire', x: 62, y: 51 },
+  { id: 'tierra', x: 22, y: 58 },
+  { id: 'agua', x: 87, y: 67 },
+  { id: 'fuego', x: 51, y: 74, image: asset('/images/estaciones/estacion-fuego.jpeg') },
+  { id: 'vivero-cafe', x: 54, y: 20 },
 ]
 
 const zones: { id: string; x: number; y: number }[] = [
-  { id: 'hotel', x: 13, y: 34 },
-  { id: 'restaurante', x: 17, y: 21 },
-  { id: 'hamacas', x: 39, y: 8 },
-  { id: 'camping', x: 57, y: 35 },
-  { id: 'bosque', x: 49, y: 73 },
-  { id: 'parqueadero', x: 21, y: 8 },
+  { id: 'parqueadero', x: 10, y: 10 },
+  { id: 'restaurante', x: 19, y: 25 },
+  { id: 'casa-principal', x: 36, y: 24 },
+  { id: 'hotel', x: 14, y: 42 },
+  { id: 'hamacas', x: 41, y: 11 },
+  { id: 'camping', x: 42, y: 72 },
+  { id: 'mariposario', x: 72, y: 74 },
+  { id: 'bosque', x: 50, y: 89 },
+  { id: 'salida', x: 29, y: 81 },
 ]
-
-const elementIcons = { aire: Wind, agua: Droplet, fuego: Flame, tierra: Mountain } as const
 
 export function StationsPage() {
   const { t } = useTranslation()
@@ -105,21 +110,6 @@ export function StationsPage() {
               <h2 className="font-fraunces text-3xl text-bosque dark:text-crema mb-3">
                 {t(`stationsPage.items.${activeStation.id}.title`)}
               </h2>
-              {activeStation.id === 'cuatro-elementos' && (
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {(Object.keys(elementIcons) as (keyof typeof elementIcons)[]).map((el) => {
-                    const ElIcon = elementIcons[el]
-                    return (
-                      <span
-                        key={el}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-musgo/15 dark:bg-crema/10 text-bosque dark:text-crema text-sm font-inter"
-                      >
-                        <ElIcon size={14} /> {t(`stationsPage.elements.${el}`)}
-                      </span>
-                    )
-                  })}
-                </div>
-              )}
               <p className="font-inter text-carbon/70 dark:text-crema/70 leading-relaxed">{t('stationsPage.placeholderDesc')}</p>
             </div>
           </div>
