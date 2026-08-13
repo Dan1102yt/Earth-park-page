@@ -18,27 +18,27 @@ interface Station {
 // el texto pintado en la imagen tiene inconsistencias menores, por eso se
 // ubican por posicion visual relativa en vez de confiar en las etiquetas.
 const stations: Station[] = [
-  { id: 'piramide', x: 90, y: 10, image: asset('/images/estaciones/estacion-piramide.jpeg') },
-  { id: 'luna-360', x: 68, y: 11, image: asset('/images/estaciones/estacion-luna360.jpeg') },
-  { id: 'rover-lunar', x: 58, y: 10, image: asset('/images/estaciones/estacion-rover.jpeg') },
-  { id: 'mariposa-88', x: 46, y: 51, image: asset('/images/estaciones/estacion-mariposa.jpeg') },
-  { id: 'aire', x: 62, y: 51 },
-  { id: 'tierra', x: 22, y: 58 },
-  { id: 'agua', x: 87, y: 67 },
-  { id: 'fuego', x: 51, y: 74, image: asset('/images/estaciones/estacion-fuego.jpeg') },
-  { id: 'vivero-cafe', x: 54, y: 20 },
+  { id: 'piramide', x: 91, y: 15, image: asset('/images/estaciones/estacion-piramide.jpeg') },
+  { id: 'mariposa-88', x: 76, y: 31, image: asset('/images/estaciones/estacion-mariposa.jpeg') },
+  { id: 'aire', x: 63, y: 52 },
+  { id: 'agua', x: 88, y: 68 },
+  { id: 'fuego', x: 50, y: 75, image: asset('/images/estaciones/estacion-fuego.jpeg') },
+  { id: 'tierra', x: 22, y: 53 },
+  { id: 'luna-360', x: 68, y: 15, image: asset('/images/estaciones/estacion-luna360.jpeg') },
+  { id: 'rover-lunar', x: 56, y: 13, image: asset('/images/estaciones/estacion-rover.jpeg') },
 ]
 
 const zones: { id: string; x: number; y: number }[] = [
-  { id: 'parqueadero', x: 10, y: 10 },
-  { id: 'restaurante', x: 19, y: 25 },
-  { id: 'casa-principal', x: 36, y: 24 },
-  { id: 'hotel', x: 14, y: 42 },
-  { id: 'hamacas', x: 41, y: 11 },
-  { id: 'camping', x: 42, y: 72 },
-  { id: 'mariposario', x: 72, y: 74 },
-  { id: 'bosque', x: 50, y: 89 },
-  { id: 'salida', x: 29, y: 81 },
+  { id: 'parqueadero', x: 10, y: 15 },
+  { id: 'restaurante', x: 18, y: 28 },
+  { id: 'casa-principal', x: 36, y: 25 },
+  { id: 'hotel', x: 14, y: 45 },
+  { id: 'hamacas', x: 41, y: 16 },
+  { id: 'vivero-cafe', x: 53, y: 23 },
+  { id: 'camping', x: 42, y: 74 },
+  { id: 'mariposario', x: 74, y: 78 },
+  { id: 'bosque', x: 50, y: 92 },
+  { id: 'salida', x: 29, y: 80 },
 ]
 
 export function StationsPage() {

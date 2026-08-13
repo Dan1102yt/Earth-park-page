@@ -261,8 +261,7 @@
       "aire": { "title": "Air Station" },
       "tierra": { "title": "Earth Station" },
       "agua": { "title": "Water Station" },
-      "fuego": { "title": "Fire Station" },
-      "vivero-cafe": { "title": "Nursery & Café" }
+      "fuego": { "title": "Fire Station" }
     },
     "zones": {
       "parqueadero": "Parking",
@@ -270,6 +269,7 @@
       "casa-principal": "Main House",
       "hotel": "Hotel Earth Park",
       "hamacas": "Hammock Area",
+      "vivero-cafe": "Nursery & Café",
       "camping": "Camping",
       "mariposario": "Butterfly House",
       "bosque": "Forest Area",
