@@ -8,6 +8,7 @@ import { Modal } from '../components/ui/Modal'
 import { ModalGallery } from '../components/ui/ModalGallery'
 import { GlowCard } from '../components/ui/GlowCard'
 import { usePlans, formatPrice, type Plan } from '../components/sections/PlansPreview'
+import { PlansJsonLd } from '../components/seo/PlansJsonLd'
 
 const INSTITUTIONAL_WHATSAPP =
   'https://wa.me/573228697438?text=' +
@@ -20,6 +21,7 @@ export function Plans() {
 
   return (
     <div className="min-h-screen">
+      <PlansJsonLd plans={plans} />
       <PageHeaderBand
         title={t('plans.heading')}
         subtitle={t('plans.subtitle')}
