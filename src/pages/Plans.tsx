@@ -7,14 +7,14 @@ import { Button } from '../components/ui/Button'
 import { Modal } from '../components/ui/Modal'
 import { ModalGallery } from '../components/ui/ModalGallery'
 import { GlowCard } from '../components/ui/GlowCard'
-import { usePlans, type Plan } from '../components/sections/PlansPreview'
+import { usePlans, formatPrice, type Plan } from '../components/sections/PlansPreview'
 
 const INSTITUTIONAL_WHATSAPP =
   'https://wa.me/573228697438?text=' +
   encodeURIComponent('Hola, quiero cotizar un plan institucional/educativo para mi grupo (universidad, SENA, colegio, etc.).')
 
 export function Plans() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const plans = usePlans()
   const [activePlan, setActivePlan] = useState<Plan | null>(null)
 
@@ -26,6 +26,9 @@ export function Plans() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <p className="font-inter text-sm text-carbon/70 dark:text-crema/70 text-center mb-10">
+          {t('plans.pricingNote')}
+        </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {plans.map((plan, i) => (
             <GlowCard key={plan.slug} glowColor={i % 2 === 0 ? 'yellow' : 'neon'} className="h-full">
@@ -58,7 +61,7 @@ export function Plans() {
                   {plan.duration && <p className="font-inter text-carbon/60 dark:text-crema/60 text-xs mb-2">{plan.duration}</p>}
                   {plan.price && (
                     <p className="font-fraunces text-2xl text-terracota dark:text-dorado">
-                      {plan.price}<span className="text-sm font-inter text-terracota/70 dark:text-dorado/70">{t('plans.perPerson')}</span>
+                      {formatPrice(plan.price, i18n.language)}<span className="text-sm font-inter text-terracota/70 dark:text-dorado/70">{t('plans.perPerson')}</span>
                     </p>
                   )}
                 </div>
@@ -81,9 +84,12 @@ export function Plans() {
               )}
               <h2 className="font-fraunces text-3xl text-bosque dark:text-crema mb-2">{activePlan.title}</h2>
               {activePlan.price && (
-                <p className="font-fraunces text-4xl text-terracota dark:text-dorado mb-4">
-                  {activePlan.price}<span className="text-lg font-inter text-terracota/70 dark:text-dorado/70">{t('plans.perPerson')}</span>
-                </p>
+                <>
+                  <p className="font-fraunces text-4xl text-terracota dark:text-dorado mb-1">
+                    {formatPrice(activePlan.price, i18n.language)}<span className="text-lg font-inter text-terracota/70 dark:text-dorado/70">{t('plans.perPerson')}</span>
+                  </p>
+                  <p className="font-inter text-sm text-carbon/60 dark:text-crema/60 mb-4">{t('plans.kidsFree')}</p>
+                </>
               )}
               <p className="font-inter text-carbon/70 dark:text-crema/70 leading-relaxed mb-6">{activePlan.description}</p>
 

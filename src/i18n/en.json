@@ -146,7 +146,9 @@
     "subtitle": "Choose the experience that inspires you most",
     "includesLabel": "Includes",
     "excludesLabel": "Not included",
-    "perPerson": "/person",
+    "perPerson": " per person",
+    "pricingNote": "Prices per person · Children under 5 are free.",
+    "kidsFree": "Children under 5 are free.",
     "reserveButton": "Book via WhatsApp",
     "institutionalButton": "Get a quote for my institution",
     "items": {
@@ -156,17 +158,24 @@
         "badge": "MOST COMPLETE",
         "description": "A journey that goes beyond tourism… to live, learn, and connect with the essence of the countryside. This plan is designed for those seeking an authentic experience: immersing yourself in local traditions, sharing with the farming community, and discovering the true cultural and natural treasures held by the Valle de Tenza.",
         "includes": [
-          "Traditional workshops: hand-milling sugarcane, making cuajada chicharrones, and basket weaving",
-          "Visit to a farmhouse and sheepfold",
-          "Tour of 4 lookout points: Mano del Minero, Hollywood Boyacense, Don Isaías, El Cristo",
-          "Boat ride among mountains and waterfalls on the La Esmeralda Reservoir",
-          "Full board: 3 breakfasts, 3 lunches, 2 dinners, 2 snacks",
-          "Lodging: 2 nights in a shared room",
-          "Local guiding (with a human touch)",
-          "Travel insurance",
-          "Local ice cream, traditional lunch, tour through Sutatenza/Somondoco/Macanal"
+          "Traditional breakfasts, lunches, snacks, and dinners",
+          "Boat ride among mountains and waterfalls",
+          "La 70 Waterfall, mining experience, and La Mano del Minero lookout",
+          "Mirador del Cielo lookout",
+          "Hike to a farmhouse with a snack and lunch",
+          "Cuajada chicharrones and sugarcane milling workshop",
+          "Fruit masato and sagú baked goods",
+          "Tour of Guateque's park with a coffee tasting",
+          "Entry to the Radio Museum",
+          "Basket weaving workshop",
+          "Sutatenza-style ice cream",
+          "Dessert tasting",
+          "Earth Park Experience",
+          "2 nights' lodging at Earth Park",
+          "Accompanying guide",
+          "Medical insurance"
         ],
-        "excludes": "transportation and guide"
+        "excludes": "transportation or guide"
       },
       "conoce-y-descansa-en-macanal": {
         "title": "Conoce y descansa en Macanal (Get to Know and Relax in Macanal)",
@@ -174,17 +183,20 @@
         "badge": "MOST POPULAR",
         "description": "Enjoy an unforgettable getaway in the heart of the Valle de Tenza. Sail the calm waters of the La Esmeralda Reservoir, take in the sweeping views from Macanal's most iconic lookout points, and savor the region's authentic flavors.",
         "includes": [
-          "2 breakfasts (1 per day)",
-          "Boat tour",
-          "Entry to Earth Park",
-          "Visit to Mirador del Cielo and Mirador \"Mano del Minero\"",
-          "Local lunch",
-          "Visit to the La 70 Waterfall",
-          "Lodging at Earth Park or partner accommodations (*subject to choice and availability)",
-          "Guided walk to a farmhouse plus a snack",
-          "Travel insurance"
+          "Traditional breakfast and lunch",
+          "Boat ride among mountains and waterfalls",
+          "Fruit and drink snack",
+          "La 70 Waterfall",
+          "Mining experience",
+          "La Mano del Minero and Mirador del Cielo lookouts",
+          "Hike to a farmhouse with a snack and lunch",
+          "Dessert tasting",
+          "Earth Park Experience",
+          "Dinner at Earth Park",
+          "Lodging at Earth Park",
+          "Medical insurance"
         ],
-        "excludes": "transportation and guide"
+        "excludes": "transportation or guide"
       },
       "hollywood-boyacense": {
         "title": "Conoce el Hollywood Boyacense (Discover the Boyacá Hollywood)",
@@ -192,16 +204,16 @@
         "badge": "GREAT FOR FIRST-TIMERS",
         "description": "Sail the calm waters of the La Esmeralda Reservoir, take in the sweeping views from Macanal's most iconic lookout points, and enjoy traditional cuisine made by local hands. All in a single day.",
         "includes": [
-          "Breakfast",
-          "Boat tour",
-          "Entry to Earth Park",
-          "Visit to Mirador del Cielo",
-          "Traditional valley dessert",
-          "Local lunch",
-          "Visit to the La 70 Waterfall",
-          "Travel insurance"
+          "Traditional breakfast",
+          "Boat ride among mountains and waterfalls",
+          "Fruit and drink snack",
+          "Mirador del Cielo lookout",
+          "Traditional lunch",
+          "Dessert tasting",
+          "Earth Park Experience",
+          "Medical insurance"
         ],
-        "excludes": "transportation and guide"
+        "excludes": "transportation or guide"
       },
       "vive-earth-park": {
         "title": "Vive Earth Park (Live Earth Park)",
@@ -213,34 +225,7 @@
           "Snack",
           "Travel insurance"
         ],
-        "excludes": "transportation"
-      },
-      "raices-y-tradicion": {
-        "title": "Raíces y Tradición del Valle de Tenza (Roots and Tradition of the Tenza Valley)",
-        "description": "Live an authentic experience guided by the hands and knowledge of local people. You'll learn the tradition of basket weaving in a craft workshop, enjoy traditional ice cream and a homemade lunch, all while exploring Sutatenza, Somondoco, and/or Macanal.",
-        "includes": [
-          "Basket weaving workshop",
-          "Local ice cream",
-          "Traditional lunch",
-          "Tour through the towns of Sutatenza, Somondoco, and/or Macanal",
-          "Travel insurance"
-        ],
-        "excludes": "transportation and guide"
-      },
-      "deja-tu-huella": {
-        "title": "Deja tu huella (Leave Your Mark)",
-        "description": "Imagine enjoying artisanal coffee, surrounded by nature, while painting your own work of art. An activity for all ages where you can relax, create, and reconnect with yourself and your surroundings.",
-        "includes": [
-          "An artisanal drink (coffee or herbal infusion from the park)",
-          "1 ceramic figure of your choice",
-          "5 acrylic paints in assorted colors",
-          "Use of brushes and necessary materials",
-          "Accompaniment by an art guide",
-          "Entry to Earth Park",
-          "Free time to display and photograph your creation",
-          "Travel insurance"
-        ],
-        "excludes": "transportation"
+        "excludes": "transportation or guide"
       },
       "plan-institucional": {
         "title": "Institutional Plan — Universities and Educational Centers",
@@ -391,7 +376,8 @@
     "faq": {
       "hours": { "q": "What are your opening hours?", "a": "We welcome you Thursday, Friday, Saturday, Sunday, and holidays, from 8:00 a.m. to 10:00 p.m. We always work by reservation, so message us before your visit so we can make sure to receive you the way you deserve. We rest on Mondays, Tuesdays, and Wednesdays." },
       "parking": { "q": "Is there an extra charge for parking?", "a": "No, parking is included if you stay with us." },
-      "transport": { "q": "Do the plans include transportation?", "a": "No, transportation and the guide are not included in the plans — but we're happy to help you arrange it if you message us." },
+      "transport": { "q": "Do the plans include transportation?", "a": "Transportation isn't included in any of our plans, and neither is a guide. But don't worry: if you'd like a hand arranging how to get here or having a guide join you, message us on WhatsApp and we'll gladly help you sort it out." },
+      "kids": { "q": "Do children pay?", "a": "Children under 5 are free. Bring them along and enjoy Earth Park as a family!" },
       "reserve": { "q": "How do I book my visit?", "a": "Message us directly on WhatsApp and we'll help you choose the plan that best suits you." },
       "whatToBring": { "q": "What should I bring for my visit?", "a": "Comfortable clothing, sunscreen, and lots of enthusiasm to connect with nature." },
       "petFriendly": { "q": "Is Earth Park pet-friendly?", "a": "Yes! We love having your pet join you. We ask that you keep them on a leash, not let them up on the beds (for hygiene), and always clean up after them, no exceptions — that way we keep the space nice for everyone." }

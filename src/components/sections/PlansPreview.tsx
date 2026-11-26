@@ -6,7 +6,7 @@ import { asset } from '../../lib/asset'
 
 export interface PlanMeta {
   slug: string
-  price?: string
+  price?: number
   images: string[]
   imagePosition?: string
   institutional?: boolean
@@ -23,16 +23,25 @@ export interface PlanText {
 
 export type Plan = PlanMeta & PlanText
 
-// PLACEHOLDER: sin foto real — swap por fotografía real de Earth Park
-const PLACEHOLDER_HUELLA = 'https://picsum.photos/seed/earthpark-plan-huella/768/615'
+/**
+ * Formatea un precio en COP según el idioma.
+ * es → "$60.000"   ·   en → "COP $60,000" (para que no se lea como dólares)
+ */
+export function formatPrice(value: number, lang: string): string {
+  const isEn = lang.startsWith('en')
+  const digits = String(value).replace(/\B(?=(\d{3})+(?!\d))/g, isEn ? ',' : '.')
+  return isEn ? `COP $${digits}` : `$${digits}`
+}
 
 const numbered = (slug: string, count: number, ext = 'jpeg') =>
   Array.from({ length: count }, (_, i) => asset(`/images/planes/${slug}/${slug}-${i + 1}.${ext}`))
 
+// Valores por persona en COP — tarifa vigente desde el 22 de noviembre de 2026.
+// (Fecha solo como referencia interna; no se muestra en la web.)
 export const planMetas: PlanMeta[] = [
   {
     slug: 'tesoros-del-valle-de-tenza',
-    price: '$870.000',
+    price: 954000,
     images: [
       ...numbered('tesoros-del-valle-de-tenza', 9, 'jpg'),
       ...Array.from({ length: 3 }, (_, i) => asset(`/images/planes/tesoros-del-valle-de-tenza/tesoros-del-valle-de-tenza-${i + 10}.jpeg`)),
@@ -40,30 +49,20 @@ export const planMetas: PlanMeta[] = [
   },
   {
     slug: 'conoce-y-descansa-en-macanal',
-    price: '$340.000',
+    price: 543000,
     images: numbered('conoce-y-descansa-en-macanal', 18),
     imagePosition: '50% 22%',
   },
   {
     slug: 'hollywood-boyacense',
-    price: '$140.000',
+    price: 173000,
     images: [asset('/images/planes/planes-Conoce-el-Hollywood-Boyacense.jpg')],
     imagePosition: '50% 55%',
   },
   {
     slug: 'vive-earth-park',
-    price: '$40.000',
+    price: 60000,
     images: numbered('vive-earth-park', 9),
-  },
-  {
-    slug: 'raices-y-tradicion',
-    price: '$100.000',
-    images: numbered('raices-y-tradicion', 1),
-  },
-  {
-    slug: 'deja-tu-huella',
-    price: '$75.000',
-    images: [PLACEHOLDER_HUELLA],
   },
   {
     slug: 'plan-institucional',
@@ -79,7 +78,7 @@ export function usePlans(): Plan[] {
 }
 
 export function PlansPreview() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const plans = usePlans()
 
   return (
@@ -108,7 +107,7 @@ export function PlansPreview() {
               <div className="p-5">
                 <h3 className="font-fraunces text-lg text-bosque dark:text-crema mb-1 leading-tight">{plan.title}</h3>
                 {plan.duration && <p className="font-inter text-carbon/60 dark:text-crema/60 text-xs mb-2">{plan.duration}</p>}
-                {plan.price && <p className="font-fraunces text-2xl text-terracota dark:text-dorado">{plan.price}</p>}
+                {plan.price && <p className="font-fraunces text-2xl text-terracota dark:text-dorado">{formatPrice(plan.price, i18n.language)}</p>}
               </div>
             </motion.div>
           ))}

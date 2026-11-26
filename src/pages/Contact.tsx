@@ -47,6 +47,7 @@ const faqKeys = [
   'hours',
   'parking',
   'transport',
+  'kids',
   'reserve',
   'whatToBring',
   'petFriendly',

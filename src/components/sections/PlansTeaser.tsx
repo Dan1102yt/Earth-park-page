@@ -2,27 +2,28 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/Button'
+import { planMetas, formatPrice } from './PlansPreview'
+
+// El precio se toma de planMetas (fuente única de tarifas) para no duplicarlo aquí.
+const priceOf = (slug: string) => planMetas.find((p) => p.slug === slug)?.price ?? 0
 
 const plans = [
   {
     slug: 'tesoros-del-valle-de-tenza',
-    price: '$870.000',
     image: 'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=615,fit=crop/Yg2ya4gl5Rtg3nyW/macanal-A0xjlLKanJsZVzg7.jpeg',
   },
   {
     slug: 'conoce-y-descansa-en-macanal',
-    price: '$340.000',
     image: 'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=584,fit=crop/Yg2ya4gl5Rtg3nyW/3-m5Kn28Lb7pCzlQ2V.jpeg',
   },
   {
     slug: 'hollywood-boyacense',
-    price: '$140.000',
     image: 'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=615,fit=crop/Yg2ya4gl5Rtg3nyW/whatsapp-image-2026-04-17-at-12.04.48-pm-NgGfq4uQdNwlxl0H.jpeg',
   },
 ]
 
 export function PlansTeaser() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const items = t('plansTeaser.items', { returnObjects: true }) as Record<string, { title: string; duration: string; badge: string }>
 
   return (
@@ -50,7 +51,7 @@ export function PlansTeaser() {
                 <h3 className="font-fraunces text-xl text-bosque dark:text-crema mb-1 leading-tight">{items[plan.slug].title}</h3>
                 <p className="font-inter text-carbon/60 dark:text-crema/60 text-sm mb-3">{items[plan.slug].duration}</p>
                 <p className="font-fraunces text-2xl text-terracota dark:text-dorado">
-                  {plan.price}<span className="text-sm font-inter text-terracota/70 dark:text-dorado/70">{t('plans.perPerson')}</span>
+                  {formatPrice(priceOf(plan.slug), i18n.language)}<span className="text-sm font-inter text-terracota/70 dark:text-dorado/70">{t('plans.perPerson')}</span>
                 </p>
               </div>
             </motion.div>
