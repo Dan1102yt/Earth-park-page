@@ -1,3 +1,4 @@
+// REVISAR-FAMILIA: textos del sendero (about.historia.* en es.json / en.json) pendientes de revisión por la familia.
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { useTranslation } from 'react-i18next'

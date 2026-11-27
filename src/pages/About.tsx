@@ -1,3 +1,4 @@
+// REVISAR-FAMILIA: textos de esta página (about.* en es.json / en.json) pendientes de revisión por la familia.
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -68,6 +69,10 @@ export function About() {
             <div className="space-y-5 font-body text-carbon dark:text-crema text-xl leading-[1.7]">
               <p>{t('about.quienesP1')}</p>
               <p>{t('about.quienesP2')}</p>
+            </div>
+            <div className="mt-10 rounded-2xl border-l-4 border-dorado bg-crema/70 dark:bg-bosque-deep/60 px-6 py-5">
+              <h3 className="font-heading text-2xl md:text-3xl text-bosque dark:text-crema mb-2">{t('about.hostsHeading')}</h3>
+              <p className="font-body text-carbon dark:text-crema text-body">{t('about.hostsText')}</p>
             </div>
           </motion.div>
 
