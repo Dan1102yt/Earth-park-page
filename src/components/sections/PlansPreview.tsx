@@ -9,7 +9,14 @@ export interface PlanMeta {
   slug: string
   price?: number
   images: string[]
-  imagePosition?: string
+  /** Portada de la tarjeta (default: images[0]) */
+  cover?: string
+  /** object-position de la portada en cajas verticales (celular, 4/5). Ej. "50% 30%" */
+  coverPositionMobile?: string
+  /** object-position de la portada en cajas horizontales (tablet 4/3 y escritorio 16/10) */
+  coverPositionDesktop?: string
+  /** object-position por foto en la galería del modal (mismo índice que images) */
+  objectPositions?: (string | undefined)[]
   institutional?: boolean
 }
 
@@ -36,8 +43,11 @@ export function formatPrice(value: number, lang: string): string {
   return isEn ? `COP $${digits}` : `$${digits}`
 }
 
-const numbered = (slug: string, count: number, ext = 'webp') =>
-  Array.from({ length: count }, (_, i) => asset(`/images/planes/${slug}/${slug}-${i + 1}.${ext}`))
+// skip: números que ya no existen (duplicados movidos a fotos-originales/duplicados)
+const numbered = (slug: string, count: number, skip: number[] = [], ext = 'webp') =>
+  Array.from({ length: count }, (_, i) => i + 1)
+    .filter((n) => !skip.includes(n))
+    .map((n) => asset(`/images/planes/${slug}/${slug}-${n}.${ext}`))
 
 // Valores por persona en COP — tarifa vigente desde el 22 de noviembre de 2026
 // (Hollywood Boyacense actualizado a $233.000).
@@ -52,22 +62,24 @@ export const planMetas: PlanMeta[] = [
     slug: 'conoce-y-descansa-en-macanal',
     price: 543000,
     images: numbered('conoce-y-descansa-en-macanal', 18),
-    imagePosition: '50% 22%',
+    coverPositionMobile: '50% 22%',
+    coverPositionDesktop: '50% 22%',
   },
   {
     slug: 'hollywood-boyacense',
     price: 233000,
     images: [asset('/images/planes/planes-Conoce-el-Hollywood-Boyacense.jpg')],
-    imagePosition: '50% 55%',
+    coverPositionMobile: '50% 55%',
+    coverPositionDesktop: '50% 55%',
   },
   {
     slug: 'vive-earth-park',
     price: 60000,
-    images: numbered('vive-earth-park', 9),
+    images: numbered('vive-earth-park', 9, [8]), // 8 era copia exacta de 1
   },
   {
     slug: 'plan-empresas-instituciones',
-    images: numbered('instituciones', 6),
+    images: numbered('instituciones', 6, [4]), // 4 era copia exacta de 3
     institutional: true,
   },
 ]

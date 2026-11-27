@@ -3,24 +3,12 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/Button'
 import { planMetas, formatPrice } from './PlansPreview'
+import { PlanCover } from '../ui/PlanCover'
+import { PLAN_TEASER_SIZES } from '../../config/planImages'
 
-// El precio se toma de planMetas (fuente única de tarifas) para no duplicarlo aquí.
-const priceOf = (slug: string) => planMetas.find((p) => p.slug === slug)?.price ?? 0
-
-const plans = [
-  {
-    slug: 'tesoros-del-valle-de-tenza',
-    image: 'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=615,fit=crop/Yg2ya4gl5Rtg3nyW/macanal-A0xjlLKanJsZVzg7.jpeg',
-  },
-  {
-    slug: 'conoce-y-descansa-en-macanal',
-    image: 'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=584,fit=crop/Yg2ya4gl5Rtg3nyW/3-m5Kn28Lb7pCzlQ2V.jpeg',
-  },
-  {
-    slug: 'hollywood-boyacense',
-    image: 'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=615,fit=crop/Yg2ya4gl5Rtg3nyW/whatsapp-image-2026-04-17-at-12.04.48-pm-NgGfq4uQdNwlxl0H.jpeg',
-  },
-]
+// Precio y portada se toman de planMetas (fuente única) para no duplicarlos aquí.
+const TEASER_SLUGS = ['tesoros-del-valle-de-tenza', 'conoce-y-descansa-en-macanal', 'hollywood-boyacense']
+const plans = TEASER_SLUGS.map((slug) => planMetas.find((p) => p.slug === slug)!)
 
 export function PlansTeaser() {
   const { t, i18n } = useTranslation()
@@ -41,17 +29,16 @@ export function PlansTeaser() {
               transition={{ delay: i * 0.1, duration: 0.6, ease: 'easeOut' }}
               className="bg-white dark:bg-bosque-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="relative h-48 overflow-hidden">
-                <img src={plan.image} alt={items[plan.slug].title} className="w-full h-full object-cover" />
+              <PlanCover plan={plan} alt={items[plan.slug].title} sizes={PLAN_TEASER_SIZES}>
                 <span className="absolute top-3 right-3 bg-dorado text-carbon font-heading text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full">
                   {items[plan.slug].badge}
                 </span>
-              </div>
+              </PlanCover>
               <div className="p-6">
                 <h3 className="font-heading text-xl text-bosque dark:text-crema mb-1 leading-tight">{items[plan.slug].title}</h3>
                 <p className="font-body text-carbon/60 dark:text-crema/60 text-sm mb-3">{items[plan.slug].duration}</p>
                 <p className="font-heading text-2xl text-terracota dark:text-dorado">
-                  {formatPrice(priceOf(plan.slug), i18n.language)}<span className="text-sm font-heading text-terracota/70 dark:text-dorado/70">{t('plans.perPerson')}</span>
+                  {formatPrice(plan.price ?? 0, i18n.language)}<span className="text-sm font-heading text-terracota/70 dark:text-dorado/70">{t('plans.perPerson')}</span>
                 </p>
               </div>
             </motion.div>

@@ -8,6 +8,8 @@ import { Modal } from '../components/ui/Modal'
 import { ModalGallery } from '../components/ui/ModalGallery'
 import { GlowCard } from '../components/ui/GlowCard'
 import { usePlans, formatPrice, type Plan } from '../components/sections/PlansPreview'
+import { PlanCover } from '../components/ui/PlanCover'
+import { galleryPositions, planSrcSet, PLAN_CARD_SIZES, PLAN_MODAL_SIZES } from '../config/planImages'
 import { INCLUDE_SECTIONS } from '../config/plans'
 import { PlansJsonLd } from '../components/seo/PlansJsonLd'
 
@@ -44,20 +46,13 @@ export function Plans() {
                 transition={{ delay: i * 0.06, duration: 0.6, ease: 'easeOut' }}
                 className="relative z-10 w-full h-full text-left bg-white dark:bg-bosque-surface rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer"
               >
-                <div className="relative h-52 overflow-hidden">
-                  <img
-                    src={plan.images[0]}
-                    alt={plan.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                    style={plan.imagePosition ? { objectPosition: plan.imagePosition } : undefined}
-                  />
+                <PlanCover plan={plan} alt={plan.title} sizes={PLAN_CARD_SIZES} eager={i === 0}>
                   {plan.badge && (
                     <span className="absolute top-3 right-3 bg-dorado text-carbon font-heading text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full">
                       {plan.badge}
                     </span>
                   )}
-                </div>
+                </PlanCover>
                 <div className="p-6">
                   <h2 className="font-heading text-xl text-bosque dark:text-crema mb-1 leading-tight">{plan.title}</h2>
                   {plan.duration && <p className="font-body text-carbon/60 dark:text-crema/60 text-xs mb-2">{plan.duration}</p>}
@@ -76,7 +71,16 @@ export function Plans() {
       <Modal open={activePlan !== null} onClose={() => setActivePlan(null)}>
         {activePlan && (
           <div>
-            <ModalGallery images={activePlan.images} alt={activePlan.title} />
+            <ModalGallery
+              key={activePlan.slug}
+              responsive
+              images={activePlan.images}
+              alt={activePlan.title}
+              objectPositions={galleryPositions(activePlan, 'desktop')}
+              objectPositionsMobile={galleryPositions(activePlan, 'mobile')}
+              srcSets={activePlan.images.map((img, i) => (i === 0 ? planSrcSet(img) : undefined))}
+              sizes={PLAN_MODAL_SIZES}
+            />
 
             <div className="p-8 md:p-10">
               {activePlan.duration && (
