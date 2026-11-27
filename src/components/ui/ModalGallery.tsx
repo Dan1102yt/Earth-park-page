@@ -17,6 +17,13 @@ interface ModalGalleryProps {
   /** srcset por foto (solo las que tienen variantes) */
   srcSets?: (string | undefined)[]
   sizes?: string
+  /**
+   * Ajuste por foto en el carrusel del celular. 'contain' muestra la foto completa sobre un
+   * fondo desenfocado de la misma foto (para panorámicas). Default: 'cover'.
+   */
+  mobileFits?: ('cover' | 'contain')[]
+  /** Versión liviana de cada foto para el fondo desenfocado (default: la misma foto) */
+  blurSrcs?: (string | undefined)[]
 }
 
 export function ModalGallery(props: ModalGalleryProps) {
@@ -91,6 +98,8 @@ function ResponsiveGallery({
   objectPositionsMobile,
   srcSets,
   sizes,
+  mobileFits,
+  blurSrcs,
 }: ModalGalleryProps) {
   const total = images.length
   const multi = total > 1
@@ -187,13 +196,24 @@ function ResponsiveGallery({
                 role="group"
                 aria-roledescription="foto"
                 aria-label={`${i + 1} / ${total}`}
-                className="w-full shrink-0 snap-center snap-always aspect-[4/5] max-h-[70svh] bg-carbon/10"
+                className="relative overflow-hidden w-full shrink-0 snap-center snap-always aspect-[4/5] max-h-[70svh] bg-carbon/10"
               >
+                {mobileFits?.[i] === 'contain' && (
+                  <img
+                    src={blurSrcs?.[i] ?? img}
+                    alt=""
+                    aria-hidden="true"
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                    draggable={false}
+                    className="absolute inset-0 w-full h-full object-cover scale-110 blur-xl brightness-90"
+                  />
+                )}
                 <img
                   {...imgProps(i)}
                   draggable={false}
                   style={{ objectPosition: objectPositionsMobile?.[i] ?? objectPositions?.[i] }}
-                  className="w-full h-full object-cover"
+                  className={`relative w-full h-full ${mobileFits?.[i] === 'contain' ? 'object-contain' : 'object-cover'}`}
                 />
               </div>
             ))}

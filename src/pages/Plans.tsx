@@ -9,7 +9,7 @@ import { ModalGallery } from '../components/ui/ModalGallery'
 import { GlowCard } from '../components/ui/GlowCard'
 import { usePlans, formatPrice, type Plan } from '../components/sections/PlansPreview'
 import { PlanCover } from '../components/ui/PlanCover'
-import { galleryPositions, planSrcSet, PLAN_CARD_SIZES, PLAN_MODAL_SIZES } from '../config/planImages'
+import { galleryPositions, planMobileFit, planSmallSrc, planSrcSet, PLAN_CARD_SIZES, PLAN_MODAL_SIZES } from '../config/planImages'
 import { INCLUDE_SECTIONS } from '../config/plans'
 import { PlansJsonLd } from '../components/seo/PlansJsonLd'
 
@@ -78,8 +78,10 @@ export function Plans() {
               alt={activePlan.title}
               objectPositions={galleryPositions(activePlan, 'desktop')}
               objectPositionsMobile={galleryPositions(activePlan, 'mobile')}
-              srcSets={activePlan.images.map((img, i) => (i === 0 ? planSrcSet(img) : undefined))}
+              srcSets={activePlan.images.map(planSrcSet)}
               sizes={PLAN_MODAL_SIZES}
+              mobileFits={activePlan.images.map(planMobileFit)}
+              blurSrcs={activePlan.images.map(planSmallSrc)}
             />
 
             <div className="p-8 md:p-10">

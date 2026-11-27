@@ -9,11 +9,13 @@ export interface PlanMeta {
   slug: string
   price?: number
   images: string[]
-  /** Portada de la tarjeta (default: images[0]) */
+  /** Portada de la tarjeta en escritorio, ≥768px (default: images[0]) */
   cover?: string
-  /** object-position de la portada en cajas verticales (celular, 4/5). Ej. "50% 30%" */
+  /** Portada de la tarjeta en celular, <768px (default: cover). Ideal vertical. */
+  coverMobile?: string
+  /** object-position de la portada en celular (<768px). Ej. "50% 30%" */
   coverPositionMobile?: string
-  /** object-position de la portada en cajas horizontales (tablet 4/3 y escritorio 16/10) */
+  /** object-position de la portada en escritorio (≥768px) */
   coverPositionDesktop?: string
   /** object-position por foto en la galería del modal (mismo índice que images) */
   objectPositions?: (string | undefined)[]
@@ -49,6 +51,9 @@ const numbered = (slug: string, count: number, skip: number[] = [], ext = 'webp'
     .filter((n) => !skip.includes(n))
     .map((n) => asset(`/images/planes/${slug}/${slug}-${n}.${ext}`))
 
+// Fotos de alta resolución de Macanal (variantes en planImages.ts)
+const macanal = (name: string) => asset(`/images/planes/conoce-y-descansa-en-macanal/macanal-${name}.webp`)
+
 // Valores por persona en COP — tarifa vigente desde el 22 de noviembre de 2026
 // (Hollywood Boyacense actualizado a $233.000).
 // (Fecha solo como referencia interna; no se muestra en la web.)
@@ -61,9 +66,22 @@ export const planMetas: PlanMeta[] = [
   {
     slug: 'conoce-y-descansa-en-macanal',
     price: 543000,
-    images: numbered('conoce-y-descansa-en-macanal', 18),
-    coverPositionMobile: '50% 22%',
-    coverPositionDesktop: '50% 22%',
+    images: [
+      macanal('piscina-lago-h'),
+      macanal('lancha'),
+      macanal('piscina-lago-v'),
+      macanal('parque'),
+      macanal('cascada'),
+      macanal('atardecer-h'),
+      macanal('atardecer-v'),
+      macanal('moto-acuatica'),
+    ],
+    cover: macanal('piscina-lago-h'),
+    coverMobile: macanal('piscina-lago-v'),
+    coverPositionMobile: '50% 60%',
+    coverPositionDesktop: '50% 55%',
+    // Encuadre propio de las verticales en el visor 4/3 del escritorio
+    objectPositions: [undefined, undefined, '50% 60%', undefined, undefined, undefined, '50% 45%', undefined],
   },
   {
     slug: 'hollywood-boyacense',
