@@ -90,3 +90,14 @@
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+
+/* Hero a pantalla completa: 100svh con fallback 100dvh (y 100vh en navegadores viejos) */
+.hero-viewport {
+  height: 100vh;
+  height: 100dvh;
+}
+@supports (height: 100svh) {
+  .hero-viewport {
+    height: 100svh;
+  }
+}

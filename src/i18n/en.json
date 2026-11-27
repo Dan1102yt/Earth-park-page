@@ -14,14 +14,12 @@
     "reserve": "Book Now"
   },
   "hero": {
-    "badge": "📍 Macanal, Boyacá",
     "title": "Discover the magic of Earth Park",
-    "subtitle": "Live an unforgettable experience in the mountains of Boyacá",
-    "cta_primary": "Book your experience",
-    "cta_secondary": "See plans",
-    "info": "2.5 hrs from Bogotá · Prior reservation required · Open Thu–Sun",
     "mute": "Mute video sound",
     "unmute": "Unmute video sound"
+  },
+  "seo": {
+    "description": "Earth Park, a theme park and regional tour operator in Macanal, Boyacá. Family ecotourism: rural lodging, traditional cuisine and experiences in the Tenza Valley."
   },
   "lang": {
     "es": "ES",
@@ -45,7 +43,7 @@
     "stats": [
       { "value": "+500", "label": "Happy visitors" },
       { "value": "7", "label": "Themed stations" },
-      { "value": "6", "label": "Plans available" }
+      { "value": "5", "label": "Plans available" }
     ]
   },
   "testimonials": {
@@ -84,15 +82,18 @@
     "intro": "Our 7-stop route through Earth Park",
     "cta": "Explore all the stations",
     "items": {
+      "piramide-teguas": { "title": "Pirámide de los Teguas", "desc": "A tribute to ancestral indigenous wisdom" },
       "mariposa-88": { "title": "Mariposa 88 Swing", "desc": "A symbol of freedom and the infinity of life" },
-      "piramide": { "title": "Pirámide de los Teguas", "desc": "A tribute to ancestral indigenous wisdom" },
-      "cuatro-elementos": { "title": "The Four Elements", "desc": "Water, Earth, Air and Fire: a sensory experience" },
+      "aire": { "title": "Air Station", "desc": "Part of The Four Elements: a sensory experience" },
+      "agua": { "title": "Water Station", "desc": "Part of The Four Elements: a sensory experience" },
+      "fuego": { "title": "Fire Station", "desc": "Part of The Four Elements: a sensory experience" },
+      "tierra": { "title": "Earth Station", "desc": "Part of The Four Elements: a sensory experience" },
       "luna-360": { "title": "Luna 360°", "desc": "An immersive structure that spins with you" }
     }
   },
   "ctaReserva": {
     "title": "Book your experience",
-    "subtitle": "Limited spots — an exclusive experience with prior reservation",
+    "subtitle": "Limited spots — message us on WhatsApp to secure your spot",
     "button": "Message us on WhatsApp"
   },
   "galleryPreview": {
@@ -374,11 +375,12 @@
     "addressLine2": "Km 18.5 on the Guateque–Santa María road",
     "faqHeading": "Frequently Asked Questions",
     "faq": {
-      "hours": { "q": "What are your opening hours?", "a": "We welcome you Thursday, Friday, Saturday, Sunday, and holidays, from 8:00 a.m. to 10:00 p.m. We always work by reservation, so message us before your visit so we can make sure to receive you the way you deserve. We rest on Mondays, Tuesdays, and Wednesdays." },
+      "hours": { "q": "What are your opening hours?", "a": "Tuesday to Sunday and public holidays, 10:00 a.m. to 10:00 p.m." },
       "parking": { "q": "Is there an extra charge for parking?", "a": "No, parking is included if you stay with us." },
-      "transport": { "q": "Do the plans include transportation?", "a": "Transportation isn't included in any of our plans, and neither is a guide. But don't worry: if you'd like a hand arranging how to get here or having a guide join you, message us on WhatsApp and we'll gladly help you sort it out." },
+      "transport": { "q": "Do the plans include transportation?", "a": "Transportation is not included in any plan. Check the 'Includes' section of each plan to see whether a guide is included." },
       "kids": { "q": "Do children pay?", "a": "Children under 5 are free. Bring them along and enjoy Earth Park as a family!" },
-      "reserve": { "q": "How do I book my visit?", "a": "Message us directly on WhatsApp and we'll help you choose the plan that best suits you." },
+      "reserve": { "q": "How do I book my visit?", "a": "You don't need to book in advance. If you're coming as a group or want a full plan (lodging, meals), message us on WhatsApp to secure your spot." },
+      "smoking": { "q": "Can I smoke?", "a": "Earth Park is a smoke-free and tobacco-free space." },
       "whatToBring": { "q": "What should I bring for my visit?", "a": "Comfortable clothing, sunscreen, and lots of enthusiasm to connect with nature." },
       "petFriendly": { "q": "Is Earth Park pet-friendly?", "a": "Yes! We love having your pet join you. We ask that you keep them on a leash, not let them up on the beds (for hygiene), and always clean up after them, no exceptions — that way we keep the space nice for everyone." }
     },

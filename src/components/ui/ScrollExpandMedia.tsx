@@ -16,13 +16,14 @@ export function ScrollExpandMedia({ mediaType = 'video', mediaSrc, children }: S
   const opacity = useTransform(scrollYProgress, [0, 1], [0, 1])
 
   return (
-    <section ref={sectionRef} className="relative h-screen overflow-hidden flex items-center justify-center px-4">
+    <section ref={sectionRef} className="relative h-screen overflow-hidden flex items-end justify-center px-4 pb-6 md:pb-8">
       {mediaType === 'video' ? (
         <video src={mediaSrc} autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover" />
       ) : (
         <img src={mediaSrc} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
       )}
-      <div className="absolute inset-0 bg-bosque/62 dark:bg-bosque-deep/68" />
+      {/* Degradado oscuro solo en el 15% inferior: el centro de la imagen queda libre */}
+      <div className="absolute inset-x-0 bottom-0 h-[15%] bg-gradient-to-t from-black/75 to-transparent" />
       <motion.div style={{ scale, opacity }} className="relative z-10">
         {children}
       </motion.div>

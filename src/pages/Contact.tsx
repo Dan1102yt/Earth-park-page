@@ -49,6 +49,7 @@ const faqKeys = [
   'transport',
   'kids',
   'reserve',
+  'smoking',
   'whatToBring',
   'petFriendly',
 ] as const

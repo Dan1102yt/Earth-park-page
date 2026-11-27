@@ -1,5 +1,6 @@
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import { ScrollToTop } from './components/ScrollToTop'
+import { SeoMeta } from './components/seo/SeoMeta'
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
 import { AnimatedFauna } from './components/ui/AnimatedFauna'
@@ -18,6 +19,7 @@ export default function App() {
   return (
     <HashRouter>
       <ScrollToTop />
+      <SeoMeta />
       <AnimatedFauna />
       <div className="relative z-10 min-h-screen flex flex-col">
         <Navbar />

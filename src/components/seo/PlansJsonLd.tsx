@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import type { Plan } from '../sections/PlansPreview'
 
 // El sitio usa HashRouter en GitHub Pages, por eso la ruta lleva "#/"
@@ -14,6 +15,14 @@ const provider = {
     addressCountry: 'CO',
   },
   telephone: '+57 322 869 7438',
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      opens: '10:00',
+      closes: '22:00',
+    },
+  ],
 }
 
 /**
@@ -23,6 +32,8 @@ const provider = {
  * El plan institucional se lista sin oferta porque se cotiza a la medida.
  */
 export function PlansJsonLd({ plans }: { plans: Plan[] }) {
+  const { t } = useTranslation()
+  const providerWithDescription = { ...provider, description: t('seo.description') }
   const data = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -35,7 +46,7 @@ export function PlansJsonLd({ plans }: { plans: Plan[] }) {
         name: plan.title,
         description: plan.description,
         url: PLANS_URL,
-        provider,
+        provider: providerWithDescription,
         ...(plan.price !== undefined && {
           offers: {
             '@type': 'Offer',

@@ -14,14 +14,12 @@
     "reserve": "Reservar"
   },
   "hero": {
-    "badge": "📍 Macanal, Boyacá",
     "title": "Descubre la magia de Earth Park",
-    "subtitle": "Vive una experiencia inolvidable en las montañas de Boyacá",
-    "cta_primary": "Reserva tu experiencia",
-    "cta_secondary": "Ver planes",
-    "info": "2.5 hrs desde Bogotá · Reserva previa obligatoria · Abierto Jue–Dom",
     "mute": "Silenciar sonido del video",
     "unmute": "Activar sonido del video"
+  },
+  "seo": {
+    "description": "Earth Park, parque temático y operador turístico regional en Macanal, Boyacá. Ecoturismo familiar: alojamiento rural, gastronomía tradicional y experiencias en el Valle de Tenza."
   },
   "lang": {
     "es": "ES",
@@ -45,7 +43,7 @@
     "stats": [
       { "value": "+500", "label": "Visitantes felices" },
       { "value": "7", "label": "Estaciones temáticas" },
-      { "value": "6", "label": "Planes disponibles" }
+      { "value": "5", "label": "Planes disponibles" }
     ]
   },
   "testimonials": {
@@ -84,15 +82,18 @@
     "intro": "Nuestro recorrido de 7 paradas dentro de Earth Park",
     "cta": "Explora todas las estaciones",
     "items": {
+      "piramide-teguas": { "title": "Pirámide de los Teguas", "desc": "Un tributo a la sabiduría ancestral indígena" },
       "mariposa-88": { "title": "Mariposa 88 Columpio", "desc": "Símbolo de libertad y el infinito de la vida" },
-      "piramide": { "title": "Pirámide de los Teguas", "desc": "Un tributo a la sabiduría ancestral indígena" },
-      "cuatro-elementos": { "title": "Los Cuatro Elementos", "desc": "Agua, Tierra, Aire y Fuego: experiencia sensorial" },
+      "aire": { "title": "Estación del Aire", "desc": "Parte de Los Cuatro Elementos: experiencia sensorial" },
+      "agua": { "title": "Estación del Agua", "desc": "Parte de Los Cuatro Elementos: experiencia sensorial" },
+      "fuego": { "title": "Estación del Fuego", "desc": "Parte de Los Cuatro Elementos: experiencia sensorial" },
+      "tierra": { "title": "Estación de la Tierra", "desc": "Parte de Los Cuatro Elementos: experiencia sensorial" },
       "luna-360": { "title": "Luna 360°", "desc": "Estructura inmersiva que gira contigo" }
     }
   },
   "ctaReserva": {
     "title": "Reserva tu experiencia",
-    "subtitle": "Cupos limitados — experiencia exclusiva con reserva previa",
+    "subtitle": "Cupos limitados — escríbenos por WhatsApp para asegurar tu cupo",
     "button": "Escribir por WhatsApp"
   },
   "galleryPreview": {
@@ -374,11 +375,12 @@
     "addressLine2": "Km 18.5 vía Guateque–Santa María",
     "faqHeading": "Preguntas Frecuentes",
     "faq": {
-      "hours": { "q": "¿Cuáles son los horarios de atención?", "a": "Te esperamos jueves, viernes, sábado, domingo y festivos, de 8:00 a.m. a 10:00 p.m. Trabajamos siempre bajo reserva, así que escríbenos antes de tu visita para asegurarnos de recibirte como te lo mereces. Los lunes, martes y miércoles descansamos." },
+      "hours": { "q": "¿Cuáles son los horarios de atención?", "a": "Martes a domingo y festivos, de 10:00 a. m. a 10:00 p. m." },
       "parking": { "q": "¿El parqueadero tiene costo adicional?", "a": "No, el parqueadero está incluido si te hospedas con nosotros." },
-      "transport": { "q": "¿Los planes incluyen transporte?", "a": "El transporte no está incluido en ninguno de nuestros planes, y la guía tampoco. Pero no te preocupes: si necesitas una mano para coordinar cómo llegar o quieres que te acompañe un guía, escríbenos por WhatsApp y con gusto te ayudamos a organizarlo." },
+      "transport": { "q": "¿Los planes incluyen transporte?", "a": "El transporte no está incluido en ningún plan. Revisa el apartado 'Incluye' de cada plan para ver si incluye guía." },
       "kids": { "q": "¿Los niños pagan?", "a": "Los niños menores de 5 años no pagan. ¡Tráelos a vivir Earth Park en familia!" },
-      "reserve": { "q": "¿Cómo reservo mi visita?", "a": "Escríbenos directamente por WhatsApp y te ayudamos a elegir el plan que mejor se ajuste a ti." },
+      "reserve": { "q": "¿Cómo reservo mi visita?", "a": "No necesitas reserva previa. Si vienes en grupo o quieres un plan completo (alojamiento, comidas), escríbenos por WhatsApp para asegurar tu cupo." },
+      "smoking": { "q": "¿Se puede fumar?", "a": "Earth Park es un espacio libre de humo y tabaco." },
       "whatToBring": { "q": "¿Qué debo llevar para mi visita?", "a": "Ropa cómoda, protector solar, y muchas ganas de conectar con la naturaleza." },
       "petFriendly": { "q": "¿Earth Park es pet-friendly?", "a": "¡Sí! Nos encanta que tu mascota te acompañe. Te pedimos llevarla preferiblemente con correa, no permitirle subir a las camas (por higiene), y recoger siempre sus necesidades, sin excepción — así cuidamos el espacio para todos." }
     },
