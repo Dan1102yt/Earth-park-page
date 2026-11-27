@@ -161,7 +161,7 @@
     "reserveButton": "Book via WhatsApp",
     "institutionalButton": "Get a quote",
     "institutionalWhatsapp": "Hi, I'd like a quote for the Plan for Companies and Educational Institutions for my group.",
-    "includeSections": {"gastronomia":"Food","talleres":"Workshops","alojamiento":"Lodging","recorridos":"Lookouts, boat ride and tours","otros":"Souvenir and more"},
+    "includeSections": {"gastronomia":"Food","talleres":"Workshops","alojamiento":"Lodging","recorridos":"Lookouts, boat ride and tours","acompanamiento":"Guidance and insurance","otros":"Souvenir and more"},
     "items": {
       "tesoros-del-valle-de-tenza": {
         "title": "Tesoros del Valle de Tenza (Treasures of the Tenza Valley)",
@@ -194,7 +194,7 @@
             "Entry to the Radio Museum",
             "Earth Park Experience"
           ],
-          "otros": [
+          "acompanamiento": [
             "Accompanying guide",
             "Medical insurance"
           ]
@@ -225,7 +225,7 @@
             "Hike to a farmhouse",
             "Earth Park Experience"
           ],
-          "otros": [
+          "acompanamiento": [
             "Medical insurance"
           ]
         },
@@ -250,7 +250,7 @@
             "Open-pit mining experience",
             "Earth Park Experience"
           ],
-          "otros": [
+          "acompanamiento": [
             "Medical insurance"
           ]
         },

@@ -161,7 +161,7 @@
     "reserveButton": "Reservar por WhatsApp",
     "institutionalButton": "Cotizar",
     "institutionalWhatsapp": "Hola, quiero cotizar el Plan para Empresas e Instituciones Educativas para mi grupo.",
-    "includeSections": {"gastronomia":"Gastronomía","talleres":"Talleres","alojamiento":"Alojamiento","recorridos":"Miradores, lancha y recorridos","otros":"Souvenir y otros"},
+    "includeSections": {"gastronomia":"Gastronomía","talleres":"Talleres","alojamiento":"Alojamiento","recorridos":"Miradores, lancha y recorridos","acompanamiento":"Acompañamiento y seguro","otros":"Souvenir y otros"},
     "items": {
       "tesoros-del-valle-de-tenza": {
         "title": "Tesoros del Valle de Tenza",
@@ -194,7 +194,7 @@
             "Ingreso al Museo de la Radio",
             "Experiencia Earth Park"
           ],
-          "otros": [
+          "acompanamiento": [
             "Guía acompañante",
             "Seguro médico"
           ]
@@ -225,7 +225,7 @@
             "Senderismo a casa campesina",
             "Experiencia Earth Park"
           ],
-          "otros": [
+          "acompanamiento": [
             "Seguro médico"
           ]
         },
@@ -250,7 +250,7 @@
             "Experiencia de minería a cielo abierto",
             "Experiencia Earth Park"
           ],
-          "otros": [
+          "acompanamiento": [
             "Seguro médico"
           ]
         },
