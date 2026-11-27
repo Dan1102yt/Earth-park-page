@@ -274,6 +274,18 @@
       }
     }
   },
+  "services": {
+    "heading": "Servicios",
+    "items": {
+      "parking": "Parqueadero incluido",
+      "pets": "Pet-friendly",
+      "restaurant": "Restaurante / Vivero & Café",
+      "restrooms": "Baños",
+      "shop": "Tienda de souvenirs",
+      "smokeFree": "Espacio libre de humo y tabaco",
+      "wifi": "Wi-Fi"
+    }
+  },
   "stationDetail": {
     "prev": "Anterior",
     "next": "Siguiente",

@@ -274,6 +274,18 @@
       }
     }
   },
+  "services": {
+    "heading": "Services",
+    "items": {
+      "parking": "Parking included",
+      "pets": "Pet-friendly",
+      "restaurant": "Restaurant / Nursery & Café",
+      "restrooms": "Restrooms",
+      "shop": "Souvenir shop",
+      "smokeFree": "Smoke- and tobacco-free space",
+      "wifi": "Wi-Fi"
+    }
+  },
   "stationDetail": {
     "prev": "Previous",
     "next": "Next",

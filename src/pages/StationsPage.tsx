@@ -3,10 +3,12 @@ import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { PageHeaderBand } from '../components/ui/PageHeaderBand'
 import { StationCard } from '../components/estaciones/StationCard'
+import { ParkServices } from '../components/estaciones/ParkServices'
 import { ESTACIONES } from '../data/estaciones'
 import { SHOW_MAP } from '../config/map'
 
-// Fuera del bundle inicial: con SHOW_MAP = false Rollup elimina esta importación.
+// Fuera del bundle inicial (chunk aparte). Con SHOW_MAP = false nunca se carga y
+// vite.config.ts deja la imagen del mapa fuera de dist/.
 const StationsMap = SHOW_MAP ? lazy(() => import('../components/estaciones/StationsMap')) : null
 
 export function StationsPage() {
@@ -32,6 +34,8 @@ export function StationsPage() {
           ))}
         </div>
       </section>
+
+      <ParkServices />
 
       {StationsMap && (
         <Suspense fallback={null}>
