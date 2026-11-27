@@ -10,7 +10,7 @@ import { GalleryPreview } from '../components/sections/GalleryPreview'
 import { ScrollExpandMedia } from '../components/ui/ScrollExpandMedia'
 import { asset } from '../lib/asset'
 
-const ESSENCE_IMAGE = asset('/images/hero/hero-galeria-18.jpeg')
+const ESSENCE_IMAGE = asset('/images/hero/hero-galeria-18.webp')
 
 export function Home() {
   return (

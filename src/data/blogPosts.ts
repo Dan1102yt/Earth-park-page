@@ -27,7 +27,7 @@ export interface BlogPost {
   coverImage: string | null // null = sin foto real todavia (PLACEHOLDER), Oscar la agrega despues
 }
 
-const weeklyImg = (n: number) => asset(`/images/BLOG/semana-02-09-agosto/${n}.jpg`)
+const weeklyImg = (n: number) => asset(`/images/BLOG/semana-02-09-agosto/${n}.webp`)
 
 export const EARTH_PARK_FOUNDING_DATE = new Date('2024-12-07T00:00:00')
 

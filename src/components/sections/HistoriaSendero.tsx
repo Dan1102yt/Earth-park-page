@@ -6,8 +6,8 @@ import { Sprout, Leaf } from 'lucide-react'
 import { asset } from '../../lib/asset'
 import { FaunaSprite } from '../ui/FaunaSprite'
 
-const TREASURE_ICON = asset('/images/Mariposas/6.png')
-const RETURN_ICON = asset('/images/Mariposas/5.png')
+const TREASURE_ICON = asset('/images/Mariposas/6.webp')
+const RETURN_ICON = asset('/images/Mariposas/5.webp')
 
 // Trazo con leve ondulación, en un viewBox angosto: preserveAspectRatio="none"
 // lo estira para llenar la altura real de la columna sin importar el largo del texto.

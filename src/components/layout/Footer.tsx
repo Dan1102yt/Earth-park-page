@@ -31,7 +31,7 @@ function IconTikTok() {
   )
 }
 
-const FOOTER_BG = asset('/images/hero/hero-galeria-8.jpeg')
+const FOOTER_BG = asset('/images/hero/hero-galeria-8.webp')
 const WHATSAPP_URL = 'https://wa.me/573228697438'
 
 const menuLinks = [

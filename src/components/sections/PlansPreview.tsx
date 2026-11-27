@@ -36,7 +36,7 @@ export function formatPrice(value: number, lang: string): string {
   return isEn ? `COP $${digits}` : `$${digits}`
 }
 
-const numbered = (slug: string, count: number, ext = 'jpeg') =>
+const numbered = (slug: string, count: number, ext = 'webp') =>
   Array.from({ length: count }, (_, i) => asset(`/images/planes/${slug}/${slug}-${i + 1}.${ext}`))
 
 // Valores por persona en COP — tarifa vigente desde el 22 de noviembre de 2026
@@ -46,10 +46,7 @@ export const planMetas: PlanMeta[] = [
   {
     slug: 'tesoros-del-valle-de-tenza',
     price: 954000,
-    images: [
-      ...numbered('tesoros-del-valle-de-tenza', 9, 'jpg'),
-      ...Array.from({ length: 3 }, (_, i) => asset(`/images/planes/tesoros-del-valle-de-tenza/tesoros-del-valle-de-tenza-${i + 10}.jpeg`)),
-    ],
+    images: numbered('tesoros-del-valle-de-tenza', 12),
   },
   {
     slug: 'conoce-y-descansa-en-macanal',

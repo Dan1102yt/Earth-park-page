@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/Button'
 import { asset } from '../../lib/asset'
 
-const hero = (n: number) => asset(`/images/hero/hero-galeria-${n}.jpeg`)
-const tesoros = (n: number) => asset(`/images/planes/tesoros-del-valle-de-tenza/tesoros-del-valle-de-tenza-${n}.${n <= 9 ? 'jpg' : 'jpeg'}`)
-const macanal = (n: number) => asset(`/images/planes/conoce-y-descansa-en-macanal/conoce-y-descansa-en-macanal-${n}.jpeg`)
+const hero = (n: number) => asset(`/images/hero/hero-galeria-${n}.webp`)
+const tesoros = (n: number) => asset(`/images/planes/tesoros-del-valle-de-tenza/tesoros-del-valle-de-tenza-${n}.webp`)
+const macanal = (n: number) => asset(`/images/planes/conoce-y-descansa-en-macanal/conoce-y-descansa-en-macanal-${n}.webp`)
 
 const albums = [
   { key: 'naturaleza', images: [hero(7), hero(9), hero(14), hero(15), hero(8), hero(18), hero(19), hero(23), hero(27), tesoros(1), macanal(1), macanal(10), macanal(13)] },

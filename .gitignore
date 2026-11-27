@@ -27,3 +27,6 @@ dist-ssr
 archivo-fuentes/
 public/fonts/matura.woff2
 public/fonts/helvetica-light.woff2
+
+# Originales de fotos optimizadas (pesadas): no subir
+fotos-originales/
