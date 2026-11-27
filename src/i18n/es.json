@@ -159,52 +159,76 @@
     "pricingNote": "Valores por persona · Niños menores de 5 años no pagan.",
     "kidsFree": "Niños menores de 5 años no pagan.",
     "reserveButton": "Reservar por WhatsApp",
-    "institutionalButton": "Cotizar para mi institución",
+    "institutionalButton": "Cotizar",
+    "institutionalWhatsapp": "Hola, quiero cotizar el Plan para Empresas e Instituciones Educativas para mi grupo.",
+    "includeSections": {"gastronomia":"Gastronomía","talleres":"Talleres","alojamiento":"Alojamiento","recorridos":"Miradores, lancha y recorridos","otros":"Souvenir y otros"},
     "items": {
       "tesoros-del-valle-de-tenza": {
         "title": "Tesoros del Valle de Tenza",
         "duration": "3 días - 2 noches",
         "badge": "MÁS COMPLETO",
         "description": "Un viaje que trasciende lo turístico… para vivir, aprender y conectar con la esencia del campo. Este plan está diseñado para quienes buscan una experiencia auténtica: sumergirse en las tradiciones, compartir con la comunidad campesina y descubrir los verdaderos tesoros culturales y naturales que resguarda el Valle de Tenza.",
-        "includes": [
-          "Desayunos, almuerzos, refrigerios típicos y cenas",
-          "Paseo en lancha entre montañas y cascadas",
-          "Cascada de la 70, experiencia de minería y Mirador La Mano del Minero",
-          "Mirador del Cielo",
-          "Senderismo a casa campesina con refrigerio y almuerzo",
-          "Taller de chicharrones de cuajada y molienda de caña",
-          "Masato de frutas y amasijo de sagú",
-          "Recorrido por el parque de Guateque con degustación de café",
-          "Ingreso al Museo de la Radio",
-          "Taller de cestería",
-          "Helado Sutatenzano",
-          "Degustación de postres",
-          "Experiencia Earth Park",
-          "Alojamiento 2 noches en Earth Park",
-          "Guía acompañante",
-          "Seguro médico"
-        ],
-        "excludes": "transporte ni guía"
+        "includes": {
+          "gastronomia": [
+            "3 desayunos",
+            "3 almuerzos",
+            "2 cenas",
+            "2 refrigerios",
+            "Masato de frutas y amasijo de sagú",
+            "Helado Sutatenzano",
+            "Degustación de postres"
+          ],
+          "talleres": [
+            "Taller de chicharrones de cuajada y molienda de caña",
+            "Taller de cestería"
+          ],
+          "alojamiento": [
+            "Alojamiento 2 noches en Earth Park"
+          ],
+          "recorridos": [
+            "Paseo en lancha entre montañas y cascadas",
+            "Cascada de la 70, experiencia de minería a cielo abierto y Mirador La Mano del Minero",
+            "Mirador del Cielo",
+            "Senderismo a casa campesina",
+            "Recorrido por el parque de Guateque con degustación de café",
+            "Ingreso al Museo de la Radio",
+            "Experiencia Earth Park"
+          ],
+          "otros": [
+            "Guía acompañante",
+            "Seguro médico"
+          ]
+        },
+        "excludes": "transporte"
       },
       "conoce-y-descansa-en-macanal": {
         "title": "Conoce y descansa en Macanal",
         "duration": "2 días - 1 noche",
         "badge": "MÁS POPULAR",
         "description": "Vive una escapada inolvidable en el corazón del Valle de Tenza. Navega por las tranquilas aguas del embalse La Esmeralda, contempla las imponentes vistas desde los miradores más emblemáticos de Macanal y saborea los sabores auténticos de la región.",
-        "includes": [
-          "Desayuno y almuerzo típicos",
-          "Paseo en lancha entre montañas y cascadas",
-          "Refrigerio de fruta y líquido",
-          "Cascada de la 70",
-          "Experiencia de minería",
-          "Mirador La Mano del Minero y Mirador del Cielo",
-          "Senderismo a casa campesina con refrigerio y almuerzo",
-          "Degustación de postres",
-          "Experiencia Earth Park",
-          "Cena en Earth Park",
-          "Alojamiento en Earth Park",
-          "Seguro médico"
-        ],
+        "includes": {
+          "gastronomia": [
+            "2 desayunos",
+            "2 almuerzos",
+            "2 refrigerios",
+            "1 cena",
+            "Degustación de postres"
+          ],
+          "alojamiento": [
+            "Alojamiento en Earth Park"
+          ],
+          "recorridos": [
+            "Paseo en lancha entre montañas y cascadas",
+            "Cascada de la 70",
+            "Experiencia de minería a cielo abierto",
+            "Mirador La Mano del Minero y Mirador del Cielo",
+            "Senderismo a casa campesina",
+            "Experiencia Earth Park"
+          ],
+          "otros": [
+            "Seguro médico"
+          ]
+        },
         "excludes": "transporte ni guía"
       },
       "hollywood-boyacense": {
@@ -212,33 +236,48 @@
         "duration": "1 día",
         "badge": "IDEAL PARA EMPEZAR",
         "description": "Navega las serenas aguas del embalse La Esmeralda, contempla las vistas imponentes desde los miradores más emblemáticos de Macanal y deléitate con la gastronomía típica preparada por manos locales. Todo en un solo día.",
-        "includes": [
-          "Desayuno típico",
-          "Paseo en lancha entre montañas y cascadas",
-          "Refrigerio de fruta y líquido",
-          "Mirador del Cielo",
-          "Almuerzo típico",
-          "Degustación de postres",
-          "Experiencia Earth Park",
-          "Seguro médico"
-        ],
+        "includes": {
+          "gastronomia": [
+            "1 desayuno",
+            "1 almuerzo",
+            "1 refrigerio",
+            "Degustación de postres"
+          ],
+          "recorridos": [
+            "Paseo en lancha entre montañas y cascadas",
+            "Mirador del Cielo",
+            "Mirador La Mano del Minero",
+            "Experiencia de minería a cielo abierto",
+            "Experiencia Earth Park"
+          ],
+          "otros": [
+            "Seguro médico"
+          ]
+        },
         "excludes": "transporte ni guía"
       },
       "vive-earth-park": {
         "title": "Vive Earth Park",
         "description": "Disfruta de un acceso exclusivo al parque Earth Park, con una experiencia sensorial única que te conectará con la naturaleza.",
-        "includes": [
-          "Entrada al parque Earth Park",
-          "Experiencia sensorial con guía",
-          "Souvenir",
-          "Refrigerio",
-          "Seguro turístico"
-        ],
-        "excludes": "transporte ni guía"
+        "includes": {
+          "gastronomia": [
+            "1 refrigerio"
+          ],
+          "recorridos": [
+            "Entrada al parque Earth Park",
+            "Experiencia sensorial con guía"
+          ],
+          "otros": [
+            "Souvenir",
+            "Seguro turístico"
+          ]
+        },
+        "highlight": "Souvenir",
+        "excludes": "transporte"
       },
-      "plan-institucional": {
-        "title": "Plan Institucional — Universidades y Centros Educativos",
-        "description": "Diseñado para universidades, instituciones técnicas y centros educativos que buscan una experiencia formativa fuera del aula. Hemos recibido grupos de la Universidad Pedagógica Nacional (UPN), el SENA y otras instituciones, adaptando cada visita a los objetivos académicos del grupo — desde educación ambiental hasta bienestar y trabajo en equipo. Cada plan institucional se cotiza a la medida según el número de estudiantes, duración y objetivos pedagógicos."
+      "plan-empresas-instituciones": {
+        "title": "Plan para Empresas e Instituciones Educativas",
+        "description": "Diseñado para empresas, universidades, instituciones técnicas y centros educativos que buscan una experiencia formativa fuera de la rutina. Hemos recibido grupos de la Universidad Pedagógica Nacional (UPN), el SENA y otras instituciones, adaptando cada visita a los objetivos del grupo — desde educación ambiental hasta bienestar y trabajo en equipo. Cada plan se cotiza a la medida según el número de participantes, la duración y los objetivos."
       }
     }
   },

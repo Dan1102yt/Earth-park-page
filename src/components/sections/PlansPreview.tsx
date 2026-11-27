@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/Button'
 import { asset } from '../../lib/asset'
+import type { IncludeSection } from '../../config/plans'
 
 export interface PlanMeta {
   slug: string
@@ -17,7 +18,9 @@ export interface PlanText {
   duration?: string
   badge?: string
   description: string
-  includes?: string[]
+  includes?: Partial<Record<IncludeSection, string[]>>
+  /** Ítem de "Incluye" que se resalta (ej. Souvenir) */
+  highlight?: string
   excludes?: string
 }
 
@@ -36,7 +39,8 @@ export function formatPrice(value: number, lang: string): string {
 const numbered = (slug: string, count: number, ext = 'jpeg') =>
   Array.from({ length: count }, (_, i) => asset(`/images/planes/${slug}/${slug}-${i + 1}.${ext}`))
 
-// Valores por persona en COP — tarifa vigente desde el 22 de noviembre de 2026.
+// Valores por persona en COP — tarifa vigente desde el 22 de noviembre de 2026
+// (Hollywood Boyacense actualizado a $233.000).
 // (Fecha solo como referencia interna; no se muestra en la web.)
 export const planMetas: PlanMeta[] = [
   {
@@ -55,7 +59,7 @@ export const planMetas: PlanMeta[] = [
   },
   {
     slug: 'hollywood-boyacense',
-    price: 173000,
+    price: 233000,
     images: [asset('/images/planes/planes-Conoce-el-Hollywood-Boyacense.jpg')],
     imagePosition: '50% 55%',
   },
@@ -65,7 +69,7 @@ export const planMetas: PlanMeta[] = [
     images: numbered('vive-earth-park', 9),
   },
   {
-    slug: 'plan-institucional',
+    slug: 'plan-empresas-instituciones',
     images: numbered('instituciones', 6),
     institutional: true,
   },

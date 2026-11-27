@@ -159,52 +159,76 @@
     "pricingNote": "Prices per person · Children under 5 are free.",
     "kidsFree": "Children under 5 are free.",
     "reserveButton": "Book via WhatsApp",
-    "institutionalButton": "Get a quote for my institution",
+    "institutionalButton": "Get a quote",
+    "institutionalWhatsapp": "Hi, I'd like a quote for the Plan for Companies and Educational Institutions for my group.",
+    "includeSections": {"gastronomia":"Food","talleres":"Workshops","alojamiento":"Lodging","recorridos":"Lookouts, boat ride and tours","otros":"Souvenir and more"},
     "items": {
       "tesoros-del-valle-de-tenza": {
         "title": "Tesoros del Valle de Tenza (Treasures of the Tenza Valley)",
         "duration": "3 days - 2 nights",
         "badge": "MOST COMPLETE",
         "description": "A journey that goes beyond tourism… to live, learn, and connect with the essence of the countryside. This plan is designed for those seeking an authentic experience: immersing yourself in local traditions, sharing with the farming community, and discovering the true cultural and natural treasures held by the Valle de Tenza.",
-        "includes": [
-          "Traditional breakfasts, lunches, snacks, and dinners",
-          "Boat ride among mountains and waterfalls",
-          "La 70 Waterfall, mining experience, and La Mano del Minero lookout",
-          "Mirador del Cielo lookout",
-          "Hike to a farmhouse with a snack and lunch",
-          "Cuajada chicharrones and sugarcane milling workshop",
-          "Fruit masato and sagú baked goods",
-          "Tour of Guateque's park with a coffee tasting",
-          "Entry to the Radio Museum",
-          "Basket weaving workshop",
-          "Sutatenza-style ice cream",
-          "Dessert tasting",
-          "Earth Park Experience",
-          "2 nights' lodging at Earth Park",
-          "Accompanying guide",
-          "Medical insurance"
-        ],
-        "excludes": "transportation or guide"
+        "includes": {
+          "gastronomia": [
+            "3 breakfasts",
+            "3 lunches",
+            "2 dinners",
+            "2 snacks",
+            "Fruit masato and sagú baked goods",
+            "Sutatenza-style ice cream",
+            "Dessert tasting"
+          ],
+          "talleres": [
+            "Cuajada chicharrones and sugarcane milling workshop",
+            "Basket weaving workshop"
+          ],
+          "alojamiento": [
+            "2 nights' lodging at Earth Park"
+          ],
+          "recorridos": [
+            "Boat ride among mountains and waterfalls",
+            "La 70 Waterfall, open-pit mining experience, and La Mano del Minero lookout",
+            "Mirador del Cielo lookout",
+            "Hike to a farmhouse",
+            "Tour of Guateque's park with a coffee tasting",
+            "Entry to the Radio Museum",
+            "Earth Park Experience"
+          ],
+          "otros": [
+            "Accompanying guide",
+            "Medical insurance"
+          ]
+        },
+        "excludes": "transportation"
       },
       "conoce-y-descansa-en-macanal": {
         "title": "Conoce y descansa en Macanal (Get to Know and Relax in Macanal)",
         "duration": "2 days - 1 night",
         "badge": "MOST POPULAR",
         "description": "Enjoy an unforgettable getaway in the heart of the Valle de Tenza. Sail the calm waters of the La Esmeralda Reservoir, take in the sweeping views from Macanal's most iconic lookout points, and savor the region's authentic flavors.",
-        "includes": [
-          "Traditional breakfast and lunch",
-          "Boat ride among mountains and waterfalls",
-          "Fruit and drink snack",
-          "La 70 Waterfall",
-          "Mining experience",
-          "La Mano del Minero and Mirador del Cielo lookouts",
-          "Hike to a farmhouse with a snack and lunch",
-          "Dessert tasting",
-          "Earth Park Experience",
-          "Dinner at Earth Park",
-          "Lodging at Earth Park",
-          "Medical insurance"
-        ],
+        "includes": {
+          "gastronomia": [
+            "2 breakfasts",
+            "2 lunches",
+            "2 snacks",
+            "1 dinner",
+            "Dessert tasting"
+          ],
+          "alojamiento": [
+            "Lodging at Earth Park"
+          ],
+          "recorridos": [
+            "Boat ride among mountains and waterfalls",
+            "La 70 Waterfall",
+            "Open-pit mining experience",
+            "La Mano del Minero and Mirador del Cielo lookouts",
+            "Hike to a farmhouse",
+            "Earth Park Experience"
+          ],
+          "otros": [
+            "Medical insurance"
+          ]
+        },
         "excludes": "transportation or guide"
       },
       "hollywood-boyacense": {
@@ -212,33 +236,48 @@
         "duration": "1 day",
         "badge": "GREAT FOR FIRST-TIMERS",
         "description": "Sail the calm waters of the La Esmeralda Reservoir, take in the sweeping views from Macanal's most iconic lookout points, and enjoy traditional cuisine made by local hands. All in a single day.",
-        "includes": [
-          "Traditional breakfast",
-          "Boat ride among mountains and waterfalls",
-          "Fruit and drink snack",
-          "Mirador del Cielo lookout",
-          "Traditional lunch",
-          "Dessert tasting",
-          "Earth Park Experience",
-          "Medical insurance"
-        ],
+        "includes": {
+          "gastronomia": [
+            "1 breakfast",
+            "1 lunch",
+            "1 snack",
+            "Dessert tasting"
+          ],
+          "recorridos": [
+            "Boat ride among mountains and waterfalls",
+            "Mirador del Cielo lookout",
+            "La Mano del Minero lookout",
+            "Open-pit mining experience",
+            "Earth Park Experience"
+          ],
+          "otros": [
+            "Medical insurance"
+          ]
+        },
         "excludes": "transportation or guide"
       },
       "vive-earth-park": {
         "title": "Vive Earth Park (Live Earth Park)",
         "description": "Enjoy exclusive access to Earth Park, with a unique sensory experience that will connect you with nature.",
-        "includes": [
-          "Entry to Earth Park",
-          "Guided sensory experience",
-          "Souvenir",
-          "Snack",
-          "Travel insurance"
-        ],
-        "excludes": "transportation or guide"
+        "includes": {
+          "gastronomia": [
+            "1 snack"
+          ],
+          "recorridos": [
+            "Entry to Earth Park",
+            "Guided sensory experience"
+          ],
+          "otros": [
+            "Souvenir",
+            "Travel insurance"
+          ]
+        },
+        "highlight": "Souvenir",
+        "excludes": "transportation"
       },
-      "plan-institucional": {
-        "title": "Institutional Plan — Universities and Educational Centers",
-        "description": "Designed for universities, technical institutions, and educational centers seeking a formative experience outside the classroom. We have hosted groups from the Universidad Pedagógica Nacional (UPN), SENA, and other institutions, tailoring each visit to the group's academic goals — from environmental education to wellness and teamwork. Every institutional plan is quoted according to the number of students, duration, and learning objectives."
+      "plan-empresas-instituciones": {
+        "title": "Plan for Companies and Educational Institutions",
+        "description": "Designed for companies, universities, technical institutions, and educational centers seeking a formative experience outside the usual routine. We have hosted groups from the Universidad Pedagógica Nacional (UPN), SENA, and other institutions, tailoring each visit to the group's goals — from environmental education to wellness and teamwork. Every plan is quoted according to the number of participants, duration, and objectives."
       }
     }
   },

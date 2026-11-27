@@ -29,7 +29,7 @@ const provider = {
  * Datos estructurados (schema.org) de los planes turísticos.
  * Se generan desde planMetas, así que los precios siempre coinciden con la web.
  * price va numérico (sin puntos) y priceCurrency "COP".
- * El plan institucional se lista sin oferta porque se cotiza a la medida.
+ * El plan para empresas e instituciones educativas se lista sin oferta porque se cotiza a la medida.
  */
 export function PlansJsonLd({ plans }: { plans: Plan[] }) {
   const { t } = useTranslation()

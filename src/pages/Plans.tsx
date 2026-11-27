@@ -8,16 +8,16 @@ import { Modal } from '../components/ui/Modal'
 import { ModalGallery } from '../components/ui/ModalGallery'
 import { GlowCard } from '../components/ui/GlowCard'
 import { usePlans, formatPrice, type Plan } from '../components/sections/PlansPreview'
+import { INCLUDE_SECTIONS } from '../config/plans'
 import { PlansJsonLd } from '../components/seo/PlansJsonLd'
 
-const INSTITUTIONAL_WHATSAPP =
-  'https://wa.me/573228697438?text=' +
-  encodeURIComponent('Hola, quiero cotizar un plan institucional/educativo para mi grupo (universidad, SENA, colegio, etc.).')
+const WHATSAPP_URL = 'https://wa.me/573228697438'
 
 export function Plans() {
   const { t, i18n } = useTranslation()
   const plans = usePlans()
   const [activePlan, setActivePlan] = useState<Plan | null>(null)
+  const institutionalWhatsapp = `${WHATSAPP_URL}?text=${encodeURIComponent(t('plans.institutionalWhatsapp'))}`
 
   return (
     <div className="min-h-screen">
@@ -97,15 +97,34 @@ export function Plans() {
 
               {activePlan.includes && (
                 <>
-                  <h3 className="font-heading font-bold text-bosque dark:text-crema text-sm uppercase tracking-wide mb-3">{t('plans.includesLabel')}</h3>
-                  <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2 mb-4">
-                    {activePlan.includes.map((item) => (
-                      <li key={item} className="flex gap-2 font-body text-carbon/80 dark:text-crema/80 text-sm leading-snug">
-                        <Check size={16} className="text-musgo shrink-0 mt-0.5" />
-                        <span>{item}</span>
-                      </li>
+                  <h3 className="font-heading font-bold text-bosque dark:text-crema text-sm uppercase tracking-wide mb-4">{t('plans.includesLabel')}</h3>
+                  {/* Flujo por apartados, siempre en el mismo orden (INCLUDE_SECTIONS) */}
+                  <div className="space-y-5 mb-5">
+                    {INCLUDE_SECTIONS.filter((key) => activePlan.includes?.[key]?.length).map((key) => (
+                      <div key={key}>
+                        <h4 className="font-heading font-semibold text-terracota dark:text-dorado text-base mb-2">
+                          {t(`plans.includeSections.${key}`)}
+                        </h4>
+                        <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
+                          {activePlan.includes![key]!.map((item) =>
+                            item === activePlan.highlight ? (
+                              <li key={item} className="flex">
+                                <span className="inline-flex items-center gap-2 bg-dorado/90 text-carbon font-heading font-bold text-sm px-3 py-1 rounded-full">
+                                  <Check size={16} className="shrink-0" />
+                                  {item}
+                                </span>
+                              </li>
+                            ) : (
+                              <li key={item} className="flex gap-2 font-body text-carbon dark:text-crema text-sm leading-snug">
+                                <Check size={16} className="text-musgo shrink-0 mt-0.5" />
+                                <span>{item}</span>
+                              </li>
+                            ),
+                          )}
+                        </ul>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </>
               )}
               {activePlan.excludes && (
@@ -113,7 +132,7 @@ export function Plans() {
               )}
 
               <a
-                href={activePlan.institutional ? INSTITUTIONAL_WHATSAPP : 'https://wa.me/573228697438'}
+                href={activePlan.institutional ? institutionalWhatsapp : WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-fit block"
