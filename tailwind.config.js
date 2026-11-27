@@ -37,11 +37,14 @@ export default {
         dorado: '#D4A24E',
         carbon: '#3A362E',
       },
+      // Variables definidas en src/index.css (flag en src/config/fonts.ts)
       fontFamily: {
-        display: ['Lilita One', 'cursive'],
-        body: ['Lato', 'sans-serif'],
-        fraunces: ['Fraunces', 'serif'],
-        inter: ['Inter', 'sans-serif'],
+        display: ['var(--font-display)'],
+        heading: ['var(--font-heading)'],
+        body: ['var(--font-body)'],
+      },
+      fontSize: {
+        body: ['var(--text-body)', { lineHeight: '1.7' }],
       },
     },
   },

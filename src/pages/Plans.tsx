@@ -28,7 +28,7 @@ export function Plans() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <p className="font-inter text-sm text-carbon/70 dark:text-crema/70 text-center mb-10">
+        <p className="font-body text-body text-carbon dark:text-crema text-center mb-10">
           {t('plans.pricingNote')}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -53,17 +53,17 @@ export function Plans() {
                     style={plan.imagePosition ? { objectPosition: plan.imagePosition } : undefined}
                   />
                   {plan.badge && (
-                    <span className="absolute top-3 right-3 bg-dorado text-carbon font-inter text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full">
+                    <span className="absolute top-3 right-3 bg-dorado text-carbon font-heading text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full">
                       {plan.badge}
                     </span>
                   )}
                 </div>
                 <div className="p-6">
-                  <h2 className="font-fraunces text-xl text-bosque dark:text-crema mb-1 leading-tight">{plan.title}</h2>
-                  {plan.duration && <p className="font-inter text-carbon/60 dark:text-crema/60 text-xs mb-2">{plan.duration}</p>}
+                  <h2 className="font-heading text-xl text-bosque dark:text-crema mb-1 leading-tight">{plan.title}</h2>
+                  {plan.duration && <p className="font-body text-carbon/60 dark:text-crema/60 text-xs mb-2">{plan.duration}</p>}
                   {plan.price && (
-                    <p className="font-fraunces text-2xl text-terracota dark:text-dorado">
-                      {formatPrice(plan.price, i18n.language)}<span className="text-sm font-inter text-terracota/70 dark:text-dorado/70">{t('plans.perPerson')}</span>
+                    <p className="font-heading text-2xl text-terracota dark:text-dorado">
+                      {formatPrice(plan.price, i18n.language)}<span className="text-sm font-heading text-terracota/70 dark:text-dorado/70">{t('plans.perPerson')}</span>
                     </p>
                   )}
                 </div>
@@ -80,27 +80,27 @@ export function Plans() {
 
             <div className="p-8 md:p-10">
               {activePlan.duration && (
-                <span className="inline-block font-fraunces font-semibold text-xl bg-terracota text-crema px-6 py-2 rounded-2xl shadow mb-4">
+                <span className="inline-block font-heading font-semibold text-xl bg-terracota text-crema px-6 py-2 rounded-2xl shadow mb-4">
                   {activePlan.duration}
                 </span>
               )}
-              <h2 className="font-fraunces text-3xl text-bosque dark:text-crema mb-2">{activePlan.title}</h2>
+              <h2 className="font-heading text-3xl text-bosque dark:text-crema mb-2">{activePlan.title}</h2>
               {activePlan.price && (
                 <>
-                  <p className="font-fraunces text-4xl text-terracota dark:text-dorado mb-1">
-                    {formatPrice(activePlan.price, i18n.language)}<span className="text-lg font-inter text-terracota/70 dark:text-dorado/70">{t('plans.perPerson')}</span>
+                  <p className="font-heading text-4xl text-terracota dark:text-dorado mb-1">
+                    {formatPrice(activePlan.price, i18n.language)}<span className="text-lg font-heading text-terracota/70 dark:text-dorado/70">{t('plans.perPerson')}</span>
                   </p>
-                  <p className="font-inter text-sm text-carbon/60 dark:text-crema/60 mb-4">{t('plans.kidsFree')}</p>
+                  <p className="font-body text-sm text-carbon/60 dark:text-crema/60 mb-4">{t('plans.kidsFree')}</p>
                 </>
               )}
-              <p className="font-inter text-carbon/70 dark:text-crema/70 leading-relaxed mb-6">{activePlan.description}</p>
+              <p className="font-body text-carbon dark:text-crema text-body mb-6">{activePlan.description}</p>
 
               {activePlan.includes && (
                 <>
-                  <h3 className="font-inter font-bold text-bosque dark:text-crema text-sm uppercase tracking-wide mb-3">{t('plans.includesLabel')}</h3>
+                  <h3 className="font-heading font-bold text-bosque dark:text-crema text-sm uppercase tracking-wide mb-3">{t('plans.includesLabel')}</h3>
                   <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2 mb-4">
                     {activePlan.includes.map((item) => (
-                      <li key={item} className="flex gap-2 font-inter text-carbon/80 dark:text-crema/80 text-sm leading-snug">
+                      <li key={item} className="flex gap-2 font-body text-carbon/80 dark:text-crema/80 text-sm leading-snug">
                         <Check size={16} className="text-musgo shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </li>
@@ -109,7 +109,7 @@ export function Plans() {
                 </>
               )}
               {activePlan.excludes && (
-                <p className="font-inter text-carbon/40 dark:text-crema/40 text-xs italic mb-6">{t('plans.excludesLabel')}: {activePlan.excludes}</p>
+                <p className="font-body text-carbon/40 dark:text-crema/40 text-xs italic mb-6">{t('plans.excludesLabel')}: {activePlan.excludes}</p>
               )}
 
               <a

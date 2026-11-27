@@ -84,7 +84,7 @@ export function PlansPreview() {
   return (
     <section className="py-24 bg-crema dark:bg-bosque-deep">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema text-center mb-12">{t('plansTeaser.heading')}</h2>
+        <h2 className="font-heading text-4xl md:text-5xl text-bosque dark:text-crema text-center mb-12">{t('plansTeaser.heading')}</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {plans.map((plan, i) => (
@@ -99,15 +99,15 @@ export function PlansPreview() {
               <div className="relative h-44 overflow-hidden">
                 <img src={plan.images[0]} alt={plan.title} loading="lazy" className="w-full h-full object-cover" />
                 {plan.badge && (
-                  <span className="absolute top-3 right-3 bg-dorado text-carbon font-inter text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full">
+                  <span className="absolute top-3 right-3 bg-dorado text-carbon font-heading text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full">
                     {plan.badge}
                   </span>
                 )}
               </div>
               <div className="p-5">
-                <h3 className="font-fraunces text-lg text-bosque dark:text-crema mb-1 leading-tight">{plan.title}</h3>
-                {plan.duration && <p className="font-inter text-carbon/60 dark:text-crema/60 text-xs mb-2">{plan.duration}</p>}
-                {plan.price && <p className="font-fraunces text-2xl text-terracota dark:text-dorado">{formatPrice(plan.price, i18n.language)}</p>}
+                <h3 className="font-heading text-lg text-bosque dark:text-crema mb-1 leading-tight">{plan.title}</h3>
+                {plan.duration && <p className="font-body text-carbon/60 dark:text-crema/60 text-xs mb-2">{plan.duration}</p>}
+                {plan.price && <p className="font-heading text-2xl text-terracota dark:text-dorado">{formatPrice(plan.price, i18n.language)}</p>}
               </div>
             </motion.div>
           ))}

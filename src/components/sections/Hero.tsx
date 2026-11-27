@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { Volume2, VolumeX } from 'lucide-react'
 import { Button } from '../ui/Button'
 import { asset } from '../../lib/asset'
+import { displayClass } from '../../config/fonts'
 
 export const HERO_VIDEO_SRC = asset('/videos/hero-video.mp4')
 export const HERO_VIDEO_SRC_MOBILE = asset('/videos/hero-video-celular.mp4')
@@ -69,7 +70,7 @@ export function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="inline-flex items-center gap-2 bg-musgo/80 text-crema text-sm font-inter px-4 py-2 rounded-full mb-6 backdrop-blur-sm"
+          className="inline-flex items-center gap-2 bg-musgo/80 text-crema text-sm font-heading px-4 py-2 rounded-full mb-6 backdrop-blur-sm"
         >
           {t('hero.badge')}
         </motion.div>
@@ -80,7 +81,7 @@ export function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="font-fraunces font-semibold text-5xl md:text-7xl text-crema leading-tight mb-6"
+          className={`${displayClass(t('hero.title'))} text-5xl md:text-7xl text-crema leading-tight mb-6`}
         >
           {t('hero.title')}
         </motion.h1>
@@ -91,7 +92,7 @@ export function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="font-inter text-crema/90 text-xl md:text-2xl mb-10 max-w-2xl mx-auto"
+          className="font-body text-crema/90 text-xl md:text-2xl mb-10 max-w-2xl mx-auto"
         >
           {t('hero.subtitle')}
         </motion.p>
@@ -120,7 +121,7 @@ export function Hero() {
         transition={{ delay: 0.8, duration: 0.5 }}
         className="absolute bottom-0 left-0 right-0 bg-bosque/70 dark:bg-bosque-deep/75 backdrop-blur-sm border-t border-crema/10"
       >
-        <p className="font-inter text-crema/80 text-sm text-center py-3 px-4">
+        <p className="font-body text-crema/80 text-sm text-center py-3 px-4">
           {t('hero.info')}
         </p>
       </motion.div>

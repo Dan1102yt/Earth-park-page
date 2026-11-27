@@ -3,8 +3,46 @@
 @tailwind utilities;
 
 @layer base {
+  /* Tipografía: ver src/config/fonts.ts (USE_LICENSED_FONTS) */
+  :root {
+    --font-display: 'Figtree', system-ui, sans-serif;
+    --font-heading: 'Figtree', system-ui, sans-serif;
+    --font-body: 'Figtree', system-ui, sans-serif;
+    --font-display-weight: 700;
+    --font-heading-weight: 500;
+    --font-body-weight: 400;
+    --text-body: 18px;
+    font-synthesis: none;
+  }
+  :root[data-fonts='licensed'] {
+    --font-display: 'Matura Brand', Georgia, serif;
+    --font-body: 'Helvetica Light Brand', Helvetica, Arial, sans-serif;
+    --font-display-weight: 400;
+    --font-body-weight: 300;
+    --text-body: 17px;
+  }
+  @media (min-width: 768px) {
+    :root[data-fonts='licensed'] {
+      --text-body: 18px;
+    }
+  }
+
+  /* Peso por defecto de cada familia (las utilidades font-bold etc. lo sobrescriben) */
+  .font-display {
+    font-weight: var(--font-display-weight);
+  }
+  .font-heading {
+    font-weight: var(--font-heading-weight);
+  }
+  .font-body {
+    font-weight: var(--font-body-weight);
+  }
+
   body {
-    @apply font-inter bg-crema text-carbon dark:bg-bosque-deep dark:text-crema m-0 transition-colors duration-300;
+    @apply font-body bg-crema text-carbon dark:bg-bosque-deep dark:text-crema m-0 transition-colors duration-300;
+    font-size: var(--text-body);
+    font-weight: var(--font-body-weight);
+    line-height: 1.7;
   }
 
   #root {

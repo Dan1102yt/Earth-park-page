@@ -7,7 +7,7 @@ import type { TFunction } from 'i18next'
 import { useScrollNavbar } from '../../hooks/useScrollNavbar'
 import { useTheme } from '../../context/ThemeContext'
 import { Button } from '../ui/Button'
-import { asset } from '../../lib/asset'
+import { LOGO_SRC } from '../../config/brand'
 
 interface NavChild { key: string; to: string }
 interface NavLink { key: string; to: string; children?: NavChild[] }
@@ -44,7 +44,7 @@ function DesktopNavItem({ link, scrolled, location, t }: { link: NavLink; scroll
 
   if (!link.children) {
     return (
-      <Link key={link.key} to={link.to} className={`font-inter text-base font-medium transition-colors duration-200 ${colorClass}`}>
+      <Link key={link.key} to={link.to} className={`font-heading text-base font-medium transition-colors duration-200 ${colorClass}`}>
         {t(link.key)}
       </Link>
     )
@@ -54,7 +54,7 @@ function DesktopNavItem({ link, scrolled, location, t }: { link: NavLink; scroll
     <div className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       <Link
         to={link.to}
-        className={`flex items-center gap-1 font-inter text-base font-medium transition-colors duration-200 ${colorClass}`}
+        className={`flex items-center gap-1 font-heading text-base font-medium transition-colors duration-200 ${colorClass}`}
       >
         {t(link.key)}
         <ChevronDown size={15} className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
@@ -74,7 +74,7 @@ function DesktopNavItem({ link, scrolled, location, t }: { link: NavLink; scroll
                   key={child.key}
                   to={child.to}
                   onClick={() => setOpen(false)}
-                  className={`block px-4 py-2.5 font-inter text-sm transition-colors ${
+                  className={`block px-4 py-2.5 font-heading text-sm transition-colors ${
                     location.pathname === child.to
                       ? 'text-terracota dark:text-dorado bg-carbon/5 dark:bg-crema/5'
                       : 'text-carbon/80 dark:text-crema/80 hover:bg-carbon/5 dark:hover:bg-crema/5 hover:text-bosque dark:hover:text-crema'
@@ -98,7 +98,7 @@ function MobileNavItem({ link, t, onNavigate }: { link: NavLink; t: TFunction; o
     return (
       <Link
         to={link.to}
-        className="font-inter text-lg font-medium text-carbon/80 hover:text-bosque dark:text-crema/80 dark:hover:text-crema py-3 border-b border-bosque/10 dark:border-crema/10 last:border-0 transition-colors"
+        className="font-heading text-lg font-medium text-carbon/80 hover:text-bosque dark:text-crema/80 dark:hover:text-crema py-3 border-b border-bosque/10 dark:border-crema/10 last:border-0 transition-colors"
         onClick={onNavigate}
       >
         {t(link.key)}
@@ -111,7 +111,7 @@ function MobileNavItem({ link, t, onNavigate }: { link: NavLink; t: TFunction; o
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="flex items-center justify-between w-full font-inter text-lg font-medium text-carbon/80 hover:text-bosque dark:text-crema/80 dark:hover:text-crema py-3 transition-colors"
+        className="flex items-center justify-between w-full font-heading text-lg font-medium text-carbon/80 hover:text-bosque dark:text-crema/80 dark:hover:text-crema py-3 transition-colors"
       >
         {t(link.key)}
         <ChevronDown size={18} className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
@@ -131,7 +131,7 @@ function MobileNavItem({ link, t, onNavigate }: { link: NavLink; t: TFunction; o
                   key={child.key}
                   to={child.to}
                   onClick={onNavigate}
-                  className="font-inter text-base text-carbon/70 dark:text-crema/70 hover:text-bosque dark:hover:text-crema py-2.5 transition-colors"
+                  className="font-heading text-base text-carbon/70 dark:text-crema/70 hover:text-bosque dark:hover:text-crema py-2.5 transition-colors"
                 >
                   {t(child.key)}
                 </Link>
@@ -164,13 +164,13 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center justify-between gap-3 h-20 lg:h-[104px]">
           {/* Logo */}
           <Link to="/" className="shrink-0">
             <img
-              src={asset('/images/logo.png')}
+              src={LOGO_SRC}
               alt="Earth Park"
-              className={`h-14 sm:h-16 w-auto object-contain transition-all duration-300 ${
+              className={`h-16 lg:h-[88px] w-auto object-contain transition-all duration-300 ${
                 scrolled ? '' : 'drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]'
               }`}
             />
@@ -201,7 +201,7 @@ export function Navbar() {
             {/* Lang toggle */}
             <button
               onClick={toggleLang}
-              className={`font-inter text-sm transition-colors px-2 py-1 rounded border ${
+              className={`font-heading text-sm transition-colors px-2 py-1 rounded border ${
                 scrolled
                   ? 'text-carbon/70 hover:text-carbon border-carbon/20 hover:border-carbon/50 dark:text-crema/70 dark:hover:text-crema dark:border-crema/20 dark:hover:border-crema/50'
                   : 'text-crema/70 hover:text-crema border-crema/20 hover:border-crema/50'

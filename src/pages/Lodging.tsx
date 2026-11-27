@@ -74,9 +74,9 @@ function RoomModalContent({ room, statusLabel, detailsLabel }: { room: Room; sta
       <div className="p-6 md:p-8">
         <div className="flex items-center gap-3 mb-4">
           <span className="text-3xl">{room.emoji}</span>
-          <h2 className="font-fraunces text-3xl text-bosque dark:text-crema">{room.name}</h2>
+          <h2 className="font-heading text-3xl text-bosque dark:text-crema">{room.name}</h2>
           <span
-            className={`ml-auto font-inter text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full ${
+            className={`ml-auto font-heading text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full ${
               room.status === 'available' ? 'bg-musgo text-crema' : 'bg-dorado text-carbon'
             }`}
           >
@@ -84,14 +84,14 @@ function RoomModalContent({ room, statusLabel, detailsLabel }: { room: Room; sta
           </span>
         </div>
 
-        <p className="font-inter text-carbon/70 dark:text-crema/70 leading-relaxed mb-6">{room.concept}</p>
+        <p className="font-body text-carbon dark:text-crema text-body mb-6">{room.concept}</p>
 
         {room.amenities && (
           <>
-            <h3 className="font-inter font-bold text-bosque dark:text-crema text-sm uppercase tracking-wide mb-3">{detailsLabel}</h3>
+            <h3 className="font-heading font-bold text-bosque dark:text-crema text-sm uppercase tracking-wide mb-3">{detailsLabel}</h3>
             <ul className="space-y-2 mb-2">
               {room.amenities.map((item) => (
-                <li key={item} className="flex gap-2 font-inter text-carbon/80 dark:text-crema/80 text-sm leading-snug">
+                <li key={item} className="flex gap-2 font-body text-carbon/80 dark:text-crema/80 text-sm leading-snug">
                   <Check size={16} className="text-musgo shrink-0 mt-0.5" />
                   <span>{item}</span>
                 </li>
@@ -101,7 +101,7 @@ function RoomModalContent({ room, statusLabel, detailsLabel }: { room: Room; sta
         )}
 
         {room.designNote && (
-          <p className="font-inter text-dorado/90 dark:text-dorado text-sm italic leading-relaxed mt-2">
+          <p className="font-body text-dorado/90 dark:text-dorado text-sm italic leading-relaxed mt-2">
             {room.designNote}
           </p>
         )}
@@ -154,7 +154,7 @@ export function Lodging() {
                     {room.emoji}
                   </span>
                   <span
-                    className={`absolute top-4 right-4 font-inter text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full ${
+                    className={`absolute top-4 right-4 font-heading text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full ${
                       room.status === 'available' ? 'bg-musgo text-crema' : 'bg-dorado text-carbon'
                     }`}
                   >
@@ -163,12 +163,12 @@ export function Lodging() {
                 </div>
 
                 <div className="p-6 md:p-8">
-                  <h3 className="font-fraunces text-2xl text-bosque dark:text-crema mb-3">{room.name}</h3>
-                  <p className="font-inter text-carbon/70 dark:text-crema/70 text-sm leading-relaxed mb-3">
+                  <h3 className="font-heading text-2xl text-bosque dark:text-crema mb-3">{room.name}</h3>
+                  <p className="font-body text-carbon dark:text-crema text-body mb-3">
                     {room.concept}
                   </p>
                   {room.designNote && (
-                    <p className="font-inter text-dorado/90 dark:text-dorado text-xs italic leading-relaxed">
+                    <p className="font-body text-dorado/90 dark:text-dorado text-xs italic leading-relaxed">
                       {room.designNote}
                     </p>
                   )}

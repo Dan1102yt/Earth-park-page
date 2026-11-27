@@ -67,7 +67,7 @@ export function Stats() {
               transition={{ delay: i * 0.1, duration: 0.5, ease: 'easeOut' }}
               className="text-center"
             >
-              <p className="font-display text-5xl text-gold leading-none mb-2">
+              <p className="font-heading text-5xl text-gold leading-none mb-2">
                 <Counter {...stat} />
               </p>
               <p className="font-body text-sm text-cream/80 mt-1">{stat.label}</p>

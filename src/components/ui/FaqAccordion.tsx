@@ -20,7 +20,7 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
             aria-expanded={open === i}
             className="w-full flex items-center justify-between gap-4 text-left px-6 py-5"
           >
-            <span className="font-fraunces text-bosque dark:text-crema text-lg">{item.q}</span>
+            <span className="font-heading text-bosque dark:text-crema text-lg">{item.q}</span>
             <ChevronDown
               size={20}
               className={`shrink-0 text-terracota dark:text-dorado transition-transform duration-300 ${open === i ? 'rotate-180' : ''}`}
@@ -35,7 +35,7 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
                 transition={{ duration: 0.3, ease: 'easeOut' }}
                 className="overflow-hidden"
               >
-                <p className="font-inter text-carbon/70 dark:text-crema/70 text-sm leading-relaxed px-6 pb-5">{item.a}</p>
+                <p className="font-body text-carbon dark:text-crema text-body px-6 pb-5">{item.a}</p>
               </motion.div>
             )}
           </AnimatePresence>

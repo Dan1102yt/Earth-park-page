@@ -17,8 +17,8 @@ export function StationsTeaser() {
   return (
     <section className="py-24 bg-bosque dark:bg-bosque-deep">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-fraunces text-4xl md:text-5xl text-crema text-center mb-3">{t('stationsTeaser.heading')}</h2>
-        <p className="font-inter text-crema/60 text-sm text-center mb-12">{t('stationsTeaser.intro')}</p>
+        <h2 className="font-heading text-4xl md:text-5xl text-crema text-center mb-3">{t('stationsTeaser.heading')}</h2>
+        <p className="font-body text-crema/90 text-body text-center mb-12">{t('stationsTeaser.intro')}</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {stations.map((s, i) => (
@@ -31,8 +31,8 @@ export function StationsTeaser() {
               className="bg-crema/10 rounded-2xl p-6 border border-crema/10"
             >
               <div className="text-4xl mb-3">{s.emoji}</div>
-              <h3 className="font-fraunces text-lg text-crema mb-1">{items[s.id].title}</h3>
-              <p className="font-inter text-crema/70 text-sm">{items[s.id].desc}</p>
+              <h3 className="font-heading text-lg text-crema mb-1">{items[s.id].title}</h3>
+              <p className="font-body text-crema/90 text-body">{items[s.id].desc}</p>
             </motion.div>
           ))}
         </div>

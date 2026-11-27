@@ -17,7 +17,7 @@ export function SensoryHighlights() {
   return (
     <section className="py-24 bg-crema/80 dark:bg-bosque-deep/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema text-center mb-12">{t('sensory.heading')}</h2>
+        <h2 className="font-heading text-4xl md:text-5xl text-bosque dark:text-crema text-center mb-12">{t('sensory.heading')}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {highlights.map((item, i) => (
             <motion.div
@@ -32,8 +32,8 @@ export function SensoryHighlights() {
                 <img src={item.image} alt={item.title} loading="lazy" className="w-full h-full object-cover" />
               </div>
               <div className="p-5">
-                <h3 className="font-fraunces text-xl text-bosque dark:text-crema mb-1">{item.title}</h3>
-                <p className="font-inter text-carbon/70 dark:text-crema/70 text-sm">{item.text}</p>
+                <h3 className="font-heading text-xl text-bosque dark:text-crema mb-1">{item.title}</h3>
+                <p className="font-body text-carbon dark:text-crema text-body">{item.text}</p>
               </div>
             </motion.div>
           ))}

@@ -77,8 +77,8 @@ export function Contact() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="text-center mb-10"
           >
-            <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema mb-3">{t('contact.howToGetThere')}</h2>
-            <p className="font-inter text-carbon/70 dark:text-crema/70 text-lg">{t('contact.howToGetThereSubtitle')}</p>
+            <h2 className="font-heading text-4xl md:text-5xl text-bosque dark:text-crema mb-3">{t('contact.howToGetThere')}</h2>
+            <p className="font-body text-carbon dark:text-crema text-body">{t('contact.howToGetThereSubtitle')}</p>
           </motion.div>
 
           <div className="mb-16">
@@ -95,7 +95,7 @@ export function Contact() {
           >
             <div className="flex items-center justify-center gap-2 mb-4 text-center">
               <MapPin size={18} className="text-terracota dark:text-dorado shrink-0" />
-              <p className="font-inter text-carbon/70 dark:text-crema/70 text-sm">
+              <p className="font-body text-carbon/70 dark:text-crema/70 text-sm">
                 {t('contact.addressLine1')} · {t('contact.addressLine2')}
               </p>
             </div>
@@ -121,7 +121,7 @@ export function Contact() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="mb-20"
           >
-            <h2 className="font-fraunces text-3xl md:text-4xl text-bosque dark:text-crema text-center mb-10">{t('contact.faqHeading')}</h2>
+            <h2 className="font-heading text-3xl md:text-4xl text-bosque dark:text-crema text-center mb-10">{t('contact.faqHeading')}</h2>
             <FaqAccordion items={faqItems} />
           </motion.div>
 
@@ -134,13 +134,13 @@ export function Contact() {
             className="text-center pt-10 border-t border-carbon/10 dark:border-crema/10"
           >
             <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 mb-8">
-              <a href="https://wa.me/573228697438" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-inter text-carbon/80 dark:text-crema/80 hover:text-terracota dark:hover:text-dorado text-sm transition-colors">
+              <a href="https://wa.me/573228697438" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-body text-carbon/80 dark:text-crema/80 hover:text-terracota dark:hover:text-dorado text-sm transition-colors">
                 <MessageCircle size={18} className="text-terracota dark:text-dorado" /> WhatsApp
               </a>
-              <a href="tel:+573228697438" className="inline-flex items-center gap-2 font-inter text-carbon/80 dark:text-crema/80 hover:text-terracota dark:hover:text-dorado text-sm transition-colors">
+              <a href="tel:+573228697438" className="inline-flex items-center gap-2 font-body text-carbon/80 dark:text-crema/80 hover:text-terracota dark:hover:text-dorado text-sm transition-colors">
                 <Phone size={18} className="text-terracota dark:text-dorado" /> 322 869 7438
               </a>
-              <a href="tel:+573233195919" className="inline-flex items-center gap-2 font-inter text-carbon/80 dark:text-crema/80 hover:text-terracota dark:hover:text-dorado text-sm transition-colors">
+              <a href="tel:+573233195919" className="inline-flex items-center gap-2 font-body text-carbon/80 dark:text-crema/80 hover:text-terracota dark:hover:text-dorado text-sm transition-colors">
                 <Phone size={18} className="text-terracota dark:text-dorado" /> 323 319 5919
               </a>
             </div>
@@ -155,7 +155,7 @@ export function Contact() {
                   className="flex flex-col items-center gap-2 text-center group"
                 >
                   <s.icon size={22} className="text-terracota dark:text-dorado group-hover:scale-110 transition-transform" />
-                  <p className="font-inter text-carbon/60 dark:text-crema/60 text-xs">{s.handle}</p>
+                  <p className="font-body text-carbon/60 dark:text-crema/60 text-xs">{s.handle}</p>
                 </a>
               ))}
             </div>
@@ -164,7 +164,7 @@ export function Contact() {
               href={GOOGLE_REVIEWS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-inter text-sm font-bold text-terracota dark:text-dorado hover:underline"
+              className="inline-flex items-center gap-2 font-heading text-sm font-bold text-terracota dark:text-dorado hover:underline"
             >
               <Star size={18} className="fill-current" />
               {t('contact.reviewsLink')}
@@ -178,7 +178,7 @@ export function Contact() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="mt-20"
           >
-            <h2 className="font-fraunces text-3xl md:text-4xl text-bosque dark:text-crema text-center mb-6">
+            <h2 className="font-heading text-3xl md:text-4xl text-bosque dark:text-crema text-center mb-6">
               {t('contact.testimonialsHeading')}
             </h2>
             <div className="flex justify-center mb-10">

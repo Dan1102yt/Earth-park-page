@@ -27,7 +27,7 @@ export function GalleryPreview() {
   return (
     <section className="py-24 bg-crema/80 dark:bg-bosque-deep/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema text-center mb-12">
+        <h2 className="font-heading text-4xl md:text-5xl text-bosque dark:text-crema text-center mb-12">
           {t('galleryPreview.heading')}
         </h2>
       </div>
@@ -63,7 +63,7 @@ export function GalleryPreview() {
                   <button
                     key={a.key}
                     onClick={() => setActive(i)}
-                    className={`font-inter text-sm px-4 py-2 rounded-full border transition-colors ${
+                    className={`font-heading text-sm px-4 py-2 rounded-full border transition-colors ${
                       active === i
                         ? 'bg-terracota text-crema border-terracota'
                         : 'border-carbon/20 text-carbon/70 hover:border-terracota dark:border-crema/20 dark:text-crema/70'

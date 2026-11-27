@@ -51,7 +51,7 @@ export function StationsPage() {
       <PageHeaderBand title={t('stationsPage.heading')} subtitle={t('stationsPage.subtitle')} />
 
       <div className="max-w-2xl mx-auto px-4 pt-12 pb-6 text-center">
-        <p className="font-inter text-carbon/70 dark:text-crema/70">{t('stationsPage.intro')}</p>
+        <p className="font-body text-carbon dark:text-crema text-body">{t('stationsPage.intro')}</p>
       </div>
 
       <div className="max-w-2xl mx-auto px-4 pb-20">
@@ -68,7 +68,7 @@ export function StationsPage() {
                 setActiveStation(s)
               }}
               style={{ left: `${s.x}%`, top: `${s.y}%` }}
-              className="absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 rounded-full bg-dorado border-2 border-crema shadow-md flex items-center justify-center font-fraunces font-bold text-carbon text-sm md:text-base hover:scale-110 transition-transform"
+              className="absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 rounded-full bg-dorado border-2 border-crema shadow-md flex items-center justify-center font-heading font-bold text-carbon text-sm md:text-base hover:scale-110 transition-transform"
               aria-label={t(`stationsPage.items.${s.id}.title`)}
             >
               {i + 1}
@@ -87,7 +87,7 @@ export function StationsPage() {
                 className="w-3.5 h-3.5 rounded-full bg-carbon/60 dark:bg-crema/80 border border-crema dark:border-bosque-deep shadow-sm hover:scale-125 transition-transform"
               />
               {activeZone === z.id && (
-                <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 whitespace-nowrap bg-carbon text-crema text-xs font-inter px-2 py-1 rounded-md shadow-md">
+                <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 whitespace-nowrap bg-carbon text-crema text-xs font-body px-2 py-1 rounded-md shadow-md">
                   {t(`stationsPage.zones.${z.id}`)}
                 </span>
               )}
@@ -107,10 +107,10 @@ export function StationsPage() {
               )}
             </div>
             <div className="p-6 md:p-8">
-              <h2 className="font-fraunces text-3xl text-bosque dark:text-crema mb-3">
+              <h2 className="font-heading text-3xl text-bosque dark:text-crema mb-3">
                 {t(`stationsPage.items.${activeStation.id}.title`)}
               </h2>
-              <p className="font-inter text-carbon/70 dark:text-crema/70 leading-relaxed">{t('stationsPage.placeholderDesc')}</p>
+              <p className="font-body text-carbon dark:text-crema text-body">{t('stationsPage.placeholderDesc')}</p>
             </div>
           </div>
         )}

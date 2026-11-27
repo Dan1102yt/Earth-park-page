@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { MessageCircle } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/Button'
+import { displayClass } from '../../config/fonts'
 
 export function CTAReserva() {
   const { t } = useTranslation()
@@ -19,10 +20,10 @@ export function CTAReserva() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <h2 className="font-fraunces text-5xl md:text-6xl text-crema mb-4">
+          <h2 className={`${displayClass(t('ctaReserva.title'))} text-5xl md:text-6xl text-crema mb-4`}>
             {t('ctaReserva.title')}
           </h2>
-          <p className="font-inter text-crema/80 text-xl mb-10">
+          <p className="font-body text-crema/80 text-xl mb-10">
             {t('ctaReserva.subtitle')}
           </p>
 

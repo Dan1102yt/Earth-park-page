@@ -47,8 +47,8 @@ function MarkerIcon({ index, isFinal }: { index: number; isFinal?: boolean }) {
   if (index === 2) return <Sprout className="w-4 h-4 md:w-5 md:h-5 text-dorado" strokeWidth={2} />
   if (index === 3) return <img src={RETURN_ICON} alt="" className="w-6 h-6 md:w-7 md:h-7 object-contain" />
   if (index === 4) return <Leaf className="w-4 h-4 md:w-5 md:h-5 text-dorado" strokeWidth={2} />
-  if (index === 1) return <span className="font-fraunces text-dorado text-base md:text-lg">?</span>
-  return <span className="font-fraunces text-dorado text-sm md:text-base">{index + 1}</span>
+  if (index === 1) return <span className="font-heading text-dorado text-base md:text-lg">?</span>
+  return <span className="font-heading text-dorado text-sm md:text-base">{index + 1}</span>
 }
 
 // Cada parada rastrea su propia entrada al viewport (en fracciones de la
@@ -79,22 +79,22 @@ function Stop({ index, titleKey, paragraphs, quote, quoteLead, closing, isFinal 
       </motion.div>
 
       <motion.div style={{ opacity, y }}>
-        <h3 className="font-fraunces text-2xl md:text-3xl text-bosque dark:text-crema mb-3">
+        <h3 className="font-heading text-2xl md:text-3xl text-bosque dark:text-crema mb-3">
           {t(`about.historia.stops.${titleKey}.title`)}
         </h3>
-        <div className="space-y-4 font-inter text-carbon dark:text-crema text-base md:text-lg leading-relaxed">
+        <div className="space-y-4 font-body text-carbon dark:text-crema text-body">
           {paragraphs.map((p) => (
             <p key={p}>{t(`about.historia.${p}`)}</p>
           ))}
           {quoteLead && <p>{t(`about.historia.${quoteLead}`)}</p>}
         </div>
         {quote && (
-          <blockquote className="mt-5 border-l-4 border-dorado pl-5 md:pl-6 font-fraunces italic text-xl md:text-2xl text-bosque dark:text-crema leading-snug">
+          <blockquote className="mt-5 border-l-4 border-dorado pl-5 md:pl-6 font-heading italic text-xl md:text-2xl text-bosque dark:text-crema leading-snug">
             {t(`about.historia.${quote}`)}
           </blockquote>
         )}
         {closing && (
-          <p className="mt-6 font-fraunces text-xl md:text-2xl text-bosque dark:text-crema leading-relaxed">
+          <p className="mt-6 font-heading text-xl md:text-2xl text-bosque dark:text-crema leading-relaxed">
             {t(`about.historia.${closing}`)}
           </p>
         )}
@@ -126,7 +126,7 @@ export function HistoriaSendero() {
       ))}
 
       <div className="max-w-3xl mx-auto relative">
-        <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema mb-16 text-center">
+        <h2 className="font-heading text-4xl md:text-5xl text-bosque dark:text-crema mb-16 text-center">
           {t('about.historia.heading')}
         </h2>
 

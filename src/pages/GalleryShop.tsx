@@ -49,11 +49,11 @@ export function GalleryShop() {
                     <img src={piece.image} alt={piece.name} loading="lazy" className="w-full h-full object-cover" />
                   </div>
                   <div className="p-5">
-                    <h3 className="font-fraunces text-lg text-bosque dark:text-crema mb-1">{piece.name}</h3>
+                    <h3 className="font-heading text-lg text-bosque dark:text-crema mb-1">{piece.name}</h3>
                     {piece.price ? (
-                      <p className="font-fraunces text-2xl text-terracota dark:text-dorado mb-4">{piece.price}</p>
+                      <p className="font-heading text-2xl text-terracota dark:text-dorado mb-4">{piece.price}</p>
                     ) : (
-                      <p className="font-inter text-carbon/40 dark:text-crema/40 text-xs italic mb-4">{t('gallery.priceOnRequest')}</p>
+                      <p className="font-body text-carbon/40 dark:text-crema/40 text-xs italic mb-4">{t('gallery.priceOnRequest')}</p>
                     )}
                     <a href={waHref} target="_blank" rel="noopener noreferrer" className="block w-fit">
                       <Button variant="whatsapp" size="sm">

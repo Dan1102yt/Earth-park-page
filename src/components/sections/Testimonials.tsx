@@ -33,7 +33,7 @@ export function Testimonials() {
               className="bg-dark rounded-3xl p-12 max-w-2xl w-full relative overflow-hidden"
             >
               {/* Decorative quote — top left */}
-              <div className="font-display text-8xl text-gold/30 leading-none absolute top-4 left-6 select-none pointer-events-none">
+              <div className="font-heading text-8xl text-gold/30 leading-none absolute top-4 left-6 select-none pointer-events-none">
                 "
               </div>
 
@@ -52,18 +52,18 @@ export function Testimonials() {
 
                 {/* Avatar + name */}
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-forest flex items-center justify-center text-cream font-display text-lg shrink-0 shadow-lg shadow-forest/30">
+                  <div className="w-12 h-12 rounded-full bg-forest flex items-center justify-center text-cream font-heading text-lg shrink-0 shadow-lg shadow-forest/30">
                     {t.initial}
                   </div>
                   <div>
-                    <p className="font-body font-bold text-cream">{t.name}</p>
+                    <p className="font-heading font-bold text-cream">{t.name}</p>
                     <p className="font-body text-cream/50 text-xs mt-0.5">Visitante verificado</p>
                   </div>
                 </div>
               </div>
 
               {/* Decorative quote — bottom right */}
-              <div className="font-display text-8xl text-gold/30 leading-none absolute bottom-0 right-6 select-none pointer-events-none rotate-180">
+              <div className="font-heading text-8xl text-gold/30 leading-none absolute bottom-0 right-6 select-none pointer-events-none rotate-180">
                 "
               </div>
             </motion.div>

@@ -42,7 +42,7 @@ export function GoogleRatingBadge({ className = '' }: { className?: string }) {
     <div className={`inline-flex items-center gap-3 bg-white dark:bg-bosque-surface rounded-2xl px-6 py-4 shadow-sm ${className}`}>
       <GoogleIcon size={32} className="shrink-0" />
       <div>
-        <p className="font-inter font-extrabold text-bosque dark:text-crema text-sm uppercase tracking-wide">
+        <p className="font-heading font-extrabold text-bosque dark:text-crema text-sm uppercase tracking-wide">
           {t('testimonials.trustBadge.title')}
         </p>
         <div className="flex items-center gap-1.5 mt-0.5">
@@ -52,7 +52,7 @@ export function GoogleRatingBadge({ className = '' }: { className?: string }) {
             ))}
             <StarHalf size={14} className="fill-dorado text-dorado" />
           </div>
-          <span className="font-inter text-carbon/60 dark:text-crema/60 text-xs">{t('testimonials.trustBadge.basedOn')}</span>
+          <span className="font-body text-carbon/60 dark:text-crema/60 text-xs">{t('testimonials.trustBadge.basedOn')}</span>
         </div>
       </div>
     </div>
@@ -73,7 +73,7 @@ export function TestimonialsGrid({ items }: { items: Testimonial[] }) {
             key={cat}
             type="button"
             onClick={() => setCategory(cat)}
-            className={`font-inter text-sm px-4 py-2 rounded-full transition-colors ${
+            className={`font-heading text-sm px-4 py-2 rounded-full transition-colors ${
               category === cat
                 ? 'bg-terracota dark:bg-dorado text-crema dark:text-carbon'
                 : 'bg-carbon/5 dark:bg-crema/10 text-carbon/70 dark:text-crema/70 hover:bg-carbon/10 dark:hover:bg-crema/20'
@@ -95,13 +95,13 @@ export function TestimonialsGrid({ items }: { items: Testimonial[] }) {
             className="bg-white dark:bg-bosque-surface rounded-2xl p-6 shadow-sm flex flex-col"
           >
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-full bg-musgo text-crema font-fraunces text-lg flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-full bg-musgo text-crema font-heading text-lg flex items-center justify-center shrink-0">
                 {item.name.charAt(0)}
               </div>
               <div className="min-w-0 flex-1">
-                <p className="font-inter font-semibold text-bosque dark:text-crema text-sm truncate">{item.name}</p>
+                <p className="font-heading font-semibold text-bosque dark:text-crema text-sm truncate">{item.name}</p>
                 {item.localGuide && (
-                  <span className="inline-block font-inter text-[10px] font-bold uppercase tracking-wide text-musgo dark:text-dorado">
+                  <span className="inline-block font-heading text-[10px] font-bold uppercase tracking-wide text-musgo dark:text-dorado">
                     {t('testimonials.localGuide')}
                   </span>
                 )}
@@ -113,7 +113,7 @@ export function TestimonialsGrid({ items }: { items: Testimonial[] }) {
                 <Star key={j} size={14} className="fill-dorado text-dorado" />
               ))}
             </div>
-            <p className="font-inter text-carbon/80 dark:text-crema/80 text-sm leading-relaxed">
+            <p className="font-body text-carbon dark:text-crema text-body">
               "{t(`testimonials.items.${item.id}`)}"
             </p>
           </motion.div>

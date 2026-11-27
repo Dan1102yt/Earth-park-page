@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Fuentes originales (licencias comerciales): no publicar
+archivo-fuentes/
+public/fonts/matura.woff2
+public/fonts/helvetica-light.woff2

@@ -28,7 +28,7 @@ export function About() {
           variants={fadeIn}
           className="max-w-3xl mx-auto"
         >
-          <p className="font-inter text-carbon dark:text-crema text-lg md:text-xl leading-relaxed text-center">
+          <p className="font-body text-carbon dark:text-crema text-lg md:text-xl leading-[1.7] text-center">
             {t('about.parkStatement')}
           </p>
         </motion.div>
@@ -45,10 +45,10 @@ export function About() {
           variants={fadeIn}
           className="relative max-w-3xl mx-auto"
         >
-          <span aria-hidden className="absolute -top-14 -left-2 md:-left-10 font-fraunces text-8xl md:text-9xl text-dorado/30 leading-none select-none">
+          <span aria-hidden className="absolute -top-14 -left-2 md:-left-10 font-heading text-8xl md:text-9xl text-dorado/30 leading-none select-none">
             "
           </span>
-          <h1 className="relative font-fraunces text-3xl md:text-5xl text-crema leading-relaxed md:leading-relaxed text-justify">
+          <h1 className="relative font-heading text-3xl md:text-5xl text-crema leading-relaxed md:leading-relaxed text-justify">
             {t('about.intro')}
           </h1>
           <div className="w-16 h-[3px] bg-dorado mt-8 mx-auto" />
@@ -64,8 +64,8 @@ export function About() {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
           >
-            <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema mb-6">{t('about.quienesHeading')}</h2>
-            <div className="space-y-5 font-inter text-carbon dark:text-crema text-xl leading-relaxed">
+            <h2 className="font-heading text-4xl md:text-5xl text-bosque dark:text-crema mb-6">{t('about.quienesHeading')}</h2>
+            <div className="space-y-5 font-body text-carbon dark:text-crema text-xl leading-[1.7]">
               <p>{t('about.quienesP1')}</p>
               <p>{t('about.quienesP2')}</p>
             </div>
@@ -97,7 +97,7 @@ export function About() {
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
           variants={fadeIn}
-          className="relative z-10 font-fraunces text-3xl md:text-5xl text-center text-crema max-w-4xl mx-auto leading-snug mb-10"
+          className="relative z-10 font-heading text-3xl md:text-5xl text-center text-crema max-w-4xl mx-auto leading-snug mb-10"
         >
           {t('about.quotePre')} <span className="text-dorado">{t('about.quoteHighlight')}</span> {t('about.quotePost')}
         </motion.blockquote>
@@ -123,7 +123,7 @@ export function About() {
           variants={fadeIn}
           className="relative max-w-3xl mx-auto text-center"
         >
-          <p className="font-fraunces text-2xl md:text-3xl text-carbon dark:text-crema leading-relaxed text-justify">
+          <p className="font-heading text-2xl md:text-3xl text-carbon dark:text-crema leading-relaxed text-justify">
             {t('about.invitation')}
           </p>
           <div className="w-16 h-[3px] bg-dorado mt-8 mx-auto" />

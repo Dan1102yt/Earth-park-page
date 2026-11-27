@@ -77,7 +77,7 @@ export function BlogPost() {
         <div className="max-w-3xl mx-auto">
           <Link
             to="/blog"
-            className="inline-flex items-center gap-2 font-inter text-sm text-dorado hover:underline"
+            className="inline-flex items-center gap-2 font-body text-sm text-dorado hover:underline"
           >
             <ArrowLeft size={16} /> {t('blog.backToBlog')}
           </Link>
@@ -93,8 +93,8 @@ export function BlogPost() {
             className="text-center py-24 bg-white/60 dark:bg-bosque-surface/60 rounded-2xl"
           >
             <Icon className="w-10 h-10 text-dorado mx-auto mb-4" />
-            <h1 className="font-fraunces text-3xl text-bosque dark:text-crema mb-2">{t('blog.comingSoonTitle')}</h1>
-            <p className="font-inter text-carbon/70 dark:text-crema/70">{t('blog.comingSoonMessage')}</p>
+            <h1 className="font-heading text-3xl text-bosque dark:text-crema mb-2">{t('blog.comingSoonTitle')}</h1>
+            <p className="font-body text-carbon dark:text-crema text-body">{t('blog.comingSoonMessage')}</p>
           </motion.div>
         ) : (
           <motion.article initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
@@ -105,19 +105,19 @@ export function BlogPost() {
                 <Icon className="w-16 h-16 text-crema/40" />
               )}
             </div>
-            <span className="inline-block font-inter text-xs uppercase tracking-wide text-terracota dark:text-dorado mb-2">
+            <span className="inline-block font-heading text-xs uppercase tracking-wide text-terracota dark:text-dorado mb-2">
               {t(`blog.categories.${post.category}`)}
             </span>
-            <p className="font-inter text-carbon/50 dark:text-crema/50 text-sm mb-3">{formatDate(post.publishDate, lang)}</p>
-            <h1 className="font-fraunces text-3xl md:text-4xl text-bosque dark:text-crema mb-8">{resolveTokens(post.title[lang])}</h1>
+            <p className="font-body text-carbon/50 dark:text-crema/50 text-sm mb-3">{formatDate(post.publishDate, lang)}</p>
+            <h1 className="font-heading text-3xl md:text-4xl text-bosque dark:text-crema mb-8">{resolveTokens(post.title[lang])}</h1>
             {post.sections ? (
               <div className="space-y-10">
                 {post.sections[lang].map((section, si) => (
                   <div key={si}>
                     {section.heading && (
-                      <h3 className="font-fraunces text-2xl text-bosque dark:text-crema mb-3">{section.heading}</h3>
+                      <h3 className="font-heading text-2xl text-bosque dark:text-crema mb-3">{section.heading}</h3>
                     )}
-                    <div className="space-y-4 font-inter text-carbon dark:text-crema text-lg leading-relaxed">
+                    <div className="space-y-4 font-body text-carbon dark:text-crema text-body">
                       {section.paragraphs.map((paragraph, pi) => (
                         <p key={pi}>{richText(resolveTokens(paragraph))}</p>
                       ))}
@@ -132,7 +132,7 @@ export function BlogPost() {
                 ))}
               </div>
             ) : (
-              <div className="space-y-5 font-inter text-carbon dark:text-crema text-lg leading-relaxed">
+              <div className="space-y-5 font-body text-carbon dark:text-crema text-body">
                 {post.content![lang].map((paragraph, i) => (
                   <p key={i}>{resolveTokens(paragraph)}</p>
                 ))}

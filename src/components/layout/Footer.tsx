@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { MessageCircle, MapPin } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { asset } from '../../lib/asset'
+import { LOGO_SRC } from '../../config/brand'
 import { usePlans } from '../sections/PlansPreview'
 
 function IconInstagram() {
@@ -43,8 +44,8 @@ const menuLinks = [
   { key: 'nav.contact', to: '/contacto' },
 ]
 
-const colTitle = 'font-inter text-dorado text-xs font-bold uppercase tracking-widest mb-5'
-const linkStyle = 'font-inter text-crema/60 hover:text-crema text-sm transition-colors'
+const colTitle = 'font-heading text-dorado text-xs font-bold uppercase tracking-widest mb-5'
+const linkStyle = 'font-body text-crema/60 hover:text-crema text-sm transition-colors'
 
 export function Footer() {
   const { t } = useTranslation()
@@ -60,10 +61,10 @@ export function Footer() {
           {/* Col 1: Earth Park */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src={asset('/images/logo.png')} alt="Earth Park" className="h-12 w-auto object-contain" />
-              <span className="font-fraunces text-xl text-crema">Earth Park</span>
+              <img src={LOGO_SRC} alt="Earth Park" className="h-[120px] w-auto object-contain" />
+              <span className="font-display text-3xl text-crema">Earth Park</span>
             </div>
-            <p className="font-inter text-crema/60 text-sm leading-relaxed">
+            <p className="font-body text-crema/90 text-body">
               {t('footer.tagline')}
             </p>
           </div>
@@ -99,14 +100,14 @@ export function Footer() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-inter text-crema/80 hover:text-crema text-sm transition-colors mb-4"
+              className="inline-flex items-center gap-2 font-body text-crema/80 hover:text-crema text-sm transition-colors mb-4"
             >
               <MessageCircle size={16} className="shrink-0 text-dorado" />
               {t('ctaReserva.button')}
             </a>
             <Link
               to="/contacto"
-              className="flex items-start gap-2 font-inter text-crema/60 hover:text-crema text-sm transition-colors mb-6"
+              className="flex items-start gap-2 font-body text-crema/60 hover:text-crema text-sm transition-colors mb-6"
             >
               <MapPin size={16} className="shrink-0 text-dorado mt-0.5" />
               {t('contact.addressLine1')}
@@ -129,7 +130,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-crema/10 mt-10 pt-6 text-center">
-          <p className="font-inter text-crema/40 text-sm">
+          <p className="font-body text-crema/40 text-sm">
             {t('footer.copyright')}
           </p>
         </div>

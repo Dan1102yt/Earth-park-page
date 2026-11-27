@@ -45,7 +45,7 @@ function DishModalContent({ dish, featuredBadge }: { dish: Dish; featuredBadge: 
       <div className="relative h-64 sm:h-80">
         <img src={dish.image} alt={dish.name} loading="lazy" className="w-full h-full object-cover" />
         {dish.featured && (
-          <span className="absolute top-4 left-4 bg-dorado text-carbon font-inter text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">
+          <span className="absolute top-4 left-4 bg-dorado text-carbon font-heading text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">
             {featuredBadge}
           </span>
         )}
@@ -53,11 +53,11 @@ function DishModalContent({ dish, featuredBadge }: { dish: Dish; featuredBadge: 
       <div className="p-6 md:p-8">
         <div className="flex items-center gap-3 mb-4">
           <span className="text-3xl">{dish.emoji}</span>
-          <h2 className="font-fraunces text-3xl text-bosque dark:text-crema">{dish.name}</h2>
+          <h2 className="font-heading text-3xl text-bosque dark:text-crema">{dish.name}</h2>
         </div>
-        <p className="font-inter text-carbon/70 dark:text-crema/70 leading-relaxed">{dish.description}</p>
+        <p className="font-body text-carbon dark:text-crema text-body">{dish.description}</p>
         {dish.side && (
-          <p className="font-inter text-terracota dark:text-dorado text-sm italic leading-relaxed mt-4">
+          <p className="font-body text-terracota dark:text-dorado text-sm italic leading-relaxed mt-4">
             {dish.side}
           </p>
         )}
@@ -90,14 +90,14 @@ function DishCard({ dish, i, dark, onSelect, featuredBadge }: { dish: Dish; i: n
             {dish.emoji}
           </span>
           {dish.featured && (
-            <span className="absolute top-4 right-4 bg-dorado text-carbon font-inter text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">
+            <span className="absolute top-4 right-4 bg-dorado text-carbon font-heading text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">
               {featuredBadge}
             </span>
           )}
         </div>
 
         <div className="p-6 md:p-8">
-          <h3 className={`font-fraunces text-2xl ${dark ? 'text-crema' : 'text-bosque dark:text-crema'}`}>
+          <h3 className={`font-heading text-2xl ${dark ? 'text-crema' : 'text-bosque dark:text-crema'}`}>
             {dish.name}
           </h3>
         </div>
@@ -133,8 +133,8 @@ export function Gastronomy() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="text-center mb-12"
           >
-            <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema mb-2">{t('gastronomy.breakfastHeading')}</h2>
-            <p className="font-inter text-terracota dark:text-dorado text-sm uppercase tracking-wide">
+            <h2 className="font-heading text-4xl md:text-5xl text-bosque dark:text-crema mb-2">{t('gastronomy.breakfastHeading')}</h2>
+            <p className="font-heading text-terracota dark:text-dorado text-sm uppercase tracking-wide">
               {t('gastronomy.breakfastHours')}
             </p>
           </motion.div>
@@ -160,8 +160,8 @@ export function Gastronomy() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="text-center mb-12"
           >
-            <h2 className="font-fraunces text-4xl md:text-5xl text-crema mb-2">{t('gastronomy.dinnerHeading')}</h2>
-            <p className="font-inter text-dorado text-sm uppercase tracking-wide">{t('gastronomy.dinnerHours')}</p>
+            <h2 className="font-heading text-4xl md:text-5xl text-crema mb-2">{t('gastronomy.dinnerHeading')}</h2>
+            <p className="font-heading text-dorado text-sm uppercase tracking-wide">{t('gastronomy.dinnerHours')}</p>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -180,7 +180,7 @@ export function Gastronomy() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema text-center mb-12"
+            className="font-heading text-4xl md:text-5xl text-bosque dark:text-crema text-center mb-12"
           >
             {t('gastronomy.otherFlavorsHeading')}
           </motion.h2>
@@ -197,7 +197,7 @@ export function Gastronomy() {
               >
                 <img src={item.image} alt={item.title} loading="lazy" className="w-full h-full object-cover" />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-carbon/80 to-transparent px-3 pt-8 pb-3">
-                  <p className="font-inter text-crema text-sm font-semibold leading-tight">{item.title}</p>
+                  <p className="font-heading text-crema text-sm font-semibold leading-tight">{item.title}</p>
                 </div>
               </motion.div>
             ))}

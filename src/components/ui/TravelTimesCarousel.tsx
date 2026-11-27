@@ -34,8 +34,8 @@ export function TravelTimesCarousel() {
           className="bg-white dark:bg-bosque-surface rounded-3xl p-10 sm:p-14 shadow-lg text-center min-h-[18rem] flex flex-col items-center justify-center"
         >
           <Navigation size={40} className="mx-auto mb-5 text-terracota dark:text-dorado" />
-          <p className="font-fraunces text-4xl sm:text-5xl text-bosque dark:text-crema mb-4">{current.city}</p>
-          <p className="font-inter text-carbon/70 dark:text-crema/70 text-xl flex items-center justify-center gap-2 flex-wrap">
+          <p className="font-heading text-4xl sm:text-5xl text-bosque dark:text-crema mb-4">{current.city}</p>
+          <p className="font-body text-carbon/70 dark:text-crema/70 text-xl flex items-center justify-center gap-2 flex-wrap">
             <span className="font-bold text-terracota dark:text-dorado">{current.distance}</span>
             <span className="text-carbon/30 dark:text-crema/30">·</span>
             <span className="inline-flex items-center gap-1.5">

@@ -1,3 +1,5 @@
+import { displayClass } from '../../config/fonts'
+
 interface PageHeaderBandProps {
   title: string
   subtitle: string
@@ -14,8 +16,8 @@ export function PageHeaderBand({ title, subtitle, image }: PageHeaderBandProps) 
         </>
       )}
       <div className="relative z-10">
-        <h1 className="font-fraunces text-4xl md:text-5xl text-crema mb-3">{title}</h1>
-        <p className="font-inter text-crema/80 max-w-xl mx-auto">{subtitle}</p>
+        <h1 className={`${displayClass(title)} text-4xl md:text-5xl text-crema mb-3`}>{title}</h1>
+        <p className="font-body text-crema/90 text-body max-w-xl mx-auto">{subtitle}</p>
       </div>
     </div>
   )

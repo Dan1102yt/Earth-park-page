@@ -29,7 +29,7 @@ export function PlansTeaser() {
   return (
     <section className="py-24 bg-crema/80 dark:bg-bosque-deep/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-fraunces text-4xl md:text-5xl text-bosque dark:text-crema text-center mb-12">{t('plansTeaser.heading')}</h2>
+        <h2 className="font-heading text-4xl md:text-5xl text-bosque dark:text-crema text-center mb-12">{t('plansTeaser.heading')}</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {plans.map((plan, i) => (
@@ -43,15 +43,15 @@ export function PlansTeaser() {
             >
               <div className="relative h-48 overflow-hidden">
                 <img src={plan.image} alt={items[plan.slug].title} className="w-full h-full object-cover" />
-                <span className="absolute top-3 right-3 bg-dorado text-carbon font-inter text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full">
+                <span className="absolute top-3 right-3 bg-dorado text-carbon font-heading text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full">
                   {items[plan.slug].badge}
                 </span>
               </div>
               <div className="p-6">
-                <h3 className="font-fraunces text-xl text-bosque dark:text-crema mb-1 leading-tight">{items[plan.slug].title}</h3>
-                <p className="font-inter text-carbon/60 dark:text-crema/60 text-sm mb-3">{items[plan.slug].duration}</p>
-                <p className="font-fraunces text-2xl text-terracota dark:text-dorado">
-                  {formatPrice(priceOf(plan.slug), i18n.language)}<span className="text-sm font-inter text-terracota/70 dark:text-dorado/70">{t('plans.perPerson')}</span>
+                <h3 className="font-heading text-xl text-bosque dark:text-crema mb-1 leading-tight">{items[plan.slug].title}</h3>
+                <p className="font-body text-carbon/60 dark:text-crema/60 text-sm mb-3">{items[plan.slug].duration}</p>
+                <p className="font-heading text-2xl text-terracota dark:text-dorado">
+                  {formatPrice(priceOf(plan.slug), i18n.language)}<span className="text-sm font-heading text-terracota/70 dark:text-dorado/70">{t('plans.perPerson')}</span>
                 </p>
               </div>
             </motion.div>
