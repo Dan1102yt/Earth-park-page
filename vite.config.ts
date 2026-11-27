@@ -23,8 +23,28 @@ function excludeLicensedFonts(): Plugin {
   }
 }
 
+// Lee el flag de src/config/map.ts
+const SHOW_MAP = /SHOW_MAP\s*=\s*true/.test(readFileSync(resolve(__dirname, 'src/config/map.ts'), 'utf8'))
+
+// Con el mapa oculto, la imagen (archivo-mapa/, 4,8 MB) no debe llegar a dist/: las
+// importaciones dinámicas se emiten aunque estén en una rama muerta, así que la
+// reemplazamos por un módulo vacío.
+function excludeHiddenMap(): Plugin {
+  const EMPTY = '\0hidden-map'
+  return {
+    name: 'exclude-hidden-map',
+    enforce: 'pre',
+    resolveId(source) {
+      if (!SHOW_MAP && source.endsWith('archivo-mapa/mapa-earth-park.png')) return EMPTY
+    },
+    load(id) {
+      if (id === EMPTY) return 'export default ""'
+    },
+  }
+}
+
 // https://vite.dev/config/
 export default defineConfig({
   base: '/Earth-park-page/',
-  plugins: [react(), excludeLicensedFonts()],
+  plugins: [react(), excludeLicensedFonts(), excludeHiddenMap()],
 })

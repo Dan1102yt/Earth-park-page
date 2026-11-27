@@ -2,22 +2,12 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/Button'
-import { asset } from '../../lib/asset'
+import { StationCard } from '../estaciones/StationCard'
+import { ESTACIONES } from '../../data/estaciones'
 
-// Las 7 estaciones del recorrido; cada tarjeta enlaza a /estaciones/<slug>
-const stations = [
-  { slug: 'piramide-teguas', image: asset('/images/estaciones/estacion-piramide.jpeg') },
-  { slug: 'mariposa-88', image: asset('/images/estaciones/estacion-mariposa.jpeg') },
-  { slug: 'aire', image: asset('/images/estaciones/estacion-aire.webp') },
-  { slug: 'agua', image: asset('/images/estaciones/estacion-agua.webp') },
-  { slug: 'fuego', image: asset('/images/estaciones/estacion-fuego.jpeg') },
-  { slug: 'tierra', image: asset('/images/estaciones/estacion-tierra.webp') },
-  { slug: 'luna-360', image: asset('/images/estaciones/estacion-luna360.jpeg') },
-]
-
+// Las 7 estaciones del recorrido (datos en src/data/estaciones.ts); cada tarjeta enlaza a /estaciones/<slug>
 export function StationsTeaser() {
   const { t } = useTranslation()
-  const items = t('stationsTeaser.items', { returnObjects: true }) as Record<string, { title: string; desc: string }>
 
   return (
     <section className="py-24 bg-bosque dark:bg-bosque-deep">
@@ -26,32 +16,16 @@ export function StationsTeaser() {
         <p className="font-body text-crema/90 text-body text-center mb-12">{t('stationsTeaser.intro')}</p>
 
         <div className="flex flex-wrap justify-center gap-6 mb-12">
-          {stations.map((s, i) => (
+          {ESTACIONES.map((e, i) => (
             <motion.div
-              key={s.slug}
+              key={e.slug}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ delay: (i % 4) * 0.1, duration: 0.6, ease: 'easeOut' }}
               className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)]"
             >
-              <Link
-                to={`/estaciones/${s.slug}`}
-                className="group block h-full bg-crema/10 rounded-2xl overflow-hidden border border-crema/10 hover:border-dorado/60 transition-colors"
-              >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={s.image}
-                    alt={items[s.slug].title}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-5">
-                  <h3 className="font-heading text-lg text-crema mb-1">{items[s.slug].title}</h3>
-                  <p className="font-body text-crema/90 text-body">{items[s.slug].desc}</p>
-                </div>
-              </Link>
+              <StationCard estacion={e} tone="dark" />
             </motion.div>
           ))}
         </div>

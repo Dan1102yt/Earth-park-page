@@ -86,16 +86,7 @@
   "stationsTeaser": {
     "heading": "The 7 Stations",
     "intro": "Our 7-stop route through Earth Park",
-    "cta": "Explore all the stations",
-    "items": {
-      "piramide-teguas": { "title": "Pirámide de los Teguas", "desc": "A tribute to ancestral indigenous wisdom" },
-      "mariposa-88": { "title": "Mariposa 88 Swing", "desc": "A symbol of freedom and the infinity of life" },
-      "aire": { "title": "Air Station", "desc": "Part of The Four Elements: a sensory experience" },
-      "agua": { "title": "Water Station", "desc": "Part of The Four Elements: a sensory experience" },
-      "fuego": { "title": "Fire Station", "desc": "Part of The Four Elements: a sensory experience" },
-      "tierra": { "title": "Earth Station", "desc": "Part of The Four Elements: a sensory experience" },
-      "luna-360": { "title": "Luna 360°", "desc": "An immersive structure that spins with you" }
-    }
+    "cta": "Explore all the stations"
   },
   "ctaReserva": {
     "title": "Book your experience",
@@ -282,6 +273,14 @@
         "description": "Designed for companies, universities, technical institutions, and educational centers seeking a formative experience outside the usual routine. We have hosted groups from the Universidad Pedagógica Nacional (UPN), SENA, and other institutions, tailoring each visit to the group's goals — from environmental education to wellness and teamwork. Every plan is quoted according to the number of participants, duration, and objectives."
       }
     }
+  },
+  "stationDetail": {
+    "prev": "Previous",
+    "next": "Next",
+    "all": "See all",
+    "counter": "Station {{current}} of {{total}}",
+    "notFoundTitle": "We couldn't find this station",
+    "notFoundText": "The link may have changed. We invite you to discover all the stations along our route."
   },
   "stationsPage": {
     "heading": "A journey that awakens the senses",

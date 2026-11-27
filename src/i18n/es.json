@@ -86,16 +86,7 @@
   "stationsTeaser": {
     "heading": "Las 7 Estaciones",
     "intro": "Nuestro recorrido de 7 paradas dentro de Earth Park",
-    "cta": "Explora todas las estaciones",
-    "items": {
-      "piramide-teguas": { "title": "Pirámide de los Teguas", "desc": "Un tributo a la sabiduría ancestral indígena" },
-      "mariposa-88": { "title": "Mariposa 88 Columpio", "desc": "Símbolo de libertad y el infinito de la vida" },
-      "aire": { "title": "Estación del Aire", "desc": "Parte de Los Cuatro Elementos: experiencia sensorial" },
-      "agua": { "title": "Estación del Agua", "desc": "Parte de Los Cuatro Elementos: experiencia sensorial" },
-      "fuego": { "title": "Estación del Fuego", "desc": "Parte de Los Cuatro Elementos: experiencia sensorial" },
-      "tierra": { "title": "Estación de la Tierra", "desc": "Parte de Los Cuatro Elementos: experiencia sensorial" },
-      "luna-360": { "title": "Luna 360°", "desc": "Estructura inmersiva que gira contigo" }
-    }
+    "cta": "Explora todas las estaciones"
   },
   "ctaReserva": {
     "title": "Reserva tu experiencia",
@@ -282,6 +273,14 @@
         "description": "Diseñado para empresas, universidades, instituciones técnicas y centros educativos que buscan una experiencia formativa fuera de la rutina. Hemos recibido grupos de la Universidad Pedagógica Nacional (UPN), el SENA y otras instituciones, adaptando cada visita a los objetivos del grupo — desde educación ambiental hasta bienestar y trabajo en equipo. Cada plan se cotiza a la medida según el número de participantes, la duración y los objetivos."
       }
     }
+  },
+  "stationDetail": {
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "all": "Ver todas",
+    "counter": "Estación {{current}} de {{total}}",
+    "notFoundTitle": "No encontramos esta estación",
+    "notFoundText": "Puede que el enlace haya cambiado. Te invitamos a conocer todas las estaciones de nuestro recorrido."
   },
   "stationsPage": {
     "heading": "Un recorrido que despierta los sentidos",

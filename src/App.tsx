@@ -7,6 +7,7 @@ import { AnimatedFauna } from './components/ui/AnimatedFauna'
 import { Home } from './pages/Home'
 import { Plans } from './pages/Plans'
 import { StationsPage } from './pages/StationsPage'
+import { StationDetail } from './pages/StationDetail'
 import { GalleryShop } from './pages/GalleryShop'
 import { Contact } from './pages/Contact'
 import { About } from './pages/About'
@@ -28,6 +29,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/planes-turisticos" element={<Plans />} />
             <Route path="/estaciones" element={<StationsPage />} />
+            <Route path="/estaciones/:slug" element={<StationDetail />} />
             <Route path="/galeria-arte" element={<GalleryShop />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
