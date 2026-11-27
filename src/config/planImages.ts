@@ -33,31 +33,61 @@ interface ResponsiveEntry {
   dir?: string
 }
 
-const MACANAL_DIR = '/images/planes/conoce-y-descansa-en-macanal'
-// Fotos de Macanal: <nombre>.webp es la variante grande (1600 px, o el ancho original si es menor),
-// con <nombre>-480/-800/-1200.webp en la misma carpeta. Origen: fotos-seleccionadas/macanal/
-const macanal = (name: string, width: number, height: number): [string, ResponsiveEntry] => [
-  `${MACANAL_DIR}/${name}.webp`,
-  { width, height, variants: [480, 800, 1200], dir: MACANAL_DIR },
-]
+/**
+ * Foto de plan en alta resolución, en public/images/planes/<carpeta>/: <nombre>.webp es la variante
+ * grande (1600 px de ancho, o el ancho original si es menor) y <nombre>-480/-800/-1200.webp las
+ * menores, solo las que son más angostas que la grande (nunca se escala hacia arriba).
+ * Origen: fotos-seleccionadas/<plan>/. width/height = medidas reales de <nombre>.webp.
+ */
+const photo = (folder: string, name: string, width: number, height: number): [string, ResponsiveEntry] => {
+  const dir = `/images/planes/${folder}`
+  return [`${dir}/${name}.webp`, { width, height, variants: [480, 800, 1200].filter((w) => w < width), dir }]
+}
+const MACANAL = 'conoce-y-descansa-en-macanal'
+const TESOROS = 'tesoros-del-valle-de-tenza'
+const HOLLYWOOD = 'hollywood-boyacense'
+const VIVE = 'vive-earth-park'
 
 /**
  * Variantes WebP de las fotos de planes. El archivo de la clave entra al srcset con su ancho real.
  * Clave: ruta dentro de public/.
  */
 const RESPONSIVE: Record<string, ResponsiveEntry> = Object.fromEntries([
-  ['/images/planes/tesoros-del-valle-de-tenza/tesoros-del-valle-de-tenza-1.webp', { width: 1200, variants: [480, 800] }],
-  ['/images/planes/planes-Conoce-el-Hollywood-Boyacense.jpg', { width: 1017, variants: [480, 800] }],
-  ['/images/planes/vive-earth-park/vive-earth-park-1.webp', { width: 1200, variants: [480, 800] }],
   ['/images/planes/instituciones/instituciones-1.webp', { width: 1200, variants: [480, 800] }],
-  macanal('macanal-piscina-lago-h', 1600, 722),
-  macanal('macanal-lancha', 1600, 722),
-  macanal('macanal-piscina-lago-v', 1600, 3548),
-  macanal('macanal-parque', 1600, 722),
-  macanal('macanal-cascada', 1472, 3264),
-  macanal('macanal-atardecer-h', 1600, 722),
-  macanal('macanal-atardecer-v', 1600, 3548),
-  macanal('macanal-moto-acuatica', 1600, 722),
+  photo(MACANAL, 'macanal-piscina-lago-h', 1600, 722),
+  photo(MACANAL, 'macanal-lancha', 1600, 722),
+  photo(MACANAL, 'macanal-piscina-lago-v', 1600, 3548),
+  photo(MACANAL, 'macanal-parque', 1600, 722),
+  photo(MACANAL, 'macanal-cascada', 1472, 3264),
+  photo(MACANAL, 'macanal-atardecer-h', 1600, 722),
+  photo(MACANAL, 'macanal-atardecer-v', 1600, 3548),
+  photo(MACANAL, 'macanal-moto-acuatica', 1600, 722),
+  photo(TESOROS, 'tesoros-vista-embalse', 1600, 1200),
+  photo(TESOROS, 'tesoros-lancha-1', 1472, 3264),
+  photo(TESOROS, 'tesoros-lancha-2', 1600, 3548),
+  photo(TESOROS, 'tesoros-kayak', 1600, 3548),
+  photo(TESOROS, 'tesoros-tunel', 1600, 3548),
+  photo(TESOROS, 'tesoros-cascada-grupo', 1472, 3264),
+  photo(TESOROS, 'tesoros-cascada-rocas', 1600, 3548),
+  photo(TESOROS, 'tesoros-grupo-parque', 1472, 3264),
+  photo(TESOROS, 'tesoros-grupo-arco', 1600, 2843),
+  photo(TESOROS, 'tesoros-almuerzo', 1600, 3548),
+  photo(TESOROS, 'tesoros-velas', 1600, 3548),
+  photo(HOLLYWOOD, 'hollywood-letrero-macanal', 828, 1165),
+  photo(HOLLYWOOD, 'hollywood-lancha', 1200, 1600),
+  photo(HOLLYWOOD, 'hollywood-luna-atardecer', 900, 1600),
+  photo(HOLLYWOOD, 'hollywood-globo-luces', 1200, 1600),
+  photo(HOLLYWOOD, 'hollywood-piramide', 900, 1600),
+  photo(HOLLYWOOD, 'hollywood-mariposa', 900, 1600),
+  photo(VIVE, 'vive-luna-dia', 900, 1600),
+  photo(VIVE, 'vive-atardecer-banca', 577, 1280),
+  photo(VIVE, 'vive-mesa-mirador', 900, 1600),
+  photo(VIVE, 'vive-perro', 900, 1600),
+  photo(VIVE, 'vive-luna-noche', 960, 1280),
+  photo(VIVE, 'vive-luces-grupo', 1200, 1600),
+  photo(VIVE, 'vive-luces-venado', 1200, 1600),
+  photo(VIVE, 'vive-luces-corazon', 721, 1600),
+  photo(VIVE, 'vive-escalera-luces', 1600, 3548),
 ])
 
 function lookup(url: string) {

@@ -5,12 +5,13 @@ import { Button } from '../ui/Button'
 import { asset } from '../../lib/asset'
 
 const hero = (n: number) => asset(`/images/hero/hero-galeria-${n}.webp`)
-const tesoros = (n: number) => asset(`/images/planes/tesoros-del-valle-de-tenza/tesoros-del-valle-de-tenza-${n}.webp`)
-// Fotos del plan Macanal en alta resolución (variante de 800 px: las celdas miden ≤ 320 px)
+// Fotos de planes en alta resolución (variante de 800 px: las celdas miden ≤ 320 px)
+const tesoros = (name: string) => asset(`/images/planes/tesoros-del-valle-de-tenza/tesoros-${name}-800.webp`)
+// (misma regla para Macanal)
 const macanal = (name: string) => asset(`/images/planes/conoce-y-descansa-en-macanal/macanal-${name}-800.webp`)
 
 const albums = [
-  { key: 'naturaleza', images: [hero(7), hero(9), hero(14), hero(15), hero(8), hero(18), hero(19), hero(23), hero(27), tesoros(1), macanal('cascada'), macanal('atardecer-v'), macanal('atardecer-h')] },
+  { key: 'naturaleza', images: [hero(7), hero(9), hero(14), hero(15), hero(8), hero(18), hero(19), hero(23), hero(27), tesoros('cascada-grupo'), macanal('cascada'), macanal('atardecer-v'), macanal('atardecer-h')] },
   { key: 'actividades', images: [hero(20), hero(21), hero(22), hero(24), hero(25), hero(26), macanal('lancha'), macanal('moto-acuatica')] },
   { key: 'familia', images: [hero(1), hero(2), hero(5), hero(6), hero(10), hero(12), hero(13), hero(17)] },
   { key: 'earthpark', images: [hero(3), hero(4), hero(11), hero(16), hero(28), hero(29), macanal('piscina-lago-v')] },

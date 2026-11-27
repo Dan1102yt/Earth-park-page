@@ -51,8 +51,12 @@ const numbered = (slug: string, count: number, skip: number[] = [], ext = 'webp'
     .filter((n) => !skip.includes(n))
     .map((n) => asset(`/images/planes/${slug}/${slug}-${n}.${ext}`))
 
-// Fotos de alta resolución de Macanal (variantes en planImages.ts)
-const macanal = (name: string) => asset(`/images/planes/conoce-y-descansa-en-macanal/macanal-${name}.webp`)
+// Fotos de alta resolución por plan (variantes y medidas en planImages.ts)
+const planPhoto = (folder: string) => (name: string) => asset(`/images/planes/${folder}/${name}.webp`)
+const macanal = (name: string) => planPhoto('conoce-y-descansa-en-macanal')(`macanal-${name}`)
+const tesoros = planPhoto('tesoros-del-valle-de-tenza')
+const hollywood = planPhoto('hollywood-boyacense')
+const vive = planPhoto('vive-earth-park')
 
 // Valores por persona en COP — tarifa vigente desde el 22 de noviembre de 2026
 // (Hollywood Boyacense actualizado a $233.000).
@@ -61,7 +65,25 @@ export const planMetas: PlanMeta[] = [
   {
     slug: 'tesoros-del-valle-de-tenza',
     price: 954000,
-    images: numbered('tesoros-del-valle-de-tenza', 12),
+    images: [
+      tesoros('tesoros-vista-embalse'),
+      tesoros('tesoros-lancha-1'),
+      tesoros('tesoros-lancha-2'),
+      tesoros('tesoros-kayak'),
+      tesoros('tesoros-tunel'),
+      tesoros('tesoros-cascada-grupo'),
+      tesoros('tesoros-cascada-rocas'),
+      tesoros('tesoros-grupo-parque'),
+      tesoros('tesoros-grupo-arco'),
+      tesoros('tesoros-almuerzo'),
+      tesoros('tesoros-velas'),
+    ],
+    cover: tesoros('tesoros-vista-embalse'),
+    coverMobile: tesoros('tesoros-lancha-1'),
+    coverPositionMobile: '50% 68%',
+    coverPositionDesktop: '50% 50%',
+    // Encuadre sobre el sujeto de cada foto (mismo índice que images)
+    objectPositions: ['45% 50%', '50% 68%', '50% 62%', '50% 50%', '50% 50%', '50% 70%', '50% 55%', '50% 55%', '50% 62%', '50% 50%', '50% 45%'],
   },
   {
     slug: 'conoce-y-descansa-en-macanal',
@@ -86,14 +108,41 @@ export const planMetas: PlanMeta[] = [
   {
     slug: 'hollywood-boyacense',
     price: 233000,
-    images: [asset('/images/planes/planes-Conoce-el-Hollywood-Boyacense.jpg')],
-    coverPositionMobile: '50% 55%',
-    coverPositionDesktop: '50% 55%',
+    images: [
+      hollywood('hollywood-letrero-macanal'),
+      hollywood('hollywood-lancha'),
+      hollywood('hollywood-luna-atardecer'),
+      hollywood('hollywood-globo-luces'),
+      hollywood('hollywood-piramide'),
+      hollywood('hollywood-mariposa'),
+    ],
+    cover: hollywood('hollywood-letrero-macanal'),
+    coverMobile: hollywood('hollywood-lancha'),
+    coverPositionMobile: '50% 50%',
+    coverPositionDesktop: '50% 73%',
+    // La 1 (letrero) toma coverPositionDesktop en escritorio; el resto, sobre su sujeto
+    objectPositions: [undefined, '50% 70%', '50% 45%', '50% 50%', '50% 45%', '50% 55%'],
   },
   {
     slug: 'vive-earth-park',
     price: 60000,
-    images: numbered('vive-earth-park', 9, [8]), // 8 era copia exacta de 1
+    images: [
+      vive('vive-luna-dia'),
+      vive('vive-atardecer-banca'),
+      vive('vive-mesa-mirador'),
+      vive('vive-perro'),
+      vive('vive-luna-noche'),
+      vive('vive-luces-grupo'),
+      vive('vive-luces-venado'),
+      vive('vive-luces-corazon'),
+      vive('vive-escalera-luces'),
+    ],
+    cover: vive('vive-mesa-mirador'),
+    coverMobile: vive('vive-luna-dia'),
+    coverPositionMobile: '50% 40%',
+    coverPositionDesktop: '50% 50%',
+    // La 1 y la 3 son portadas: toman su coverPosition; el resto, sobre su sujeto
+    objectPositions: [undefined, '50% 55%', undefined, '50% 55%', '50% 55%', '50% 65%', '50% 55%', '50% 55%', '50% 60%'],
   },
   {
     slug: 'plan-empresas-instituciones',
