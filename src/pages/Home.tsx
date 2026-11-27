@@ -1,4 +1,5 @@
 import { Hero } from '../components/sections/Hero'
+import { HeroActions } from '../components/sections/HeroActions'
 import { EssenceMoment } from '../components/sections/EssenceMoment'
 import { SensoryHighlights } from '../components/sections/SensoryHighlights'
 import { SocialProof } from '../components/sections/SocialProof'
@@ -15,6 +16,7 @@ export function Home() {
   return (
     <>
       <Hero />
+      <HeroActions />
       <ScrollExpandMedia mediaType="image" mediaSrc={ESSENCE_IMAGE}>
         <EssenceMoment />
       </ScrollExpandMedia>

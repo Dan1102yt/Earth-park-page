@@ -18,6 +18,12 @@
     "mute": "Silenciar sonido del video",
     "unmute": "Activar sonido del video"
   },
+  "heroActions": {
+    "plans": "Ver planes",
+    "whatsapp": "Escríbenos por WhatsApp",
+    "whatsappMessage": "Hola, quiero información sobre Earth Park",
+    "hours": "Martes a domingo y festivos, de 10:00 a. m. a 10:00 p. m."
+  },
   "seo": {
     "description": "Earth Park, parque temático y operador turístico regional en Macanal, Boyacá. Ecoturismo familiar: alojamiento rural, gastronomía tradicional y experiencias en el Valle de Tenza."
   },
