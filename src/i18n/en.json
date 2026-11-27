@@ -267,9 +267,11 @@
             "Entry to Earth Park",
             "Guided sensory experience"
           ],
-          "otros": [
-            "Souvenir",
+          "acompanamiento": [
             "Travel insurance"
+          ],
+          "otros": [
+            "Souvenir"
           ]
         },
         "highlight": "Souvenir",

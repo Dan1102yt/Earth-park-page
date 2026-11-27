@@ -267,9 +267,11 @@
             "Entrada al parque Earth Park",
             "Experiencia sensorial con guía"
           ],
-          "otros": [
-            "Souvenir",
+          "acompanamiento": [
             "Seguro turístico"
+          ],
+          "otros": [
+            "Souvenir"
           ]
         },
         "highlight": "Souvenir",
