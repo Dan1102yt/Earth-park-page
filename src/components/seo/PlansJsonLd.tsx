@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import type { Plan } from '../sections/PlansPreview'
 
-// El sitio usa HashRouter en GitHub Pages, por eso la ruta lleva "#/"
-const PLANS_URL = 'https://dan1102yt.github.io/Earth-park-page/#/planes-turisticos'
+// El sitio usa HashRouter, por eso la ruta lleva "#/"
+const PLANS_URL = 'https://www.earthpark.com.co/#/planes-turisticos'
 
 const provider = {
   '@type': 'TouristAttraction',

@@ -45,6 +45,6 @@ function excludeHiddenMap(): Plugin {
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/Earth-park-page/',
+  base: '/',
   plugins: [react(), excludeLicensedFonts(), excludeHiddenMap()],
 })
